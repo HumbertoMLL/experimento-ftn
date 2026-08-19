@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Reto 2% · FTN — 21 días, 30 minutos al día</title>
+  <meta name="description" content="Programa de 21 días con entrenos de 30 min y recetas de máximo 15 min. Iniciamos juntas el 7 de septiembre." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/styles.css" />
+
+  <!-- Config primero, pixel después: el PageView sale desde el <head> -->
+  <script src="js/config.js"></script>
+  <script src="js/pixel.js"></script>
+
+  <!-- Fallback del pixel para navegadores sin JavaScript.
+       Si cambias el Pixel ID en config.js, cámbialo aquí también. -->
+  <noscript>
+    <img height="1" width="1" style="display:none"
+      src="https://www.facebook.com/tr?id=1645815772229731&ev=PageView&noscript=1" />
+  </noscript>
+</head>
+<body>
+<div class="r2-page">
+
+  <!-- AVISO REGALO (se oculta solo si el deadline ya pasó) -->
+  <a href="#oferta" class="r2-aviso" id="aviso-regalo" hidden>
+    <span class="r2-aviso-ico">🎁</span>
+    <span class="r2-aviso-txt"><b>Regalo:</b> entra antes del 16 de agosto y llévate el Reto 911 gratis</span>
+    <span class="r2-timer-inline"><span class="dot" aria-hidden="true"></span><span id="timer-inline-txt"></span></span>
+  </a>
+
+  <!-- HERO -->
+  <header class="r2-hero">
+    <div class="r2-hero-grid">
+      <div class="r2-hero-copy">
+        <div class="r2-hero-logo" data-img-wrap="logo">
+          <img data-cfg-img="logo" alt="Reto 2%" class="r2-logo-main" />
+        </div>
+        <img data-cfg-img="banner" data-img-wrap="banner"
+          alt="Yo puse el plan de entrenamiento y nutrición, ellas pusieron el 2% de su día (30 min)"
+          class="r2-hero-banner" loading="eager" />
+        <h1>Programa de <span class="hl">21 días</span> con entrenos de tan solo <span class="hl">30 min</span> y recetas deliciosas que prepararás en máximo <span class="hl">15 min.</span></h1>
+      </div>
+
+      <div class="r2-hero-foot">
+        <a href="#planes" class="r2-cta r2-hero-cta">¡Quiero mi lugar en Reto 2%!</a>
+        <p class="r2-micro">Iniciamos juntas el <strong>07 de septiembre</strong>.</p>
+        <div style="height:34px"></div>
+      </div>
+    </div>
+  </header>
+
+  <div class="r2-marquee">
+    <div>
+      <span>Iniciamos juntas el <em>7 de septiembre</em> &nbsp;•&nbsp; 21 días &nbsp;•&nbsp; 30 min al día &nbsp;•&nbsp; Casa o gym &nbsp;•&nbsp; Menú en una hoja &nbsp;•&nbsp; Dudas a un mensaje &nbsp;•&nbsp;</span>
+      <span>Iniciamos juntas el <em>7 de septiembre</em> &nbsp;•&nbsp; 21 días &nbsp;•&nbsp; 30 min al día &nbsp;•&nbsp; Casa o gym &nbsp;•&nbsp; Menú en una hoja &nbsp;•&nbsp; Dudas a un mensaje &nbsp;•&nbsp;</span>
+    </div>
+  </div>
+
+  <!-- QUÉ ES -->
+  <section class="r2-sec reveal">
+    <div class="r2-in r2-center">
+      <span class="r2-eyebrow">Te lo explico en 20 segundos</span>
+      <h2>¿Qué es el Reto 2%?</h2>
+      <div class="r2-cards">
+        <div class="r2-card gris">
+          <span class="num">01</span>
+          <h3>Plan de entrenamiento · 30 minutos al día</h3>
+          <p>Entrenamientos cortos de máximo 30 min que puedes hacer en casa con equipo básico (una botella de agua y una silla) o en el gym.</p>
+        </div>
+        <div class="r2-card naranja">
+          <span class="num">02</span>
+          <h3>Plan de alimentación · Tu menú semanal en una sola hoja</h3>
+          <p>Menús fáciles, deliciosos y nutritivos.</p>
+        </div>
+        <div class="r2-card negro">
+          <span class="num">03</span>
+          <h3>Nunca sola</h3>
+          <p>Si te desmotivas, somos tus porristas en la comunidad. Un mensaje y te contesta un entrenador y una nutricionista. Gente, no un bot.</p>
+        </div>
+      </div>
+      <p style="margin-top:24px"><strong>Fácil de empezar, fácil de seguir.</strong> Solo necesitas 30 minutos al día por 21 días.</p>
+    </div>
+  </section>
+
+  <!-- CAMBIOS -->
+  <section class="r2-sec reveal r2-dark">
+    <div class="r2-in">
+      <div class="r2-chat" style="margin-bottom:28px" id="chat-wrap">
+        <img data-cfg-img="chatRecibido" data-img-wrap="chatRecibido" alt="Mensaje: Bren, no tengo tiempo" loading="lazy" />
+        <img data-cfg-img="chatEnviado" data-img-wrap="chatEnviado" alt="Respuesta: ¿Tienes 30 minutos? Dame solo 30 minutos por 21 días." loading="lazy" />
+      </div>
+
+      <div class="r2-center">
+        <h2>Esto han logrado otras hermanas como tú con este mismito programa con 30 minutos</h2>
+        <p style="margin-top:16px">Nadie se paró a las 4 de la mañana. Nadie cambió de vida. Lo hicieron dentro de la vida que ya tenían.</p>
+        <p style="margin-top:14px">Estos son sus cambios en 21 días. Aun con días muy ocupados, el reto sí les cupo.</p>
+      </div>
+
+      <img data-cfg-img="cambiosGrid" data-img-wrap="cambiosGrid" class="r2-cambios-grid-img"
+        alt="Cambios reales de mujeres del programa: antes y después en 21 días" loading="lazy" />
+      <div class="r2-grid-fotos" id="grid-cambios"><!-- fotos desde config.js --></div>
+      <a href="#planes" class="r2-cta">Me uno al reto 2%+</a>
+    </div>
+  </section>
+
+  <!-- OFERTA -->
+  <section class="r2-sec reveal" id="oferta">
+    <div class="r2-in">
+      <div class="r2-center">
+        <h2>Esto recibes al unirte al Reto 2%</h2>
+      </div>
+      <img data-cfg-img="mockup" data-img-wrap="mockup" class="r2-mockup"
+        alt="Todo lo que incluye el Reto 2%: entrenos, menú express, lista de súper, comunidad y chat con el equipo" loading="lazy" />
+      <div class="r2-incluye">
+        <div class="it"><b>Entrenos Express</b><span>Rutina ya decidida. 30 minutos, sin saltos ni ruido. En casa o en el gym.</span><em class="it-precio">Valor $899 MXN</em></div>
+        <div class="it"><b>Menú Express</b><span>Comida ya decidida, en una hoja. La pegas en el refri y ya sabes qué te toca hoy.</span><em class="it-precio">Valor $699 MXN</em></div>
+        <div class="it"><b>Lista de súper y equivalencias</b><span>Los ingredientes y las cantidades exactas de tu menú.</span><em class="it-precio">Valor $299 MXN</em></div>
+        <div class="it"><b>Entrenador y nutricionista</b><span>Tus dudas, a un mensaje. Te contesta mi equipo, no un bot.</span><em class="it-precio">Valor $1,499 MXN</em></div>
+        <div class="it"><b>Comunidad FTN</b><span>Un muro donde no vas a estar sola. Aquí nos echamos porras y entrenamos juntas, hermana.</span><em class="it-precio">Valor $499 MXN</em></div>
+        <div class="it"><b>Reto 911: Hermana, sí puedes (de regalo)</b><span>15 días para calentar motores antes del 2%.</span><em class="it-precio">Valor $320 MXN</em></div>
+      </div>
+
+      <div class="r2-regalo" id="bloque-regalo">
+        <h3>Mi regalo para ti</h3>
+        <p style="margin-top:10px">Entra antes del <strong>16 de agosto</strong> y te regalo completo el <strong>Reto 911: Hermana, sí puedes</strong>. <s style="opacity:.6">$320 MXN</s> <strong>Gratis</strong>.</p>
+        <p style="margin-top:10px">Son 15 días para ir calentando motores antes del 2%: dos semanas con 3 entrenos por semana, para que el 7 de septiembre llegues con ritmo y no arrancando de cero.</p>
+        <p style="margin-top:10px">911 del 17 al 31 de agosto · 2% arranca el 7 de septiembre.</p>
+        <p style="margin-top:10px"><strong>Dos retos pagando uno.</strong></p>
+        <p style="margin-top:10px">Sólo si te inscribes antes del 16 de agosto a las 11:59 PM (CDMX).</p>
+        <div class="r2-timer" id="timer-regalo" hidden>
+          <span class="r2-timer-label">El regalo cierra en</span>
+          <div class="r2-timer-boxes">
+            <div class="r2-timer-box"><b data-t="d">00</b><span>días</span></div>
+            <div class="r2-timer-box"><b data-t="h">00</b><span>hrs</span></div>
+            <div class="r2-timer-box"><b data-t="m">00</b><span>min</span></div>
+            <div class="r2-timer-box"><b data-t="s">00</b><span>seg</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="r2-center" id="planes" style="margin-top:44px; scroll-margin-top:80px">
+        <h2>Entras al Reto 2% con tu suscripción a FTN</h2>
+      </div>
+      <div class="r2-ancla">
+        <p>Por separado: consulta de nutrición, más entrenador, más gym. Ya es un buen dinerito.</p>
+        <p style="margin-top:8px"><strong>Aquí es todo desde la misma app.</strong></p>
+      </div>
+      <div class="r2-planes">
+        <div class="r2-plan best">
+          <span class="tag">Mejor opción</span>
+          <h3>Suscripción Trimestral</h3>
+          <span class="price">$1,197</span>
+          <span class="per">MXN al trimestre</span>
+          <span class="perday">Menos de 14 pesitos al día</span>
+          <p>Pagas dos meses y te llevas tres. Empiezas con el Reto 2% y los retos que vienen ya están incluidos.</p>
+          <a href="#" class="r2-cta js-checkout" data-plan="trimestral">Quiero la trimestral</a>
+        </div>
+        <div class="r2-plan">
+          <h3>Suscripción Mensual</h3>
+          <span class="price">$599</span>
+          <span class="per">MXN al mes</span>
+          <p>Arranca con el Reto 2% y quédate con todo FTN mes a mes. Cancelas cuando quieras.</p>
+          <a href="#" class="r2-cta dark js-checkout" data-plan="mensual">Quiero la mensual</a>
+        </div>
+      </div>
+
+      <div class="r2-pagos" aria-label="Métodos de pago">
+        <span class="r2-pago-badge">VISA</span>
+        <span class="r2-pago-badge">Mastercard</span>
+        <span class="r2-pago-badge">AMEX</span>
+        <span class="r2-pago-badge">PayPal</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ES PARA TI SI -->
+  <section class="r2-sec reveal">
+    <div class="r2-in">
+      <div class="r2-center"><h2>Es para ti si…</h2></div>
+      <ul class="r2-list">
+        <li><span class="ic">✔</span><span>Empiezas cada lunes con todo y para el miércoles ya lo dejaste.</span></li>
+        <li><span class="ic">✔</span><span>Crees que si no es la hora completa no cuenta (y por eso llevas meses sin moverte).</span></li>
+        <li><span class="ic">✔</span><span>Estás en casa todo el día y aun así "no tienes tiempo".</span></li>
+      </ul>
+      <div class="r2-center" style="margin-top:34px">
+        <h3 style="font-size:1.35rem; margin-bottom:16px">Este reto te va a ayudar a:</h3>
+      </div>
+      <ul class="r2-list">
+        <li><span class="ic">🧠</span><span>Ver que sí puedes entrenar.</span></li>
+        <li><span class="ic">💪</span><span>Sentirte bien con un entreno corto, pero que sí se siente.</span></li>
+        <li><span class="ic">🥗</span><span>Comer simple, sin gastar de más y sin volverte loca.</span></li>
+      </ul>
+      <a href="#planes" class="r2-cta">Es para mí</a>
+    </div>
+  </section>
+
+  <!-- QUIÉN SOY -->
+  <section class="r2-sec reveal r2-soft">
+    <div class="r2-in r2-bren">
+      <img data-cfg-img="bren" data-img-wrap="bren" alt="Bren, creadora del Reto 2%" loading="lazy" />
+      <div>
+        <span class="r2-eyebrow" style="text-align:left">¿Quién soy?</span>
+        <h2>¡Hola, soy Bren!</h2>
+        <p style="margin-top:14px">Soy <strong>nutrióloga deportiva y entrenadora certificada</strong>. Llevo años acompañando a mujeres que hacen malabares entre trabajo, familia, cansancio y mil pendientes.</p>
+        <p style="margin-top:12px">Por eso diseñé un método simple, pensado para mujeres con poco tiempo y muchas ganas de volver a sentirse fuertes y ligeras.</p>
+        <p style="margin-top:12px">He acompañado a <strong>más de 100,000 mujeres en 30 países</strong> a través de FTN, HealthyVita y Bfit.</p>
+        <p style="margin-top:12px">Pero lo que más me importa son las mujeres que hoy se sienten mejor que cuando empezaron. Porque cuando algo se adapta a tu vida, sí se queda.</p>
+        <p style="margin-top:12px">Si lo único que te frena es el miedo a dejarlo al día 4… eso ya lo resolví: <strong>el día 1 está hecho para que lo termines.</strong></p>
+        <p style="margin-top:12px"><strong>Entonces solo queda una pregunta: ¿por qué no te estás inscribiendo ya?</strong></p>
+        <a href="#planes" class="r2-cta" style="margin-left:0">Ok, me inscribo</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="r2-sec reveal r2-soft">
+    <div class="r2-in">
+      <div class="r2-center">
+        <span class="r2-eyebrow">¿Tienes dudas?</span>
+        <h2>Preguntas frecuentes</h2>
+        <p style="margin-top:14px">Escríbenos, mi equipo estará feliz de atenderte. <a href="#" id="link-whatsapp" target="_blank" rel="noopener noreferrer" style="color:var(--naranja-dark); font-weight:700">WhatsApp</a></p>
+      </div>
+      <div class="r2-faq">
+        <details open>
+          <summary>¿Estoy comprando el reto o una suscripción?</summary>
+          <p>Una suscripción a FTN, con el Reto 2% incluido. Lo hicimos así porque el reto vive dentro de la app: ahí están tus entrenos, tu menú y la comunidad. Cuando terminen los 21 días, la app se queda contigo con todo lo demás.</p>
+        </details>
+        <details open>
+          <summary>¿Se me renueva sola?</summary>
+          <p>Sí. La mensual cada mes, la trimestral cada tres. Cancelas cuando quieras desde tu cuenta o escribiéndonos por WhatsApp.</p>
+        </details>
+        <details>
+          <summary>¿Cómo me llega el Reto 911 de regalo?</summary>
+          <p>Si entras antes del 16 de agosto a las 11:59 PM (CDMX), te mandamos tu acceso por correo. Son 15 días para agarrar ritmo antes de que arranque el 2%.</p>
+        </details>
+        <details>
+          <summary>¿Cuándo inicia y cuánto dura?</summary>
+          <p>Inicia el lunes 7 de septiembre de 2026 y dura 21 días.</p>
+        </details>
+        <details>
+          <summary>¿En serio funciona con tan poco tiempo?</summary>
+          <p>Sí. No se trata de hacer mucho un día. Se trata de hacer poco todos los días. Eso es lo que de verdad cambia tu cuerpo.</p>
+        </details>
+        <details>
+          <summary>¿Tengo acceso a toda la plataforma de FTN?</summary>
+          <p>Sí. Con tu suscripción activa entras a todo FTN: entrenos, recetas y contenido.</p>
+        </details>
+        <details>
+          <summary>¿Sigo con acceso después del reto?</summary>
+          <p>Sí, mientras mantengas tu suscripción activa. Te quedas con los retos pasados y futuros.</p>
+        </details>
+        <details>
+          <summary>¿Necesito ir al gimnasio?</summary>
+          <p>No. Lo puedes hacer en casa o en el gym.</p>
+        </details>
+        <details>
+          <summary>¿Cuánto duran los entrenamientos?</summary>
+          <p>Máximo 30 minutos.</p>
+        </details>
+        <details>
+          <summary>¿Necesito mucho material?</summary>
+          <p>Poco: ligas, sliders, bloques de yoga y polainas.</p>
+        </details>
+        <details>
+          <summary>¿Cómo puedo pagar?</summary>
+          <p>Con tarjeta de crédito, débito y PayPal.</p>
+        </details>
+      </div>
+      <a href="#planes" class="r2-cta">¡Quiero mi lugar en Reto 2%!</a>
+    </div>
+  </section>
+
+  <footer class="r2-foot">© 2026 FTN Method · Reto 2%</footer>
+
+  <!-- STICKY CTA -->
+  <div class="r2-sticky" id="sticky-cta">
+    <div class="txt">Reto 2% · Inicia 7 de septiembre<b>Desde $599 MXN al mes</b></div>
+    <a href="#planes">Quiero mi lugar</a>
+  </div>
+
+</div>
+
+<script src="js/app.js"></script>
+</body>
+</html>
