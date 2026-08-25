@@ -3,37 +3,8 @@
    ============================================================ */
 (function () {
   var cfg = window.FTN_CONFIG || {};
-  var vsl = cfg.vsl || {};
 
-  /* ---------- Video ---------- */
-  var frame = document.getElementById("vsl-frame");
-  var url = (vsl.videoUrl || "").trim();
-  if (frame && url) {
-    document.getElementById("vsl-ph").remove();
-    var yt = url.match(/(?:youtu\.be\/|youtube\.com\/(?:watch\?v=|embed\/))([\w-]{11})/);
-    var vm = url.match(/vimeo\.com\/(?:video\/)?(\d+)/);
-    var el;
-    if (yt) {
-      el = document.createElement("iframe");
-      el.src = "https://www.youtube.com/embed/" + yt[1] + "?rel=0&modestbranding=1";
-      el.allow = "accelerometer; autoplay; clipboard-write; encrypted-media; picture-in-picture";
-      el.allowFullscreen = true;
-      el.title = "Reto 2%";
-    } else if (vm) {
-      el = document.createElement("iframe");
-      el.src = "https://player.vimeo.com/video/" + vm[1];
-      el.allow = "autoplay; fullscreen; picture-in-picture";
-      el.allowFullscreen = true;
-      el.title = "Reto 2%";
-    } else {
-      el = document.createElement("video");
-      el.src = url;
-      el.controls = true;
-      el.playsInline = true;
-      if (vsl.poster) el.poster = vsl.poster;
-    }
-    frame.appendChild(el);
-  }
+  /* El video (embed de Vimeo) vive directo en el HTML del hero. */
 
   /* ---------- Imágenes desde config (las vacías ocultan su bloque) ---------- */
   document.querySelectorAll("[data-cfg-img]").forEach(function (img) {

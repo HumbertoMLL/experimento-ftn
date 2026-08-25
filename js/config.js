@@ -30,13 +30,7 @@ window.FTN_CONFIG = {
     },
   },
 
-  /* --- VSL (/reto-vsl) ------------------------------------------------
-     videoUrl acepta YouTube, Vimeo o un .mp4 directo.
-     Vacío = se muestra el marco con "Aquí va tu video". */
-  vsl: {
-    videoUrl: "https://vimeo.com/1221271742",
-    poster: "",
-  },
+  /* El video de /reto-vsl es un embed de Vimeo en el HTML de esa pagina. */
 
   /* Checkout de /reto-vsl. Un plan sin url oculta su tarjeta. */
   checkoutVsl: {
