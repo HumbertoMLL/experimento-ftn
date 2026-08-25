@@ -30,6 +30,30 @@ window.FTN_CONFIG = {
     },
   },
 
+  /* --- VSL (/reto-vsl) ------------------------------------------------
+     videoUrl acepta YouTube, Vimeo o un .mp4 directo.
+     Vacío = se muestra el marco con "Aquí va tu video". */
+  vsl: {
+    videoUrl: "",
+    poster: "",
+  },
+
+  /* Checkout de /reto-vsl. Un plan sin url oculta su tarjeta. */
+  checkoutVsl: {
+    unico: {
+      url: "https://pay.hotmart.com/T76408466K?checkoutMode=10&off=eg1lsunr&src=meta",
+      nombre: "Reto 2% - Pago unico",
+      precio: 797,
+      moneda: "MXN",
+    },
+    mensual: {
+      url: "",
+      nombre: "Reto 2% - Plan Full Mensual",
+      precio: 599,
+      moneda: "MXN",
+    },
+  },
+
   /* --- Fechas -------------------------------------------------------
      Deadline del regalo: 16 de agosto 2026, 11:59 PM CDMX (UTC-6).
      Si ya pasó, el countdown y el aviso rojo se ocultan solos. */
@@ -45,13 +69,16 @@ window.FTN_CONFIG = {
     logo: "",
     /* Versiones optimizadas (webp, ~90% más ligeras) de las originales
        en el S3 de FTN (bren_landings/hero_banner_two.png, etc.) */
-    banner: "assets/hero-banner.webp",
+    banner: "/assets/hero-banner.webp",
     /* Mockup del producto (pantallas + menú + lista): se muestra
        arriba de "Esto recibes al unirte al Reto 2%". */
-    mockup: "assets/mockup.webp",
+    mockup: "/assets/mockup.webp",
     /* Una sola imagen con TODAS las transformaciones (el grid 3x3).
        Si tiene URL, se usa en lugar de las fotos individuales de abajo. */
-    cambiosGrid: "assets/transformaciones.webp",
+    cambiosGrid: "/assets/transformaciones.webp",
+    /* Fotos de Emma en /reto-vsl (antes / después). Vacías = se oculta el par. */
+    emmaAntes: "",
+    emmaDespues: "",
     chatRecibido: "",
     chatEnviado: "",
     bren: "",
