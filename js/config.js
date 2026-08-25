@@ -34,7 +34,7 @@ window.FTN_CONFIG = {
      videoUrl acepta YouTube, Vimeo o un .mp4 directo.
      Vacío = se muestra el marco con "Aquí va tu video". */
   vsl: {
-    videoUrl: "",
+    videoUrl: "https://vimeo.com/1221271742",
     poster: "",
   },
 

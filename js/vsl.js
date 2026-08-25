@@ -18,11 +18,13 @@
       el.src = "https://www.youtube.com/embed/" + yt[1] + "?rel=0&modestbranding=1";
       el.allow = "accelerometer; autoplay; clipboard-write; encrypted-media; picture-in-picture";
       el.allowFullscreen = true;
+      el.title = "Reto 2%";
     } else if (vm) {
       el = document.createElement("iframe");
       el.src = "https://player.vimeo.com/video/" + vm[1];
       el.allow = "autoplay; fullscreen; picture-in-picture";
       el.allowFullscreen = true;
+      el.title = "Reto 2%";
     } else {
       el = document.createElement("video");
       el.src = url;
