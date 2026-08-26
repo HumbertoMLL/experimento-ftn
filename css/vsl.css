@@ -114,12 +114,9 @@ b, strong { font-weight: 700; }
 
 /* El banner tiene fondo transparente y texto oscuro: va sobre hueso
    para que se lea encima del cafe del hero. */
-.hero-banner {
-  max-width: 620px; margin: 26px auto 0; padding: 14px;
-  background: var(--hueso); border-radius: 20px;
-}
-.hero-banner img { width: 100%; height: auto; border-radius: 10px; }
-@media (max-width: 520px) { .hero-banner { padding: 10px; margin-top: 22px; } }
+/* El banner trae su texto en claro: va directo sobre el cafe, sin caja */
+.hero-banner { max-width: 620px; margin: 22px auto 0; }
+.hero-banner img { width: 100%; height: auto; }
 
 /* Señalador del video: pregunta + quien lo explica + flecha al player */
 .vsl-cue {
