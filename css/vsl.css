@@ -275,7 +275,7 @@ b, strong { font-weight: 700; }
 }
 /* Cada captura se encuadra donde se reconoce el medio */
 .m-forbes img { object-position: top center; }
-.m-elpais img { object-fit: contain; object-position: center; padding: 10px 12px; }
+.m-elpais img { object-position: top center; }
 .m-lider  img { object-position: center 62%; }
 .medio figcaption { padding: 18px 20px 20px; }
 .medio-nombre {
