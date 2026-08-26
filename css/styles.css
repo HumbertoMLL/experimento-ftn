@@ -9,7 +9,7 @@ img { max-width: 100%; }
 .r2-page {
   --naranja: #FFAD4D;
   --naranja-dark: #E8912B;
-  --negro: #141620;
+  --negro: #241104;
   --gris: #E9E9E9;
   --gris-2: #F5F5F5;
   --texto: #2B2B2B;
@@ -146,7 +146,7 @@ img { max-width: 100%; }
 .r2-faq p { padding-bottom: 18px; font-size: 1rem; }
 
 /* STICKY */
-.r2-sticky { position: fixed; left: 0; right: 0; bottom: 0; z-index: 60; background: rgba(20,20,20,.97); padding: 11px 16px; display: flex; align-items: center; justify-content: center; gap: 14px; transition: transform .3s ease; }
+.r2-sticky { position: fixed; left: 0; right: 0; bottom: 0; z-index: 60; background: rgba(36,17,4,.97); padding: 11px 16px; display: flex; align-items: center; justify-content: center; gap: 14px; transition: transform .3s ease; }
 .r2-sticky.hide { transform: translateY(110%); }
 .r2-sticky .txt { color: #fff; font-size: .82rem; font-weight: 600; line-height: 1.25; }
 .r2-sticky .txt b { color: var(--naranja); display: block; }

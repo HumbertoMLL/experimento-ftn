@@ -7,7 +7,7 @@ img { max-width: 100%; display: block; }
 
 :root {
   --espresso: #241104;
-  --espresso-2: #3b1c08;
+  --espresso-2: #241104;   /* mismo cafe que --espresso: un solo cafe en la marca */
   --hueso: #fff4e4;
   --arena: #fbe6c7;
   --card: #fffaf2;
@@ -79,6 +79,15 @@ b, strong { font-weight: 700; }
 .hero { background: var(--espresso); color: var(--hueso); padding: 42px 20px 52px; text-align: center; }
 .hero h1 { margin-top: 24px; max-width: 760px; margin-left: auto; margin-right: auto; }
 .hero p.sub { margin: 20px auto 0; max-width: 620px; color: rgba(255,244,228,.85); }
+
+/* El banner tiene fondo transparente y texto oscuro: va sobre hueso
+   para que se lea encima del cafe del hero. */
+.hero-banner {
+  max-width: 620px; margin: 26px auto 0; padding: 14px;
+  background: var(--hueso); border-radius: 20px;
+}
+.hero-banner img { width: 100%; height: auto; border-radius: 10px; }
+@media (max-width: 520px) { .hero-banner { padding: 10px; margin-top: 22px; } }
 
 /* VSL */
 .vsl { max-width: 700px; margin: 28px auto 0; }
