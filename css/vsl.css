@@ -89,6 +89,34 @@ b, strong { font-weight: 700; }
 .hero-banner img { width: 100%; height: auto; border-radius: 10px; }
 @media (max-width: 520px) { .hero-banner { padding: 10px; margin-top: 22px; } }
 
+/* Señalador del video: pregunta + quien lo explica + flecha al player */
+.vsl-cue {
+  display: flex; align-items: flex-end; justify-content: center;
+  gap: 6px; max-width: 700px; margin: 26px auto -6px; text-align: left;
+}
+.cue-q {
+  font-family: "DM Sans", sans-serif; font-weight: 800; color: var(--hueso);
+  font-size: clamp(1.02rem, 3.4vw, 1.3rem); line-height: 1.25;
+}
+.cue-who {
+  margin-top: 6px; font-size: .84rem; line-height: 1.35;
+  color: rgba(255, 244, 228, .75);
+}
+.cue-who b { color: var(--naranja); font-weight: 700; }
+.cue-who span {
+  display: block; font-size: .74rem; letter-spacing: .04em;
+  color: rgba(255, 244, 228, .5);
+}
+.cue-arrow {
+  width: 62px; height: auto; flex-shrink: 0;
+  color: var(--naranja); margin-bottom: -8px;
+}
+@media (min-width: 760px) {
+  .vsl-cue { gap: 14px; }
+  .cue-arrow { width: 84px; }
+}
+@media (max-width: 400px) { .cue-arrow { width: 52px; } }
+
 /* VSL */
 .vsl { max-width: 700px; margin: 28px auto 0; }
 .vsl-embed {
