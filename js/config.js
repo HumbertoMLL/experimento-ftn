@@ -71,7 +71,7 @@ window.FTN_CONFIG = {
        Si tiene URL, se usa en lugar de las fotos individuales de abajo. */
     cambiosGrid: "/assets/transformaciones.webp",
     /* Logo de Reto 2% para el hero de /reto-vsl. Vacio = se usa el texto. */
-    logoReto2: "/assets/logo-reto-2.webp",
+    logoReto2: "/assets/logo-reto-2.svg",
     /* Fotos de Emma en /reto-vsl (antes / después). Vacías = se oculta el par. */
     emmaAntes: "/assets/historia-antes.webp",
     emmaDespues: "/assets/historia-despues.webp",

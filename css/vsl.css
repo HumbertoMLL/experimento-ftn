@@ -1,3 +1,34 @@
+/* INCLUYE */
+h2.grande { font-size: clamp(1.7rem, 6vw, 2.6rem); line-height: 1.12; }
+
+/* Entrenamientos + menus viven en el mismo contenedor */
+.panel .row.bloque { align-items: flex-start; gap: 12px; }
+.panel .row.bloque h3 { font-size: 1.05rem; line-height: 1.3; }
+.panel .row.bloque ul { list-style: none; margin-top: 11px; display: grid; gap: 8px; }
+.panel .row.bloque li { display: flex; gap: 9px; font-size: .93rem; line-height: 1.45; }
+.panel .row.bloque .ck { flex-shrink: 0; }
+.dark .panel h3, .dark .panel li, .dark .panel span { color: var(--espresso); }
+
+/* Bloques a dos columnas: imagen y texto, tambien en movil */
+.split {
+  display: grid; grid-template-columns: 1fr 1.05fr;
+  align-items: center; gap: 16px; margin-top: 34px;
+}
+.split.invertido { grid-template-columns: 1.05fr 1fr; }
+.split > img { width: 100%; height: auto; }
+.split-txt h3 { font-size: clamp(1rem, 3.4vw, 1.35rem); line-height: 1.25; }
+.split-txt .em { font-size: 1.6rem; line-height: 1; display: block; margin-bottom: 8px; }
+.split-txt p { margin-top: 8px; font-size: .92rem; }
+.split-txt .gift {
+  font-family: "DM Sans", sans-serif; font-weight: 800;
+  color: var(--naranja); font-size: 1rem; margin-top: 10px;
+}
+.dark .split-txt h3 { color: var(--hueso); }
+@media (min-width: 760px) {
+  .split { gap: 34px; margin-top: 48px; }
+  .split-txt p { font-size: 1rem; }
+}
+
 /* ============================================================
    RETO 2% · VSL — paleta espresso / hueso / naranja
    ============================================================ */
@@ -162,27 +193,9 @@ b, strong { font-weight: 700; }
 .reframe p { font-family: "DM Sans", sans-serif; font-size: clamp(1.05rem, 3vw, 1.3rem);
   font-weight: 600; line-height: 1.5; color: var(--hueso); }
 
-/* INCLUYE */
-.pack { display: grid; gap: 16px; margin-top: 28px; }
-.pack .blk { background: var(--card); border-radius: 20px; padding: 24px; }
-.pack .blk h3 { display: flex; gap: 10px; align-items: flex-start; font-size: 1.08rem; }
-.pack .blk ul { list-style: none; margin-top: 14px; display: grid; gap: 9px; }
-.pack .blk li { display: flex; gap: 10px; font-size: .95rem; line-height: 1.5; }
-.pack .blk li .ck { color: var(--olivo); flex-shrink: 0; }
-.regalo { background: var(--naranja); border-radius: 20px; padding: 26px; text-align: center; margin-top: 16px; }
-.regalo h3 { font-size: 1.12rem; }
-.regalo p { margin-top: 8px; font-size: .98rem; }
-.regalo .gift { font-family: "DM Sans", sans-serif; font-weight: 800; font-size: 1.05rem; margin-top: 10px; }
-
-.blk-img { width: 100%; height: auto; margin-top: 16px; border-radius: 14px; }
-.regalo-img { width: 100%; height: auto; margin-top: 18px; border-radius: 14px; }
 .wa-btn { max-width: 320px; margin-top: 22px; }
 
 /* Tarjetas claras dentro de una seccion oscura: el texto vuelve al cafe */
-.dark .blk h3, .dark .blk li, .dark .blk span { color: var(--espresso); }
-.dark .blk .ck { color: var(--olivo); }
-.dark .regalo h3 { color: var(--espresso); }
-.dark .regalo p, .dark .regalo .gift { color: var(--espresso); }
 
 /* TRANSFORMACIONES */
 .shout { margin-top: 26px; text-align: center; font-family: "DM Sans", sans-serif;
@@ -214,10 +227,24 @@ b, strong { font-weight: 700; }
 .plan .per { display: block; font-size: .9rem; opacity: .7; margin-top: 6px; }
 .plan p.desc { margin-top: 14px; font-size: .95rem; }
 .plan .cta { margin-top: 22px; }
+/* La tarjeta de precio es clara aunque viva en una seccion oscura */
+.dark .plan .price, .dark .plan .per, .dark .plan p, .dark .plan h3 { color: var(--espresso); }
+.dark .plan .kicker { color: var(--olivo); }
+.dark .plan .tag { color: var(--espresso); }
+.split-txt h3, .cue-q { text-wrap: balance; }
+
 
 /* WHATSAPP */
 .wa { background: var(--card); border-radius: 22px; padding: 30px 24px; text-align: center; }
 .wa a.link { color: var(--olivo); font-weight: 700; text-decoration: underline; word-break: break-all; }
+
+/* BREN */
+.bren-foto {
+  width: 100%; max-width: 260px; height: auto;
+  margin: 0 auto 6px; display: block;
+  background: var(--arena); border-radius: 50%;
+}
+@media (min-width: 760px) { .bren-foto { max-width: 300px; } }
 
 /* FAQ */
 .faq { margin-top: 26px; display: grid; gap: 10px; }

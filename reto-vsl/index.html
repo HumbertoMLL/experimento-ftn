@@ -114,65 +114,78 @@
   </div>
 </section>
 
-<!-- ===== QUÉ INCLUYE ===== -->
+<!-- ===== QUÉ INCLUYE + OFERTA ===== -->
 <section class="sec reveal dark">
   <div class="in">
-    <h2 class="center">¿Qué incluye el Reto 2%?</h2>
+    <h2 class="center grande">¿Qué incluye el Reto 2%?</h2>
 
-    <img data-cfg-img="mockup" data-img-wrap="mockup" src="/assets/mockup.webp"
-      alt="Todo lo que incluye el Reto 2%" class="transf" loading="lazy" width="1400" height="969">
+    <img src="/assets/mockup.webp" class="transf" width="1400" height="969"
+      alt="Todo lo que incluye el Reto 2%" loading="lazy">
 
-    <div class="pack">
-      <div class="blk">
-        <h3><span>💪🏻</span><span>Entrenamientos cortos: 30 minutos al día</span></h3>
-        <ul>
-          <li><span class="ck">✔️</span><span>Rutinas de alta intensidad y efectividad.</span></li>
-          <li><span class="ck">✔️</span><span>Desde casa o gym, sin necesidad de equipo especial.</span></li>
-        </ul>
+    <!-- Entrenamientos + menús: un solo contenedor -->
+    <div class="panel">
+      <div class="row bloque">
+        <span class="ic">💪🏻</span>
+        <div>
+          <h3>Entrenamientos cortos: 30 minutos al día</h3>
+          <ul>
+            <li><span class="ck">✔️</span><span>Rutinas de alta intensidad y efectividad.</span></li>
+            <li><span class="ck">✔️</span><span>Desde casa o gym, sin necesidad de equipo especial.</span></li>
+          </ul>
+        </div>
       </div>
-      <div class="blk">
-        <h3><span>🍽️</span><span>Menús fáciles: rápidos y deliciosos</span></h3>
-        <ul>
-          <li><span class="ck">✔️</span><span>Lista de súper.</span></li>
-          <li><span class="ck">✔️</span><span>Tips de nutrición para optimizar resultados.</span></li>
-        </ul>
-      </div>
-      <div class="blk" style="grid-column:1/-1">
-        <h3><span>🎁</span><span>Además, acceso exclusivo a todo el contenido de FTN</span></h3>
-        <img src="/assets/mock-ftn.webp" class="blk-img"
-          alt="La app de FTN: entrenos, recetas y contenido" loading="lazy" width="1200" height="1362">
-      </div>
-      <div class="regalo">
-        <h3>🎉 ¡Inscríbete HOY! 🎉</h3>
-        <p>Tengo un regalo EXTRA para ti:</p>
-        <p class="gift">Paso a paso para un meal prep exitoso</p>
-        <img src="/assets/bonos.webp" class="regalo-img"
-          alt="Bonos que recibes al inscribirte al Reto 2%" loading="lazy" width="1200" height="812">
+      <div class="row bloque">
+        <span class="ic">🍽️</span>
+        <div>
+          <h3>Menús fáciles: rápidos y deliciosos</h3>
+          <ul>
+            <li><span class="ck">✔️</span><span>Lista de súper.</span></li>
+            <li><span class="ck">✔️</span><span>Tips de nutrición para optimizar resultados.</span></li>
+          </ul>
+        </div>
       </div>
     </div>
 
-  </div>
-</section>
-
-<!-- ===== OFERTA ===== -->
-<section class="sec soft" id="oferta" style="scroll-margin-top:20px">
-  <div class="in">
-    <h2 class="center">Entra hoy al Reto 2%</h2>
-    <div class="planes">
-      <div class="plan best">
-        <span class="tag">Reto 2%</span>
-        <span class="kicker">Pago único</span>
-        <span class="price">$1,197 MXN</span>
-        <span class="per">Acceso a FTN durante los 21 días del reto</span>
-        <p class="desc">Entras al Reto 2% y a todas las funcionalidades de la plataforma FTN mientras dura el reto.</p>
-        <a href="#" class="cta js-checkout" data-plan="unico">Unirme a 2%</a>
+    <!-- Acceso a FTN: mockup a la izquierda, texto a la derecha -->
+    <div class="split">
+      <img src="/assets/mock-ftn.webp" width="1200" height="1362"
+        alt="La app de FTN: entrenos, recetas y contenido" loading="lazy">
+      <div class="split-txt">
+        <span class="em">🎁</span>
+        <h3>Además, acceso exclusivo a todo el contenido de FTN</h3>
       </div>
-      <div class="plan" data-plan-card="mensual">
-        <span class="kicker">Plan Full Mensual</span>
-        <span class="price">$599 MXN</span>
-        <span class="per">al mes · cancelas cuando quieras</span>
-        <p class="desc">Entras al Reto 2% y te quedas con todo el contenido de FTN mes a mes, mientras tu suscripción siga activa.</p>
-        <a href="#" class="cta js-checkout" data-plan="mensual">Quiero la mensual</a>
+    </div>
+
+    <!-- Regalo: texto a la izquierda, bonos a la derecha -->
+    <div class="split invertido">
+      <div class="split-txt">
+        <h3>🎉 ¡Inscríbete HOY! 🎉</h3>
+        <p>Tengo un regalo EXTRA para ti:</p>
+        <p class="gift">Paso a paso para un meal prep exitoso</p>
+      </div>
+      <img src="/assets/bonos.webp" width="1200" height="812"
+        alt="Bonos que recibes al inscribirte al Reto 2%" loading="lazy">
+    </div>
+
+    <!-- OFERTA -->
+    <div id="oferta" style="scroll-margin-top:20px">
+      <h2 class="center grande" style="margin-top:52px">Entra hoy al Reto 2%</h2>
+      <div class="planes">
+        <div class="plan best">
+          <span class="tag">Reto 2%</span>
+          <span class="kicker">Pago único</span>
+          <span class="price">$1,197 MXN</span>
+          <span class="per">Acceso a FTN durante los 21 días del reto</span>
+          <p class="desc">Entras al Reto 2% y a todas las funcionalidades de la plataforma FTN mientras dura el reto.</p>
+          <a href="#" class="cta js-checkout" data-plan="unico">Unirme a 2%</a>
+        </div>
+        <div class="plan" data-plan-card="mensual">
+          <span class="kicker">Plan Full Mensual</span>
+          <span class="price">$599 MXN</span>
+          <span class="per">al mes · cancelas cuando quieras</span>
+          <p class="desc">Entras al Reto 2% y te quedas con todo el contenido de FTN mes a mes, mientras tu suscripción siga activa.</p>
+          <a href="#" class="cta js-checkout" data-plan="mensual">Quiero la mensual</a>
+        </div>
       </div>
     </div>
   </div>
@@ -216,6 +229,8 @@
 <!-- ===== QUIÉN SOY ===== -->
 <section class="sec reveal">
   <div class="in narrow">
+    <img src="/assets/bren.webp" class="bren-foto" width="1000" height="1000"
+      alt="Bren, nutrióloga deportiva y entrenadora certificada" loading="lazy">
     <span class="eyebrow">¿Quién soy?</span>
     <h2 style="margin-top:16px">Hola, soy Bren</h2>
     <p class="mt">Nutrióloga deportiva y entrenadora certificada enfocada en <b>resultados reales</b>.</p>
