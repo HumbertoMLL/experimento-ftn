@@ -73,8 +73,8 @@ window.FTN_CONFIG = {
     /* Logo de Reto 2% para el hero de /reto-vsl. Vacio = se usa el texto. */
     logoReto2: "/assets/logo-reto-2.webp",
     /* Fotos de Emma en /reto-vsl (antes / después). Vacías = se oculta el par. */
-    emmaAntes: "",
-    emmaDespues: "",
+    emmaAntes: "/assets/historia-antes.webp",
+    emmaDespues: "/assets/historia-despues.webp",
     chatRecibido: "",
     chatEnviado: "",
     bren: "",
