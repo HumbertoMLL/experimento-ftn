@@ -97,10 +97,10 @@ b, strong { font-weight: 700; }
   padding: 8px 22px; border-radius: 16px;
 }
 /* El logo va sobre fondo claro: su trazo es oscuro y así se lee bien */
-.badge.con-logo { padding: 12px 22px; border-radius: 20px; }
-.badge-logo { width: 190px; height: auto; }
-@media (min-width: 760px) { .badge-logo { width: 260px; } }
-@media (max-width: 380px) { .badge-logo { width: 165px; } }
+.badge.con-logo { background: none; padding: 0; border-radius: 0; }
+.badge-logo { width: 210px; height: auto; }
+@media (min-width: 760px) { .badge-logo { width: 290px; } }
+@media (max-width: 380px) { .badge-logo { width: 185px; } }
 .eyebrow {
   display: inline-block; background: var(--olivo); color: var(--hueso);
   font-family: "DM Sans", sans-serif; font-weight: 700; font-size: .74rem;
@@ -128,26 +128,26 @@ b, strong { font-weight: 700; }
 }
 .cue-q {
   font-family: "DM Sans", sans-serif; font-weight: 800; color: var(--hueso);
-  font-size: clamp(1.02rem, 3.4vw, 1.3rem); line-height: 1.25;
+  font-size: clamp(1.2rem, 4.4vw, 1.62rem); line-height: 1.22;
 }
 .cue-who {
-  margin-top: 6px; font-size: .84rem; line-height: 1.35;
+  margin-top: 8px; font-size: .97rem; line-height: 1.4;
   color: rgba(255, 244, 228, .75);
 }
 .cue-who b { color: var(--naranja); font-weight: 700; }
 .cue-who span {
-  display: block; font-size: .74rem; letter-spacing: .04em;
+  display: block; font-size: .85rem; letter-spacing: .04em;
   color: rgba(255, 244, 228, .5);
 }
 .cue-arrow {
-  width: 62px; height: auto; flex-shrink: 0;
+  width: 72px; height: auto; flex-shrink: 0;
   color: var(--naranja); margin-bottom: -8px;
 }
 @media (min-width: 760px) {
   .vsl-cue { gap: 14px; }
-  .cue-arrow { width: 84px; }
+  .cue-arrow { width: 96px; }
 }
-@media (max-width: 400px) { .cue-arrow { width: 52px; } }
+@media (max-width: 400px) { .cue-arrow { width: 60px; } }
 
 /* VSL */
 .vsl { max-width: 700px; margin: 28px auto 0; }
@@ -226,6 +226,15 @@ b, strong { font-weight: 700; }
   font-size: 2.6rem; line-height: 1.1; margin-top: 10px; }
 .plan .per { display: block; font-size: .9rem; opacity: .7; margin-top: 6px; }
 .plan p.desc { margin-top: 14px; font-size: .95rem; }
+.plan .old { display: block; margin-top: 10px; color: #7a6250;
+  text-decoration: line-through; font-weight: 600; font-size: 1.05rem; }
+.plan .price { margin-top: 2px; }
+.plan .save { display: inline-block; margin-top: 12px;
+  background: rgba(255,173,77,.3); color: #5c3c04;
+  font-family: "DM Sans", sans-serif; font-weight: 800; font-size: .86rem;
+  padding: 7px 15px; border-radius: 999px; }
+.dark .plan .old { color: #7a6250; }
+.dark .plan .save { color: #5c3c04; }
 .plan .cta { margin-top: 22px; }
 /* La tarjeta de precio es clara aunque viva en una seccion oscura */
 .dark .plan .price, .dark .plan .per, .dark .plan p, .dark .plan h3 { color: var(--espresso); }

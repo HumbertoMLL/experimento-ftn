@@ -36,7 +36,7 @@ window.FTN_CONFIG = {
   checkoutVsl: {
     unico: {
       url: "https://pay.hotmart.com/T76408466K?checkoutMode=10&off=eg1lsunr&src=meta",
-      nombre: "Reto 2% - Pago unico",
+      nombre: "Reto 2% - Suscripcion Trimestral",
       precio: 1197,
       moneda: "MXN",
     },
