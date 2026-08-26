@@ -32,7 +32,7 @@
 
   /* ---------- WhatsApp ---------- */
   var wa = document.getElementById("wa-link");
-  if (wa && cfg.whatsapp) { wa.href = cfg.whatsapp; wa.textContent = cfg.whatsapp; }
+  if (wa && cfg.whatsapp) wa.href = cfg.whatsapp;
 
   /* ---------- Checkout + InitiateCheckout ---------- */
   var visibles = 0;
