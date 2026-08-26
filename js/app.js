@@ -138,20 +138,21 @@
   tick();
   if (deadline - Date.now() > 0) intervalId = setInterval(tick, 1000);
 
-  /* ---------- Reveal on scroll ---------- */
+  /* ---------- Reveal on scroll ----------
+     Margen amplio + plazo de gracia: con scroll rapido el observer puede no
+     alcanzar a disparar y el contenido se quedaria invisible. */
   var reveals = document.querySelectorAll(".reveal");
+  function revelarTodo() { reveals.forEach(function (el) { el.classList.add("is-visible"); }); }
   if ("IntersectionObserver" in window) {
+    document.documentElement.classList.add("js");
     var revObs = new IntersectionObserver(function (entries) {
       entries.forEach(function (e) {
-        if (e.isIntersecting) {
-          e.target.classList.add("is-visible");
-          revObs.unobserve(e.target);
-        }
+        if (e.isIntersecting) { e.target.classList.add("is-visible"); revObs.unobserve(e.target); }
       });
-    }, { threshold: 0.12 });
+    }, { threshold: 0, rootMargin: "400px 0px 400px 0px" });
     reveals.forEach(function (el) { revObs.observe(el); });
-  } else {
-    reveals.forEach(function (el) { el.classList.add("is-visible"); });
+    setTimeout(revelarTodo, 2500);
+    window.addEventListener("load", function () { setTimeout(revelarTodo, 1200); });
   }
 
   /* ---------- Sticky CTA (se esconde sobre la oferta) ---------- */

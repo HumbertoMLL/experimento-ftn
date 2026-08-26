@@ -37,7 +37,7 @@ window.FTN_CONFIG = {
     unico: {
       url: "https://pay.hotmart.com/T76408466K?checkoutMode=10&off=eg1lsunr&src=meta",
       nombre: "Reto 2% - Pago unico",
-      precio: 797,
+      precio: 1197,
       moneda: "MXN",
     },
     mensual: {
@@ -70,6 +70,8 @@ window.FTN_CONFIG = {
     /* Una sola imagen con TODAS las transformaciones (el grid 3x3).
        Si tiene URL, se usa en lugar de las fotos individuales de abajo. */
     cambiosGrid: "/assets/transformaciones.webp",
+    /* Logo de Reto 2% para el hero de /reto-vsl. Vacio = se usa el texto. */
+    logoReto2: "",
     /* Fotos de Emma en /reto-vsl (antes / después). Vacías = se oculta el par. */
     emmaAntes: "",
     emmaDespues: "",

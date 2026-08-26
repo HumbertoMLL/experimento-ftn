@@ -21,6 +21,15 @@
   var emma = document.getElementById("emma-fotos");
   if (emma && !emma.querySelector("figure:not([style*='none'])")) emma.style.display = "none";
 
+  /* ---------- Logo del hero (si hay URL sustituye al texto) ---------- */
+  var logo = document.querySelector("[data-cfg-img='logoReto2']");
+  if (logo && logo.getAttribute("src")) {
+    logo.hidden = false;
+    var marca = document.getElementById("marca");
+    marca.classList.add("con-logo");
+    marca.querySelector(".badge-txt").remove();
+  }
+
   /* ---------- WhatsApp ---------- */
   var wa = document.getElementById("wa-link");
   if (wa && cfg.whatsapp) { wa.href = cfg.whatsapp; wa.textContent = cfg.whatsapp; }
@@ -68,14 +77,20 @@
     vc.observe(oferta);
   }
 
-  /* ---------- Reveal al hacer scroll ---------- */
+  /* ---------- Reveal al hacer scroll ----------
+     Con scroll rapido el observer puede no alcanzar a disparar, asi que:
+     margen amplio para adelantarlo + un plazo de gracia que revela lo que
+     quede pendiente. El contenido nunca se queda invisible. */
   var rev = document.querySelectorAll(".reveal");
+  function revelarTodo() { rev.forEach(function (el) { el.classList.add("on"); }); }
   if ("IntersectionObserver" in window) {
+    document.documentElement.classList.add("js");
     var ro = new IntersectionObserver(function (es) {
       es.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add("on"); ro.unobserve(e.target); } });
-    }, { threshold: 0.1 });
+    }, { threshold: 0, rootMargin: "400px 0px 400px 0px" });
     rev.forEach(function (el) { ro.observe(el); });
-  } else {
-    rev.forEach(function (el) { el.classList.add("on"); });
+    setTimeout(revelarTodo, 2500);
+    window.addEventListener("load", function () { setTimeout(revelarTodo, 1200); });
   }
+
 })();

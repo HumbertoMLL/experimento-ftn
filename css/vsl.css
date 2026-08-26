@@ -21,7 +21,6 @@ body {
   background: var(--hueso);
   color: var(--espresso);
   -webkit-font-smoothing: antialiased;
-  padding-bottom: 76px;
 }
 
 h1, h2, h3, .display { font-family: "DM Sans", system-ui, sans-serif; font-weight: 800; letter-spacing: -.025em; line-height: 1.15; }
@@ -61,10 +60,15 @@ b, strong { font-weight: 700; }
 .cta-wrap { display: flex; justify-content: center; }
 
 .badge {
-  display: inline-block; background: var(--hueso); color: var(--espresso);
+  display: inline-flex; align-items: center; justify-content: center;
+  background: var(--hueso); color: var(--espresso);
   font-family: "DM Sans", sans-serif; font-weight: 800; font-size: 1.35rem;
   padding: 8px 22px; border-radius: 16px;
 }
+/* El logo va sobre fondo claro: su trazo es oscuro y así se lee bien */
+.badge.con-logo { padding: 10px 18px; }
+.badge-logo { height: 46px; width: auto; }
+@media (min-width: 760px) { .badge-logo { height: 58px; } }
 .eyebrow {
   display: inline-block; background: var(--olivo); color: var(--hueso);
   font-family: "DM Sans", sans-serif; font-weight: 700; font-size: .74rem;
@@ -89,7 +93,7 @@ b, strong { font-weight: 700; }
 /* MARQUEE */
 .marquee { background: var(--olivo); color: var(--hueso); overflow: hidden; padding: 12px 0;
   border-top: 1px solid rgba(36,17,4,.12); border-bottom: 1px solid rgba(36,17,4,.12); }
-.marquee-track { display: flex; gap: 34px; white-space: nowrap; animation: mq 26s linear infinite; }
+.marquee-track { display: flex; gap: 34px; white-space: nowrap; animation: mq 11s linear infinite; }
 .marquee-track > div { display: flex; gap: 34px; flex-shrink: 0; }
 .marquee span { font-family: "DM Sans", sans-serif; font-size: .78rem; font-weight: 600;
   letter-spacing: .18em; text-transform: uppercase; }
@@ -175,7 +179,7 @@ b, strong { font-weight: 700; }
 
 /* FOOTER + STICKY */
 footer { background: var(--espresso); color: rgba(255,244,228,.55); text-align: center;
-  padding: 40px 20px; font-size: .82rem; }
+  padding: 40px 20px 104px; font-size: .82rem; }
 footer .fname { font-family: "DM Sans", sans-serif; font-weight: 800; font-size: 1.15rem;
   color: var(--hueso); letter-spacing: .04em; }
 .sticky { position: fixed; inset-inline: 0; bottom: 0; z-index: 50;
@@ -189,8 +193,10 @@ footer .fname { font-family: "DM Sans", sans-serif; font-weight: 800; font-size:
   font-family: "DM Sans", sans-serif; font-weight: 700; font-size: .84rem;
   padding: 12px 20px; border-radius: 999px; white-space: nowrap; }
 
-.reveal { opacity: 0; transform: translateY(22px); transition: opacity .6s ease, transform .6s ease; }
-.reveal.on { opacity: 1; transform: none; }
+/* Sin JS (o si algo falla) el contenido siempre se ve: solo se oculta
+   cuando el script marca <html class="js">. */
+.js .reveal { opacity: 0; transform: translateY(22px); transition: opacity .6s ease, transform .6s ease; }
+.js .reveal.on { opacity: 1; transform: none; }
 
 @media (min-width: 760px) {
   .sec { padding: 76px 24px; }

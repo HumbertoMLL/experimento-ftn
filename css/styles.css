@@ -21,8 +21,8 @@ img { max-width: 100%; }
 }
 .r2-sec { padding: 68px 22px; }
 .r2-in { max-width: 940px; margin: 0 auto; }
-.reveal { opacity: 0; transform: translateY(24px); transition: opacity .6s ease, transform .6s ease; }
-.reveal.is-visible { opacity: 1; transform: none; }
+.js .reveal { opacity: 0; transform: translateY(24px); transition: opacity .6s ease, transform .6s ease; }
+.js .reveal.is-visible { opacity: 1; transform: none; }
 
 .r2-page h1, .r2-page h2, .r2-page h3 { font-weight: 800; line-height: 1.12; letter-spacing: -0.02em; color: var(--negro); margin: 0; }
 .r2-page h1 { font-size: clamp(2rem, 6.4vw, 3.2rem); }
