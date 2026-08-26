@@ -84,6 +84,19 @@
     vc.observe(oferta);
   }
 
+  /* ---------- Barra fija: aparece al pasar el hero ---------- */
+  var sticky = document.querySelector(".sticky");
+  var hero = document.querySelector(".hero");
+  if (sticky && hero) {
+    if ("IntersectionObserver" in window) {
+      new IntersectionObserver(function (e) {
+        sticky.classList.toggle("visible", !e[0].isIntersecting);
+      }, { threshold: 0 }).observe(hero);
+    } else {
+      sticky.classList.add("visible");
+    }
+  }
+
   /* ---------- Reveal al hacer scroll ----------
      Con scroll rapido el observer puede no alcanzar a disparar, asi que:
      margen amplio para adelantarlo + un plazo de gracia que revela lo que

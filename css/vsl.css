@@ -239,7 +239,10 @@ footer .fname { font-family: "DM Sans", sans-serif; font-weight: 800; font-size:
 .sticky { position: fixed; inset-inline: 0; bottom: 0; z-index: 50;
   background: var(--espresso); border-top: 1px solid rgba(255,244,228,.15);
   padding: 11px 16px; display: flex; align-items: center; justify-content: space-between;
-  gap: 14px; max-width: 100%; }
+  gap: 14px; max-width: 100%;
+  /* Oculta mientras se ve el hero; entra al hacer scroll */
+  transform: translateY(110%); transition: transform .32s ease; }
+.sticky.visible { transform: none; }
 .sticky .txt { color: var(--hueso); }
 .sticky .txt b { display: block; font-family: "DM Sans", sans-serif; font-size: .82rem; font-weight: 700; }
 .sticky .txt span { font-size: .75rem; color: rgba(255,244,228,.7); }
