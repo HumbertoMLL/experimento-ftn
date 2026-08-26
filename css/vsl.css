@@ -45,6 +45,11 @@ img { max-width: 100%; height: auto; display: block; }
   --olivo: #9f6907;
   --naranja: #ffad4d;
   --naranja-dark: #e8912b;
+  /* componentes RGB para transparencias (un tema puede sustituirlas) */
+  --rgb-oscuro: 36, 17, 4;
+  --rgb-claro: 255, 244, 228;
+  --precio-viejo: #7a6250;
+  --ahorro-texto: #5c3c04;
 }
 
 body {
@@ -69,7 +74,7 @@ b, strong { font-weight: 700; }
 
 .dark { background: var(--espresso); color: var(--hueso); }
 .dark h1, .dark h2, .dark h3 { color: var(--hueso); }
-.dark p { color: rgba(255, 244, 228, .82); }
+.dark p { color: rgba(var(--rgb-claro), .82); }
 .soft { background: var(--arena); }
 
 .hl { background: var(--naranja); color: var(--espresso); border-radius: 5px; padding: 0 .28em;
@@ -110,7 +115,7 @@ b, strong { font-weight: 700; }
 /* HERO */
 .hero { background: var(--espresso); color: var(--hueso); padding: 42px 20px 52px; text-align: center; }
 .hero h1 { margin-top: 24px; max-width: 760px; margin-left: auto; margin-right: auto; }
-.hero p.sub { margin: 20px auto 0; max-width: 620px; color: rgba(255,244,228,.85); }
+.hero p.sub { margin: 20px auto 0; max-width: 620px; color: rgba(var(--rgb-claro), .85); }
 
 /* El banner tiene fondo transparente y texto oscuro: va sobre hueso
    para que se lea encima del cafe del hero. */
@@ -129,12 +134,12 @@ b, strong { font-weight: 700; }
 }
 .cue-who {
   margin-top: 10px; font-size: 1.05rem; line-height: 1.4;
-  color: rgba(255, 244, 228, .75);
+  color: rgba(var(--rgb-claro), .75);
 }
 .cue-who b { color: var(--naranja); font-weight: 700; }
 .cue-who span {
   display: block; font-size: .92rem; letter-spacing: .04em;
-  color: rgba(255, 244, 228, .5);
+  color: rgba(var(--rgb-claro), .5);
 }
 .cue-arrow {
   width: 72px; height: auto; flex-shrink: 0;
@@ -156,13 +161,13 @@ b, strong { font-weight: 700; }
   position: relative; padding: 56.25% 0 0 0;   /* 16:9 */
   border-radius: 18px; overflow: hidden;
   background: var(--espresso-2);
-  border: 1px solid rgba(255, 244, 228, .16);
+  border: 1px solid rgba(var(--rgb-claro), .16);
 }
 .vsl-embed iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0; }
 
 /* MARQUEE */
 .marquee { background: var(--olivo); color: var(--hueso); overflow: hidden; padding: 12px 0;
-  border-top: 1px solid rgba(36,17,4,.12); border-bottom: 1px solid rgba(36,17,4,.12); }
+  border-top: 1px solid rgba(var(--rgb-oscuro), .12); border-bottom: 1px solid rgba(var(--rgb-oscuro), .12); }
 .marquee-track { display: flex; gap: 34px; white-space: nowrap; animation: mq 11s linear infinite; }
 .marquee-track > div { display: flex; gap: 34px; flex-shrink: 0; }
 .marquee span { font-family: "DM Sans", sans-serif; font-size: .78rem; font-weight: 600;
@@ -178,7 +183,7 @@ b, strong { font-weight: 700; }
 }
 .panel .row {
   display: flex; gap: 14px; align-items: flex-start;
-  padding: 17px 0; border-bottom: 1px solid rgba(36, 17, 4, .09);
+  padding: 17px 0; border-bottom: 1px solid rgba(var(--rgb-oscuro), .09);
 }
 .panel .row:last-child { border-bottom: none; }
 .panel .ic { flex-shrink: 0; font-size: 1.15rem; line-height: 1.45; }
@@ -186,8 +191,8 @@ b, strong { font-weight: 700; }
 .panel p { font-size: .97rem; line-height: 1.5; }
 
 .panel.oscuro { background: var(--espresso); }
-.panel.oscuro .row { border-bottom-color: rgba(255, 244, 228, .14); }
-.panel.oscuro p { color: rgba(255, 244, 228, .85); }
+.panel.oscuro .row { border-bottom-color: rgba(var(--rgb-claro), .14); }
+.panel.oscuro p { color: rgba(var(--rgb-claro), .85); }
 
 @media (max-width: 420px) { .panel { padding: 4px 18px; } }
 
@@ -216,7 +221,7 @@ b, strong { font-weight: 700; }
 
 /* OFERTA */
 .planes { display: grid; gap: 18px; margin-top: 30px; }
-.plan { background: var(--card); border: 2px solid rgba(36,17,4,.1); border-radius: 24px;
+.plan { background: var(--card); border: 2px solid rgba(var(--rgb-oscuro), .1); border-radius: 24px;
   padding: 30px 24px; text-align: center; position: relative; }
 .plan.best { border-color: var(--naranja); box-shadow: 0 18px 44px rgba(255,173,77,.28); }
 .plan .tag { position: absolute; top: -13px; left: 50%; transform: translateX(-50%);
@@ -229,15 +234,15 @@ b, strong { font-weight: 700; }
   font-size: 2.6rem; line-height: 1.1; margin-top: 10px; }
 .plan .per { display: block; font-size: .9rem; opacity: .7; margin-top: 6px; }
 .plan p.desc { margin-top: 14px; font-size: .95rem; }
-.plan .old { display: block; margin-top: 10px; color: #7a6250;
+.plan .old { display: block; margin-top: 10px; color: var(--precio-viejo);
   text-decoration: line-through; font-weight: 600; font-size: 1.05rem; }
 .plan .price { margin-top: 2px; }
 .plan .save { display: inline-block; margin-top: 12px;
-  background: rgba(255,173,77,.3); color: #5c3c04;
+  background: rgba(255,173,77,.3); color: var(--ahorro-texto);
   font-family: "DM Sans", sans-serif; font-weight: 800; font-size: .86rem;
   padding: 7px 15px; border-radius: 999px; }
-.dark .plan .old { color: #7a6250; }
-.dark .plan .save { color: #5c3c04; }
+.dark .plan .old { color: var(--precio-viejo); }
+.dark .plan .save { color: var(--ahorro-texto); }
 .plan .cta { margin-top: 22px; }
 /* La tarjeta de precio es clara aunque viva en una seccion oscura */
 .dark .plan .price, .dark .plan .per, .dark .plan p, .dark .plan h3 { color: var(--espresso); }
@@ -267,11 +272,11 @@ b, strong { font-weight: 700; }
 .prensa-grid { display: grid; gap: 16px; }
 .medio {
   background: var(--card); border-radius: 18px; overflow: hidden;
-  border: 1px solid rgba(36, 17, 4, .08); margin: 0;
+  border: 1px solid rgba(var(--rgb-oscuro), .08); margin: 0;
 }
 .medio img {
   width: 100%; height: 150px; object-fit: cover;
-  background: #fff; border-bottom: 1px solid rgba(36, 17, 4, .08);
+  background: #fff; border-bottom: 1px solid rgba(var(--rgb-oscuro), .08);
 }
 /* Cada captura se encuadra donde se reconoce el medio */
 .m-forbes img { object-position: top center; }
@@ -306,12 +311,12 @@ b, strong { font-weight: 700; }
 .faq details p + p { padding-top: 10px; padding-bottom: 18px; margin-top: -8px; }
 
 /* FOOTER + STICKY */
-footer { background: var(--espresso); color: rgba(255,244,228,.55); text-align: center;
+footer { background: var(--espresso); color: rgba(var(--rgb-claro), .55); text-align: center;
   padding: 40px 20px 104px; font-size: .82rem; }
 footer .fname { font-family: "DM Sans", sans-serif; font-weight: 800; font-size: 1.15rem;
   color: var(--hueso); letter-spacing: .04em; }
 .sticky { position: fixed; inset-inline: 0; bottom: 0; z-index: 50;
-  background: var(--espresso); border-top: 1px solid rgba(255,244,228,.15);
+  background: var(--espresso); border-top: 1px solid rgba(var(--rgb-claro), .15);
   padding: 11px 16px; display: flex; align-items: center; justify-content: space-between;
   gap: 14px; max-width: 100%;
   /* Oculta mientras se ve el hero; entra al hacer scroll */
@@ -319,7 +324,7 @@ footer .fname { font-family: "DM Sans", sans-serif; font-weight: 800; font-size:
 .sticky.visible { transform: none; }
 .sticky .txt { color: var(--hueso); }
 .sticky .txt b { display: block; font-family: "DM Sans", sans-serif; font-size: .82rem; font-weight: 700; }
-.sticky .txt span { font-size: .75rem; color: rgba(255,244,228,.7); }
+.sticky .txt span { font-size: .75rem; color: rgba(var(--rgb-claro), .7); }
 .sticky a { background: var(--naranja); color: var(--espresso); text-decoration: none;
   font-family: "DM Sans", sans-serif; font-weight: 700; font-size: .84rem;
   padding: 12px 20px; border-radius: 999px; white-space: nowrap; }

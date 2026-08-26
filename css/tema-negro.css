@@ -1,0 +1,14 @@
+/* ============================================================
+   TEMA NEGRO (v3) — mismo diseño, otra paleta.
+   Solo redefine variables: el resto de reglas vive en vsl.css.
+   ============================================================ */
+.tema-negro {
+  --espresso: #0e0e0e;        /* el cafe pasa a negro */
+  --espresso-2: #171717;
+  --hueso: #f8f7f5;           /* los beige pasan a blancos calidos */
+  --arena: #edebe7;
+  --card: #ffffff;
+  --rgb-oscuro: 0, 0, 0;
+  --rgb-claro: 255, 255, 255;
+  --precio-viejo: #6f6f6f;
+}
