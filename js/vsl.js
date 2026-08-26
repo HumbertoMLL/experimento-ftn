@@ -11,6 +11,13 @@
     var key = img.getAttribute("data-cfg-img");
     var src = ((cfg.imagenes || {})[key] || "").trim();
     if (src) {
+      /* Declarar el tamano evita que la pagina brinque al cargar la imagen
+         (y que un salto de ancla aterrice en el lugar equivocado). */
+      var medidas = { logoReto2: [900, 506], emmaAntes: [634, 828], emmaDespues: [644, 832] }[key];
+      if (medidas && !img.getAttribute("width")) {
+        img.setAttribute("width", medidas[0]);
+        img.setAttribute("height", medidas[1]);
+      }
       img.src = src;
     } else if (!img.getAttribute("src")) {
       var wrap = img.closest("[data-img-wrap='" + key + "']") || img;
