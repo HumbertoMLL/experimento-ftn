@@ -287,9 +287,6 @@ b, strong { font-weight: 700; }
   margin-top: 10px; font-size: .98rem; line-height: 1.4;
   font-style: italic; color: var(--espresso);
 }
-.medio-fecha {
-  display: block; margin-top: 12px; font-size: .82rem; color: #8a7563;
-}
 @media (min-width: 760px) {
   .prensa { margin-top: 60px; }
   .prensa-grid { grid-template-columns: repeat(3, 1fr); gap: 20px; }
