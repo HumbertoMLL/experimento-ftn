@@ -3,6 +3,7 @@
    ============================================================ */
 (function () {
   var cfg = window.FTN_CONFIG || {};
+  var variante = document.body.getAttribute("data-variante") || "vsl";
 
   /* El video (embed de Vimeo) vive directo en el HTML del hero. */
 
@@ -56,7 +57,7 @@
     btn.addEventListener("click", function () {
       window.ftnTrack("InitiateCheckout", {
         content_name: plan.nombre,
-        content_category: "reto-vsl",
+        content_category: "reto-" + variante,
         value: plan.precio,
         currency: plan.moneda,
         num_items: 1
@@ -74,8 +75,8 @@
     var vc = new IntersectionObserver(function (e) {
       if (e[0].isIntersecting) {
         window.ftnTrack("ViewContent", {
-          content_name: "Reto 2% - Oferta (VSL)",
-          content_category: "reto-vsl",
+          content_name: "Reto 2% - Oferta (" + variante + ")",
+          content_category: "reto-" + variante,
           currency: "MXN"
         });
         vc.disconnect();

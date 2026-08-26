@@ -146,6 +146,10 @@ b, strong { font-weight: 700; }
 }
 @media (max-width: 400px) { .cue-arrow { width: 60px; } }
 
+/* Hero de la variante v2: el titular abre la pagina */
+.hero-v2 h1 { margin-top: 0; }
+.hero-v2 .hero-banner { margin-top: 24px; }
+
 /* VSL */
 .vsl { max-width: 700px; margin: 28px auto 0; }
 .vsl-embed {
@@ -164,6 +168,8 @@ b, strong { font-weight: 700; }
 .marquee span { font-family: "DM Sans", sans-serif; font-size: .78rem; font-weight: 600;
   letter-spacing: .18em; text-transform: uppercase; }
 @keyframes mq { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+/* En pantallas chicas el recorrido se siente lento: se acorta la vuelta */
+@media (max-width: 760px) { .marquee-track { animation-duration: 6.5s; } }
 
 /* LISTAS — cada lista es UN solo contenedor con filas divididas */
 .panel {
