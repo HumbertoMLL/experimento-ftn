@@ -48,6 +48,14 @@ window.FTN_CONFIG = {
     },
   },
 
+  /* --- Reto Más Músculo, Menos Grasa (/musculo-v1 … v5) ---
+     videoUrl: YouTube, Vimeo o un .mp4 directo.
+     checkoutUrl: mientras esté vacía, los botones de compra no navegan. */
+  musculo: {
+    videoUrl: "",
+    checkoutUrl: "",
+  },
+
   /* --- Fechas -------------------------------------------------------
      Deadline del regalo: 16 de agosto 2026, 11:59 PM CDMX (UTC-6).
      Si ya pasó, el countdown y el aviso rojo se ocultan solos. */
