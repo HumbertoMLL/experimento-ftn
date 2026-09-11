@@ -3,7 +3,11 @@
    ============================================================ */
 (function () {
   var cfg = window.FTN_CONFIG || {};
+  /* La letra del test de titulos (si la pagina trae uno) viaja pegada a la
+     variante, para que en el Administrador de eventos de Meta se puedan
+     comparar los titulos sin que se mezclen los datos: musculo-v1-a, -b, -c. */
   var variante = document.body.getAttribute("data-variante") || "musculo";
+  if (window.FTN_TITULO) variante = variante + "-" + window.FTN_TITULO;
   var m = (cfg.musculo || {});
 
   /* ---------- Video (si hay URL en config) ---------- */
@@ -55,7 +59,11 @@
         });
         vc.disconnect();
       }
-    }, { threshold: 0.3 });
+      /* threshold 0 a proposito: la seccion de oferta crece cuando se pegan
+         bonos, precio y garantia, y con un porcentaje fijo podria no cumplirse
+         nunca en una pantalla de telefono. El margen negativo pide que la
+         oferta este de verdad en pantalla, no rozando el borde. */
+    }, { threshold: 0, rootMargin: "-120px 0px -120px 0px" });
     vc.observe(oferta);
   }
 

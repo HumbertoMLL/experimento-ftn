@@ -81,6 +81,10 @@ b, strong { font-weight: 700; }
 .hero { background: var(--tinta); color: var(--papel); padding: 54px 20px 62px; }
 .hero .in { display: flex; flex-direction: column; align-items: center; text-align: center; }
 .hero h1 { max-width: 18ch; }
+/* Los titulos con formula ("Si eres X que Y, promesa") son frases largas: a
+   tamaño completo se comen la pantalla del teléfono y empujan el botón fuera
+   de vista. El script del hero les pone .largo cuando pasan de 80 caracteres. */
+.hero h1.largo { font-size: clamp(1.45rem, 5vw, 2.9rem); max-width: 27ch; }
 .hero p.sub { margin-top: 20px; max-width: 54ch; color: rgba(var(--rgb-papel), .78); }
 .kicker {
   display: inline-block; background: rgba(255,107,91,.16); color: var(--coral);

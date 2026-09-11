@@ -22,8 +22,53 @@
 <header class="hero">
   <div class="in">
     <span class="kicker">Reto Más Músculo, Menos Grasa</span>
-    <h1>Llevas meses entrenando en tu sala. <span class="hl">Y sigues sin ver músculo.</span></h1>
-    <p class="sub">No es que te falten ganas. Es que repetir los mismos ejercicios con el mismo peso no construye nada. 28 días para más músculo, menos grasa, en 30 minutos y con lo que ya tienes en casa.</p>
+    <h1 id="h1">Si tienes más de 35, entrenas en tu sala y sigues sin ver músculo: <span class="hl">28 días para más músculo y menos grasa.</span></h1>
+    <p class="sub" id="sub">No es que te falten ganas. Es que repetir los mismos ejercicios con el mismo peso no construye nada. Fuerza con progresión, 30 minutos al día, con lo que ya tienes en casa.</p>
+
+    <!-- ============================================================
+         TEST DE TÍTULOS
+         El título "a" es el que está aquí arriba (el que ve todo el mundo).
+         Para ver los otros, abre la página con ?t=b, ?t=c o ?t=d:
+           /musculo-v1/?t=b
+         Los eventos de Meta salen etiquetados musculo-v1-a, -b, -c o -d,
+         así que en el Administrador de eventos puedes comparar cuál vende.
+         Fórmula: Si eres + grupo específico + que + problema específico + promesa.
+         ============================================================ -->
+    <script type="application/json" id="titulos-alt">
+    {
+      "b": {
+        "h1": "Si llevas seis meses con la misma liga y las mismas doce repeticiones: <span class=\"hl\">este reto te enseña a subirle hasta que el músculo se note.</span>",
+        "sub": "28 días de fuerza estructurada: sabes qué toca hoy, con cuánto y cuándo subirle. En tu sala, en 30 minutos, con ligas y un par de mancuernas."
+      },
+      "c": {
+        "h1": "Si pasas de 35 y cada año te cuesta un poco más cargar las bolsas del súper: <span class=\"hl\">28 días de fuerza para recuperar lo que el cuerpo está soltando.</span>",
+        "sub": "De los treinta y tantos en adelante, sin fuerza el cuerpo suelta músculo año con año. Se entrena de vuelta en 30 minutos al día, en casa, con lo que ya tienes."
+      },
+      "d": {
+        "h1": "Llevas meses entrenando en tu sala. <span class=\"hl\">Y sigues sin ver músculo.</span>",
+        "sub": "No es que te falten ganas. Es que repetir los mismos ejercicios con el mismo peso no construye nada. 28 días para más músculo, menos grasa, en 30 minutos y con lo que ya tienes en casa."
+      }
+    }
+    </script>
+    <script>
+    (function () {
+      var t = (location.search.match(/[?&]t=([a-z])/i) || [])[1];
+      t = t ? t.toLowerCase() : "a";
+      if (t !== "a") {
+        var alt = {};
+        try { alt = JSON.parse(document.getElementById("titulos-alt").textContent); } catch (e) {}
+        var v = alt[t];
+        if (v) {
+          if (v.h1) document.getElementById("h1").innerHTML = v.h1;
+          if (v.sub) document.getElementById("sub").textContent = v.sub;
+        } else { t = "a"; }
+      }
+      var h1 = document.getElementById("h1");
+      if (h1.textContent.trim().length > 80) h1.classList.add("largo");
+      window.FTN_TITULO = t;
+      document.body.setAttribute("data-titulo", t);
+    })();
+    </script>
     <div class="cta-wrap"><a href="#oferta" class="cta">Quiero entrar a la próxima generación</a></div>
     <p class="prueba"><b>+1,000 mujeres</b> ya hicieron el reto <span class="pend-inline">CONFIRMAR</span> · <b>+60,000 mujeres</b> han entrenado con Bren <span class="pend-inline">CONFIRMAR</span></p>
   </div>
@@ -32,13 +77,14 @@
 <!-- B2 · CIRCUNSTANCIA (su mundo, en su voz) -->
 <section class="sec reveal claro">
   <div class="in narrow">
-    <h2 class="center">Apareces. Entrenas. Y el cuerpo no contesta.</h2>
+    <h2 class="center">¿Alguna vez te has preguntado por qué dos mujeres que entrenan lo mismo terminan viéndose distinto?</h2>
     <div class="gap-lineas">
       <p>Pusiste el tapete en la sala a media mañana, entre la junta y la comida. Sacaste las ligas y el par de mancuernas. Le diste play.</p>
       <p>Ya te quitaste la comida de un día para otro. Terminaste con más hambre que al principio y aguantaste hasta el domingo.</p>
       <p>Ya le metiste cardio. Salías empapada y el espejo seguía igual.</p>
       <p>Y ahora entrenas. De verdad entrenas. Pero abres la foto de hace seis meses y encuentras el mismo brazo.</p>
-      <p>Tú ya sabes que quieres músculo. Lo que nadie te ha dicho es por qué lo que haces no te lo está dando.</p>
+      <p>Tú ya sabes que quieres músculo. La diferencia entre ella y tú no es la disciplina, ni las ganas, ni el tiempo. Es una sola cosa, y casi nadie te la explica.</p>
+      <p><b>Te la digo aquí abajo.</b></p>
     </div>
   </div>
   <!-- verbatims de origen (no se publican): V-482 · V-809 · V-572 -->
@@ -54,19 +100,23 @@
       <p>Y pasados los 30, si no entrenas fuerza con progresión, el cuerpo suelta músculo año con año. El músculo es lo que sostiene tu forma y lo que gasta energía mientras haces cualquier otra cosa.</p>
     </div>
     <div class="promesa"><p>El músculo no se pide de vuelta. Se entrena, y se entrena subiendo.</p></div>
+    <p class="mt">Esa es toda la diferencia entre las dos mujeres del principio: una le sube y la otra repite. Y hay algo más, que empieza a pasar justo en estos años y que casi nadie está diciendo en voz alta.</p>
   </div>
 </section>
 
 <!-- B3b · EL COSTO DE NO MOVERSE -->
 <section class="sec reveal suave">
   <div class="in narrow">
-    <h2 class="center">Lo que cuesta otro semestre entrenando sin plan.</h2>
+    <h2 class="center">El cuerpo empieza a soltar músculo año con año sin avisarte. Y casi nadie está hablando de esto.</h2>
     <div class="gap-lineas" style="margin-top:26px">
-      <p>Vas a poner el tapete igual. Vas a apartar los mismos 30 minutos. Vas a sudar lo mismo.</p>
-      <p>Y en seis meses vas a abrir otra foto y encontrar el mismo brazo, con seis meses más encima.</p>
+      <p>De los treinta y tantos en adelante, si no entrenas fuerza, el cuerpo va soltando músculo cada año. No te manda ninguna señal: la báscula se puede quedar exactamente igual mientras cambia de qué está hecho ese peso.</p>
+      <p>Por eso el mismo pantalón te queda distinto pesando lo mismo. Y por eso cada año cuesta un poco más subir las bolsas del súper de un solo viaje.</p>
+      <p>Otro semestre entrenando sin plan no te deja donde estás. Te deja un poco más abajo.</p>
+      <p>Vas a poner el tapete igual. Vas a apartar los mismos 30 minutos. Vas a sudar lo mismo. Y en seis meses vas a abrir otra foto y encontrar el mismo brazo, con seis meses más encima.</p>
       <p>El esfuerzo ya lo estás haciendo. Lo único que falta es que cuente.</p>
     </div>
     <div class="remate"><p>No te falta disciplina. Te falta un plan que suba.</p></div>
+    <p class="mt center">Ese plan es lo que sigue.</p>
   </div>
 </section>
 
@@ -82,6 +132,7 @@
       <div class="pieza"><span class="num">1</span><h3>Fuerza, 30 minutos</h3><p>Entrenos que caben en el día que ya tienes. En casa o donde entrenes.</p></div>
       <div class="pieza"><span class="num">2</span><h3>Comida que se sostiene</h3><p>Un plan que puedes repetir el mes siguiente, con comida de aquí.</p></div>
     </div>
+    <p class="mt">Falta lo que casi siempre se decide al final: cuánto cuesta y hasta cuándo está abierto. Está más abajo, después de que veas a Bren y a las mujeres que ya lo hicieron.</p>
     <div class="cta-wrap"><a href="#oferta" class="cta">Ver cómo funciona el reto</a></div>
   </div>
 </section>
