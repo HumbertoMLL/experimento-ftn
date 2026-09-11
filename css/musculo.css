@@ -150,6 +150,40 @@ b, strong { font-weight: 700; }
 .pieza h3 { font-size: 1.08rem; }
 .pieza p { margin-top: 8px; font-size: .97rem; }
 
+/* ---------- Mitos: el error y lo que en realidad pasa ---------- */
+.mitos { display: grid; gap: 14px; margin-top: 30px; counter-reset: mito; }
+.mito {
+  background: var(--card); border: 1px solid rgba(var(--rgb-tinta), .09);
+  border-left: 4px solid var(--coral); border-radius: 14px;
+  padding: 20px 22px; position: relative;
+}
+.oscuro .mito { background: var(--tinta-2); border-color: rgba(var(--rgb-papel), .12); border-left-color: var(--coral); }
+.mito h3 {
+  font-size: 1.02rem; line-height: 1.3; padding-left: 34px;
+}
+.mito h3::before {
+  counter-increment: mito; content: counter(mito);
+  position: absolute; left: 22px;
+  width: 24px; height: 24px; border-radius: 7px;
+  background: var(--coral); color: var(--tinta);
+  font-family: "Bricolage Grotesque", sans-serif; font-weight: 800; font-size: .78rem;
+  display: grid; place-items: center;
+}
+.mito p { margin-top: 10px; font-size: .95rem; line-height: 1.5; padding-left: 34px; }
+.mito p b { color: #A8341F; }   /* el coral puro no alcanza contraste sobre la tarjeta clara */
+.oscuro .mito p b { color: var(--lima); }
+
+/* ---------- Lo que sí vamos a medir ---------- */
+.medimos { display: grid; gap: 11px; margin-top: 28px; }
+.medimos li {
+  list-style: none; display: flex; gap: 13px; align-items: flex-start;
+  background: rgba(198, 255, 61, .1); border: 1px solid rgba(198, 255, 61, .45);
+  border-radius: 13px; padding: 15px 18px; font-size: .99rem; line-height: 1.45;
+}
+.medimos li::before { content: "✓"; color: #4E6B00; font-weight: 800; flex-shrink: 0; }
+.oscuro .medimos li { background: rgba(198, 255, 61, .13); border-color: rgba(198, 255, 61, .4); color: var(--papel); }
+.oscuro .medimos li::before { color: var(--lima); }
+
 /* ---------- Video ---------- */
 .video { max-width: 720px; margin: 28px auto 0; }
 .video-marco {
