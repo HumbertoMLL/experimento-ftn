@@ -7,22 +7,36 @@ html { scroll-behavior: smooth; }
 img { max-width: 100%; height: auto; display: block; }
 
 :root {
-  --coral:  #FF6B5B;
-  --lima:   #C6FF3D;
-  --tinta:  #1A1A2E;
-  /* neutros derivados */
-  --tinta-2: #23233d;
-  --papel:  #FBFAF8;
-  --papel-2:#F1EFEC;
-  --card:   #FFFFFF;
-  --gris:   #5F5F70;
-  --rgb-tinta: 26, 26, 46;
-  --rgb-papel: 251, 250, 248;
+  /* --- La paleta, tal cual --- */
+  --coral:  #FF6B5B;   /* principal: botones, acentos, numeros */
+  --lima:   #C6FF3D;   /* segundo acento, solo sobre fondo oscuro */
+  --tinta:  #1A1A2E;   /* fondo oscuro, y todo el texto sobre fondo claro */
+  --blanco: #FFFFFF;   /* el fondo claro es blanco */
+
+  /* --- Derivados. No son colores nuevos: son los mismos tres, aclarados u
+         oscurecidos hasta donde el original no alcanza contraste. --- */
+  --nieve:        #F5F5F7;  /* tinta al 4% sobre blanco: la banda de descanso */
+  --tinta-2:      #262640;  /* tinta aclarada: tarjetas sobre fondo oscuro */
+  --gris:         #5A5A69;  /* tinta al 72% sobre blanco, 6.8:1 */
+  --coral-oscuro: #A8341F;  /* coral que si se lee sobre blanco, 6.6:1 */
+  --lima-oscuro:  #4E7A00;  /* lima que si se lee sobre blanco, 5.1:1 */
+  --coral-papel:  #FFF0EE;  /* coral al 10% sobre blanco */
+  --coral-chip:   #FFE4E1;  /* coral al 18% sobre blanco */
+
+  --rgb-tinta:  26, 26, 46;
+  --rgb-blanco: 255, 255, 255;
+  --rgb-coral:  255, 107, 91;
+  --rgb-lima:   198, 255, 61;
+
+  /* La tarjeta siempre contrasta contra su seccion: cada tema de abajo
+     redefine estas dos y todas las tarjetas se acomodan solas. */
+  --card-bg:    var(--nieve);
+  --card-borde: rgba(var(--rgb-tinta), .10);
 }
 
 body {
   font-family: "Inter", system-ui, -apple-system, sans-serif;
-  background: var(--papel);
+  background: var(--blanco);
   color: var(--tinta);
   -webkit-font-smoothing: antialiased;
 }
@@ -44,15 +58,29 @@ b, strong { font-weight: 700; }
 .center { text-align: center; }
 .mt  { margin-top: 18px; }
 
-.oscuro { background: var(--tinta); color: var(--papel); }
-.oscuro h1, .oscuro h2, .oscuro h3 { color: var(--papel); }
-.oscuro p { color: rgba(var(--rgb-papel), .8); }
-.oscuro b, .oscuro strong { color: var(--papel); }
-.suave { background: var(--papel-2); }
+.claro  { background: var(--blanco); --card-bg: var(--nieve); }
+.suave  { background: var(--nieve);  --card-bg: var(--blanco); }
+.oscuro {
+  background: var(--tinta); color: var(--blanco);
+  --card-bg: var(--tinta-2); --card-borde: rgba(var(--rgb-blanco), .12);
+}
+.oscuro h1, .oscuro h2, .oscuro h3 { color: var(--blanco); }
+.oscuro p { color: rgba(var(--rgb-blanco), .8); }
+.oscuro b, .oscuro strong { color: var(--blanco); }
 
 .hl { color: var(--coral); }
 .hl-lima { color: var(--lima); }
 .oscuro .hl { color: var(--coral); }
+
+/* ---------- La regla del coral ----------
+   El coral es el color de contraste sobre fondo oscuro. Sobre blanco se queda
+   en 2.8:1, asi que TODO texto coral que caiga en seccion clara usa el coral
+   oscurecido. Los bordes y fondos si pueden seguir en coral puro. */
+.claro .hl,        .suave .hl,
+.claro .prueba b,  .suave .prueba b,
+.claro .cifra b,   .suave .cifra b,
+.claro .kicker,    .suave .kicker,
+.claro .escasez .fecha, .suave .escasez .fecha { color: var(--coral-oscuro); }
 
 /* ---------- Botón ---------- */
 .cta {
@@ -62,32 +90,37 @@ b, strong { font-weight: 700; }
   font-family: "Bricolage Grotesque", "DM Sans", sans-serif;
   font-weight: 700; font-size: 1.02rem; text-align: center;
   text-decoration: none; padding: 19px 28px; border-radius: 14px;
-  box-shadow: 0 10px 28px rgba(255, 107, 91, .34);
+  box-shadow: 0 10px 28px rgba(var(--rgb-coral), .34);
   transition: transform .2s ease, box-shadow .2s ease;
 }
-.cta:hover { transform: translateY(-2px); box-shadow: 0 14px 34px rgba(255, 107, 91, .46); }
-.cta.lima { background: var(--lima); color: var(--tinta); box-shadow: 0 10px 28px rgba(198, 255, 61, .3); }
+.cta:hover { transform: translateY(-2px); box-shadow: 0 14px 34px rgba(var(--rgb-coral), .46); }
+.cta.lima { background: var(--lima); color: var(--tinta); box-shadow: 0 10px 28px rgba(var(--rgb-lima), .3); }
 .cta-wrap { display: flex; justify-content: center; }
 
 /* ---------- Prueba social ---------- */
 .prueba {
   margin-top: 16px; text-align: center;
-  font-size: .82rem; line-height: 1.5; color: rgba(var(--rgb-papel), .6);
+  font-size: .82rem; line-height: 1.5; color: rgba(var(--rgb-blanco), .6);
 }
 .suave .prueba, .claro .prueba { color: var(--gris); }
 .prueba b { color: var(--coral); font-weight: 700; }
 
 /* ---------- Hero ---------- */
-.hero { background: var(--tinta); color: var(--papel); padding: 54px 20px 62px; }
+.hero { background: var(--tinta); color: var(--blanco); padding: 54px 20px 62px; }
 .hero .in { display: flex; flex-direction: column; align-items: center; text-align: center; }
+/* La marca flanquea el titular en escritorio. En telefono no hay lugar para
+   dos, asi que la de la derecha se esconde y queda solo la de arriba. */
+.hero-grid { display: grid; justify-items: center; align-items: center; gap: 26px; max-width: 1240px; margin: 0 auto; }
+.hero .marca { width: min(165px, 45%); height: auto; }
+.hero .marca-der { display: none; }
 .hero h1 { max-width: 18ch; }
 /* Los titulos con formula ("Si eres X que Y, promesa") son frases largas: a
    tamaño completo se comen la pantalla del teléfono y empujan el botón fuera
    de vista. El script del hero les pone .largo cuando pasan de 80 caracteres. */
 .hero h1.largo { font-size: clamp(1.45rem, 5vw, 2.9rem); max-width: 27ch; }
-.hero p.sub { margin-top: 20px; max-width: 54ch; color: rgba(var(--rgb-papel), .78); }
+.hero p.sub { margin-top: 20px; max-width: 54ch; color: rgba(var(--rgb-blanco), .78); }
 .kicker {
-  display: inline-block; background: rgba(255,107,91,.16); color: var(--coral);
+  display: inline-block; background: rgba(var(--rgb-coral), .16); color: var(--coral);
   font-family: "Bricolage Grotesque", "DM Sans", sans-serif; font-weight: 700;
   font-size: .74rem; letter-spacing: .12em; text-transform: uppercase;
   padding: 8px 16px; border-radius: 999px; margin-bottom: 20px;
@@ -100,7 +133,7 @@ b, strong { font-weight: 700; }
   font-weight: 600; color: var(--tinta);
   padding-top: 20px; border-top: 2px solid rgba(var(--rgb-tinta), .1);
 }
-.oscuro .gap-lineas p:last-child { color: var(--papel); border-top-color: rgba(var(--rgb-papel), .16); }
+.oscuro .gap-lineas p:last-child { color: var(--blanco); border-top-color: rgba(var(--rgb-blanco), .16); }
 /* variante numerada (V4) */
 .gap-pasos { counter-reset: paso; }
 .gap-pasos p { position: relative; padding-left: 40px; }
@@ -119,14 +152,14 @@ b, strong { font-weight: 700; }
 .promesa {
   margin-top: 34px; padding: 30px 26px;
   border-left: 5px solid var(--lima);
-  background: rgba(198, 255, 61, .07);
+  background: rgba(var(--rgb-lima), .07);
   border-radius: 0 16px 16px 0;
 }
 .promesa p {
   font-family: "Bricolage Grotesque", "DM Sans", sans-serif;
   font-weight: 800; letter-spacing: -.02em;
   font-size: clamp(1.25rem, 4.2vw, 1.9rem); line-height: 1.2;
-  color: var(--papel);
+  color: var(--blanco);
 }
 .claro .promesa p, .suave .promesa p { color: var(--tinta); }
 
@@ -135,16 +168,15 @@ b, strong { font-weight: 700; }
 .remate p {
   font-family: "Bricolage Grotesque", "DM Sans", sans-serif; font-weight: 800;
   letter-spacing: -.02em; font-size: clamp(1.1rem, 3.6vw, 1.5rem);
-  line-height: 1.25; color: var(--papel); text-align: center;
+  line-height: 1.25; color: var(--blanco); text-align: center;
 }
 
 /* ---------- Dos piezas ---------- */
 .piezas { display: grid; gap: 16px; margin-top: 30px; }
 .pieza {
-  background: var(--card); border: 1px solid rgba(var(--rgb-tinta), .09);
+  background: var(--card-bg); border: 1px solid var(--card-borde);
   border-radius: 18px; padding: 26px 24px;
 }
-.oscuro .pieza { background: var(--tinta-2); border-color: rgba(var(--rgb-papel), .12); }
 .pieza .num {
   display: inline-grid; place-items: center; width: 34px; height: 34px;
   border-radius: 10px; background: var(--lima); color: var(--tinta);
@@ -157,11 +189,10 @@ b, strong { font-weight: 700; }
 /* ---------- Mitos: el error y lo que en realidad pasa ---------- */
 .mitos { display: grid; gap: 14px; margin-top: 30px; counter-reset: mito; }
 .mito {
-  background: var(--card); border: 1px solid rgba(var(--rgb-tinta), .09);
+  background: var(--card-bg); border: 1px solid var(--card-borde);
   border-left: 4px solid var(--coral); border-radius: 14px;
   padding: 20px 22px; position: relative;
 }
-.oscuro .mito { background: var(--tinta-2); border-color: rgba(var(--rgb-papel), .12); border-left-color: var(--coral); }
 .mito h3 {
   font-size: 1.02rem; line-height: 1.3; padding-left: 34px;
 }
@@ -174,18 +205,18 @@ b, strong { font-weight: 700; }
   display: grid; place-items: center;
 }
 .mito p { margin-top: 10px; font-size: .95rem; line-height: 1.5; padding-left: 34px; }
-.mito p b { color: #A8341F; }   /* el coral puro no alcanza contraste sobre la tarjeta clara */
+.mito p b { color: var(--coral-oscuro); }   /* el coral puro no se lee sobre la tarjeta clara */
 .oscuro .mito p b { color: var(--lima); }
 
 /* ---------- Lo que sí vamos a medir ---------- */
 .medimos { display: grid; gap: 11px; margin-top: 28px; }
 .medimos li {
   list-style: none; display: flex; gap: 13px; align-items: flex-start;
-  background: rgba(198, 255, 61, .1); border: 1px solid rgba(198, 255, 61, .45);
+  background: rgba(var(--rgb-lima), .1); border: 1px solid rgba(var(--rgb-lima), .45);
   border-radius: 13px; padding: 15px 18px; font-size: .99rem; line-height: 1.45;
 }
-.medimos li::before { content: "✓"; color: #4E6B00; font-weight: 800; flex-shrink: 0; }
-.oscuro .medimos li { background: rgba(198, 255, 61, .13); border-color: rgba(198, 255, 61, .4); color: var(--papel); }
+.medimos li::before { content: "✓"; color: var(--lima-oscuro); font-weight: 800; flex-shrink: 0; }
+.oscuro .medimos li { background: rgba(var(--rgb-lima), .13); border-color: rgba(var(--rgb-lima), .4); }
 .oscuro .medimos li::before { color: var(--lima); }
 
 /* ---------- Video ---------- */
@@ -193,16 +224,16 @@ b, strong { font-weight: 700; }
 .video-marco {
   position: relative; padding-top: 56.25%;
   border-radius: 18px; overflow: hidden; background: var(--tinta-2);
-  border: 1px solid rgba(var(--rgb-papel), .14);
+  border: 1px solid rgba(var(--rgb-blanco), .14);
 }
 .video-marco iframe, .video-marco video { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
 .video-ph {
   position: absolute; inset: 0; display: grid; place-content: center; justify-items: center;
-  gap: 10px; color: rgba(var(--rgb-papel), .45); text-align: center; padding: 20px;
+  gap: 10px; color: rgba(var(--rgb-blanco), .6); text-align: center; padding: 20px;
 }
 .video-ph .play {
   width: 58px; height: 58px; border-radius: 50%;
-  background: var(--coral); color: #fff; display: grid; place-items: center;
+  background: var(--coral); color: var(--tinta); display: grid; place-items: center;
   font-size: 1.3rem; padding-left: 4px;
 }
 .video-ph span:last-child { font-size: .84rem; }
@@ -211,38 +242,35 @@ b, strong { font-weight: 700; }
 .incluye { display: grid; gap: 12px; margin-top: 30px; }
 .incluye li {
   list-style: none; display: flex; gap: 13px; align-items: flex-start;
-  background: var(--card); border: 1px solid rgba(var(--rgb-tinta), .08);
+  background: var(--card-bg); border: 1px solid var(--card-borde);
   border-radius: 14px; padding: 16px 18px; font-size: .98rem; line-height: 1.5;
 }
-.oscuro .incluye li { background: var(--tinta-2); border-color: rgba(var(--rgb-papel), .1); color: rgba(var(--rgb-papel), .88); }
 .incluye li .ck { flex-shrink: 0; color: var(--lima); font-weight: 800; }
-.oscuro .incluye li .ck { color: var(--lima); }
 /* El lima solo se lee sobre fondo oscuro: sobre la tarjeta clara se queda en
    1.6:1. En secciones claras baja a un verde que si pasa contraste. */
-.claro .incluye li .ck, .suave .incluye li .ck { color: #4E7A00; }
+.claro .incluye li .ck, .suave .incluye li .ck { color: var(--lima-oscuro); }
 
 /* ---------- Bren ---------- */
 .bren { display: grid; gap: 24px; align-items: center; margin-top: 26px; }
-.bren img { width: 100%; max-width: 260px; margin-inline: auto; border-radius: 50%; background: var(--papel-2); }
+.bren img { width: 100%; max-width: 260px; margin-inline: auto; border-radius: 50%; background: var(--nieve); }
 .cifras { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-top: 26px; }
 .cifra { min-width: 0; }
 .cifra {
-  background: var(--card); border: 1px solid rgba(var(--rgb-tinta), .08);
+  background: var(--card-bg); border: 1px solid var(--card-borde);
   border-radius: 14px; padding: 18px 12px; text-align: center;
 }
-.oscuro .cifra { background: var(--tinta-2); border-color: rgba(var(--rgb-papel), .1); }
 .cifra b {
   display: block; font-family: "Bricolage Grotesque", sans-serif;
   font-size: 1.35rem; color: var(--coral); line-height: 1.1;
 }
 .cifra span { display: block; margin-top: 6px; font-size: .78rem; line-height: 1.35; color: var(--gris); }
-.oscuro .cifra span { color: rgba(var(--rgb-papel), .6); }
+.oscuro .cifra span { color: rgba(var(--rgb-blanco), .6); }
 
 /* ---------- Es para ti / no es para ti ---------- */
 .filtro { display: grid; gap: 16px; margin-top: 30px; }
 .filtro .col { border-radius: 18px; padding: 24px 22px; }
-.filtro .si  { background: var(--card); border: 2px solid var(--lima); }
-.filtro .no  { background: var(--papel-2); border: 1px solid rgba(var(--rgb-tinta), .1); }
+.filtro .si  { background: var(--card-bg); border: 2px solid var(--lima); }
+.filtro .no  { background: var(--card-bg); border: 1px solid var(--card-borde); }
 .filtro h3 { font-size: 1rem; letter-spacing: .06em; text-transform: uppercase; }
 .filtro .si h3 { color: var(--tinta); }
 .filtro .no h3 { color: var(--gris); }
@@ -257,19 +285,17 @@ b, strong { font-weight: 700; }
   margin-top: 30px; background: var(--tinta-2);
   border: 2px solid var(--coral); border-radius: 22px; padding: 32px 26px; text-align: center;
 }
-.claro .oferta-caja, .suave .oferta-caja { background: var(--card); }
 .oferta-caja .incluye { margin-top: 0; text-align: left; }
-.precio-fila { margin-top: 24px; padding-top: 24px; border-top: 1px solid rgba(var(--rgb-papel), .14); }
+.precio-fila { margin-top: 24px; padding-top: 24px; border-top: 1px solid rgba(var(--rgb-blanco), .14); }
 .claro .precio-fila, .suave .precio-fila { border-top-color: rgba(var(--rgb-tinta), .1); }
 
 /* ---------- Los dos tickets ---------- */
 .planes { display: grid; gap: 18px; margin-top: 30px; padding-top: 15px; align-items: stretch; }
 .plan {
   position: relative; display: flex; flex-direction: column; height: 100%;
-  background: var(--card); border: 1px solid rgba(var(--rgb-tinta), .1);
+  background: var(--card-bg); border: 1px solid var(--card-borde);
   border-radius: 20px; padding: 28px 24px 26px; text-align: left;
 }
-.oscuro .plan { background: var(--tinta-2); border-color: rgba(var(--rgb-papel), .12); }
 .plan.destacado { border: 2px solid var(--coral); padding-top: 34px; }
 .plan .sello {
   position: absolute; top: -13px; left: 50%; transform: translateX(-50%);
@@ -290,15 +316,15 @@ b, strong { font-weight: 700; }
 }
 /* El precio ancla tiene que leerse: tachado y gris claro no pasa contraste. */
 .plan .precio .ancla { font-size: 1.05rem; text-decoration: line-through; color: var(--gris); }
-.oscuro .plan .precio .ancla { color: rgba(var(--rgb-papel), .72); }
+.oscuro .plan .precio .ancla { color: rgba(var(--rgb-blanco), .72); }
 .plan .por-mes {
   margin-top: 8px; font-family: "Bricolage Grotesque", sans-serif; font-weight: 700;
-  font-size: .95rem; color: #4E7A00;
+  font-size: .95rem; color: var(--lima-oscuro);
 }
 .oscuro .plan .por-mes { color: var(--lima); }
 .plan-lista { list-style: none; display: grid; gap: 10px; margin-top: 20px; }
 .plan-lista li { display: flex; gap: 10px; font-size: .95rem; line-height: 1.5; }
-.plan-lista li .ck { flex-shrink: 0; font-weight: 800; color: #4E7A00; }
+.plan-lista li .ck { flex-shrink: 0; font-weight: 800; color: var(--lima-oscuro); }
 .oscuro .plan-lista li .ck { color: var(--lima); }
 .plan-lista li.extra { font-weight: 600; }
 .plan .cta { margin-top: auto; padding-top: 14px; padding-bottom: 14px; font-size: .96rem; }
@@ -307,21 +333,55 @@ b, strong { font-weight: 700; }
 /* La amiga: se vende como mecanismo, no como promo */
 .amiga {
   margin-top: 26px; padding: 22px 24px; border-radius: 18px;
-  background: var(--card); border-left: 5px solid var(--lima);
+  background: var(--card-bg); border-left: 5px solid var(--lima);
   border-top: 1px solid rgba(var(--rgb-tinta), .08);
   border-right: 1px solid rgba(var(--rgb-tinta), .08);
   border-bottom: 1px solid rgba(var(--rgb-tinta), .08);
 }
-.oscuro .amiga { background: var(--tinta-2); border-color: rgba(var(--rgb-papel), .12); border-left-color: var(--lima); }
+.oscuro .amiga { background: var(--tinta-2); border-color: rgba(var(--rgb-blanco), .12); border-left-color: var(--lima); }
 .amiga p { font-size: 1.02rem; line-height: 1.55; }
 .amiga p b { font-weight: 700; }
 .letra-chica { margin-top: 16px; font-size: .84rem; line-height: 1.55; color: var(--gris); }
-.oscuro .letra-chica { color: rgba(var(--rgb-papel), .72); }
+.oscuro .letra-chica { color: rgba(var(--rgb-blanco), .72); }
 
 /* Bloque de prueba que va ANTES del precio */
 .porque { margin-top: 26px; }
 .porque h3 { font-size: clamp(1.15rem, 4vw, 1.5rem); }
 .porque p { margin-top: 14px; }
+
+/* ---------- Hueco achurado: aqui va una imagen que todavia no existe ----------
+   Se ve a proposito: mientras siga rayado, la landing no esta lista.
+   Para llenarlo, cambia el <div class="hueco"> por un <img> con width y
+   height declarados, para que no brinque el layout al cargar. */
+.hueco {
+  margin-top: 28px; border-radius: 18px;
+  border: 2px dashed var(--coral);
+  background-color: var(--coral-papel);
+  background-image: repeating-linear-gradient(-45deg,
+    rgba(var(--rgb-coral), .16) 0 9px, transparent 9px 20px);
+  display: grid; place-content: center; justify-items: center; gap: 9px;
+  padding: 30px 22px; text-align: center; min-height: 190px;
+}
+.oscuro .hueco, .hero .hueco {
+  background-color: var(--tinta-2);
+  background-image: repeating-linear-gradient(-45deg,
+    rgba(var(--rgb-coral), .22) 0 9px, transparent 9px 20px);
+}
+.hueco .que {
+  font-family: "Bricolage Grotesque", sans-serif; font-weight: 800;
+  font-size: .7rem; letter-spacing: .14em; text-transform: uppercase;
+  color: var(--coral-oscuro);
+}
+.hueco p { font-size: .93rem; line-height: 1.45; color: var(--coral-oscuro); max-width: 36ch; }
+.hueco .medida {
+  font-family: "Bricolage Grotesque", sans-serif; font-weight: 700;
+  font-size: .78rem; color: var(--coral-oscuro);
+}
+.oscuro .hueco .que, .oscuro .hueco p, .oscuro .hueco .medida,
+.hero .hueco .que, .hero .hueco p, .hero .hueco .medida { color: var(--coral); }
+.hueco.alto  { min-height: 320px; }
+.hueco.ancho { min-height: 240px; }
+.hero .hueco { width: 100%; margin-top: 30px; }
 
 /* ---------- Escasez ---------- */
 .escasez { text-align: center; }
@@ -337,24 +397,24 @@ b, strong { font-weight: 700; }
    oscuras y con fondo translúcido el contraste se volvía impredecible. */
 .pendiente {
   display: block; margin-top: 14px; padding: 16px 18px;
-  background: #FFF1EE; border: 2px dashed #E8907F;
+  background: var(--coral-papel); border: 2px dashed var(--coral);
   border-radius: 12px; font-size: .9rem; line-height: 1.5;
-  color: #8F2A17; font-style: normal;
+  color: var(--coral-oscuro); font-style: normal;
 }
 .pendiente::before {
   content: "PENDIENTE"; display: block; font-family: "Bricolage Grotesque", sans-serif;
-  font-weight: 800; font-size: .68rem; letter-spacing: .14em; margin-bottom: 6px; color: #B8442C;
+  font-weight: 800; font-size: .68rem; letter-spacing: .14em; margin-bottom: 6px; color: var(--coral-oscuro);
 }
-.oscuro .pendiente, .oscuro .pendiente::before { color: #8F2A17; }
+.oscuro .pendiente, .oscuro .pendiente::before { color: var(--coral-oscuro); }
 .pend-inline {
-  background: #FFE4DE; color: #8F2A17;
+  background: var(--coral-chip); color: var(--coral-oscuro);
   border-radius: 6px; padding: 1px 7px; font-weight: 700; font-size: .92em;
   overflow-wrap: anywhere;
 }
 
 /* ---------- Footer ---------- */
-footer { background: var(--tinta); color: rgba(var(--rgb-papel), .5); text-align: center; padding: 40px 20px; font-size: .82rem; }
-footer b { display: block; font-family: "Bricolage Grotesque", sans-serif; font-size: 1.05rem; color: var(--papel); letter-spacing: .04em; margin-bottom: 8px; }
+footer { background: var(--tinta); color: rgba(var(--rgb-blanco), .5); text-align: center; padding: 40px 20px; font-size: .82rem; }
+footer b { display: block; font-family: "Bricolage Grotesque", sans-serif; font-size: 1.05rem; color: var(--blanco); letter-spacing: .04em; margin-bottom: 8px; }
 
 /* ---------- Reveal ---------- */
 .js .reveal { opacity: 0; transform: translateY(20px); transition: opacity .55s ease, transform .55s ease; }
@@ -369,4 +429,10 @@ footer b { display: block; font-family: "Bricolage Grotesque", sans-serif; font-
   .bren { grid-template-columns: 280px 1fr; }
   .bren img { margin-inline: 0; }
   .gap-lineas { gap: 24px; }
+}
+
+@media (min-width: 1000px) {
+  .hero-grid { grid-template-columns: minmax(150px, 210px) minmax(0, 1fr) minmax(150px, 210px); gap: 34px; }
+  .hero .marca { width: 100%; }
+  .hero .marca-der { display: block; }
 }
