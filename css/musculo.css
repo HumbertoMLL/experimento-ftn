@@ -126,6 +126,14 @@ b, strong { font-weight: 700; }
 }
 .claro .promesa p, .suave .promesa p { color: var(--tinta); }
 
+/* Remate del bloque de costo: la frase que cierra el argumento */
+.remate { margin-top: 28px; padding: 22px 24px; background: var(--tinta); border-radius: 16px; }
+.remate p {
+  font-family: "Bricolage Grotesque", "DM Sans", sans-serif; font-weight: 800;
+  letter-spacing: -.02em; font-size: clamp(1.1rem, 3.6vw, 1.5rem);
+  line-height: 1.25; color: var(--papel); text-align: center;
+}
+
 /* ---------- Dos piezas ---------- */
 .piezas { display: grid; gap: 16px; margin-top: 30px; }
 .pieza {
