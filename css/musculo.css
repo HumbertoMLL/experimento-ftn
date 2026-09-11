@@ -217,6 +217,9 @@ b, strong { font-weight: 700; }
 .oscuro .incluye li { background: var(--tinta-2); border-color: rgba(var(--rgb-papel), .1); color: rgba(var(--rgb-papel), .88); }
 .incluye li .ck { flex-shrink: 0; color: var(--lima); font-weight: 800; }
 .oscuro .incluye li .ck { color: var(--lima); }
+/* El lima solo se lee sobre fondo oscuro: sobre la tarjeta clara se queda en
+   1.6:1. En secciones claras baja a un verde que si pasa contraste. */
+.claro .incluye li .ck, .suave .incluye li .ck { color: #4E7A00; }
 
 /* ---------- Bren ---------- */
 .bren { display: grid; gap: 24px; align-items: center; margin-top: 26px; }
