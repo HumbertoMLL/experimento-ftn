@@ -33,15 +33,20 @@
     marco.appendChild(el);
   }
 
-  /* ---------- Checkout ---------- */
-  var checkout = (m.checkoutUrl || "").trim();
+  /* ---------- Checkout: un boton por plan ---------- */
+  var planes = m.checkout || {};
   document.querySelectorAll(".js-checkout").forEach(function (btn) {
-    if (checkout) btn.href = checkout;
+    var plan = btn.getAttribute("data-plan") || "trimestral";
+    var datos = planes[plan] || {};
+    var url = (datos.url || "").trim();
+    if (url) btn.href = url;
     btn.addEventListener("click", function (e) {
-      if (!checkout) e.preventDefault();     // sin URL todavía, no manda a ningún lado
+      if (!url) e.preventDefault();          // sin URL todavía, no manda a ningún lado
       window.ftnTrack("InitiateCheckout", {
-        content_name: "Reto Mas Musculo Menos Grasa",
+        content_name: datos.nombre || "Reto Mas Musculo Menos Grasa",
         content_category: variante,
+        content_ids: [plan],
+        value: datos.precio || 0,            // para que Meta pueda optimizar por valor
         currency: "MXN"
       });
     });

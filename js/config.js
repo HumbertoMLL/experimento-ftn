@@ -53,7 +53,14 @@ window.FTN_CONFIG = {
      checkoutUrl: mientras esté vacía, los botones de compra no navegan. */
   musculo: {
     videoUrl: "",
-    checkoutUrl: "",
+    /* Los dos tickets del Reto Mas Musculo, Menos Grasa.
+       Pega aqui el link de Hotmart de cada uno. Mientras esten vacios,
+       el boton no manda a ningun lado pero el evento de Meta si se
+       dispara, para no perder la senal de quien intento comprar. */
+    checkout: {
+      mensual:    { url: "", nombre: "Reto Mas Musculo - Mensual",    precio: 599 },
+      trimestral: { url: "", nombre: "Reto Mas Musculo - Trimestral", precio: 1197 }
+    }
   },
 
   /* --- Fechas -------------------------------------------------------
