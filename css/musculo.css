@@ -478,3 +478,132 @@ footer b { display: block; font-family: "Bricolage Grotesque", sans-serif; font-
   .hero-movil { display: none; }
   .hero .marca { width: min(330px, 72%); }
 }
+
+/* ============================================================
+   Piezas que solo usa la v6 (la estructura del Reto 2%)
+   ============================================================ */
+
+/* ---------- Cintillo que corre ---------- */
+.cintillo { overflow: hidden; background: var(--naranja); padding: 13px 0; }
+.cintillo .pista { display: flex; width: max-content; animation: correr 28s linear infinite; }
+.cintillo span {
+  font-family: "Bricolage Grotesque", sans-serif; font-weight: 800;
+  font-size: .92rem; letter-spacing: .03em; text-transform: uppercase;
+  color: var(--tinta); padding-right: 26px; white-space: nowrap;
+}
+@keyframes correr { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+@media (prefers-reduced-motion: reduce) { .cintillo .pista { animation: none; } }
+
+/* ---------- Tres cosas para las que sirve ---------- */
+.ayuda { display: grid; gap: 14px; margin-top: 28px; }
+.ayuda li {
+  list-style: none; display: flex; gap: 16px; align-items: flex-start;
+  background: var(--card-bg); border: 1px solid var(--card-borde);
+  border-radius: 16px; padding: 20px 22px;
+}
+.ayuda .icono { font-size: 1.7rem; line-height: 1; flex-shrink: 0; }
+.ayuda h3 { font-size: 1.02rem; }
+.ayuda p { margin-top: 6px; font-size: .95rem; line-height: 1.5; }
+
+/* ---------- Qué incluye, en bloques ---------- */
+.bloques { display: grid; gap: 16px; margin-top: 28px; }
+.bloque {
+  background: var(--card-bg); border: 1px solid var(--card-borde);
+  border-left: 5px solid var(--rosa); border-radius: 16px; padding: 22px 24px;
+}
+.bloque h3 { font-size: 1.05rem; display: flex; gap: 12px; align-items: center; }
+.bloque ul { list-style: none; margin-top: 14px; display: grid; gap: 9px; }
+.bloque li { display: flex; gap: 10px; font-size: .95rem; line-height: 1.5; }
+.bloque li::before { content: "\2713"; color: var(--naranja-texto); font-weight: 800; flex-shrink: 0; }
+.oscuro .bloque li::before { color: var(--naranja); }
+
+/* ---------- Día 1 / Día 28 ---------- */
+.dias { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-top: 28px; }
+.dias figure { margin: 0; }
+.dias .etiqueta {
+  display: inline-block; background: var(--naranja); color: var(--tinta);
+  font-family: "Bricolage Grotesque", sans-serif; font-weight: 800;
+  font-size: .74rem; letter-spacing: .1em; text-transform: uppercase;
+  padding: 6px 13px; border-radius: 999px; margin-bottom: 10px;
+}
+.dias img { width: 100%; height: auto; border-radius: 14px; }
+
+/* ---------- Preguntas frecuentes ---------- */
+.faq { display: grid; gap: 11px; margin-top: 28px; }
+.faq details {
+  background: var(--card-bg); border: 1px solid var(--card-borde);
+  border-radius: 14px; overflow: hidden;
+}
+.faq summary {
+  cursor: pointer; list-style: none; padding: 18px 20px;
+  font-family: "Bricolage Grotesque", sans-serif; font-weight: 700; font-size: 1rem;
+  display: flex; justify-content: space-between; gap: 16px; align-items: center;
+}
+.faq summary::-webkit-details-marker { display: none; }
+.faq summary::after {
+  content: "+"; flex-shrink: 0; width: 26px; height: 26px; border-radius: 8px;
+  background: var(--naranja); color: var(--tinta);
+  display: grid; place-items: center; font-weight: 800; font-size: 1.05rem;
+}
+.faq details[open] summary::after { content: "\2212"; }
+.faq .respuesta { padding: 0 20px 20px; display: grid; gap: 10px; }
+.faq .respuesta p { font-size: .96rem; line-height: 1.55; }
+
+/* ---------- Dudas ---------- */
+.dudas { text-align: center; }
+/* El verde de WhatsApp es el unico color fuera de la paleta en todo el sitio,
+   y esta a proposito: el boton se reconoce antes de leerlo. 8.1:1. */
+.dudas .cta { background: #25D366; color: #07300F; box-shadow: 0 10px 28px rgba(37, 211, 102, .3); }
+
+/* ---------- Barra fija de abajo ---------- */
+.barra {
+  position: fixed; left: 0; right: 0; bottom: 0; z-index: 40;
+  background: var(--tinta); border-top: 2px solid var(--rosa);
+  padding: 9px 12px; display: flex; gap: 11px; align-items: center;
+  justify-content: center; flex-wrap: nowrap;
+  box-shadow: 0 -8px 24px rgba(0, 0, 0, .22);
+}
+.barra .dato { font-size: .76rem; line-height: 1.3; color: rgba(var(--rgb-blanco), .86); text-align: left; min-width: 0; }
+.barra .dato b { display: block; font-family: "Bricolage Grotesque", sans-serif; color: var(--naranja); font-size: .88rem; }
+/* el boton no baja de 1.2rem ni aqui: blanco sobre rosa solo pasa como texto grande */
+.barra .cta { margin: 0; width: auto; max-width: none; padding: 12px 17px; font-size: 1.2rem; white-space: nowrap; }
+/* el colchon tiene que ser mas alto que la barra, o el pie queda tapado */
+body.con-barra { padding-bottom: 96px; }
+
+/* ---------- Prensa ---------- */
+.prensa h3 { font-size: clamp(1.15rem, 3.6vw, 1.5rem); margin-bottom: 22px; }
+.prensa-grid { display: grid; gap: 16px; }
+.medio {
+  background: var(--card-bg); border: 1px solid var(--card-borde);
+  border-radius: 18px; overflow: hidden; margin: 0;
+}
+.medio img {
+  width: 100%; height: 150px; object-fit: cover;
+  background: var(--blanco); border-bottom: 1px solid var(--card-borde);
+}
+/* Cada captura se encuadra donde se reconoce el medio */
+.m-forbes img, .m-elpais img { object-position: top center; }
+.m-lider  img { object-position: center 62%; }
+.medio figcaption { padding: 18px 20px 20px; }
+.medio-nombre {
+  display: block; font-family: "Bricolage Grotesque", sans-serif; font-weight: 700;
+  font-size: .74rem; letter-spacing: .14em; text-transform: uppercase;
+  color: var(--rosa-texto);
+}
+.oscuro .medio-nombre { color: var(--naranja); }
+.medio-titular { margin-top: 10px; font-size: .98rem; line-height: 1.4; font-style: italic; }
+
+@media (min-width: 780px) {
+  .prensa-grid { grid-template-columns: repeat(3, 1fr); gap: 20px; }
+  .medio img { height: 168px; }
+}
+
+@media (min-width: 780px) {
+  .ayuda { grid-template-columns: repeat(3, 1fr); }
+  .ayuda li { flex-direction: column; }
+  .bloques { grid-template-columns: repeat(3, 1fr); align-items: start; }
+  .dias { gap: 20px; }
+  .barra { gap: 18px; padding: 11px 16px; }
+  .barra .dato { font-size: .84rem; }
+  body.con-barra { padding-bottom: 92px; }
+}
