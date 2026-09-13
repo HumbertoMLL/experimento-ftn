@@ -1,37 +1,37 @@
 /* ============================================================
    RETO MÁS MÚSCULO, MENOS GRASA
-   Paleta: coral · lima · tinta
+   Paleta: rosa · naranja · tinta
    ============================================================ */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 html { scroll-behavior: smooth; }
 img { max-width: 100%; height: auto; display: block; }
 
 :root {
-  /* --- La paleta, tal cual --- */
-  --coral:  #FF6B5B;   /* principal: botones, acentos, numeros */
-  --lima:   #C6FF3D;   /* segundo acento, solo sobre fondo oscuro */
-  --tinta:  #1A1A2E;   /* fondo oscuro, y todo el texto sobre fondo claro */
-  --blanco: #FFFFFF;   /* el fondo claro es blanco */
+  /* --- La paleta, la del logo del reto --- */
+  --rosa:    #FF2A6B;  /* el color de accion: botones, bordes, lo que hay que mirar */
+  --naranja: #FF931E;  /* el unico de los tres que carga texto oscuro encima (4.6:1) */
+  --tinta:   #2E4350;  /* fondo oscuro, y todo el texto sobre fondo claro */
+  --blanco:  #FFFFFF;  /* el fondo claro es blanco */
 
-  /* --- Derivados. No son colores nuevos: son los mismos tres, aclarados u
-         oscurecidos hasta donde el original no alcanza contraste. --- */
-  --nieve:        #F5F5F7;  /* tinta al 4% sobre blanco: la banda de descanso */
-  --tinta-2:      #262640;  /* tinta aclarada: tarjetas sobre fondo oscuro */
-  --gris:         #5A5A69;  /* tinta al 72% sobre blanco, 6.8:1 */
-  --coral-oscuro: #A8341F;  /* coral que si se lee sobre blanco, 6.6:1 */
-  --lima-oscuro:  #4E7A00;  /* lima que si se lee sobre blanco, 5.1:1 */
-  --coral-papel:  #FFF0EE;  /* coral al 10% sobre blanco */
-  --coral-chip:   #FFE4E1;  /* coral al 18% sobre blanco */
+  /* --- Derivados. Son los mismos colores, aclarados u oscurecidos hasta
+         donde el original no alcanza contraste. El numero es el ratio. --- */
+  --nieve:         #F7F7F8;  /* tinta al 4% sobre blanco: la banda de descanso */
+  --tinta-2:       #24343E;  /* tinta oscurecida: tarjetas hundidas sobre oscuro */
+  --gris:          #5C6C76;  /* tinta al 78% sobre blanco, 5.4:1 */
+  --rosa-texto:    #C4004A;  /* rosa que si se lee sobre blanco, 6.1:1 */
+  --naranja-texto: #A85F00;  /* naranja que si se lee sobre blanco, 4.9:1 */
+  --rosa-papel:    #FFEAF1;  /* rosa al 10% sobre blanco */
+  --rosa-chip:     #FFD4E2;  /* rosa al 18% sobre blanco */
 
-  --rgb-tinta:  26, 26, 46;
-  --rgb-blanco: 255, 255, 255;
-  --rgb-coral:  255, 107, 91;
-  --rgb-lima:   198, 255, 61;
+  --rgb-tinta:   46, 67, 80;
+  --rgb-blanco:  255, 255, 255;
+  --rgb-rosa:    255, 42, 107;
+  --rgb-naranja: 255, 147, 30;
 
-  /* La tarjeta siempre contrasta contra su seccion: cada tema de abajo
-     redefine estas dos y todas las tarjetas se acomodan solas. */
+  /* La tarjeta siempre contrasta contra su seccion: cada tema redefine estas
+     dos y todas las tarjetas se acomodan solas. */
   --card-bg:    var(--nieve);
-  --card-borde: rgba(var(--rgb-tinta), .10);
+  --card-borde: rgba(var(--rgb-tinta), .12);
 }
 
 body {
@@ -68,33 +68,39 @@ b, strong { font-weight: 700; }
 .oscuro p { color: rgba(var(--rgb-blanco), .8); }
 .oscuro b, .oscuro strong { color: var(--blanco); }
 
-.hl { color: var(--coral); }
-.hl-lima { color: var(--lima); }
-.oscuro .hl { color: var(--coral); }
+/* El rosa sobre el fondo oscuro se queda en 2.85:1. Por eso sobre oscuro el
+   acento de TEXTO es el naranja, y el rosa se reserva para rellenos, bordes
+   y botones, donde el contraste no depende de leerlo. */
+.hl { color: var(--rosa-texto); }
+.hl-naranja { color: var(--naranja-texto); }
+.oscuro .hl, .hero .hl, .oscuro .hl-naranja, .hero .hl-naranja { color: var(--naranja); }
 
-/* ---------- La regla del coral ----------
-   El coral es el color de contraste sobre fondo oscuro. Sobre blanco se queda
-   en 2.8:1, asi que TODO texto coral que caiga en seccion clara usa el coral
-   oscurecido. Los bordes y fondos si pueden seguir en coral puro. */
-.claro .hl,        .suave .hl,
+/* ---------- La regla del color ----------
+   Ninguno de los dos acentos se lee sobre los dos fondos: el rosa se queda en
+   2.85:1 sobre la tinta y el naranja en 2.22:1 sobre el blanco. Asi que el
+   TEXTO de acento cambia segun donde caiga: naranja sobre oscuro, rosa
+   oscurecido sobre claro. Los bordes y rellenos si van en el color puro. */
 .claro .prueba b,  .suave .prueba b,
 .claro .cifra b,   .suave .cifra b,
-.claro .kicker,    .suave .kicker,
-.claro .escasez .fecha, .suave .escasez .fecha { color: var(--coral-oscuro); }
+.claro .escasez .fecha, .suave .escasez .fecha { color: var(--rosa-texto); }
+.oscuro .prueba b, .hero .prueba b,
+.oscuro .cifra b,  .oscuro .escasez .fecha { color: var(--naranja); }
 
 /* ---------- Botón ---------- */
 .cta {
   display: inline-flex; align-items: center; justify-content: center;
   width: 100%; max-width: 380px; margin: 30px auto 0;
-  background: var(--coral); color: var(--tinta);
+  background: var(--rosa); color: var(--blanco);
   font-family: "Bricolage Grotesque", "DM Sans", sans-serif;
-  font-weight: 700; font-size: 1.02rem; text-align: center;
+  /* Blanco sobre rosa da 3.62:1: pasa AA solo como texto grande, o sea de
+     18.66px en negrita para arriba. Por eso ningun boton baja de 1.2rem. */
+  font-weight: 700; font-size: 1.2rem; text-align: center;
   text-decoration: none; padding: 19px 28px; border-radius: 14px;
-  box-shadow: 0 10px 28px rgba(var(--rgb-coral), .34);
+  box-shadow: 0 10px 28px rgba(var(--rgb-rosa), .34);
   transition: transform .2s ease, box-shadow .2s ease;
 }
-.cta:hover { transform: translateY(-2px); box-shadow: 0 14px 34px rgba(var(--rgb-coral), .46); }
-.cta.lima { background: var(--lima); color: var(--tinta); box-shadow: 0 10px 28px rgba(var(--rgb-lima), .3); }
+.cta:hover { transform: translateY(-2px); box-shadow: 0 14px 34px rgba(var(--rgb-rosa), .46); }
+.cta.naranja { background: var(--naranja); color: var(--tinta); box-shadow: 0 10px 28px rgba(var(--rgb-naranja), .3); }
 .cta-wrap { display: flex; justify-content: center; }
 
 /* ---------- Prueba social ---------- */
@@ -103,16 +109,19 @@ b, strong { font-weight: 700; }
   font-size: .82rem; line-height: 1.5; color: rgba(var(--rgb-blanco), .6);
 }
 .suave .prueba, .claro .prueba { color: var(--gris); }
-.prueba b { color: var(--coral); font-weight: 700; }
+.prueba b { color: var(--rosa); font-weight: 700; }
 
 /* ---------- Hero ---------- */
 .hero { background: var(--tinta); color: var(--blanco); padding: 54px 20px 62px; }
 .hero .in { display: flex; flex-direction: column; align-items: center; text-align: center; }
 /* La marca flanquea el titular en escritorio. En telefono no hay lugar para
    dos, asi que la de la derecha se esconde y queda solo la de arriba. */
-.hero-grid { display: grid; justify-items: center; align-items: center; gap: 26px; max-width: 1240px; margin: 0 auto; }
-.hero .marca { width: min(165px, 45%); height: auto; }
-.hero .marca-der { display: none; }
+.hero-grid { display: grid; justify-items: center; align-items: end; gap: 22px; max-width: 1300px; margin: 0 auto; }
+.hero .marca { width: min(255px, 66%); height: auto; margin-bottom: 20px; }
+/* Las dos mujeres recortadas flanquean el titular en escritorio. En telefono
+   no caben a los lados, asi que se cambian por la version 1:1 debajo del texto. */
+.hero-lado { display: none; }
+.hero-movil { width: 100%; max-width: 440px; height: auto; margin-top: 32px; }
 .hero h1 { max-width: 18ch; }
 /* Los titulos con formula ("Si eres X que Y, promesa") son frases largas: a
    tamaño completo se comen la pantalla del teléfono y empujan el botón fuera
@@ -120,7 +129,7 @@ b, strong { font-weight: 700; }
 .hero h1.largo { font-size: clamp(1.45rem, 5vw, 2.9rem); max-width: 27ch; }
 .hero p.sub { margin-top: 20px; max-width: 54ch; color: rgba(var(--rgb-blanco), .78); }
 .kicker {
-  display: inline-block; background: rgba(var(--rgb-coral), .16); color: var(--coral);
+  display: inline-block; background: var(--naranja); color: var(--tinta);
   font-family: "Bricolage Grotesque", "DM Sans", sans-serif; font-weight: 700;
   font-size: .74rem; letter-spacing: .12em; text-transform: uppercase;
   padding: 8px 16px; border-radius: 999px; margin-bottom: 20px;
@@ -141,7 +150,7 @@ b, strong { font-weight: 700; }
   counter-increment: paso; content: counter(paso);
   position: absolute; left: 0; top: .1em;
   width: 26px; height: 26px; border-radius: 8px;
-  background: var(--coral); color: var(--tinta);
+  background: var(--naranja); color: var(--tinta);
   font-family: "Bricolage Grotesque", sans-serif; font-weight: 700; font-size: .8rem;
   display: grid; place-items: center;
 }
@@ -151,8 +160,8 @@ b, strong { font-weight: 700; }
 /* ---------- La promesa aislada ---------- */
 .promesa {
   margin-top: 34px; padding: 30px 26px;
-  border-left: 5px solid var(--lima);
-  background: rgba(var(--rgb-lima), .07);
+  border-left: 5px solid var(--naranja);
+  background: rgba(var(--rgb-naranja), .07);
   border-radius: 0 16px 16px 0;
 }
 .promesa p {
@@ -179,7 +188,7 @@ b, strong { font-weight: 700; }
 }
 .pieza .num {
   display: inline-grid; place-items: center; width: 34px; height: 34px;
-  border-radius: 10px; background: var(--lima); color: var(--tinta);
+  border-radius: 10px; background: var(--naranja); color: var(--tinta);
   font-family: "Bricolage Grotesque", sans-serif; font-weight: 800; font-size: .95rem;
   margin-bottom: 14px;
 }
@@ -190,7 +199,7 @@ b, strong { font-weight: 700; }
 .mitos { display: grid; gap: 14px; margin-top: 30px; counter-reset: mito; }
 .mito {
   background: var(--card-bg); border: 1px solid var(--card-borde);
-  border-left: 4px solid var(--coral); border-radius: 14px;
+  border-left: 4px solid var(--rosa); border-radius: 14px;
   padding: 20px 22px; position: relative;
 }
 .mito h3 {
@@ -200,24 +209,24 @@ b, strong { font-weight: 700; }
   counter-increment: mito; content: counter(mito);
   position: absolute; left: 22px;
   width: 24px; height: 24px; border-radius: 7px;
-  background: var(--coral); color: var(--tinta);
+  background: var(--naranja); color: var(--tinta);
   font-family: "Bricolage Grotesque", sans-serif; font-weight: 800; font-size: .78rem;
   display: grid; place-items: center;
 }
 .mito p { margin-top: 10px; font-size: .95rem; line-height: 1.5; padding-left: 34px; }
-.mito p b { color: var(--coral-oscuro); }   /* el coral puro no se lee sobre la tarjeta clara */
-.oscuro .mito p b { color: var(--lima); }
+.mito p b { color: var(--rosa-texto); }   /* el rosa puro no se lee sobre la tarjeta clara */
+.oscuro .mito p b { color: var(--naranja); }
 
 /* ---------- Lo que sí vamos a medir ---------- */
 .medimos { display: grid; gap: 11px; margin-top: 28px; }
 .medimos li {
   list-style: none; display: flex; gap: 13px; align-items: flex-start;
-  background: rgba(var(--rgb-lima), .1); border: 1px solid rgba(var(--rgb-lima), .45);
+  background: rgba(var(--rgb-naranja), .1); border: 1px solid rgba(var(--rgb-naranja), .45);
   border-radius: 13px; padding: 15px 18px; font-size: .99rem; line-height: 1.45;
 }
-.medimos li::before { content: "✓"; color: var(--lima-oscuro); font-weight: 800; flex-shrink: 0; }
-.oscuro .medimos li { background: rgba(var(--rgb-lima), .13); border-color: rgba(var(--rgb-lima), .4); }
-.oscuro .medimos li::before { color: var(--lima); }
+.medimos li::before { content: "✓"; color: var(--naranja-texto); font-weight: 800; flex-shrink: 0; }
+.oscuro .medimos li { background: rgba(var(--rgb-naranja), .13); border-color: rgba(var(--rgb-naranja), .4); }
+.oscuro .medimos li::before { color: var(--naranja); }
 
 /* ---------- Video ---------- */
 .video { max-width: 720px; margin: 28px auto 0; }
@@ -233,8 +242,9 @@ b, strong { font-weight: 700; }
 }
 .video-ph .play {
   width: 58px; height: 58px; border-radius: 50%;
-  background: var(--coral); color: var(--tinta); display: grid; place-items: center;
-  font-size: 1.3rem; padding-left: 4px;
+  background: var(--rosa); color: var(--blanco); display: grid; place-items: center;
+  /* blanco sobre rosa son 3.62:1, que solo pasa como texto grande */
+  font-size: 1.6rem; font-weight: 800; padding-left: 4px;
 }
 .video-ph span:last-child { font-size: .84rem; }
 
@@ -245,10 +255,10 @@ b, strong { font-weight: 700; }
   background: var(--card-bg); border: 1px solid var(--card-borde);
   border-radius: 14px; padding: 16px 18px; font-size: .98rem; line-height: 1.5;
 }
-.incluye li .ck { flex-shrink: 0; color: var(--lima); font-weight: 800; }
-/* El lima solo se lee sobre fondo oscuro: sobre la tarjeta clara se queda en
-   1.6:1. En secciones claras baja a un verde que si pasa contraste. */
-.claro .incluye li .ck, .suave .incluye li .ck { color: var(--lima-oscuro); }
+.incluye li .ck { flex-shrink: 0; color: var(--naranja); font-weight: 800; }
+/* El naranja solo se lee sobre fondo oscuro: sobre blanco se queda en 2.22:1.
+   En secciones claras baja al naranja oscurecido. */
+.claro .incluye li .ck, .suave .incluye li .ck { color: var(--naranja-texto); }
 
 /* ---------- Bren ---------- */
 .bren { display: grid; gap: 24px; align-items: center; margin-top: 26px; }
@@ -261,7 +271,7 @@ b, strong { font-weight: 700; }
 }
 .cifra b {
   display: block; font-family: "Bricolage Grotesque", sans-serif;
-  font-size: 1.35rem; color: var(--coral); line-height: 1.1;
+  font-size: 1.35rem; color: var(--rosa); line-height: 1.1;
 }
 .cifra span { display: block; margin-top: 6px; font-size: .78rem; line-height: 1.35; color: var(--gris); }
 .oscuro .cifra span { color: rgba(var(--rgb-blanco), .6); }
@@ -269,21 +279,21 @@ b, strong { font-weight: 700; }
 /* ---------- Es para ti / no es para ti ---------- */
 .filtro { display: grid; gap: 16px; margin-top: 30px; }
 .filtro .col { border-radius: 18px; padding: 24px 22px; }
-.filtro .si  { background: var(--card-bg); border: 2px solid var(--lima); }
+.filtro .si  { background: var(--card-bg); border: 2px solid var(--naranja); }
 .filtro .no  { background: var(--card-bg); border: 1px solid var(--card-borde); }
 .filtro h3 { font-size: 1rem; letter-spacing: .06em; text-transform: uppercase; }
 .filtro .si h3 { color: var(--tinta); }
 .filtro .no h3 { color: var(--gris); }
 .filtro ul { list-style: none; margin-top: 14px; display: grid; gap: 10px; }
 .filtro li { display: flex; gap: 10px; font-size: .96rem; line-height: 1.45; }
-.filtro .si li::before { content: "✓"; color: var(--lima); font-weight: 800; flex-shrink: 0; }
+.filtro .si li::before { content: "✓"; color: var(--naranja); font-weight: 800; flex-shrink: 0; }
 .filtro .no li::before { content: "✕"; color: var(--gris); font-weight: 700; flex-shrink: 0; }
 .filtro .no li { color: var(--gris); }
 
 /* ---------- Oferta ---------- */
 .oferta-caja {
   margin-top: 30px; background: var(--tinta-2);
-  border: 2px solid var(--coral); border-radius: 22px; padding: 32px 26px; text-align: center;
+  border: 2px solid var(--rosa); border-radius: 22px; padding: 32px 26px; text-align: center;
 }
 .oferta-caja .incluye { margin-top: 0; text-align: left; }
 .precio-fila { margin-top: 24px; padding-top: 24px; border-top: 1px solid rgba(var(--rgb-blanco), .14); }
@@ -296,10 +306,10 @@ b, strong { font-weight: 700; }
   background: var(--card-bg); border: 1px solid var(--card-borde);
   border-radius: 20px; padding: 28px 24px 26px; text-align: left;
 }
-.plan.destacado { border: 2px solid var(--coral); padding-top: 34px; }
+.plan.destacado { border: 2px solid var(--rosa); padding-top: 34px; }
 .plan .sello {
   position: absolute; top: -13px; left: 50%; transform: translateX(-50%);
-  white-space: nowrap; background: var(--coral); color: var(--tinta);
+  white-space: nowrap; background: var(--naranja); color: var(--tinta);
   font-family: "Bricolage Grotesque", sans-serif; font-weight: 800;
   font-size: .72rem; letter-spacing: .08em; text-transform: uppercase;
   padding: 7px 15px; border-radius: 999px;
@@ -319,26 +329,26 @@ b, strong { font-weight: 700; }
 .oscuro .plan .precio .ancla { color: rgba(var(--rgb-blanco), .72); }
 .plan .por-mes {
   margin-top: 8px; font-family: "Bricolage Grotesque", sans-serif; font-weight: 700;
-  font-size: .95rem; color: var(--lima-oscuro);
+  font-size: .95rem; color: var(--naranja-texto);
 }
-.oscuro .plan .por-mes { color: var(--lima); }
+.oscuro .plan .por-mes { color: var(--naranja); }
 .plan-lista { list-style: none; display: grid; gap: 10px; margin-top: 20px; }
 .plan-lista li { display: flex; gap: 10px; font-size: .95rem; line-height: 1.5; }
-.plan-lista li .ck { flex-shrink: 0; font-weight: 800; color: var(--lima-oscuro); }
-.oscuro .plan-lista li .ck { color: var(--lima); }
+.plan-lista li .ck { flex-shrink: 0; font-weight: 800; color: var(--naranja-texto); }
+.oscuro .plan-lista li .ck { color: var(--naranja); }
 .plan-lista li.extra { font-weight: 600; }
-.plan .cta { margin-top: auto; padding-top: 14px; padding-bottom: 14px; font-size: .96rem; }
+.plan .cta { margin-top: auto; padding-top: 15px; padding-bottom: 15px; font-size: 1.2rem; }
 .plan-lista { margin-bottom: 24px; }
 
 /* La amiga: se vende como mecanismo, no como promo */
 .amiga {
   margin-top: 26px; padding: 22px 24px; border-radius: 18px;
-  background: var(--card-bg); border-left: 5px solid var(--lima);
+  background: var(--card-bg); border-left: 5px solid var(--naranja);
   border-top: 1px solid rgba(var(--rgb-tinta), .08);
   border-right: 1px solid rgba(var(--rgb-tinta), .08);
   border-bottom: 1px solid rgba(var(--rgb-tinta), .08);
 }
-.oscuro .amiga { background: var(--tinta-2); border-color: rgba(var(--rgb-blanco), .12); border-left-color: var(--lima); }
+.oscuro .amiga { background: var(--tinta-2); border-color: rgba(var(--rgb-blanco), .12); border-left-color: var(--naranja); }
 .amiga p { font-size: 1.02rem; line-height: 1.55; }
 .amiga p b { font-weight: 700; }
 .letra-chica { margin-top: 16px; font-size: .84rem; line-height: 1.55; color: var(--gris); }
@@ -349,36 +359,62 @@ b, strong { font-weight: 700; }
 .porque h3 { font-size: clamp(1.15rem, 4vw, 1.5rem); }
 .porque p { margin-top: 14px; }
 
+/* ---------- Progresion: la misma mujer cargando mas ---------- */
+.progresion { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-top: 30px; align-items: end; }
+.progresion figure { margin: 0; }
+.progresion img { width: 100%; height: auto; border-radius: 14px; background: var(--tinta-2); }
+.progresion .paso {
+  display: inline-grid; place-items: center; width: 26px; height: 26px; border-radius: 8px;
+  background: var(--naranja); color: var(--tinta); margin-bottom: 9px;
+  font-family: "Bricolage Grotesque", sans-serif; font-weight: 800; font-size: .8rem;
+}
+.progresion figcaption { margin-top: 10px; font-size: .85rem; line-height: 1.4; }
+.oscuro .progresion figcaption { color: rgba(var(--rgb-blanco), .82); }
+/* el hueco cuando va dentro de una rejilla, no suelto entre secciones */
+.hueco.encaja { margin-top: 0; min-height: 0; aspect-ratio: 700 / 938; padding: 14px 10px; gap: 6px; }
+.hueco.encaja p { font-size: .8rem; }
+.hueco.encaja .medida { font-size: .72rem; }
+
+/* imagen dentro de una tarjeta de dos piezas */
+.pieza img { width: 100%; height: auto; border-radius: 12px; margin-top: 16px; border: 1px solid var(--card-borde); }
+
+/* la imagen que explica un bloque, a lo ancho */
+.figura { margin: 30px 0 0; }
+.figura img { width: 100%; height: auto; border-radius: 18px; }
+.figura figcaption { margin-top: 12px; text-align: center; font-size: .88rem; line-height: 1.45; color: var(--gris); }
+.oscuro .figura figcaption { color: rgba(var(--rgb-blanco), .78); }
+
 /* ---------- Hueco achurado: aqui va una imagen que todavia no existe ----------
    Se ve a proposito: mientras siga rayado, la landing no esta lista.
    Para llenarlo, cambia el <div class="hueco"> por un <img> con width y
    height declarados, para que no brinque el layout al cargar. */
 .hueco {
   margin-top: 28px; border-radius: 18px;
-  border: 2px dashed var(--coral);
-  background-color: var(--coral-papel);
+  border: 2px dashed var(--rosa);
+  background-color: var(--rosa-papel);
   background-image: repeating-linear-gradient(-45deg,
-    rgba(var(--rgb-coral), .16) 0 9px, transparent 9px 20px);
+    rgba(var(--rgb-rosa), .16) 0 9px, transparent 9px 20px);
   display: grid; place-content: center; justify-items: center; gap: 9px;
   padding: 30px 22px; text-align: center; min-height: 190px;
 }
 .oscuro .hueco, .hero .hueco {
   background-color: var(--tinta-2);
   background-image: repeating-linear-gradient(-45deg,
-    rgba(var(--rgb-coral), .22) 0 9px, transparent 9px 20px);
+    rgba(var(--rgb-naranja), .2) 0 9px, transparent 9px 20px);
+  border-color: var(--naranja);
 }
 .hueco .que {
   font-family: "Bricolage Grotesque", sans-serif; font-weight: 800;
   font-size: .7rem; letter-spacing: .14em; text-transform: uppercase;
-  color: var(--coral-oscuro);
+  color: var(--rosa-texto);
 }
-.hueco p { font-size: .93rem; line-height: 1.45; color: var(--coral-oscuro); max-width: 36ch; }
+.hueco p { font-size: .93rem; line-height: 1.45; color: var(--rosa-texto); max-width: 36ch; }
 .hueco .medida {
   font-family: "Bricolage Grotesque", sans-serif; font-weight: 700;
-  font-size: .78rem; color: var(--coral-oscuro);
+  font-size: .78rem; color: var(--rosa-texto);
 }
 .oscuro .hueco .que, .oscuro .hueco p, .oscuro .hueco .medida,
-.hero .hueco .que, .hero .hueco p, .hero .hueco .medida { color: var(--coral); }
+.hero .hueco .que, .hero .hueco p, .hero .hueco .medida { color: var(--naranja); }
 .hueco.alto  { min-height: 320px; }
 .hueco.ancho { min-height: 240px; }
 .hero .hueco { width: 100%; margin-top: 30px; }
@@ -387,9 +423,9 @@ b, strong { font-weight: 700; }
 .escasez { text-align: center; }
 .escasez .fecha {
   display: inline-block; margin-top: 20px; padding: 18px 28px;
-  border: 2px dashed var(--coral); border-radius: 16px;
+  border: 2px dashed var(--rosa); border-radius: 16px;
   font-family: "Bricolage Grotesque", sans-serif; font-weight: 800;
-  font-size: clamp(1.2rem, 4vw, 1.7rem); color: var(--coral);
+  font-size: clamp(1.2rem, 4vw, 1.7rem); color: var(--rosa);
 }
 
 /* ---------- Pendientes del brief ----------
@@ -397,23 +433,28 @@ b, strong { font-weight: 700; }
    oscuras y con fondo translúcido el contraste se volvía impredecible. */
 .pendiente {
   display: block; margin-top: 14px; padding: 16px 18px;
-  background: var(--coral-papel); border: 2px dashed var(--coral);
+  background: var(--rosa-papel); border: 2px dashed var(--rosa);
   border-radius: 12px; font-size: .9rem; line-height: 1.5;
-  color: var(--coral-oscuro); font-style: normal;
+  color: var(--rosa-texto); font-style: normal;
 }
 .pendiente::before {
   content: "PENDIENTE"; display: block; font-family: "Bricolage Grotesque", sans-serif;
-  font-weight: 800; font-size: .68rem; letter-spacing: .14em; margin-bottom: 6px; color: var(--coral-oscuro);
+  font-weight: 800; font-size: .68rem; letter-spacing: .14em; margin-bottom: 6px; color: var(--rosa-texto);
 }
-.oscuro .pendiente, .oscuro .pendiente::before { color: var(--coral-oscuro); }
-.pend-inline {
-  background: var(--coral-chip); color: var(--coral-oscuro);
+.oscuro .pendiente, .oscuro .pendiente::before { color: var(--rosa-texto); }
+/* span.pend-inline y no solo .pend-inline: dentro de .cifra span el selector
+   corto perdia por especificidad y el chip salia en gris. */
+span.pend-inline {
+  background: var(--rosa-chip); color: var(--rosa-texto);
   border-radius: 6px; padding: 1px 7px; font-weight: 700; font-size: .92em;
   overflow-wrap: anywhere;
 }
 
 /* ---------- Footer ---------- */
-footer { background: var(--tinta); color: rgba(var(--rgb-blanco), .5); text-align: center; padding: 40px 20px; font-size: .82rem; }
+footer .marca { width: min(230px, 62%); height: auto; margin: 0 auto 18px; }
+.oferta-marca { width: min(250px, 66%); height: auto; margin: 0 auto 22px; display: block; }
+
+footer { background: var(--tinta); color: rgba(var(--rgb-blanco), .66); text-align: center; padding: 40px 20px; font-size: .82rem; }
 footer b { display: block; font-family: "Bricolage Grotesque", sans-serif; font-size: 1.05rem; color: var(--blanco); letter-spacing: .04em; margin-bottom: 8px; }
 
 /* ---------- Reveal ---------- */
@@ -432,7 +473,8 @@ footer b { display: block; font-family: "Bricolage Grotesque", sans-serif; font-
 }
 
 @media (min-width: 1000px) {
-  .hero-grid { grid-template-columns: minmax(150px, 210px) minmax(0, 1fr) minmax(150px, 210px); gap: 34px; }
-  .hero .marca { width: 100%; }
-  .hero .marca-der { display: block; }
+  .hero-grid { grid-template-columns: minmax(175px, 265px) minmax(0, 1fr) minmax(175px, 265px); gap: 24px; }
+  .hero-lado { display: block; width: 100%; height: auto; }
+  .hero-movil { display: none; }
+  .hero .marca { width: min(330px, 72%); }
 }
