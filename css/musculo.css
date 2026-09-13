@@ -165,6 +165,47 @@ h1 .hl, h2 .hl { color: var(--rosa); }
 .gap-pasos p:last-child { padding-left: 0; }
 .gap-pasos p:last-child::before { display: none; }
 
+/* ---------- Lo que ya intento ----------
+   Va con palomita y no con vineta: cada linea es algo que ella ya hizo, no
+   una lista de cosas por hacer. */
+.yalo { list-style: none; display: grid; gap: 16px; margin-top: 30px; }
+.yalo li {
+  display: flex; gap: 14px; align-items: flex-start;
+  font-size: clamp(1.02rem, 2.9vw, 1.18rem); line-height: 1.5;
+}
+/* el texto va envuelto en span: si no, la frase en rosa se vuelve otro hijo
+   del flex y se sienta al lado en vez de abajo */
+.yalo li > span { min-width: 0; }
+.yalo li::before {
+  content: "\2713"; flex-shrink: 0; font-weight: 800; font-size: 1.15em;
+  color: var(--naranja-texto); line-height: 1.35;
+}
+.yalo .rojo {
+  display: block; margin-top: 6px; color: var(--rosa-texto);
+  font-family: "Bricolage Grotesque", sans-serif; font-weight: 800;
+  letter-spacing: -.01em; font-size: 1.2em; line-height: 1.2;
+}
+/* La linea que cierra una lista y empuja a la siguiente seccion */
+.cierra {
+  margin-top: 28px; padding-top: 22px; border-top: 2px solid var(--card-borde);
+  font-weight: 600; font-size: clamp(1.05rem, 3vw, 1.22rem); line-height: 1.45;
+}
+
+/* ---------- Remate encima de una imagen ----------
+   Se monta sobre el borde inferior de la foto con margen negativo, para que
+   la frase y la imagen se lean como una sola pieza. */
+.remate-figura {
+  position: relative; z-index: 2;
+  margin: -30px auto 0; max-width: 20ch;
+  background: var(--rosa); color: var(--blanco);
+  font-family: "Bricolage Grotesque", sans-serif; font-weight: 800;
+  letter-spacing: -.02em; text-align: center;
+  font-size: clamp(1.3rem, 4.6vw, 1.85rem); line-height: 1.15;
+  padding: 20px 26px; border-radius: 18px;
+  box-shadow: 0 14px 32px rgba(var(--rgb-rosa), .3);
+}
+.figura .remate-figura + figcaption { margin-top: 16px; }
+
 /* ---------- La promesa aislada ---------- */
 /* La frase que cierra el argumento de una seccion. Sobre una banda rosa clara
    un fondo rosa translucido no se despegaba: va como tarjeta, que si levanta. */
