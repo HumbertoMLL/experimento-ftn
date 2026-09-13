@@ -53,7 +53,22 @@ p  { font-size: clamp(1rem, 2.6vw, 1.13rem); line-height: 1.62; }
 b, strong { font-weight: 700; }
 
 /* ---------- Estructura ---------- */
-.sec { padding: 62px 20px; }
+.sec { position: relative; padding: 62px 20px; }
+
+/* ---------- Puente entre secciones ----------
+   Dos secciones que cuentan la misma idea no deben leerse como dos temas.
+   .sigue y .viene-de les quitan aire en la costura, y el circulo se sienta
+   justo encima de la union para empujar el ojo hacia abajo. */
+.sec.sigue    { padding-bottom: 40px; }
+.sec.viene-de { padding-top: 44px; }
+.puente {
+  position: absolute; left: 50%; bottom: -26px; transform: translateX(-50%);
+  z-index: 2; width: 52px; height: 52px; border-radius: 50%;
+  background: var(--rosa); color: var(--blanco);
+  display: grid; place-items: center;
+  font-size: 1.5rem; line-height: 1; font-weight: 800;
+  box-shadow: 0 7px 18px rgba(var(--rgb-rosa), .32);
+}
 .in  { max-width: 900px; margin: 0 auto; }
 .narrow { max-width: 720px; margin-inline: auto; }
 .center { text-align: center; }
@@ -151,11 +166,15 @@ h1 .hl, h2 .hl { color: var(--rosa); }
 .gap-pasos p:last-child::before { display: none; }
 
 /* ---------- La promesa aislada ---------- */
+/* La frase que cierra el argumento de una seccion. Sobre una banda rosa clara
+   un fondo rosa translucido no se despegaba: va como tarjeta, que si levanta. */
 .promesa {
-  margin-top: 34px; padding: 30px 26px;
-  border-left: 5px solid var(--naranja);
-  background: rgba(var(--rgb-naranja), .07);
-  border-radius: 0 16px 16px 0;
+  margin-top: 34px; padding: 28px 28px 30px;
+  background: var(--card-bg);
+  border: 1px solid var(--card-borde);
+  border-left: 6px solid var(--rosa);
+  border-radius: 5px 18px 18px 5px;
+  box-shadow: 0 12px 28px rgba(var(--rgb-tinta), .07);
 }
 .promesa p {
   font-family: "Bricolage Grotesque", "DM Sans", sans-serif;
@@ -466,6 +485,8 @@ footer b { display: block; font-family: "Bricolage Grotesque", sans-serif; font-
 
 @media (min-width: 780px) {
   .sec { padding: 88px 26px; }
+  .sec.sigue    { padding-bottom: 58px; }
+  .sec.viene-de { padding-top: 62px; }
   .hero { padding: 76px 26px 84px; }
   .piezas { grid-template-columns: 1fr 1fr; }
   .piezas.tres { grid-template-columns: repeat(3, 1fr); }
