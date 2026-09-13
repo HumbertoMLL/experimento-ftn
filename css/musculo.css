@@ -110,7 +110,7 @@ h1 .hl, h2 .hl { color: var(--rosa); }
 /* La marca flanquea el titular en escritorio. En telefono no hay lugar para
    dos, asi que la de la derecha se esconde y queda solo la de arriba. */
 .hero-grid { display: grid; justify-items: center; align-items: end; gap: 22px; max-width: 1300px; margin: 0 auto; }
-.hero .marca { width: min(255px, 66%); height: auto; margin-bottom: 20px; }
+.hero .marca { width: min(255px, 66%); height: auto; margin: 20px auto 4px; }
 /* Las dos mujeres recortadas flanquean el titular en escritorio. En telefono
    no caben a los lados, asi que se cambian por la version 1:1 debajo del texto. */
 .hero-lado { display: none; }
@@ -325,6 +325,8 @@ h1 .hl, h2 .hl { color: var(--rosa); }
   font-size: 1.18rem; letter-spacing: -.01em;
 }
 .plan .para { margin-top: 6px; font-size: .93rem; line-height: 1.5; }
+/* la nota que va despues de la lista necesita aire antes del boton */
+.plan-lista + .para { margin-top: 0; margin-bottom: 18px; }
 .plan .precio { display: flex; align-items: baseline; flex-wrap: wrap; gap: 10px; margin-top: 18px; }
 .plan .precio .monto {
   font-family: "Bricolage Grotesque", sans-serif; font-weight: 800;
