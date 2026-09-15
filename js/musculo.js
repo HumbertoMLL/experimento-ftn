@@ -5,10 +5,28 @@
   var cfg = window.FTN_CONFIG || {};
   /* La letra del test de titulos (si la pagina trae uno) viaja pegada a la
      variante, para que en el Administrador de eventos de Meta se puedan
-     comparar los titulos sin que se mezclen los datos: musculo-v1-a, -b, -c. */
+     comparar los titulos sin que se mezclen los datos: reto-mas-musculo-a, -b, -c. */
   var variante = document.body.getAttribute("data-variante") || "musculo";
   if (window.FTN_TITULO) variante = variante + "-" + window.FTN_TITULO;
   var m = (cfg.musculo || {});
+
+  /* ---------- Canal de origen ----------
+     Se lee de ?src=meta o del final de la ruta (/reto-mas-musculo/meta),
+     se guarda en sessionStorage por si la visitante navega y vuelve, y
+     acaba como &src=<canal> en la URL de Hotmart. Solo se aceptan los
+     canales de la lista en config: cualquier otra cosa se ignora. */
+  var canales = m.canales || [];
+  var canal = (location.search.match(/[?&]src=([\w-]+)/i) || [])[1]
+           || (location.pathname.match(/\/([\w-]+)\/?$/) || [])[1] || "";
+  canal = canal.toLowerCase();
+  if (canales.indexOf(canal) === -1) {
+    canal = "";
+    try { canal = sessionStorage.getItem("ftn-canal") || ""; } catch (e) {}
+    if (canales.indexOf(canal) === -1) canal = "";
+  } else {
+    try { sessionStorage.setItem("ftn-canal", canal); } catch (e) {}
+  }
+  document.body.setAttribute("data-canal", canal || "directo");
 
   /* ---------- Video (si hay URL en config) ---------- */
   var marco = document.getElementById("video-marco");
@@ -39,12 +57,14 @@
     var plan = btn.getAttribute("data-plan") || "trimestral";
     var datos = planes[plan] || {};
     var url = (datos.url || "").trim();
+    if (url && canal) url += (url.indexOf("?") === -1 ? "?" : "&") + "src=" + canal;
     if (url) btn.href = url;
     btn.addEventListener("click", function (e) {
       if (!url) e.preventDefault();          // sin URL todavía, no manda a ningún lado
       window.ftnTrack("InitiateCheckout", {
         content_name: datos.nombre || "Reto Mas Musculo Menos Grasa",
         content_category: variante,
+        canal: canal || "directo",
         content_ids: [plan],
         value: datos.precio || 0,            // para que Meta pueda optimizar por valor
         currency: "MXN"
@@ -60,6 +80,7 @@
         window.ftnTrack("ViewContent", {
           content_name: "Reto Mas Musculo - Oferta",
           content_category: variante,
+          canal: canal || "directo",
           currency: "MXN"
         });
         vc.disconnect();

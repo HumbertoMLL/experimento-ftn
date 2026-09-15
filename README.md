@@ -50,3 +50,19 @@ python3 -m http.server 8080
 ```
 
 Abre la consola del navegador: verás cada evento del pixel (o el aviso de que falta el ID).
+
+## Reto Más Músculo, Menos Grasa
+
+Landing madre: **`/reto-mas-musculo`** (antes `/musculo-v1`, que redirige). Variantes de prueba: `/musculo-v5` y `/musculo-v6`.
+
+Todos los botones de la página llevan a la oferta (`#oferta`). Los dos botones de la oferta llevan a Hotmart, y la URL del checkout se arma con `&src=<canal>` según el canal con el que se abrió la landing:
+
+| Canal | Link a compartir |
+|---|---|
+| Meta | `/reto-mas-musculo/meta` (o `?src=meta`) |
+| Influencer | `/reto-mas-musculo/influencer` |
+| Instagram | `/reto-mas-musculo/instagram` |
+| Email | `/reto-mas-musculo/email` |
+| WhatsApp | `/reto-mas-musculo/whatsapp` |
+
+Lo mismo funciona en `/musculo-v5/<canal>` y `/musculo-v6/<canal>`. Sin canal, el checkout va sin `src`. Las ofertas de Hotmart (mensual `off=6foo9x9h`, trimestral `off=39iewqaz`) viven en `js/config.js` → `musculo.checkout`.

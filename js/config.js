@@ -48,18 +48,28 @@ window.FTN_CONFIG = {
     },
   },
 
-  /* --- Reto Más Músculo, Menos Grasa (/musculo-v1 … v5) ---
+  /* --- Reto Más Músculo, Menos Grasa (/reto-mas-musculo, /musculo-v5, v6) ---
      videoUrl: YouTube, Vimeo o un .mp4 directo.
-     checkoutUrl: mientras esté vacía, los botones de compra no navegan. */
+
+     Canales: cada landing se abre con ?src=meta (o /reto-mas-musculo/meta)
+     y el canal viaja hasta Hotmart como &src=meta en la URL del checkout,
+     para que en Hotmart se vea de dónde vino cada venta. Si la página se
+     abre sin canal, el checkout va sin src. Los eventos de Meta también
+     llevan el canal en el parámetro "canal". */
   musculo: {
     videoUrl: "",
-    /* Los dos tickets del Reto Mas Musculo, Menos Grasa.
-       Pega aqui el link de Hotmart de cada uno. Mientras esten vacios,
-       el boton no manda a ningun lado pero el evento de Meta si se
-       dispara, para no perder la senal de quien intento comprar. */
+    canales: ["meta", "influencer", "instagram", "email", "whatsapp"],
+    /* Los dos tickets, cada uno con su oferta de Hotmart (off= y bid=).
+       El &src=<canal> se agrega solo en js/musculo.js. */
     checkout: {
-      mensual:    { url: "", nombre: "Reto Mas Musculo - Mensual",    precio: 599 },
-      trimestral: { url: "", nombre: "Reto Mas Musculo - Trimestral", precio: 1197 }
+      mensual: {
+        url: "https://pay.hotmart.com/T76408466K?off=6foo9x9h&checkoutMode=10&bid=1789422390667",
+        nombre: "Reto Mas Musculo - Mensual", precio: 599
+      },
+      trimestral: {
+        url: "https://pay.hotmart.com/T76408466K?off=39iewqaz&checkoutMode=10&bid=1789422393380",
+        nombre: "Reto Mas Musculo - Trimestral", precio: 1197
+      }
     }
   },
 
