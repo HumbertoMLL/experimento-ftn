@@ -8,6 +8,11 @@ window.FTN_CONFIG = {
      en la consola del navegador. */
   metaPixelId: "1645815772229731",
 
+  /* --- TikTok Pixel ----------------------------------------------
+     Solo se carga en las landings de músculo (js/tiktok.js).
+     Si queda vacío, no se carga. */
+  tiktokPixelId: "D3U0UR3C77U1N95E9TK0",
+
   /* --- Microsoft Clarity --------------------------------------------
      Si queda vacío, Clarity no se carga. */
   clarityId: "wrmiia5ld3",
