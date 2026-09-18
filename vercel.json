@@ -1,6 +1,24 @@
 {
   "cleanUrls": true,
   "trailingSlash": false,
+  "redirects": [
+    {
+      "source": "/musculo-v1",
+      "destination": "/reto-mas-musculo",
+      "permanent": true
+    },
+    {
+      "source": "/musculo-v1/:resto*",
+      "destination": "/reto-mas-musculo/:resto*",
+      "permanent": true
+    }
+  ],
+  "rewrites": [
+    {
+      "source": "/:landing(reto-mas-musculo|musculo-v5|musculo-v6)/:canal(meta|influencer|instagram|email|whatsapp|DaniNajera|AleRivera)",
+      "destination": "/:landing"
+    }
+  ],
   "headers": [
     {
       "source": "/(.*)",
@@ -14,12 +32,6 @@
           "value": "DENY"
         }
       ]
-    }
-  ],
-  "rewrites": [
-    {
-      "source": "/reto-mas-musculo/:src",
-      "destination": "/reto-mas-musculo"
     }
   ]
 }

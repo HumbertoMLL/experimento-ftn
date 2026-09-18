@@ -8,6 +8,11 @@ window.FTN_CONFIG = {
      en la consola del navegador. */
   metaPixelId: "1645815772229731",
 
+  /* --- TikTok Pixel ----------------------------------------------
+     Solo se carga en las landings de músculo (js/tiktok.js).
+     Si queda vacío, no se carga. */
+  tiktokPixelId: "D3U0UR3C77U1N95E9TK0",
+
   /* --- Microsoft Clarity --------------------------------------------
      Si queda vacío, Clarity no se carga. */
   clarityId: "wrmiia5ld3",
@@ -48,53 +53,39 @@ window.FTN_CONFIG = {
     },
   },
 
-  /* --- Reto Más Músculo, Menos Grasa (/musculo-v1 … v5) ---
+  /* --- Reto Más Músculo, Menos Grasa (/reto-mas-musculo, /musculo-v5, v6) ---
      videoUrl: YouTube, Vimeo o un .mp4 directo.
-     checkoutUrl: mientras esté vacía, los botones de compra no navegan. */
+
+     Canales: cada landing se abre con ?src=meta (o /reto-mas-musculo/meta)
+     y el canal viaja hasta Hotmart como &src=meta en la URL del checkout,
+     para que en Hotmart se vea de dónde vino cada venta. Si la página se
+     abre sin canal, el checkout va sin src. Los eventos de Meta también
+     llevan el canal en el parámetro "canal". */
   musculo: {
     videoUrl: "",
-    /* Los dos tickets del Reto Mas Musculo, Menos Grasa.
-       Pega aqui el link de Hotmart de cada uno. Mientras esten vacios,
-       el boton no manda a ningun lado pero el evento de Meta si se
-       dispara, para no perder la senal de quien intento comprar. */
-    checkout: {
-      mensual:    { url: "", nombre: "Reto Mas Musculo - Mensual",    precio: 599 },
-      trimestral: { url: "", nombre: "Reto Mas Musculo - Trimestral", precio: 1197 }
-    }
-  },
-
-  /* --- Landings por persona (/reto-mas-musculo/<Nombre>) -------------
-     Una sola pagina sirve a todas. El nombre sale de la URL, se valida
-     contra esta lista y se pega como src= al checkout de Hotmart, para
-     que la venta quede atribuida.
-
-     Para dar de alta a alguien mas: agregala a `personas` y listo. No
-     hace falta crear un archivo nuevo.
-
-     >>> POR CONFIRMAR: cual codigo de oferta corresponde a cada plan.
-     Los dos links que llegaron son estos, y no traen nada que diga cual
-     es cual. Si estan al reves, alguien va a dar clic en $599 y le va a
-     aparecer otro precio en Hotmart. Verificalo antes de mandar los
-     links. <<< */
-  retoMasMusculo: {
+    canales: ["meta", "influencer", "instagram", "email", "whatsapp"],
+    /* Personas que reparten su propio link: /reto-mas-musculo/<Nombre>.
+       Funcionan igual que un canal, con dos diferencias: el src que
+       viaja a Hotmart conserva las mayusculas tal como las pidio
+       Hotmart, y la landing saluda con su nombre. La llave va en
+       minusculas porque la URL se lee sin distinguir mayusculas.
+       Para dar de alta a alguien mas, agrega un renglon aqui. */
     personas: {
-      DaniNajera: { nombre: "Dani N\u00e1jera" },
-      AleRivera:  { nombre: "Ale Rivera" }
+      daninajera: { src: "DaniNajera", nombre: "Dani N\u00e1jera" },
+      alerivera:  { src: "AleRivera",  nombre: "Ale Rivera" }
     },
+    /* Los dos tickets, cada uno con su oferta de Hotmart (off= y bid=).
+       El &src=<canal> se agrega solo en js/musculo.js. */
     checkout: {
       mensual: {
-        base: "https://pay.hotmart.com/T76408466K?off=6foo9x9h&checkoutMode=10&bid=1789422390667",
-        nombre: "Reto Mas Musculo - Mensual",
-        precio: 599
+        url: "https://pay.hotmart.com/T76408466K?off=6foo9x9h&checkoutMode=10&bid=1789422390667",
+        nombre: "Reto Mas Musculo - Mensual", precio: 599
       },
       trimestral: {
-        base: "https://pay.hotmart.com/T76408466K?off=39iewqaz&checkoutMode=10&bid=1789422393380",
-        nombre: "Reto Mas Musculo - Trimestral",
-        precio: 1197
+        url: "https://pay.hotmart.com/T76408466K?off=39iewqaz&checkoutMode=10&bid=1789422393380",
+        nombre: "Reto Mas Musculo - Trimestral", precio: 1197
       }
-    },
-    /* A donde cae quien llegue sin nombre valido en la URL. */
-    srcPorDefecto: "organico"
+    }
   },
 
   /* --- Masterclass (/masterclass) ------------------------------------
