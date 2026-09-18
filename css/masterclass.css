@@ -1,0 +1,117 @@
+/* ============================================================
+   MASTERCLASS — piezas propias de /masterclass
+   Los tokens, la paleta y los componentes compartidos (.sec, .cta,
+   .planes, .hueco, .pendiente…) viven en musculo.css, que esta pagina
+   carga primero. Aqui solo va lo que esta pagina necesita de mas.
+   ============================================================ */
+
+/* ---------- Barra de patrocinio ---------- */
+.patrocinio {
+  background: var(--tinta); color: var(--blanco);
+  text-align: center; padding: 11px 16px;
+  font-family: "Bricolage Grotesque", sans-serif; font-weight: 700;
+  font-size: .76rem; letter-spacing: .1em; text-transform: uppercase;
+}
+.patrocinio b { color: var(--naranja); }
+
+/* ---------- Hero de registro ---------- */
+.mc-hero { background: linear-gradient(180deg, var(--rosa-tinte), var(--blanco)); padding: 38px 20px 54px; }
+.mc-hero .in { text-align: center; }
+.mc-hero .marca { width: min(158px, 44%); height: auto; margin: 0 auto 18px; display: block; }
+/* El titular es largo a proposito (nombra el numero y la promesa). A tamano
+   completo empuja el formulario fuera de la primera pantalla, que es lo unico
+   que esta pagina tiene que lograr. */
+.mc-hero h1 { max-width: 23ch; margin-inline: auto; font-size: clamp(1.5rem, 5.2vw, 3rem); }
+.mc-hero .kicker { margin-bottom: 16px; }
+.mc-hero .bajada {
+  margin-top: 18px; max-width: 52ch; margin-inline: auto;
+  font-size: clamp(1.02rem, 2.9vw, 1.2rem); line-height: 1.55; color: var(--gris);
+}
+
+/* ---------- Cuando ---------- */
+.cuando {
+  display: inline-flex; flex-wrap: wrap; justify-content: center;
+  gap: 10px 18px; margin-top: 22px;
+  background: var(--blanco); border: 1px solid var(--card-borde);
+  border-radius: 999px; padding: 12px 24px;
+  box-shadow: 0 10px 24px rgba(var(--rgb-tinta), .07);
+}
+.cuando span {
+  font-family: "Bricolage Grotesque", sans-serif; font-weight: 700;
+  font-size: .92rem; display: inline-flex; align-items: center; gap: 8px;
+}
+.cuando .ico { color: var(--rosa-texto); }
+
+/* ---------- Formulario de registro ---------- */
+.registro {
+  max-width: 460px; margin: 30px auto 0; text-align: left;
+  background: var(--blanco); border: 1px solid var(--card-borde);
+  border-top: 6px solid var(--rosa); border-radius: 22px;
+  padding: 26px 24px 28px;
+  box-shadow: 0 18px 40px rgba(var(--rgb-tinta), .1);
+}
+.registro .titulo-form {
+  font-family: "Bricolage Grotesque", sans-serif; font-weight: 800;
+  font-size: 1.12rem; letter-spacing: -.01em; text-align: center; margin-bottom: 4px;
+}
+.registro .sub-form { text-align: center; font-size: .88rem; color: var(--gris); margin-bottom: 20px; }
+.campo { display: block; margin-bottom: 15px; }
+.campo span {
+  display: block; margin-bottom: 7px;
+  font-family: "Bricolage Grotesque", sans-serif; font-weight: 700; font-size: .84rem;
+}
+.campo input {
+  width: 100%; font-family: inherit; font-size: 1rem; color: var(--tinta);
+  background: var(--rosa-nieve); border: 2px solid transparent;
+  border-radius: 12px; padding: 14px 16px;
+}
+.campo input::placeholder { color: var(--gris); opacity: .75; }
+.campo input:focus { outline: none; border-color: var(--rosa); background: var(--blanco); }
+.campo input:user-invalid { border-color: var(--rosa-texto); }
+.registro .cta { width: 100%; max-width: none; margin-top: 8px; }
+.registro .chiquito { margin-top: 14px; font-size: .78rem; line-height: 1.45; color: var(--gris); text-align: center; }
+/* Aviso de que el formulario todavia no tiene a donde mandar los datos */
+.recado { margin-top: 14px; font-size: .88rem; line-height: 1.45; text-align: center; }
+.recado:empty { display: none; }
+.recado.mal { color: var(--rosa-texto); font-weight: 600; }
+
+/* ---------- Los 10 errores: cada uno es un loop abierto ---------- */
+.errores { counter-reset: err; display: grid; gap: 12px; margin-top: 30px; list-style: none; }
+.errores li {
+  counter-increment: err; position: relative;
+  background: var(--card-bg); border: 1px solid var(--card-borde);
+  border-radius: 14px; padding: 17px 20px 17px 62px;
+  font-size: clamp(1rem, 2.8vw, 1.1rem); line-height: 1.4; font-weight: 600;
+}
+.errores li::before {
+  content: counter(err); position: absolute; left: 18px; top: 50%;
+  transform: translateY(-50%);
+  width: 30px; height: 30px; border-radius: 9px;
+  background: var(--naranja); color: var(--tinta);
+  display: grid; place-items: center;
+  font-family: "Bricolage Grotesque", sans-serif; font-weight: 800; font-size: .88rem;
+}
+
+/* ---------- Quien da la masterclass ---------- */
+.ponente { display: grid; gap: 24px; align-items: start; margin-top: 28px; }
+.ponente .retrato { width: 100%; max-width: 250px; margin-inline: auto; aspect-ratio: 1; border-radius: 50%; }
+.ponente .retrato img { border-radius: 50%; }
+
+/* ---------- Cuenta regresiva ---------- */
+.cuenta { display: flex; justify-content: center; gap: 10px; margin-top: 24px; flex-wrap: wrap; }
+.cuenta div {
+  min-width: 74px; background: var(--blanco); border: 1px solid var(--card-borde);
+  border-radius: 14px; padding: 13px 10px; text-align: center;
+}
+.cuenta b {
+  display: block; font-family: "Bricolage Grotesque", sans-serif; font-weight: 800;
+  font-size: 1.6rem; line-height: 1; color: var(--rosa-texto);
+}
+.cuenta span { display: block; margin-top: 5px; font-size: .72rem; letter-spacing: .08em; text-transform: uppercase; color: var(--gris); }
+
+@media (min-width: 780px) {
+  .mc-hero { padding: 48px 26px 70px; }
+  .errores { grid-template-columns: 1fr 1fr; }
+  .ponente { grid-template-columns: 250px 1fr; gap: 34px; }
+  .ponente .retrato { margin-inline: 0; }
+}
