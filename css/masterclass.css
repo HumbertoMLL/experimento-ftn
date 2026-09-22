@@ -40,9 +40,10 @@
 }
 
 /* La misma pareja de logos, mas chica, al pie */
+/* Ahora abre el footer, ya no va debajo de otro logo */
 .patrocinio-pie {
   display: flex; align-items: center; justify-content: center;
-  gap: 16px; margin: 14px 0 10px;
+  gap: 18px; margin: 0 0 16px;
 }
 .patrocinio-pie img { display: block; height: 22px; width: auto; max-width: 104px; }
 .patrocinio-pie:empty { display: none; }
@@ -56,7 +57,6 @@
 /* ---------- Hero de registro ---------- */
 .mc-hero { background: linear-gradient(180deg, var(--rosa-tinte), var(--blanco)); padding: 38px 20px 54px; }
 .mc-hero .in { text-align: center; }
-.mc-hero .marca { width: min(158px, 44%); height: auto; margin: 0 auto 18px; display: block; }
 /* El titular es largo a proposito (nombra el numero y la promesa). A tamano
    completo empuja el formulario fuera de la primera pantalla, que es lo unico
    que esta pagina tiene que lograr. */
