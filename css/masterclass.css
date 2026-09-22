@@ -94,8 +94,12 @@
 
 /* ---------- Quien da la masterclass ---------- */
 .ponente { display: grid; gap: 24px; align-items: start; margin-top: 28px; }
-.ponente .retrato { width: 100%; max-width: 250px; margin-inline: auto; aspect-ratio: 1; border-radius: 50%; }
-.ponente .retrato img { border-radius: 50%; }
+/* La foto de Ale es vertical y lleva el diploma, que es justo la prueba de
+   autoridad: en circulo se le corta la frente o el diploma. Se queda con el
+   marco 3/4 de .marco.retrato, y la foto se exporta en 3:4 exacto para que
+   entre sin recorte. */
+.ponente .retrato { width: 100%; max-width: 290px; margin-inline: auto; }
+.ponente .retrato > img { object-position: center top; }
 
 /* ---------- Cuenta regresiva ---------- */
 .cuenta { display: flex; justify-content: center; gap: 10px; margin-top: 24px; flex-wrap: wrap; }
@@ -112,6 +116,6 @@
 @media (min-width: 780px) {
   .mc-hero { padding: 48px 26px 70px; }
   .errores { grid-template-columns: 1fr 1fr; }
-  .ponente { grid-template-columns: 250px 1fr; gap: 34px; }
+  .ponente { grid-template-columns: 290px 1fr; gap: 36px; }
   .ponente .retrato { margin-inline: 0; }
 }
