@@ -114,12 +114,19 @@
       }).catch(function (err) {
         console.error("[Masterclass] No se pudo registrar:", err);
         if (boton) { boton.disabled = false; boton.textContent = textoBoton; }
-        /* Si algo se rompe del lado nuestro, el registro no se pierde en
-           silencio: se le ofrece el formulario original de Mailvio. */
-        var salida = url ? ' <a href="' + url + '" target="_blank" rel="noopener">Apartalo por aqui</a>.' : "";
+        /* Si algo se rompe del lado nuestro, el registro no se pierde: se
+           cambia el formulario bonito por el de Mailvio ahi mismo, sin
+           que tenga que ir a ninguna otra parte. Feo, pero funcionando. */
         if (caja) {
-          caja.innerHTML = "No se pudo guardar tu registro. Intenta otra vez." + salida;
+          caja.textContent = "Tuvimos un problema. Aparta tu lugar aqui abajo:";
           caja.hidden = false;
+        }
+        if (cajaIframe && iframe && url) {
+          iframe.src = url;
+          iframe.style.height = (mc.formAlto || 470) + "px";
+          cajaIframe.hidden = false;
+          form.querySelectorAll("label, button").forEach(function (e) { e.hidden = true; });
+          cajaIframe.scrollIntoView({ behavior: "smooth", block: "center" });
         }
       });
     });
