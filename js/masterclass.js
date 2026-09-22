@@ -23,12 +23,17 @@
   pon("correo-asunto", correo.asunto);
 
   /* ---------- Eventos de Meta ----------
-     En el opt-in no se dispara ninguno: ahi solo va el PageView del
-     <head>. El Lead cuenta cuando mandan el formulario y caen en
-     gracias; CompleteRegistration cuando confirman desde el correo. */
+     Un solo evento de conversion en todo el flujo: Lead, y nada mas al
+     confirmar desde el correo. Las demas paginas mandan solo el PageView
+     que dispara el <head>.
+
+     Que no este en gracias es a proposito. El registro es de doble
+     confirmacion: quien cae en gracias apenas mando el formulario y
+     todavia puede no abrir el correo. Contarlo ahi infla el numero de
+     leads con gente que nunca entro a la lista, y Meta termina buscando
+     mas gente igual. */
   var porPagina = {
-    "masterclass-gracias": "Lead",
-    "masterclass-confirmacion": "CompleteRegistration"
+    "masterclass-confirmacion": "Lead"
   };
   if (porPagina[variante]) {
     window.ftnTrack(porPagina[variante], {
@@ -139,9 +144,6 @@
       btnGrupo.hidden = false;
       var nota = document.getElementById("nota-grupo");
       if (nota) nota.hidden = false;
-      btnGrupo.addEventListener("click", function () {
-        window.ftnTrack("Contact", { content_name: "Grupo WhatsApp Masterclass" });
-      });
     } else {
       console.warn("[Masterclass] Falta el enlace del grupo. Pegalo en js/config.js → masterclass.grupoWhatsapp");
     }
@@ -163,15 +165,6 @@
       if (!reto || !cuando) { aviso("Falta contestar una de las dos.", true); return; }
 
       var datos = { reto: reto.value, cuando: cuando.value, evento: "masterclass-5-errores" };
-      /* La respuesta se manda a Meta pase lo que pase: sirve para armar
-         publicos aunque el webhook todavia no este conectado. */
-      window.ftnTrack("SubmitApplication", {
-        content_name: "Encuesta masterclass",
-        content_category: variante,
-        reto: datos.reto,
-        cuando: datos.cuando
-      });
-
       var destino = (mc.encuestaAction || "").trim();
       var listo = function () {
         encuesta.innerHTML = '<p class="recado">¡Gracias! Ale lo va a tomar en cuenta para el miércoles.</p>';
