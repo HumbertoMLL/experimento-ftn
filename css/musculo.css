@@ -587,7 +587,12 @@ footer b { display: block; font-family: "Bricolage Grotesque", sans-serif; font-
 .dudas { text-align: center; }
 /* El verde de WhatsApp es el unico color fuera de la paleta en todo el sitio,
    y esta a proposito: el boton se reconoce antes de leerlo. 8.1:1. */
-.dudas .cta { background: #25D366; color: #07300F; box-shadow: 0 10px 28px rgba(37, 211, 102, .3); }
+.dudas .cta,
+.cta.whatsapp { background: #25D366; color: #07300F; box-shadow: 0 10px 28px rgba(37, 211, 102, .3); }
+/* El icono se queda arriba cuando el texto cae a dos lineas, que es lo que
+   pasa en celular: asi no queda flotando a media altura. */
+.cta.whatsapp { align-items: center; }
+.cta.whatsapp .ico-wa { flex: none; width: 1.15em; height: 1.15em; margin-right: 10px; }
 
 /* ---------- Barra fija de abajo ---------- */
 .barra {

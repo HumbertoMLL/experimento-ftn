@@ -129,6 +129,9 @@ window.FTN_CONFIG = {
        - confirmacion: cae aqui al dar clic en el correo. Ya quedo
          registrada. Aqui se dispara CompleteRegistration.
        En el opt-in no se dispara ninguno de los dos, a proposito. */
+    /* Grupo de WhatsApp al que entra quien ya confirmo su registro. Si se
+       deja vacio, el boton no aparece (no se pinta un enlace muerto). */
+    grupoWhatsapp: "https://chat.whatsapp.com/GgNAnoC8ySO2OaGupyz9QY",
     gracias: "/masterclass-gracias",
     confirmacion: "/masterclass-confirmacion",
 

@@ -125,6 +125,25 @@
     });
   }
 
+  /* ---------- Grupo de WhatsApp ----------
+     Solo en la pagina de confirmacion. Se marca como Contact, que es el
+     evento estandar de Meta para este tipo de contacto. */
+  var btnGrupo = document.getElementById("btn-grupo");
+  if (btnGrupo) {
+    var grupo = (mc.grupoWhatsapp || "").trim();
+    if (grupo) {
+      btnGrupo.href = grupo;
+      btnGrupo.hidden = false;
+      var nota = document.getElementById("nota-grupo");
+      if (nota) nota.hidden = false;
+      btnGrupo.addEventListener("click", function () {
+        window.ftnTrack("Contact", { content_name: "Grupo WhatsApp Masterclass" });
+      });
+    } else {
+      console.warn("[Masterclass] Falta el enlace del grupo. Pegalo en js/config.js → masterclass.grupoWhatsapp");
+    }
+  }
+
   /* ---------- Agregar a mi calendario ----------
      Se arma un .ics al vuelo, que funciona en iPhone, Android y
      escritorio sin depender de que tenga cuenta de Google. */
