@@ -47,18 +47,18 @@
    Sale de la franja de arriba, donde competia con el logo de FTN, y se
    queda con un espacio propio. Al estar solo se pinta mas grande: un
    logo suelto a 26px se lee como una nota al pie. */
-.patrocina { background: var(--blanco); padding: 30px 20px; text-align: center; }
+.patrocina { background: var(--blanco); padding: 38px 20px; text-align: center; }
 .patrocina .etiqueta {
   font-family: "Bricolage Grotesque", sans-serif; font-weight: 700;
   font-size: .7rem; letter-spacing: .14em; text-transform: uppercase;
   color: var(--gris); margin-bottom: 14px;
 }
-.patrocina .marca-sola img { height: 38px; width: auto; margin: 0 auto; }
+.patrocina .marca-sola img { height: 66px; width: auto; margin: 0 auto; }
 /* Si el archivo faltara, se esconde el bloque entero y no queda el
    titulo solo, hablando de un logo que no esta. */
 .patrocina .marca-sola:empty { display: none; }
 .patrocina .marca-sola:empty ~ *, .patrocina:has(.marca-sola:empty) { display: none; }
-@media (max-width: 520px) { .patrocina { padding: 26px 18px; } .patrocina .marca-sola img { height: 32px; } }
+@media (max-width: 520px) { .patrocina { padding: 30px 18px; } .patrocina .marca-sola img { height: 54px; } }
 
 /* El logo de FTN, mas chico, al pie */
 /* Ahora abre el footer, ya no va debajo de otro logo */
