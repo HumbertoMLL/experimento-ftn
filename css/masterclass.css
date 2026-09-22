@@ -266,3 +266,50 @@
 /* El fondo del marco es blanco, no rosa: el formulario de Mailvio trae el
    suyo blanco y el rosa se veia como un hueco pegado abajo. */
 .registro .chiquito a { color: var(--rosa-texto); font-weight: 600; }
+
+/* ---------- Formulario propio ----------
+   El que pega a /api/registro. Se enciende desde js/config.js con
+   masterclass.formModo = "propio". Aqui si mandamos nosotros en el
+   diseno, cosa que con el iframe de Mailvio es imposible. */
+.form-propio { display: grid; gap: 14px; text-align: left; }
+.form-propio label { display: grid; gap: 6px; }
+.form-propio label > span {
+  font-family: "Bricolage Grotesque", sans-serif; font-weight: 700;
+  font-size: .82rem; color: var(--tinta);
+}
+.form-propio input {
+  width: 100%; box-sizing: border-box;
+  font-family: inherit; font-size: 1rem; color: var(--tinta);
+  background: var(--blanco); border: 1.5px solid var(--card-borde);
+  border-radius: 12px; padding: 14px 15px;
+  transition: border-color .15s ease, box-shadow .15s ease;
+}
+/* El gris del placeholder da 4.6:1 sobre blanco. Mas claro se vuelve
+   decorativo y deja de leerse en un celular al sol. */
+.form-propio input::placeholder { color: var(--gris); opacity: 1; }
+.form-propio input:focus {
+  outline: none; border-color: var(--rosa);
+  box-shadow: 0 0 0 3px rgba(var(--rgb-rosa), .2);
+}
+.form-propio input[aria-invalid="true"] { border-color: var(--rosa); }
+
+/* La lada no es un campo: es fija y va pegada al numero, para que nadie
+   se ponga a escribir +52 ni 044 ni nada raro. */
+.form-propio .con-lada { display: flex; align-items: stretch; gap: 8px; }
+.form-propio .con-lada .lada {
+  display: flex; align-items: center; padding: 0 14px;
+  background: var(--rosa-nieve); border: 1.5px solid var(--card-borde);
+  border-radius: 12px; color: var(--tinta); font-weight: 700; font-size: 1rem;
+}
+.form-propio .con-lada input { flex: 1; min-width: 0; }
+
+.form-propio .error-form {
+  margin: 0; font-size: .88rem; font-weight: 600; color: var(--rosa-texto);
+}
+/* .cta esta pensado para un <a>; aqui es un <button> y hay que quitarle
+   el borde y el fondo que trae el navegador. */
+.form-propio .cta { margin-top: 6px; max-width: none; border: 0; cursor: pointer; }
+.form-propio .cta[disabled] { opacity: .7; pointer-events: none; }
+.form-propio .aviso-form {
+  margin: 0; text-align: center; font-size: .78rem; color: var(--gris);
+}

@@ -107,6 +107,19 @@ window.FTN_CONFIG = {
        Debajo del iframe queda un enlace a la misma URL, por si el
        navegador bloquea el embebido. */
     formUrl: "https://mptrack.healthyvita.mx/form?am=43289&fid=64051&host=true",
+    /* Hay dos maneras de captar el registro y esta linea decide cual sale:
+         "iframe" · el formulario embebido de Mailvio. Es lo que esta vivo.
+                    No se le puede tocar el diseno: vive en otro dominio.
+         "propio" · nuestro formulario, con nuestra tipografia, nuestros
+                    colores y el campo de WhatsApp. Pega a /api/registro,
+                    que es quien habla con Mailvio con la llave guardada
+                    del lado del servidor.
+       Para pasar a "propio" hacen falta las tres variables de entorno en
+       Vercel: MAILVIO_ENDPOINT, MAILVIO_TOKEN y MAILVIO_LISTA. Mientras
+       no esten, dejalo en "iframe" o los registros se pierden. */
+    formModo: "iframe",
+    /* Lada que se pone sola delante del WhatsApp en el formulario propio */
+    lada: "+52",
     /* Alto del iframe. El formulario de Mailvio con dos campos mide unos
        190px; si le agregas el campo de WhatsApp, subelo a ~260. */
     formAlto: 200,

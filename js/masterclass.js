@@ -41,19 +41,88 @@
      El formulario vive en otro dominio, asi que no se puede medir su
      alto desde aqui: se toma de config. El enlace de abajo es la salida
      por si el navegador bloquea el embebido. */
+  var propio = document.getElementById("form-propio");
+  var cajaIframe = document.getElementById("caja-iframe");
   var iframe = document.getElementById("iframe-form");
-  if (iframe) {
-    var url = (mc.formUrl || "").trim();
+  var url = (mc.formUrl || "").trim();
+  var modo = mc.formModo === "propio" ? "propio" : "iframe";
+
+  if (modo === "propio" && propio) {
+    propio.hidden = false;
+    /* La salida "abrelo en otra pestana" solo tiene sentido con el iframe:
+       en el formulario propio no hay nada que se pueda bloquear. */
+    var linea = document.getElementById("form-directo");
+    if (linea && linea.parentNode) linea.parentNode.hidden = true;
+    var lada = document.getElementById("mc-lada");
+    if (lada && mc.lada) lada.textContent = mc.lada;
+    armarFormPropio(propio);
+  } else if (cajaIframe && iframe) {
+    cajaIframe.hidden = false;
     if (url) {
       iframe.src = url;
       iframe.style.height = (mc.formAlto || 470) + "px";
       var directo = document.getElementById("form-directo");
       if (directo) directo.href = url;
     } else {
-      iframe.parentNode.innerHTML =
+      cajaIframe.innerHTML =
         '<p style="padding:24px;text-align:center">Falta conectar el formulario.</p>';
       console.warn("[Masterclass] Falta la URL del formulario. Pegala en js/config.js → masterclass.formUrl");
     }
+  }
+
+  /* El formulario propio manda a /api/registro, que es quien tiene la
+     llave de Mailvio. Desde aqui nunca sale una llave: lo unico que
+     viaja son los tres datos de quien se registra. */
+  function armarFormPropio(form) {
+    var caja = document.getElementById("error-form");
+    var boton = form.querySelector("button[type=submit]");
+    var textoBoton = boton ? boton.textContent : "";
+
+    function falla(msg, campo) {
+      if (caja) { caja.textContent = msg; caja.hidden = false; }
+      if (campo) { campo.setAttribute("aria-invalid", "true"); campo.focus(); }
+    }
+
+    form.addEventListener("submit", function (e) {
+      e.preventDefault();
+      if (caja) caja.hidden = true;
+      form.querySelectorAll("input").forEach(function (i) { i.removeAttribute("aria-invalid"); });
+
+      var nombre = form.nombre.value.trim();
+      var email = form.email.value.trim();
+      var tel = form.whatsapp.value.replace(/\D/g, "");
+
+      /* Las mismas tres validaciones corren otra vez en el servidor:
+         lo que se valida en el navegador se puede saltar. */
+      if (nombre.length < 2) return falla("Escribe tu nombre.", form.nombre);
+      if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)) return falla("Revisa tu correo: ahi te llega el enlace.", form.email);
+      if (tel.length < 10) return falla("El WhatsApp va a 10 digitos, sin lada ni espacios.", form.whatsapp);
+
+      if (boton) { boton.disabled = true; boton.textContent = "Apartando tu lugar..."; }
+
+      fetch("/api/registro", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ nombre: nombre, email: email, whatsapp: tel })
+      }).then(function (r) {
+        return r.json().catch(function () { return { ok: r.ok }; });
+      }).then(function (d) {
+        if (!d || !d.ok) throw new Error((d && d.error) || "sin detalle");
+        /* El Lead lo dispara la pagina de gracias, no esta. Aqui solo
+           mandamos a quien se registro para alla. */
+        location.href = mc.gracias || "/masterclass-gracias";
+      }).catch(function (err) {
+        console.error("[Masterclass] No se pudo registrar:", err);
+        if (boton) { boton.disabled = false; boton.textContent = textoBoton; }
+        /* Si algo se rompe del lado nuestro, el registro no se pierde en
+           silencio: se le ofrece el formulario original de Mailvio. */
+        var salida = url ? ' <a href="' + url + '" target="_blank" rel="noopener">Apartalo por aqui</a>.' : "";
+        if (caja) {
+          caja.innerHTML = "No se pudo guardar tu registro. Intenta otra vez." + salida;
+          caja.hidden = false;
+        }
+      });
+    });
   }
 
   /* ---------- Agregar a mi calendario ----------

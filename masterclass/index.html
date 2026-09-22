@@ -47,10 +47,36 @@
     <div class="registro" id="form-registro">
       <p class="titulo-form">Aparta tu lugar</p>
       <p class="sub-form">Los lugares en vivo son limitados, para responder con atención y detalle las dudas de las asistentes.</p>
-      <div class="marco-form">
+      <!-- Los dos formularios viven en el HTML; js/masterclass.js muestra
+           uno solo, el que diga masterclass.formModo en js/config.js. -->
+      <div class="marco-form" id="caja-iframe" hidden>
         <iframe id="iframe-form" title="Formulario de registro a la masterclass"
                 loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
       </div>
+
+      <form class="form-propio" id="form-propio" novalidate hidden>
+        <label>
+          <span>Tu nombre</span>
+          <input type="text" name="nombre" autocomplete="given-name" required
+                 placeholder="Como te dice tu gente">
+        </label>
+        <label>
+          <span>Tu correo</span>
+          <input type="email" name="email" autocomplete="email" inputmode="email" required
+                 placeholder="ahi@llega.el.enlace">
+        </label>
+        <label>
+          <span>Tu WhatsApp</span>
+          <span class="con-lada">
+            <b class="lada" id="mc-lada">+52</b>
+            <input type="tel" name="whatsapp" autocomplete="tel" inputmode="numeric" required
+                   placeholder="10 dígitos">
+          </span>
+        </label>
+        <p class="error-form" id="error-form" role="alert" hidden></p>
+        <button type="submit" class="cta">Aparto mi lugar</button>
+        <p class="aviso-form">No mandamos spam. Solo lo de la masterclass.</p>
+      </form>
       <p class="chiquito">¿No ves el formulario? <a id="form-directo" href="#" target="_blank" rel="noopener">Ábrelo en una pestaña nueva</a>.</p>
       <p class="chiquito">Te mandamos el enlace por correo y por WhatsApp.<br><b>Registrarte es gratis. Seguir equivocándote, no.</b></p>
     </div>
