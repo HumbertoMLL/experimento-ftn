@@ -93,10 +93,10 @@ window.FTN_CONFIG = {
      edita aqui: la landing, la pagina de oferta y la cuenta regresiva
      leen de estos campos. */
   masterclass: {
-    fechaTexto: "Jueves 24 de septiembre",
+    fechaTexto: "Miércoles 30 de septiembre",
     horaTexto: "7:00 PM, hora CDMX",
-    /* Inicio del webinar en UTC: 24 sep 2026, 19:00 CDMX (UTC-6). */
-    inicioISO: "2026-09-25T01:00:00Z",
+    /* Inicio del webinar en UTC: 30 sep 2026, 19:00 CDMX (UTC-6). */
+    inicioISO: "2026-10-01T01:00:00Z",
     /* Cierre de carrito: domingo 27 sep, 23:59 CDMX. */
     cierreISO: "2026-09-28T05:59:00Z",
 

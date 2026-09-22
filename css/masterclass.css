@@ -119,3 +119,13 @@
   .ponente { grid-template-columns: 290px 1fr; gap: 36px; }
   .ponente .retrato { margin-inline: 0; }
 }
+
+/* ---------- Cedula profesional ----------
+   Va pegada al nombre y en cuerpo chico: es un dato de respaldo, no un
+   titular, pero tiene que poder leerse. */
+.ponente .cedula {
+  margin-top: 5px; font-size: .86rem; letter-spacing: .01em; color: var(--gris);
+}
+
+/* Dos cifras en lugar de tres: la rejilla de 3 dejaba un hueco */
+.cifras.dos { grid-template-columns: repeat(2, 1fr); max-width: 560px; margin-inline: auto; }
