@@ -13,14 +13,17 @@
 .patrocinio {
   background: var(--blanco); border-bottom: 1px solid var(--card-borde);
   display: flex; flex-wrap: wrap; align-items: center; justify-content: center;
-  gap: 8px 16px; padding: 12px 16px;
+  /* La separacion entre la etiqueta y los logos es mayor que la que hay
+     entre los dos logos, para que se lean como una pareja y no como tres
+     cosas sueltas. */
+  gap: 8px 22px; padding: 12px 16px;
 }
 .patrocinio .etiqueta {
   font-family: "Bricolage Grotesque", sans-serif; font-weight: 700;
   font-size: .68rem; letter-spacing: .12em; text-transform: uppercase;
   color: var(--gris);
 }
-.patrocinio .marcas { display: flex; align-items: center; gap: 18px; }
+.patrocinio .marcas { display: flex; align-items: center; gap: 15px; }
 .patrocinio .marcas img {
   display: block; height: 26px; width: auto; max-width: 124px;
   object-fit: contain;
@@ -45,8 +48,8 @@
 .patrocinio-pie:empty { display: none; }
 
 @media (max-width: 520px) {
-  .patrocinio { gap: 6px 12px; padding: 10px 14px; }
-  .patrocinio .marcas { gap: 14px; }
+  .patrocinio { gap: 6px 16px; padding: 10px 14px; }
+  .patrocinio .marcas { gap: 13px; }
   .patrocinio .marcas img { height: 22px; max-width: 104px; }
 }
 
