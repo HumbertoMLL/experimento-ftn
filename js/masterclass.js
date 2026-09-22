@@ -1,92 +1,157 @@
 /* ============================================================
-   MASTERCLASS — registro, oferta y cuenta regresiva
+   MASTERCLASS — las cuatro paginas del registro
+     /masterclass              opt-in, con el formulario embebido
+     /masterclass-gracias      "revisa tu correo"  → Lead
+     /masterclass-confirmacion "ya quedaste"       → CompleteRegistration
+     /masterclass/oferta       la oferta del webinar
    ============================================================ */
 (function () {
   var cfg = window.FTN_CONFIG || {};
   var mc = cfg.masterclass || {};
   var variante = document.body.getAttribute("data-variante") || "masterclass";
 
-  /* ---------- La fecha y la hora salen del config ---------- */
+  /* ---------- Fecha, hora y datos del correo salen del config ---------- */
   function pon(id, texto) {
     var el = document.getElementById(id);
     if (el && texto) el.textContent = texto;
   }
   pon("mc-fecha", mc.fechaTexto);
   pon("mc-hora", mc.horaTexto);
+  var correo = mc.correo || {};
+  pon("correo-de", correo.remitente);
+  pon("correo-dir", correo.direccion);
+  pon("correo-asunto", correo.asunto);
 
-  /* ---------- Formulario de registro ----------
-     El opt-in NO dispara el evento principal de Meta: el Lead vive en la
-     pagina de gracias, para no contar como registro a quien solo abrio
-     la pagina. */
-  var form = document.getElementById("form-registro");
+  /* ---------- Eventos de Meta ----------
+     En el opt-in no se dispara ninguno: ahi solo va el PageView del
+     <head>. El Lead cuenta cuando mandan el formulario y caen en
+     gracias; CompleteRegistration cuando confirman desde el correo. */
+  var porPagina = {
+    "masterclass-gracias": "Lead",
+    "masterclass-confirmacion": "CompleteRegistration"
+  };
+  if (porPagina[variante]) {
+    window.ftnTrack(porPagina[variante], {
+      content_name: "Masterclass 5 errores",
+      content_category: variante
+    });
+  }
+
+  /* ---------- Formulario embebido ----------
+     El formulario vive en otro dominio, asi que no se puede medir su
+     alto desde aqui: se toma de config. El enlace de abajo es la salida
+     por si el navegador bloquea el embebido. */
+  var iframe = document.getElementById("iframe-form");
+  if (iframe) {
+    var url = (mc.formUrl || "").trim();
+    if (url) {
+      iframe.src = url;
+      iframe.style.height = (mc.formAlto || 470) + "px";
+      var directo = document.getElementById("form-directo");
+      if (directo) directo.href = url;
+    } else {
+      iframe.parentNode.innerHTML =
+        '<p style="padding:24px;text-align:center">Falta conectar el formulario.</p>';
+      console.warn("[Masterclass] Falta la URL del formulario. Pegala en js/config.js → masterclass.formUrl");
+    }
+  }
+
+  /* ---------- Agregar a mi calendario ----------
+     Se arma un .ics al vuelo, que funciona en iPhone, Android y
+     escritorio sin depender de que tenga cuenta de Google. */
+  var btnCal = document.getElementById("btn-calendario");
+  if (btnCal && mc.inicioISO) {
+    var ini = new Date(mc.inicioISO);
+    var fin = new Date(ini.getTime() + 90 * 60 * 1000);   // hora y media de margen
+    var sello = function (d) { return d.toISOString().replace(/[-:]/g, "").split(".")[0] + "Z"; };
+    var ics = [
+      "BEGIN:VCALENDAR", "VERSION:2.0", "PRODID:-//FTN//Masterclass//ES",
+      "BEGIN:VEVENT",
+      "UID:masterclass-" + ini.getTime() + "@ftn",
+      "DTSTAMP:" + sello(new Date()),
+      "DTSTART:" + sello(ini),
+      "DTEND:" + sello(fin),
+      "SUMMARY:Masterclass con Ale Rivera - Los 5 errores al bajar de peso",
+      "DESCRIPTION:El enlace de Zoom te llega por correo y por WhatsApp el mismo dia.",
+      "BEGIN:VALARM", "TRIGGER:-PT15M", "ACTION:DISPLAY",
+      "DESCRIPTION:La masterclass empieza en 15 minutos", "END:VALARM",
+      "END:VEVENT", "END:VCALENDAR"
+    ].join("\r\n");
+    btnCal.href = "data:text/calendar;charset=utf-8," + encodeURIComponent(ics);
+    btnCal.setAttribute("download", "masterclass-ftn.ics");
+  }
+
+  /* ---------- Encuesta de dos preguntas ---------- */
+  var encuesta = document.getElementById("encuesta");
   var recado = document.getElementById("recado");
-
   function aviso(texto, mal) {
     if (!recado) return;
     recado.textContent = texto || "";
     recado.className = "recado" + (mal ? " mal" : "");
   }
-
-  if (form) {
-    form.addEventListener("submit", function (e) {
+  if (encuesta) {
+    encuesta.addEventListener("submit", function (e) {
       e.preventDefault();
+      var reto = encuesta.querySelector("input[name=reto]:checked");
+      var cuando = encuesta.querySelector("input[name=cuando]:checked");
+      if (!reto || !cuando) { aviso("Falta contestar una de las dos.", true); return; }
 
-      var datos = {
-        nombre: form.nombre.value.trim(),
-        email: form.email.value.trim(),
-        whatsapp: form.whatsapp.value.trim(),
-        evento: "masterclass-10-errores",
-        variante: variante,
-        origen: location.href
+      var datos = { reto: reto.value, cuando: cuando.value, evento: "masterclass-5-errores" };
+      /* La respuesta se manda a Meta pase lo que pase: sirve para armar
+         publicos aunque el webhook todavia no este conectado. */
+      window.ftnTrack("SubmitApplication", {
+        content_name: "Encuesta masterclass",
+        content_category: variante,
+        reto: datos.reto,
+        cuando: datos.cuando
+      });
+
+      var destino = (mc.encuestaAction || "").trim();
+      var listo = function () {
+        encuesta.innerHTML = '<p class="recado">¡Gracias! Ale lo va a tomar en cuenta para el miércoles.</p>';
       };
-
-      if (!datos.nombre || !datos.email || !datos.whatsapp) {
-        aviso("Falta llenar un campo.", true);
-        return;
-      }
-      /* Validacion de correo a proposito floja: solo descarta lo que
-         claramente no es un correo. Ser mas estricto rebota direcciones
-         validas y cuesta registros. */
-      if (datos.email.indexOf("@") < 1 || datos.email.indexOf(".") < 0) {
-        aviso("Revisa tu correo, parece que le falta algo.", true);
-        return;
-      }
-      /* Diez digitos es un celular en Mexico; se admiten mas por si viene
-         con lada de pais. */
-      if (datos.whatsapp.replace(/\D/g, "").length < 10) {
-        aviso("Tu WhatsApp necesita 10 dígitos.", true);
-        return;
-      }
-
-      var destino = (mc.formAction || "").trim();
       if (!destino) {
-        aviso("El formulario todavía no está conectado. Avísale al equipo.", true);
-        console.warn(
-          "[Masterclass] Falta la URL del formulario. Pegala en " +
-          "js/config.js → masterclass.formAction. Este registro NO se guardo:", datos
-        );
+        console.warn("[Masterclass] Falta masterclass.encuestaAction en js/config.js. Respuesta NO guardada:", datos);
+        listo();
         return;
       }
-
-      var boton = form.querySelector("button[type=submit]");
-      if (boton) { boton.disabled = true; boton.textContent = "Apartando tu lugar…"; }
-      aviso("");
-
+      var boton = encuesta.querySelector("button[type=submit]");
+      if (boton) { boton.disabled = true; boton.textContent = "Enviando…"; }
       fetch(destino, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(datos)
       })
-        .then(function (r) {
-          if (!r.ok) throw new Error("respuesta " + r.status);
-          location.href = mc.gracias || "/masterclass/gracias/";
-        })
+        .then(function (r) { if (!r.ok) throw new Error("respuesta " + r.status); listo(); })
         .catch(function (err) {
-          console.error("[Masterclass] No se pudo enviar el registro:", err);
-          aviso("No se pudo enviar. Inténtalo otra vez en un momento.", true);
-          if (boton) { boton.disabled = false; boton.textContent = "Quiero mi lugar"; }
+          console.error("[Masterclass] No se pudo enviar la encuesta:", err);
+          aviso("No se pudo enviar. Inténtalo otra vez.", true);
+          if (boton) { boton.disabled = false; boton.textContent = "Enviar mis respuestas"; }
         });
     });
+  }
+
+  /* ---------- Video de bienvenida ---------- */
+  var marco = document.getElementById("video-marco");
+  var vid = (mc.videoBienvenida || "").trim();
+  if (marco && vid) {
+    var ph = document.getElementById("video-ph");
+    if (ph) ph.remove();
+    var yt = vid.match(/(?:youtu\.be\/|youtube\.com\/(?:watch\?v=|embed\/))([\w-]{11})/);
+    var vm = vid.match(/vimeo\.com\/(?:video\/)?(\d+)/);
+    var el;
+    if (yt || vm) {
+      el = document.createElement("iframe");
+      el.src = yt ? "https://www.youtube.com/embed/" + yt[1] + "?rel=0&modestbranding=1"
+                  : "https://player.vimeo.com/video/" + vm[1] + "?badge=0&autopause=0&playsinline=1";
+      el.allow = "accelerometer; autoplay; clipboard-write; encrypted-media; picture-in-picture; fullscreen";
+      el.allowFullscreen = true;
+      el.title = "Ale te da la bienvenida";
+    } else {
+      el = document.createElement("video");
+      el.src = vid; el.controls = true; el.playsInline = true;
+    }
+    marco.appendChild(el);
   }
 
   /* ---------- Checkout de la oferta ---------- */
@@ -94,10 +159,10 @@
   document.querySelectorAll(".js-mc-checkout").forEach(function (btn) {
     var plan = btn.getAttribute("data-plan") || "anual";
     var datos = planes[plan] || {};
-    var url = (datos.url || "").trim();
-    if (url) btn.href = url;
+    var u = (datos.url || "").trim();
+    if (u) btn.href = u;
     btn.addEventListener("click", function (e) {
-      if (!url) e.preventDefault();
+      if (!u) e.preventDefault();
       window.ftnTrack("InitiateCheckout", {
         content_name: datos.nombre || "FTN Masterclass",
         content_category: variante,
@@ -111,16 +176,14 @@
   /* ---------- Cuenta regresiva al cierre de carrito ---------- */
   var cuenta = document.getElementById("cuenta");
   if (cuenta && mc.cierreISO) {
-    var fin = new Date(mc.cierreISO).getTime();
+    var finC = new Date(mc.cierreISO).getTime();
     var pintar = function () {
-      var falta = fin - Date.now();
+      var falta = finC - Date.now();
       if (falta <= 0) { cuenta.innerHTML = "<div><b>0</b><span>cerrado</span></div>"; return; }
       var s = Math.floor(falta / 1000);
       var partes = [
-        [Math.floor(s / 86400), "días"],
-        [Math.floor(s / 3600) % 24, "horas"],
-        [Math.floor(s / 60) % 60, "min"],
-        [s % 60, "seg"]
+        [Math.floor(s / 86400), "días"], [Math.floor(s / 3600) % 24, "horas"],
+        [Math.floor(s / 60) % 60, "min"], [s % 60, "seg"]
       ];
       cuenta.innerHTML = partes.map(function (p) {
         return "<div><b>" + p[0] + "</b><span>" + p[1] + "</span></div>";

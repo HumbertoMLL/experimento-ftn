@@ -100,14 +100,40 @@ window.FTN_CONFIG = {
     /* Cierre de carrito: domingo 27 sep, 23:59 CDMX. */
     cierreISO: "2026-09-28T05:59:00Z",
 
-    /* A donde manda el formulario de registro. Acepta cualquier webhook
-       que reciba JSON (Make, Zapier, n8n, tu backend). Mientras este
-       vacio el formulario NO envia y avisa en consola, para no perder
-       registros en silencio. */
-    formAction: "",
-    /* A donde se manda a la persona despues de registrarse. El evento
-       Lead de Meta se dispara ahi, nunca en el opt-in. */
-    gracias: "/masterclass/gracias/",
+    /* El formulario de registro vive en la plataforma de Healthyvita y se
+       embebe con un iframe: asi es ella la que guarda el registro y la
+       que manda el correo de confirmacion. Si algun dia cambia, se
+       cambia aqui nada mas.
+       Debajo del iframe queda un enlace a la misma URL, por si el
+       navegador bloquea el embebido. */
+    formUrl: "https://mptrack.healthyvita.mx/form?am=43289&fid=64051&host=true",
+    /* Alto del iframe. Si el formulario crece, subelo aqui. */
+    formAlto: 470,
+    /* El registro es de doble confirmacion, asi que son dos paginas:
+       - gracias: cae aqui al mandar el formulario. Dice que revise su
+         correo. Aqui se dispara el Lead de Meta.
+       - confirmacion: cae aqui al dar clic en el correo. Ya quedo
+         registrada. Aqui se dispara CompleteRegistration.
+       En el opt-in no se dispara ninguno de los dos, a proposito. */
+    gracias: "/masterclass-gracias",
+    confirmacion: "/masterclass-confirmacion",
+
+    /* El correo de confirmacion que le va a llegar. La pagina de gracias
+       lo muestra tal cual para que lo reconozca en su bandeja. */
+    correo: {
+      remitente: "Bren de FTN",
+      direccion: "bren@healthyvita.mx",
+      asunto: "Te falta un paso para registrarte a la MasterClass."
+    },
+
+    /* A donde manda la encuesta de dos preguntas de la pagina de
+       confirmacion. Mismo trato que el formulario: si esta vacia, no
+       envia y avisa. */
+    encuestaAction: "",
+
+    /* Video de bienvenida de Ale en la pagina de confirmacion.
+       YouTube, Vimeo o un .mp4 directo. Vacio = se ve el hueco. */
+    videoBienvenida: "",
 
     /* La oferta que se abre DENTRO del webinar. Los precios de arriba no
        se muestran en la landing de registro a proposito. */

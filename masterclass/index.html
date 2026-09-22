@@ -37,25 +37,16 @@
       <span><span class="ico">💻</span>En vivo, por Zoom</span>
     </div>
 
-    <form class="registro" id="form-registro" novalidate>
+    <div class="registro" id="form-registro">
       <p class="titulo-form">Aparta tu lugar</p>
       <p class="sub-form">Los lugares en vivo son limitados, para responder con atención y detalle las dudas de las asistentes.</p>
-      <label class="campo">
-        <span>Tu nombre</span>
-        <input type="text" name="nombre" autocomplete="given-name" placeholder="Ale" required>
-      </label>
-      <label class="campo">
-        <span>Tu correo</span>
-        <input type="email" name="email" autocomplete="email" placeholder="tucorreo@gmail.com" required>
-      </label>
-      <label class="campo">
-        <span>Tu WhatsApp</span>
-        <input type="tel" name="whatsapp" autocomplete="tel" inputmode="tel" placeholder="449 123 4567" required>
-      </label>
-      <button type="submit" class="cta">Aparto mi lugar</button>
-      <p class="recado" id="recado" role="status"></p>
+      <div class="marco-form">
+        <iframe id="iframe-form" title="Formulario de registro a la masterclass"
+                loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      </div>
+      <p class="chiquito">¿No ves el formulario? <a id="form-directo" href="#" target="_blank" rel="noopener">Ábrelo en una pestaña nueva</a>.</p>
       <p class="chiquito">Te mandamos el enlace por correo y por WhatsApp.<br><b>Registrarte es gratis. Seguir equivocándote, no.</b></p>
-    </form>
+    </div>
   </div>
 </header>
 

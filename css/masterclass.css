@@ -129,3 +129,102 @@
 
 /* Dos cifras en lugar de tres: la rejilla de 3 dejaba un hueco */
 .cifras.dos { grid-template-columns: repeat(2, 1fr); max-width: 560px; margin-inline: auto; }
+
+/* ============================================================
+   Paginas de gracias y confirmacion
+   ============================================================ */
+
+/* ---------- Sello de estado: lo primero que tiene que ver ---------- */
+.sello-estado {
+  display: inline-flex; align-items: center; gap: 10px;
+  background: var(--naranja); color: var(--tinta);
+  font-family: "Bricolage Grotesque", sans-serif; font-weight: 800;
+  font-size: .82rem; letter-spacing: .08em; text-transform: uppercase;
+  padding: 10px 20px; border-radius: 999px; margin-bottom: 20px;
+}
+/* El blanco sobre rosa da 3.62:1 y este texto es chico, asi que el estado
+   "listo" no cambia de color: lo marca la palomita. Sobre color, con letra
+   chica, la unica combinacion que pasa es tinta sobre naranja. */
+.sello-estado.listo { box-shadow: 0 8px 20px rgba(var(--rgb-naranja), .38); }
+
+/* ---------- El correo que va a llegar, tal como se ve ---------- */
+.correo {
+  max-width: 520px; margin: 30px auto 0; text-align: left;
+  background: var(--blanco); border: 1px solid var(--card-borde);
+  border-radius: 18px; overflow: hidden;
+  box-shadow: 0 14px 34px rgba(var(--rgb-tinta), .1);
+}
+.correo .cabecera {
+  background: var(--rosa-nieve); padding: 13px 20px;
+  border-bottom: 1px solid var(--card-borde);
+  font-family: "Bricolage Grotesque", sans-serif; font-weight: 800;
+  font-size: .72rem; letter-spacing: .12em; text-transform: uppercase; color: var(--gris);
+}
+.correo dl { margin: 0; padding: 18px 20px 20px; display: grid; gap: 14px; }
+.correo dt {
+  font-family: "Bricolage Grotesque", sans-serif; font-weight: 700;
+  font-size: .72rem; letter-spacing: .1em; text-transform: uppercase; color: var(--gris);
+  margin-bottom: 4px;
+}
+.correo dd { margin: 0; font-size: 1rem; line-height: 1.45; }
+.correo dd.asunto { font-weight: 700; font-size: 1.05rem; }
+
+/* ---------- Pasos numerados ---------- */
+.pasos { counter-reset: paso; list-style: none; display: grid; gap: 14px; margin-top: 28px; text-align: left; }
+.pasos li {
+  counter-increment: paso; position: relative;
+  background: var(--card-bg); border: 1px solid var(--card-borde);
+  border-radius: 16px; padding: 18px 20px 18px 64px;
+  font-size: 1rem; line-height: 1.5;
+}
+.pasos li::before {
+  content: counter(paso); position: absolute; left: 18px; top: 17px;
+  width: 32px; height: 32px; border-radius: 10px;
+  background: var(--naranja); color: var(--tinta);
+  display: grid; place-items: center;
+  font-family: "Bricolage Grotesque", sans-serif; font-weight: 800; font-size: .92rem;
+}
+.pasos li b { display: block; margin-bottom: 3px; }
+
+/* ---------- El trato: lo que esperamos de ella ---------- */
+.trato {
+  margin-top: 30px; padding: 26px 26px 28px;
+  background: var(--blanco); border: 2px solid var(--rosa);
+  border-radius: 20px; text-align: left;
+}
+.trato h3 { font-size: 1.1rem; }
+.trato ul { list-style: none; margin-top: 16px; display: grid; gap: 12px; }
+.trato li { display: flex; gap: 12px; font-size: .97rem; line-height: 1.5; }
+.trato li::before { content: "\2713"; color: var(--rosa-texto); font-weight: 800; flex-shrink: 0; }
+
+/* ---------- Encuesta de dos preguntas ---------- */
+.encuesta { max-width: 540px; margin: 28px auto 0; text-align: left; }
+.encuesta fieldset { border: 0; margin: 0 0 22px; padding: 0; }
+.encuesta legend {
+  font-family: "Bricolage Grotesque", sans-serif; font-weight: 800;
+  font-size: 1.05rem; line-height: 1.3; margin-bottom: 12px; padding: 0;
+}
+.opciones { display: grid; gap: 10px; }
+.opciones label {
+  display: flex; gap: 12px; align-items: flex-start; cursor: pointer;
+  background: var(--blanco); border: 2px solid var(--card-borde);
+  border-radius: 14px; padding: 14px 16px; font-size: .97rem; line-height: 1.45;
+}
+.opciones input { accent-color: var(--rosa); margin-top: .18em; flex-shrink: 0; width: 18px; height: 18px; }
+.opciones label:has(input:checked) { border-color: var(--rosa); background: var(--rosa-nieve); }
+
+@media (min-width: 780px) {
+  .pasos { grid-template-columns: repeat(3, 1fr); }
+  .pasos li { padding: 58px 22px 22px; }
+  .pasos li::before { top: 18px; left: 22px; }
+}
+
+/* ---------- El formulario embebido ----------
+   Vive en la plataforma de Healthyvita. El alto sale de config, porque
+   desde aqui no se puede medir lo que pasa dentro de otro dominio. */
+.marco-form {
+  border-radius: 14px; overflow: hidden; background: var(--rosa-nieve);
+  border: 1px solid var(--card-borde);
+}
+.marco-form iframe { display: block; width: 100%; border: 0; min-height: 420px; }
+.registro .chiquito a { color: var(--rosa-texto); font-weight: 600; }
