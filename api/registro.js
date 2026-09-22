@@ -45,17 +45,19 @@ function atributos(trozo) {
   return out;
 }
 
-/* Que es cada campo. Se mira el type primero y el name despues, porque
-   el type no miente y el name puede llamarse de cualquier forma. */
+/* Que es cada campo. Se mira el type primero, porque el type no miente.
+   Despues el name, el placeholder, el id y el aria-label todos juntos:
+   el formulario de Mailvio llama al campo del nombre "customField-913985",
+   que no dice nada, pero su placeholder si dice "Nombre". */
 function clasificar(c) {
-  const n = (c.name || "").toLowerCase();
   const t = (c.type || "text").toLowerCase();
   if (t === "hidden") return "oculto";
   if (t === "submit" || t === "button" || t === "reset" || t === "image") return "boton";
   if (t === "checkbox") return "casilla";
-  if (t === "email" || /e?-?mail|correo/.test(n)) return "email";
-  if (t === "tel" || /phone|tel|whats|movil|mobile|celular/.test(n)) return "telefono";
-  if (/name|nombre|fname|first|nom\b/.test(n)) return "nombre";
+  const pista = [c.name, c.id, c.placeholder, c["aria-label"]].filter(Boolean).join(" ").toLowerCase();
+  if (t === "email" || /e?-?mail|correo/.test(pista)) return "email";
+  if (t === "tel" || /phone|tel|whats|movil|mobile|celular/.test(pista)) return "telefono";
+  if (/name|nombre|fname|first|nom\b/.test(pista)) return "nombre";
   return "otro";
 }
 
@@ -75,7 +77,8 @@ async function leerFormulario() {
     const dentro = [...f[2].matchAll(/<(input|select|textarea)\b([^>]*?)\/?>/gi)]
       .map((i) => atributos(i[2]))
       .filter((a) => a.name)
-      .map((a) => ({ name: a.name, type: a.type || "text", value: a.value || "", clase: clasificar(a) }));
+      .map((a) => ({ name: a.name, type: a.type || "text", value: a.value || "",
+                     placeholder: a.placeholder || "", clase: clasificar(a) }));
     if (dentro.some((c) => c.clase === "email")) { elegida = f; campos = dentro; break; }
     if (!elegida) { elegida = f; campos = dentro; }
   }
@@ -90,6 +93,15 @@ async function leerFormulario() {
 function armarCuerpo(campos, datos) {
   const cuerpo = new URLSearchParams();
   let puestos = { email: false, nombre: false, telefono: false };
+
+  /* Red por si el placeholder tampoco ayuda: si sobra exactamente un
+     campo de texto sin clasificar y no se encontro ninguno de nombre,
+     ese sobrante es el nombre. Con uno solo no hay a que equivocarse;
+     con dos o mas se prefiere no inventar. */
+  const sueltos = campos.filter((c) => c.clase === "otro");
+  if (!campos.some((c) => c.clase === "nombre") && sueltos.length === 1) {
+    sueltos[0].clase = "nombre";
+  }
 
   for (const c of campos) {
     if (c.clase === "oculto") cuerpo.append(c.name, c.value);          // tokens, ids de lista
@@ -171,7 +183,7 @@ export default async function handler(req, res) {
         metodo: f.metodo,
         detecte: { nombre: vistos("nombre"), email: vistos("email"), telefono: vistos("telefono") },
         ocultos: f.campos.filter((c) => c.clase === "oculto").map((c) => c.name),
-        sin_clasificar: f.campos.filter((c) => c.clase === "otro").map((c) => c.name),
+        sin_clasificar: f.campos.filter((c) => c.clase === "otro").map((c) => c.name + " (placeholder: " + (c.placeholder || "ninguno") + ")"),
         todos: f.campos.map((c) => c.name + " (" + c.type + ")"),
         listo: f.campos.some((c) => c.clase === "email"),
       });
@@ -189,10 +201,12 @@ export default async function handler(req, res) {
 
   /* Las mismas validaciones que en el navegador, repetidas aqui: lo del
      cliente se puede saltar, lo del servidor no. */
-  if (!nombre || !email || !whatsapp) return res.status(400).json({ ok: false, error: "Faltan datos" });
+  if (!nombre || !email) return res.status(400).json({ ok: false, error: "Faltan datos" });
   if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)) return res.status(400).json({ ok: false, error: "Correo invalido" });
-  const tel = String(whatsapp).replace(/\D/g, "");
-  if (tel.length < 10) return res.status(400).json({ ok: false, error: "WhatsApp invalido" });
+  /* El WhatsApp es opcional mientras el formulario de Mailvio no tenga un
+     campo donde guardarlo. Si viene, se valida. */
+  const tel = String(whatsapp || "").replace(/\D/g, "");
+  if (tel && tel.length < 10) return res.status(400).json({ ok: false, error: "WhatsApp invalido" });
 
   const datos = { nombre: String(nombre).trim(), email: String(email).trim(), whatsapp: tel };
 
@@ -204,7 +218,7 @@ export default async function handler(req, res) {
     /* Si el formulario de Mailvio no tiene campo de telefono, el registro
        si entro pero el WhatsApp se perdio. Queda en el log para no
        enterarse el dia de la masterclass. */
-    if (!r.telefonoGuardado) {
+    if (tel && !r.telefonoGuardado) {
       console.warn("[registro] Sin campo de telefono en Mailvio. WhatsApp NO guardado:", datos.email, tel);
     }
     return res.status(200).json({ ok: true, via: r.via });

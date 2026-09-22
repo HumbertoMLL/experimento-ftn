@@ -53,8 +53,6 @@
        en el formulario propio no hay nada que se pueda bloquear. */
     var linea = document.getElementById("form-directo");
     if (linea && linea.parentNode) linea.parentNode.hidden = true;
-    var lada = document.getElementById("mc-lada");
-    if (lada && mc.lada) lada.textContent = mc.lada;
     armarFormPropio(propio);
   } else if (cajaIframe && iframe) {
     cajaIframe.hidden = false;
@@ -90,20 +88,18 @@
 
       var nombre = form.nombre.value.trim();
       var email = form.email.value.trim();
-      var tel = form.whatsapp.value.replace(/\D/g, "");
 
       /* Las mismas tres validaciones corren otra vez en el servidor:
          lo que se valida en el navegador se puede saltar. */
       if (nombre.length < 2) return falla("Escribe tu nombre.", form.nombre);
       if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)) return falla("Revisa tu correo: ahi te llega el enlace.", form.email);
-      if (tel.length < 10) return falla("El WhatsApp va a 10 digitos, sin lada ni espacios.", form.whatsapp);
 
       if (boton) { boton.disabled = true; boton.textContent = "Apartando tu lugar..."; }
 
       fetch("/api/registro", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ nombre: nombre, email: email, whatsapp: tel })
+        body: JSON.stringify({ nombre: nombre, email: email })
       }).then(function (r) {
         return r.json().catch(function () { return { ok: r.ok }; });
       }).then(function (d) {

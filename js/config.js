@@ -117,9 +117,7 @@ window.FTN_CONFIG = {
        Para pasar a "propio" hacen falta las tres variables de entorno en
        Vercel: MAILVIO_ENDPOINT, MAILVIO_TOKEN y MAILVIO_LISTA. Mientras
        no esten, dejalo en "iframe" o los registros se pierden. */
-    formModo: "iframe",
-    /* Lada que se pone sola delante del WhatsApp en el formulario propio */
-    lada: "+52",
+    formModo: "propio",
     /* Alto del iframe. El formulario de Mailvio con dos campos mide unos
        190px; si le agregas el campo de WhatsApp, subelo a ~260. */
     formAlto: 200,

@@ -293,16 +293,6 @@
 }
 .form-propio input[aria-invalid="true"] { border-color: var(--rosa); }
 
-/* La lada no es un campo: es fija y va pegada al numero, para que nadie
-   se ponga a escribir +52 ni 044 ni nada raro. */
-.form-propio .con-lada { display: flex; align-items: stretch; gap: 8px; }
-.form-propio .con-lada .lada {
-  display: flex; align-items: center; padding: 0 14px;
-  background: var(--rosa-nieve); border: 1.5px solid var(--card-borde);
-  border-radius: 12px; color: var(--tinta); font-weight: 700; font-size: 1rem;
-}
-.form-propio .con-lada input { flex: 1; min-width: 0; }
-
 .form-propio .error-form {
   margin: 0; font-size: .88rem; font-weight: 600; color: var(--rosa-texto);
 }
