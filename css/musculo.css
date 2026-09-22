@@ -5,6 +5,10 @@
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 html { scroll-behavior: smooth; }
 img { max-width: 100%; height: auto; display: block; }
+/* El atributo hidden se apaga solo con poner un display en la regla, y eso
+   deja elementos ocultos a la vista. Aqui se blinda de una vez para todo el
+   sitio: si algo dice hidden, no se pinta. */
+[hidden] { display: none !important; }
 
 :root {
   /* --- La paleta, la del logo del reto --- */
