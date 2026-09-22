@@ -147,31 +147,6 @@
     }
   }
 
-  /* ---------- Agregar a mi calendario ----------
-     Se arma un .ics al vuelo, que funciona en iPhone, Android y
-     escritorio sin depender de que tenga cuenta de Google. */
-  var btnCal = document.getElementById("btn-calendario");
-  if (btnCal && mc.inicioISO) {
-    var ini = new Date(mc.inicioISO);
-    var fin = new Date(ini.getTime() + 90 * 60 * 1000);   // hora y media de margen
-    var sello = function (d) { return d.toISOString().replace(/[-:]/g, "").split(".")[0] + "Z"; };
-    var ics = [
-      "BEGIN:VCALENDAR", "VERSION:2.0", "PRODID:-//FTN//Masterclass//ES",
-      "BEGIN:VEVENT",
-      "UID:masterclass-" + ini.getTime() + "@ftn",
-      "DTSTAMP:" + sello(new Date()),
-      "DTSTART:" + sello(ini),
-      "DTEND:" + sello(fin),
-      "SUMMARY:Masterclass con Ale Rivera - Los 5 errores al bajar de peso",
-      "DESCRIPTION:El enlace de Zoom te llega por correo y por WhatsApp el mismo dia.",
-      "BEGIN:VALARM", "TRIGGER:-PT15M", "ACTION:DISPLAY",
-      "DESCRIPTION:La masterclass empieza en 15 minutos", "END:VALARM",
-      "END:VEVENT", "END:VCALENDAR"
-    ].join("\r\n");
-    btnCal.href = "data:text/calendar;charset=utf-8," + encodeURIComponent(ics);
-    btnCal.setAttribute("download", "masterclass-ftn.ics");
-  }
-
   /* ---------- Encuesta de dos preguntas ---------- */
   var encuesta = document.getElementById("encuesta");
   var recado = document.getElementById("recado");

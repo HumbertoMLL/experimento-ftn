@@ -39,7 +39,28 @@
   text-transform: uppercase; color: var(--tinta);
 }
 
-/* La misma pareja de logos, mas chica, al pie */
+/* Las sirenas del titular de /masterclass-gracias. Van un poco mas
+   chicas que el texto: a tamano completo se comen el titular. */
+.sirena { font-size: .8em; margin: 0 .18em; vertical-align: .04em; }
+
+/* ---------- Patrocinio de Bfit, en su propio bloque ----------
+   Sale de la franja de arriba, donde competia con el logo de FTN, y se
+   queda con un espacio propio. Al estar solo se pinta mas grande: un
+   logo suelto a 26px se lee como una nota al pie. */
+.patrocina { background: var(--blanco); padding: 30px 20px; text-align: center; }
+.patrocina .etiqueta {
+  font-family: "Bricolage Grotesque", sans-serif; font-weight: 700;
+  font-size: .7rem; letter-spacing: .14em; text-transform: uppercase;
+  color: var(--gris); margin-bottom: 14px;
+}
+.patrocina .marca-sola img { height: 38px; width: auto; margin: 0 auto; }
+/* Si el archivo faltara, se esconde el bloque entero y no queda el
+   titulo solo, hablando de un logo que no esta. */
+.patrocina .marca-sola:empty { display: none; }
+.patrocina .marca-sola:empty ~ *, .patrocina:has(.marca-sola:empty) { display: none; }
+@media (max-width: 520px) { .patrocina { padding: 26px 18px; } .patrocina .marca-sola img { height: 32px; } }
+
+/* El logo de FTN, mas chico, al pie */
 /* Ahora abre el footer, ya no va debajo de otro logo */
 .patrocinio-pie {
   display: flex; align-items: center; justify-content: center;
