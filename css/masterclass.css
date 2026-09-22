@@ -5,14 +5,50 @@
    carga primero. Aqui solo va lo que esta pagina necesita de mas.
    ============================================================ */
 
-/* ---------- Barra de patrocinio ---------- */
+/* ---------- Barra de patrocinio ----------
+   La franja es blanca, no tinta. Los logos de los patrocinadores vienen
+   cada uno en su color (el de Bfit es azul) y sobre blanco los dos se
+   leen bien, asi que basta un archivo por marca en vez de una version
+   clara y otra oscura. */
 .patrocinio {
-  background: var(--tinta); color: var(--blanco);
-  text-align: center; padding: 11px 16px;
-  font-family: "Bricolage Grotesque", sans-serif; font-weight: 700;
-  font-size: .76rem; letter-spacing: .1em; text-transform: uppercase;
+  background: var(--blanco); border-bottom: 1px solid var(--card-borde);
+  display: flex; flex-wrap: wrap; align-items: center; justify-content: center;
+  gap: 8px 16px; padding: 12px 16px;
 }
-.patrocinio b { color: var(--naranja); }
+.patrocinio .etiqueta {
+  font-family: "Bricolage Grotesque", sans-serif; font-weight: 700;
+  font-size: .68rem; letter-spacing: .12em; text-transform: uppercase;
+  color: var(--gris);
+}
+.patrocinio .marcas { display: flex; align-items: center; gap: 18px; }
+.patrocinio .marcas img {
+  display: block; height: 26px; width: auto; max-width: 124px;
+  object-fit: contain;
+}
+/* Red de seguridad: si todavia no esta el archivo de un logo, esa imagen
+   se quita sola (onerror en el HTML). Si se quedan las dos fuera, la
+   franja no aparece vacia: vuelve el texto de siempre. */
+.patrocinio .marcas:empty { display: none; }
+.patrocinio .respaldo { display: none; }
+.patrocinio .marcas:empty ~ .respaldo {
+  display: inline; font-family: "Bricolage Grotesque", sans-serif;
+  font-weight: 800; font-size: .78rem; letter-spacing: .06em;
+  text-transform: uppercase; color: var(--tinta);
+}
+
+/* La misma pareja de logos, mas chica, al pie */
+.patrocinio-pie {
+  display: flex; align-items: center; justify-content: center;
+  gap: 16px; margin: 14px 0 10px;
+}
+.patrocinio-pie img { display: block; height: 22px; width: auto; max-width: 104px; }
+.patrocinio-pie:empty { display: none; }
+
+@media (max-width: 520px) {
+  .patrocinio { gap: 6px 12px; padding: 10px 14px; }
+  .patrocinio .marcas { gap: 14px; }
+  .patrocinio .marcas img { height: 22px; max-width: 104px; }
+}
 
 /* ---------- Hero de registro ---------- */
 .mc-hero { background: linear-gradient(180deg, var(--rosa-tinte), var(--blanco)); padding: 38px 20px 54px; }
@@ -223,8 +259,10 @@
    Vive en la plataforma de Healthyvita. El alto sale de config, porque
    desde aqui no se puede medir lo que pasa dentro de otro dominio. */
 .marco-form {
-  border-radius: 14px; overflow: hidden; background: var(--rosa-nieve);
+  border-radius: 14px; overflow: hidden; background: var(--blanco);
   border: 1px solid var(--card-borde);
 }
-.marco-form iframe { display: block; width: 100%; border: 0; min-height: 420px; }
+.marco-form iframe { display: block; width: 100%; border: 0; min-height: 180px; }
+/* El fondo del marco es blanco, no rosa: el formulario de Mailvio trae el
+   suyo blanco y el rosa se veia como un hueco pegado abajo. */
 .registro .chiquito a { color: var(--rosa-texto); font-weight: 600; }

@@ -107,8 +107,9 @@ window.FTN_CONFIG = {
        Debajo del iframe queda un enlace a la misma URL, por si el
        navegador bloquea el embebido. */
     formUrl: "https://mptrack.healthyvita.mx/form?am=43289&fid=64051&host=true",
-    /* Alto del iframe. Si el formulario crece, subelo aqui. */
-    formAlto: 470,
+    /* Alto del iframe. El formulario de Mailvio con dos campos mide unos
+       190px; si le agregas el campo de WhatsApp, subelo a ~260. */
+    formAlto: 200,
     /* El registro es de doble confirmacion, asi que son dos paginas:
        - gracias: cae aqui al mandar el formulario. Dice que revise su
          correo. Aqui se dispara el Lead de Meta.

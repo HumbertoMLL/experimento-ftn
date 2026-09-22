@@ -22,7 +22,14 @@
 </head>
 <body data-variante="masterclass-confirmacion">
 
-<div class="patrocinio">Presentado por <b>FTN</b> y <b>Bfit</b></div>
+<!-- Los dos logos de patrocinio. El onerror es a proposito: si el archivo
+     de un logo todavia no esta subido, esa imagen se quita sola y la franja
+     no muestra el icono roto. Si faltan los dos, el CSS regresa el texto. -->
+<div class="patrocinio">
+  <span class="etiqueta">Presentado por</span>
+  <span class="marcas"><img src="/assets/logo-ftn.webp" alt="FTN" width="320" height="104" loading="lazy" onerror="this.remove()"><img src="/assets/logo-bfit.webp" alt="Bfit" width="320" height="104" loading="lazy" onerror="this.remove()"></span>
+  <b class="respaldo">FTN y Bfit</b>
+</div>
 
 <!-- B1 · QUEDASTE DENTRO -->
 <header class="mc-hero">
@@ -115,6 +122,7 @@
 
 <footer>
   <img class="marca" src="/assets/logo-musculo-claro.webp" width="1000" height="435" alt="FTN">
+  <div class="patrocinio-pie"><img src="/assets/logo-ftn.webp" alt="FTN" width="320" height="104" loading="lazy" onerror="this.remove()"><img src="/assets/logo-bfit.webp" alt="Bfit" width="320" height="104" loading="lazy" onerror="this.remove()"></div>
   <p style="font-size:.82rem">Presentado por FTN y Bfit · © 2026 FTN Method</p>
 </footer>
 
