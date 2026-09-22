@@ -23,18 +23,20 @@
   pon("correo-asunto", correo.asunto);
 
   /* ---------- Eventos de Meta ----------
-     Un solo evento de conversion en todo el flujo: Lead, y nada mas al
-     confirmar desde el correo. Las demas paginas mandan solo el PageView
-     que dispara el <head>.
+     Dos eventos, uno por cada paso del registro:
 
-     Que no este en gracias es a proposito. El registro es de doble
-     confirmacion: quien cae en gracias apenas mando el formulario y
-     todavia puede no abrir el correo. Contarlo ahi infla el numero de
-     leads con gente que nunca entro a la lista, y Meta termina buscando
-     mas gente igual. */
-  var porPagina = {
-    "masterclass-confirmacion": "Lead"
-  };
+       Lead                 · al mandar nombre y correo, o sea al caer en
+                              /masterclass-gracias.
+       CompleteRegistration · al terminar de verdad. Donde se cuenta lo
+                              decide masterclass.eventoRegistro en
+                              js/config.js: "boton" (clic en unirme al
+                              grupo de WhatsApp) o "pagina" (abrir
+                              /masterclass-confirmacion).
+
+     El opt-in y la oferta no mandan nada al cargar: ahi solo va el
+     PageView del <head>. */
+  var porPagina = { "masterclass-gracias": "Lead" };
+  if (mc.eventoRegistro !== "boton") porPagina["masterclass-confirmacion"] = "CompleteRegistration";
   if (porPagina[variante]) {
     window.ftnTrack(porPagina[variante], {
       content_name: "Masterclass 5 errores",
@@ -144,6 +146,19 @@
       btnGrupo.hidden = false;
       var nota = document.getElementById("nota-grupo");
       if (nota) nota.hidden = false;
+      if (mc.eventoRegistro === "boton") {
+        /* Una sola vez aunque le piquen dos: si regresan y vuelven a dar
+           clic, Meta contaria dos registros de la misma persona. */
+        var yaConto = false;
+        btnGrupo.addEventListener("click", function () {
+          if (yaConto) return;
+          yaConto = true;
+          window.ftnTrack("CompleteRegistration", {
+            content_name: "Masterclass 5 errores",
+            content_category: variante
+          });
+        });
+      }
     } else {
       console.warn("[Masterclass] Falta el enlace del grupo. Pegalo en js/config.js → masterclass.grupoWhatsapp");
     }

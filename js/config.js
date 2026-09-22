@@ -130,6 +130,13 @@ window.FTN_CONFIG = {
     /* Grupo de WhatsApp al que entra quien ya confirmo su registro. Si se
        deja vacio, el boton no aparece (no se pinta un enlace muerto). */
     grupoWhatsapp: "https://chat.whatsapp.com/GgNAnoC8ySO2OaGupyz9QY",
+    /* Donde cuenta el registro completo:
+         "boton"  · cuando le pican a "Unirme al grupo de WhatsApp"
+         "pagina" · nada mas abrir /masterclass-confirmacion
+       El boton mide un registro mas exigente (confirmo el correo Y entro
+       al grupo), pero deja fuera a quien confirma y no entra al grupo.
+       Se cambia esta linea y ya. */
+    eventoRegistro: "boton",
     gracias: "/masterclass-gracias",
     confirmacion: "/masterclass-confirmacion",
 
