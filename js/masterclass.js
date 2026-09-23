@@ -166,8 +166,12 @@
 
   /* ---------- Video de bienvenida ---------- */
   var marco = document.getElementById("video-marco");
+  var secVideo = document.getElementById("sec-video");
   var vid = (mc.videoBienvenida || "").trim();
+  /* Sin video no se pinta la seccion entera. Un marco vacio que dice
+     "VIDEO" no es una promesa que se pueda cumplir. */
   if (marco && vid) {
+    if (secVideo) secVideo.hidden = false;
     var ph = document.getElementById("video-ph");
     if (ph) ph.remove();
     var yt = vid.match(/(?:youtu\.be\/|youtube\.com\/(?:watch\?v=|embed\/))([\w-]{11})/);
