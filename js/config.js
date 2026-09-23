@@ -148,10 +148,6 @@ window.FTN_CONFIG = {
       asunto: "Te falta un paso para registrarte a la MasterClass."
     },
 
-    /* A donde manda la encuesta de dos preguntas de la pagina de
-       confirmacion. Mismo trato que el formulario: si esta vacia, no
-       envia y avisa. */
-    encuestaAction: "",
 
     /* Video de bienvenida de Ale en la pagina de confirmacion.
        YouTube, Vimeo o un .mp4 directo. Vacio = se ve el hueco. */

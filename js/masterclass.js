@@ -164,47 +164,6 @@
     }
   }
 
-  /* ---------- Encuesta de dos preguntas ---------- */
-  var encuesta = document.getElementById("encuesta");
-  var recado = document.getElementById("recado");
-  function aviso(texto, mal) {
-    if (!recado) return;
-    recado.textContent = texto || "";
-    recado.className = "recado" + (mal ? " mal" : "");
-  }
-  if (encuesta) {
-    encuesta.addEventListener("submit", function (e) {
-      e.preventDefault();
-      var reto = encuesta.querySelector("input[name=reto]:checked");
-      var cuando = encuesta.querySelector("input[name=cuando]:checked");
-      if (!reto || !cuando) { aviso("Falta contestar una de las dos.", true); return; }
-
-      var datos = { reto: reto.value, cuando: cuando.value, evento: "masterclass-5-errores" };
-      var destino = (mc.encuestaAction || "").trim();
-      var listo = function () {
-        encuesta.innerHTML = '<p class="recado">¡Gracias! Ale lo va a tomar en cuenta para el miércoles.</p>';
-      };
-      if (!destino) {
-        console.warn("[Masterclass] Falta masterclass.encuestaAction en js/config.js. Respuesta NO guardada:", datos);
-        listo();
-        return;
-      }
-      var boton = encuesta.querySelector("button[type=submit]");
-      if (boton) { boton.disabled = true; boton.textContent = "Enviando…"; }
-      fetch(destino, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(datos)
-      })
-        .then(function (r) { if (!r.ok) throw new Error("respuesta " + r.status); listo(); })
-        .catch(function (err) {
-          console.error("[Masterclass] No se pudo enviar la encuesta:", err);
-          aviso("No se pudo enviar. Inténtalo otra vez.", true);
-          if (boton) { boton.disabled = false; boton.textContent = "Enviar mis respuestas"; }
-        });
-    });
-  }
-
   /* ---------- Video de bienvenida ---------- */
   var marco = document.getElementById("video-marco");
   var vid = (mc.videoBienvenida || "").trim();
