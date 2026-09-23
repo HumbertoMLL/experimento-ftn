@@ -39,7 +39,7 @@
   if (mc.eventoRegistro !== "boton") porPagina["masterclass-confirmacion"] = "CompleteRegistration";
   if (porPagina[variante]) {
     window.ftnTrack(porPagina[variante], {
-      content_name: "Masterclass 5 errores",
+      content_name: "Masterclass 10 errores",
       content_category: variante
     });
   }
@@ -154,7 +154,7 @@
           if (yaConto) return;
           yaConto = true;
           window.ftnTrack("CompleteRegistration", {
-            content_name: "Masterclass 5 errores",
+            content_name: "Masterclass 10 errores",
             content_category: variante
           });
         });

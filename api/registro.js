@@ -151,7 +151,7 @@ async function porApi(datos, endpoint, token, lista) {
       name: datos.nombre,
       phone: datos.whatsapp,
       list_id: lista,
-      source: "masterclass-5-errores",
+      source: "masterclass-10-errores",
     }),
   });
   if (!r.ok) {
