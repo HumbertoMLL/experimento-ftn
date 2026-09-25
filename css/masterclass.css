@@ -156,7 +156,8 @@
   font-family: "Bricolage Grotesque", sans-serif; font-weight: 800;
   font-size: 1.12rem; letter-spacing: -.01em; text-align: center; margin-bottom: 4px;
 }
-.registro .sub-form { text-align: center; font-size: .88rem; color: var(--gris); margin-bottom: 20px; }
+.registro .sub-form { text-align: center; font-size: .88rem; color: var(--gris); margin-bottom: 10px; }
+.registro .sub-form + .sub-form { margin-bottom: 20px; }
 .campo { display: block; margin-bottom: 15px; }
 .campo span {
   display: block; margin-bottom: 7px;
