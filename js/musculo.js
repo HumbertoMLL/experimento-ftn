@@ -106,6 +106,14 @@
       var txt = dos(Math.floor(s / 3600)) + ":" + dos(Math.floor(s / 60) % 60) + ":" + dos(s % 60);
       relojes.forEach(function (r) { r.querySelector(".js-reloj-t").textContent = txt; });
     };
+    /* El motivo del dia (config: musculo.motivos), con la fecha de CDMX */
+    var hoy = new Date(Date.now() - 6 * 36e5).toISOString().slice(0, 10);
+    var mot = (m.motivos || {})[hoy];
+    if (mot && mot.motivo) {
+      var txt = (mot.emoji ? mot.emoji + " " : "") + "Hoy tus regalos son gratis por " + mot.motivo;
+      document.querySelectorAll(".js-motivo").forEach(function (el) { el.textContent = txt; el.hidden = false; });
+      document.querySelectorAll(".js-reloj-etiqueta").forEach(function (el) { el.textContent = "Se van en"; });
+    }
     pinta();
     relojes.forEach(function (r) { r.hidden = false; });
     setInterval(pinta, 1000);

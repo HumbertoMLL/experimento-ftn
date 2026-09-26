@@ -83,6 +83,22 @@ window.FTN_CONFIG = {
          cadaHoras: 48 · vence cada tercer dia a las 11:59 PM
        Con 0 el reloj no aparece. */
     reloj: { cadaHoras: 24 },
+    /* Por qué hoy los regalos son gratis. Uno por día, con fecha de CDMX.
+       Sale arriba del reloj en el hero y arriba de "Te ahorras $600":
+         "🐰 Hoy tus regalos son gratis por el Día Mundial del Conejo"
+       El motivo va con su artículo ("el ...") porque se pega después de
+       "por". Un día sin renglón sale con el texto de siempre. */
+    motivos: {
+      "2026-09-26": { emoji: "🐰", motivo: "el Día Mundial del Conejo" },
+      "2026-09-27": { emoji: "🎂", motivo: "el aniversario de Google" },
+      "2026-09-28": { emoji: "📚", motivo: "el Día Internacional del Acceso Universal a la Información" },
+      "2026-09-29": { emoji: "🥕", motivo: "el Día Internacional de la Pérdida y el Desperdicio de Alimentos" },
+      "2026-09-30": { emoji: "🎙️", motivo: "el Día Internacional del Podcast" },
+      "2026-10-01": { emoji: "☕", motivo: "el Día Internacional del Café" },
+      "2026-10-02": { emoji: "😁", motivo: "el Día Mundial de la Sonrisa" },
+      "2026-10-03": { emoji: "🥤", motivo: "el Día Mundial del Smoothie" },
+      "2026-10-04": { emoji: "🌳", motivo: "el Día de las Actividades al Aire Libre" }
+    },
     /* Arranque de la generacion, para la cuenta regresiva de dias y horas
        en la seccion de escasez de -m y -t. 5 oct 2026, 00:00 CDMX (UTC-6).
        Cuando pasa, la cuenta se esconde sola. */

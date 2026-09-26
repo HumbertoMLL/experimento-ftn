@@ -82,7 +82,12 @@
     <div class="cta-wrap"><a href="#oferta" class="cta">Quiero entrar a la próxima generación</a></div>
     <p class="prueba grande"><b>+60,000 mujeres</b> ya han entrenado en FTN</p>
   </div>
-  <p class="franja-reloj js-reloj" hidden>🎁 Tus regalos vencen en <b class="js-reloj-t">--:--:--</b></p>
+  <!-- Si hoy hay motivo en config (musculo.motivos), la primera línea dice por qué
+       son gratis y la segunda queda en "Se van en". Si no, sale como siempre. -->
+  <div class="franja-reloj js-reloj" hidden>
+    <span class="motivo js-motivo" hidden></span>
+    <span><span class="js-reloj-etiqueta">🎁 Tus regalos vencen en</span> <b class="js-reloj-t">--:--:--</b></span>
+  </div>
 </header>
 
 <!-- B2 · CIRCUNSTANCIA (su mundo, en su voz) -->
@@ -238,6 +243,7 @@
           <figcaption><b>Regalo 2</b>Recetario de bebidas otoñales<span class="valor"><s>$300</s> Gratis</span></figcaption>
         </figure>
       </div>
+      <p class="motivo-regalos js-motivo" hidden></p>
       <p class="ahorro">Te ahorras <b>$600</b>. Son 100% gratis con tu inscripción.</p>
       <p class="reloj js-reloj" hidden>⏳ Se van en <b class="js-reloj-t">--:--:--</b></p>
 
