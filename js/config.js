@@ -74,6 +74,19 @@ window.FTN_CONFIG = {
       daninajera: { src: "DaniNajera", nombre: "Dani N\u00e1jera" },
       alerivera:  { src: "AleRivera",  nombre: "Ale Rivera" }
     },
+    /* Reloj de los regalos en /reto-mas-musculo-m y -t ("Tus regalos
+       vencen en 05:12:33"; en -t tambien el lugar de la amiga).
+       Nunca llega a cero y se queda ahi: al vencer, arranca el siguiente
+       ciclo solo. Los ciclos se cuentan desde la medianoche de CDMX, asi
+       que todas ven el mismo reloj:
+         cadaHoras: 24 · vence todos los dias a las 11:59 PM
+         cadaHoras: 48 · vence cada tercer dia a las 11:59 PM
+       Con 0 el reloj no aparece. */
+    reloj: { cadaHoras: 24 },
+    /* Arranque de la generacion, para la cuenta regresiva de dias y horas
+       en la seccion de escasez de -m y -t. 5 oct 2026, 00:00 CDMX (UTC-6).
+       Cuando pasa, la cuenta se esconde sola. */
+    inicioISO: "2026-10-05T06:00:00Z",
     /* Los dos tickets, cada uno con su oferta de Hotmart (off= y bid=).
        El &src=<canal> se agrega solo en js/musculo.js. */
     checkout: {

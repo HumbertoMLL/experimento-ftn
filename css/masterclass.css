@@ -88,26 +88,7 @@
   font-size: clamp(1.02rem, 2.9vw, 1.2rem); line-height: 1.55; color: var(--gris);
 }
 
-/* ---------- Ale en el hero ----------
-   Cara y credencial antes de pedirle el correo: quien va a dar la clase
-   importa mas que cualquier otra cosa en una masterclass gratis. */
-.presenta {
-  display: flex; align-items: center; justify-content: center;
-  gap: 14px; margin-top: 18px; text-align: left;
-}
-.presenta img {
-  flex: none; width: 66px; height: 66px; border-radius: 50%;
-  object-fit: cover; border: 3px solid var(--blanco);
-  box-shadow: 0 6px 18px rgba(var(--rgb-tinta), .16);
-}
-.presenta p { font-size: .92rem; line-height: 1.4; max-width: 30ch; }
-.presenta b { font-family: "Bricolage Grotesque", sans-serif; color: var(--tinta); }
-.presenta span { color: var(--gris); font-size: .85rem; }
-@media (max-width: 380px) {
-  .presenta { gap: 11px; }
-  .presenta img { width: 56px; height: 56px; }
-  .presenta p { font-size: .86rem; }
-}
+/* .presenta (Ale en el hero) vive en musculo.css: la usan tambien -m y -t */
 
 /* El gancho repetido a media pagina. La segunda linea baja de tamano,
    porque .promesa p viene en grande y dos frases enormes seguidas no se

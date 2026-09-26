@@ -89,6 +89,48 @@
     });
   });
 
+  /* ---------- Reloj de los regalos ----------
+     Cuenta hacia el cierre del ciclo en curso (config: musculo.reloj).
+     El ancla es una medianoche de CDMX (UTC-6, Mexico ya no cambia de
+     horario), asi que con 24 horas vence cada noche a medianoche. */
+  var relojes = document.querySelectorAll(".js-reloj");
+  var horas = +((m.reloj || {}).cadaHoras) || 0;
+  if (relojes.length && horas > 0) {
+    var ancla = Date.parse("2026-01-01T06:00:00Z");
+    var ciclo = horas * 36e5;
+    var dos = function (n) { return (n < 10 ? "0" : "") + n; };
+    var pinta = function () {
+      var ahora = Date.now();
+      var vence = ancla + (Math.floor((ahora - ancla) / ciclo) + 1) * ciclo;
+      var s = Math.floor((vence - ahora) / 1000);
+      var txt = dos(Math.floor(s / 3600)) + ":" + dos(Math.floor(s / 60) % 60) + ":" + dos(s % 60);
+      relojes.forEach(function (r) { r.querySelector(".js-reloj-t").textContent = txt; });
+    };
+    pinta();
+    relojes.forEach(function (r) { r.hidden = false; });
+    setInterval(pinta, 1000);
+  }
+
+  /* ---------- Cuenta regresiva al inicio de la generacion ---------- */
+  var cuentas = document.querySelectorAll(".js-inicio");
+  var inicio = Date.parse(m.inicioISO || "");
+  if (cuentas.length && inicio) {
+    var pintaInicio = function () {
+      var s = Math.floor((inicio - Date.now()) / 1000);
+      cuentas.forEach(function (c) {
+        if (s <= 0) { c.hidden = true; return; }
+        var val = { d: Math.floor(s / 86400), h: Math.floor(s / 3600) % 24, m: Math.floor(s / 60) % 60 };
+        c.querySelectorAll("[data-u]").forEach(function (b) {
+          var n = val[b.getAttribute("data-u")];
+          b.textContent = (n < 10 ? "0" : "") + n;
+        });
+        c.hidden = false;
+      });
+    };
+    pintaInicio();
+    setInterval(pintaInicio, 20000);
+  }
+
   /* ---------- ViewContent al llegar a la oferta ---------- */
   var oferta = document.getElementById("oferta");
   if (oferta && "IntersectionObserver" in window) {

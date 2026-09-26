@@ -55,6 +55,8 @@ Abre la consola del navegador: verás cada evento del pixel (o el aviso de que f
 
 Landing madre: **`/reto-mas-musculo`** (antes `/musculo-v1`, que redirige). Variantes de prueba: `/musculo-v5` y `/musculo-v6`.
 
+Variantes de una sola oferta: **`/reto-mas-musculo-m`** (solo mensual, $599) y **`/reto-mas-musculo-t`** (solo trimestral, $1,197). Son copia de la madre con una sola tarjeta de precio; los eventos salen como `reto-mas-musculo-m` / `-t` y aceptan los mismos canales (`/reto-mas-musculo-m/meta`, etc.).
+
 Todos los botones de la página llevan a la oferta (`#oferta`). Los dos botones de la oferta llevan a Hotmart, y la URL del checkout se arma con `&src=<canal>` según el canal con el que se abrió la landing:
 
 | Canal | Link a compartir |
