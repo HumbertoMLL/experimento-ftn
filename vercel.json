@@ -15,7 +15,11 @@
   ],
   "rewrites": [
     {
-      "source": "/:landing(reto-mas-musculo|reto-mas-musculo-m|reto-mas-musculo-t|musculo-v5|musculo-v6)/:canal(meta|influencer|instagram|email|whatsapp|DaniNajera|AleRivera)",
+      "source": "/reto-mas-musculo/:canal(influencer|email|whatsapp)",
+      "destination": "/reto-mas-musculo-dos"
+    },
+    {
+      "source": "/:landing(reto-mas-musculo|reto-mas-musculo-m|reto-mas-musculo-t|reto-mas-musculo-dos|musculo-v5|musculo-v6)/:canal(meta|influencer|instagram|email|whatsapp|DaniNajera|AleRivera)",
       "destination": "/:landing"
     }
   ],
