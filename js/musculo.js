@@ -89,54 +89,54 @@
     });
   });
 
-  /* ---------- Reloj de los regalos ----------
-     Cuenta hacia el cierre del ciclo en curso (config: musculo.reloj).
-     El ancla es una medianoche de CDMX (UTC-6, Mexico ya no cambia de
-     horario), asi que con 24 horas vence cada noche a medianoche. */
-  var relojes = document.querySelectorAll(".js-reloj");
-  var horas = +((m.reloj || {}).cadaHoras) || 0;
-  if (relojes.length && horas > 0) {
-    var ancla = Date.parse("2026-01-01T06:00:00Z");
-    var ciclo = horas * 36e5;
-    var dos = function (n) { return (n < 10 ? "0" : "") + n; };
-    var pinta = function () {
-      var ahora = Date.now();
-      var vence = ancla + (Math.floor((ahora - ancla) / ciclo) + 1) * ciclo;
-      var s = Math.floor((vence - ahora) / 1000);
-      var txt = dos(Math.floor(s / 3600)) + ":" + dos(Math.floor(s / 60) % 60) + ":" + dos(s % 60);
-      relojes.forEach(function (r) { r.querySelector(".js-reloj-t").textContent = txt; });
-    };
-    /* El motivo del dia (config: musculo.motivos), con la fecha de CDMX */
-    var hoy = new Date(Date.now() - 6 * 36e5).toISOString().slice(0, 10);
-    var mot = (m.motivos || {})[hoy];
-    if (mot && mot.motivo) {
-      var txt = (mot.emoji ? mot.emoji + " " : "") + "Hoy tus regalos son gratis por " + mot.motivo;
-      document.querySelectorAll(".js-motivo").forEach(function (el) { el.textContent = txt; el.hidden = false; });
-      document.querySelectorAll(".js-reloj-etiqueta").forEach(function (el) { el.textContent = "Se van en"; });
-    }
-    pinta();
-    relojes.forEach(function (r) { r.hidden = false; });
-    setInterval(pinta, 1000);
+  /* ---------- Motivo del dia (config: musculo.motivos) ----------
+     Por que hoy los regalos son gratis, con la fecha de CDMX (UTC-6). */
+  var hoy = new Date(Date.now() - 6 * 36e5).toISOString().slice(0, 10);
+  var mot = (m.motivos || {})[hoy];
+  if (mot && mot.motivo) {
+    var txtMot = (mot.emoji ? mot.emoji + " " : "") + "Hoy tus regalos son gratis por " + mot.motivo;
+    document.querySelectorAll(".js-motivo").forEach(function (el) { el.textContent = txtMot; el.hidden = false; });
   }
 
-  /* ---------- Cuenta regresiva al inicio de la generacion ---------- */
-  var cuentas = document.querySelectorAll(".js-inicio");
-  var inicio = Date.parse(m.inicioISO || "");
-  if (cuentas.length && inicio) {
-    var pintaInicio = function () {
-      var s = Math.floor((inicio - Date.now()) / 1000);
-      cuentas.forEach(function (c) {
-        if (s <= 0) { c.hidden = true; return; }
-        var val = { d: Math.floor(s / 86400), h: Math.floor(s / 3600) % 24, m: Math.floor(s / 60) % 60 };
-        c.querySelectorAll("[data-u]").forEach(function (b) {
-          var n = val[b.getAttribute("data-u")];
-          b.textContent = (n < 10 ? "0" : "") + n;
-        });
-        c.hidden = false;
-      });
+  /* ---------- Cierre de inscripciones (config: musculo.cierreISO) ----------
+     Reloj grande en la oferta y barra fija abajo. La barra se esconde
+     mientras el reloj grande o los precios estan en pantalla. Al llegar
+     a cero desaparecen los dos. */
+  var cierre = Date.parse(m.cierreISO || "");
+  var cierres = document.querySelectorAll(".js-cierre");
+  var barra = document.querySelector(".sticky-cierre");
+  if (cierres.length && cierre) {
+    var dos = function (n) { return (n < 10 ? "0" : "") + n; };
+    var tic;
+    var pintaCierre = function () {
+      var s = Math.floor((cierre - Date.now()) / 1000);
+      if (s <= 0) {
+        cierres.forEach(function (c) { c.hidden = true; });
+        document.body.classList.remove("con-sticky");
+        clearInterval(tic);
+        return;
+      }
+      var u = { d: Math.floor(s / 86400), h: Math.floor(s / 3600) % 24, m: Math.floor(s / 60) % 60, s: s % 60 };
+      document.querySelectorAll(".js-cierre [data-u]").forEach(function (b) { b.textContent = dos(u[b.getAttribute("data-u")]); });
+      var corto = (u.d ? u.d + (u.d === 1 ? " día " : " días ") : "") + dos(u.h) + ":" + dos(u.m) + ":" + dos(u.s);
+      document.querySelectorAll(".js-cierre-txt").forEach(function (b) { b.textContent = corto; });
+      cierres.forEach(function (c) { c.hidden = false; });
     };
-    pintaInicio();
-    setInterval(pintaInicio, 20000);
+    pintaCierre();
+    tic = setInterval(pintaCierre, 1000);
+
+    if (barra && Date.now() < cierre) {
+      document.body.classList.add("con-sticky");
+      var vistos = [document.querySelector(".cierre"), document.getElementById("precio")].filter(Boolean);
+      if (vistos.length && "IntersectionObserver" in window) {
+        var enPantalla = [];
+        var io = new IntersectionObserver(function (es) {
+          es.forEach(function (e) { enPantalla[vistos.indexOf(e.target)] = e.isIntersecting; });
+          barra.classList.toggle("fuera", enPantalla.some(Boolean));
+        }, { threshold: 0 });
+        vistos.forEach(function (el) { io.observe(el); });
+      }
+    }
   }
 
   /* ---------- ViewContent al llegar a la oferta ---------- */

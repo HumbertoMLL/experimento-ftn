@@ -222,7 +222,18 @@
         <p class="mt">Mamás, mujeres que trabajan, mujeres que ya habían probado de todo y llegaron sin creerlo. Y son casos de éxito.</p>
       </div>
 
-      <div class="planes">
+      <!-- Cierre de inscripciones (config: musculo.cierreISO) -->
+      <div class="cierre js-cierre" hidden>
+        <p class="cierre-titulo">Cerramos inscripciones en:</p>
+        <div class="cierre-reloj">
+          <div><b data-u="d">--</b><span>días</span></div>
+          <div><b data-u="h">--</b><span>horas</span></div>
+          <div><b data-u="m">--</b><span>min</span></div>
+          <div><b data-u="s">--</b><span>seg</span></div>
+        </div>
+      </div>
+
+      <div class="planes" id="precio">
 
         <div class="plan">
           <div class="nombre">Suscripción Mensual</div>
@@ -382,6 +393,12 @@
   <img class="marca" src="/assets/logo-musculo-claro.webp" width="1000" height="435" alt="Reto Más Músculo, Menos Grasa">
   <p style="font-size:.82rem">© 2026 FTN Method · Reto Más Músculo, Menos Grasa</p>
 </footer>
+
+<!-- Barra fija con el cierre: sigue a la visitante y se esconde cuando
+     el reloj grande o los precios están en pantalla -->
+<a href="#precio" class="sticky-cierre js-cierre" hidden>
+  <span>Cerramos inscripciones en:</span> <b class="js-cierre-txt">--</b>
+</a>
 
 <script src="/js/musculo.js"></script>
 </body>

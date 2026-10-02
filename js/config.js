@@ -74,17 +74,13 @@ window.FTN_CONFIG = {
       daninajera: { src: "DaniNajera", nombre: "Dani N\u00e1jera" },
       alerivera:  { src: "AleRivera",  nombre: "Ale Rivera" }
     },
-    /* Reloj de los regalos en /reto-mas-musculo-m y -t ("Tus regalos
-       vencen en 05:12:33"; en -t tambien el lugar de la amiga).
-       Nunca llega a cero y se queda ahi: al vencer, arranca el siguiente
-       ciclo solo. Los ciclos se cuentan desde la medianoche de CDMX, asi
-       que todas ven el mismo reloj:
-         cadaHoras: 24 · vence todos los dias a las 11:59 PM
-         cadaHoras: 48 · vence cada tercer dia a las 11:59 PM
-       Con 0 el reloj no aparece. */
-    reloj: { cadaHoras: 24 },
+    /* Cierre de inscripciones de todas las /reto-mas-musculo (madre, -m,
+       -t y -dos): reloj grande en rojo arriba de los precios y barra fija
+       abajo que se esconde al llegar a ellos. Lunes 5 oct 2026, 11:59 PM
+       CDMX (UTC-6). Cuando pasa, los dos desaparecen solos. */
+    cierreISO: "2026-10-06T05:59:00Z",
     /* Por qué hoy los regalos son gratis. Uno por día, con fecha de CDMX.
-       Sale arriba del reloj en el hero y arriba de "Te ahorras $600":
+       Sale arriba de "Te ahorras $600" en -m, -t y -dos:
          "🐰 Hoy tus regalos son gratis por el Día Mundial del Conejo"
        El motivo va con su artículo ("el ...") porque se pega después de
        "por". Un día sin renglón sale con el texto de siempre. */
@@ -99,10 +95,6 @@ window.FTN_CONFIG = {
       "2026-10-03": { emoji: "🥤", motivo: "el Día Mundial del Smoothie" },
       "2026-10-04": { emoji: "🌳", motivo: "el Día de las Actividades al Aire Libre" }
     },
-    /* Arranque de la generacion, para la cuenta regresiva de dias y horas
-       en la seccion de escasez de -m y -t. 5 oct 2026, 00:00 CDMX (UTC-6).
-       Cuando pasa, la cuenta se esconde sola. */
-    inicioISO: "2026-10-05T06:00:00Z",
     /* Los dos tickets, cada uno con su oferta de Hotmart (off= y bid=).
        El &src=<canal> se agrega solo en js/musculo.js. */
     checkout: {

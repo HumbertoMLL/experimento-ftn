@@ -82,12 +82,6 @@
     <div class="cta-wrap"><a href="#oferta" class="cta">Quiero entrar a la próxima generación</a></div>
     <p class="prueba grande"><b>+60,000 mujeres</b> ya han entrenado en FTN</p>
   </div>
-  <!-- Si hoy hay motivo en config (musculo.motivos), la primera línea dice por qué
-       son gratis y la segunda queda en "Se van en". Si no, sale como siempre. -->
-  <div class="franja-reloj js-reloj" hidden>
-    <span class="motivo js-motivo" hidden></span>
-    <span><span class="js-reloj-etiqueta">🎁 Tus regalos vencen en</span> <b class="js-reloj-t">--:--:--</b></span>
-  </div>
 </header>
 
 <!-- B2 · CIRCUNSTANCIA (su mundo, en su voz) -->
@@ -245,12 +239,22 @@
       </div>
       <p class="motivo-regalos js-motivo" hidden></p>
       <p class="ahorro">Te ahorras <b>$600</b>. Son 100% gratis con tu inscripción.</p>
-      <p class="reloj js-reloj" hidden>⏳ Se van en <b class="js-reloj-t">--:--:--</b></p>
 
       <div class="porque" style="margin-top:50px">
         <h3>Por qué esta vez sí lo vas a lograr.</h3>
         <p>+1,000 mujeres ya se transformaron con FTN en distintos retos. Tenemos una metodología probada.</p>
         <p class="mt">Mamás, mujeres que trabajan, mujeres que ya habían probado de todo y llegaron sin creerlo. Y son casos de éxito.</p>
+      </div>
+
+      <!-- Cierre de inscripciones (config: musculo.cierreISO) -->
+      <div class="cierre js-cierre" hidden>
+        <p class="cierre-titulo">Cerramos inscripciones en:</p>
+        <div class="cierre-reloj">
+          <div><b data-u="d">--</b><span>días</span></div>
+          <div><b data-u="h">--</b><span>horas</span></div>
+          <div><b data-u="m">--</b><span>min</span></div>
+          <div><b data-u="s">--</b><span>seg</span></div>
+        </div>
       </div>
 
       <!-- Variante T: solo la oferta trimestral -->
@@ -274,7 +278,6 @@
           </ul>
           <div class="amiga-card">
             <p><b>Tráete a tu amiga.</b> Es más fácil sostenerlo cuando alguien te acompaña. Su lugar es para el reto de 28 días; los dos meses de app son tuyos.</p>
-            <p class="reloj js-reloj" hidden>⏳ El lugar de tu amiga vence en <b class="js-reloj-t">--:--:--</b></p>
           </div>
           <a href="#" class="cta js-checkout" data-plan="trimestral">Entrar al reto · $1,197</a>
         </div>
@@ -382,11 +385,6 @@
   <div class="in narrow escasez">
     <h2>Abrimos por generaciones y esta cierra pronto.</h2>
     <div class="fecha">Iniciamos el 5 de octubre</div>
-    <div class="cuenta-inicio js-inicio" hidden>
-      <div><b data-u="d">--</b><span>días</span></div>
-      <div><b data-u="h">--</b><span>horas</span></div>
-      <div><b data-u="m">--</b><span>min</span></div>
-    </div>
   </div>
 </section>
 
@@ -467,6 +465,12 @@
   <img class="marca" src="/assets/logo-musculo-claro.webp" width="1000" height="435" alt="Reto Más Músculo, Menos Grasa">
   <p style="font-size:.82rem">© 2026 FTN Method · Reto Más Músculo, Menos Grasa</p>
 </footer>
+
+<!-- Barra fija con el cierre: sigue a la visitante y se esconde cuando
+     el reloj grande o los precios están en pantalla -->
+<a href="#precio" class="sticky-cierre js-cierre" hidden>
+  <span>Cerramos inscripciones en:</span> <b class="js-cierre-txt">--</b>
+</a>
 
 <script src="/js/musculo.js"></script>
 </body>

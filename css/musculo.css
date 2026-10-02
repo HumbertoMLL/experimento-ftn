@@ -14,6 +14,7 @@ img { max-width: 100%; height: auto; display: block; }
   /* --- La paleta, la del logo del reto --- */
   --rosa:    #FF2A6B;  /* el color de accion: botones, bordes, lo que hay que mirar */
   --naranja: #FF931E;  /* el unico de los tres que carga texto oscuro encima (4.6:1) */
+  --rojo:    #D3132B;  /* solo el cierre de inscripciones. 5.4:1 sobre blanco y con blanco encima */
   --tinta:   #2E4350;  /* el color del texto. Ya no se usa como fondo de seccion */
   --blanco:  #FFFFFF;  /* el fondo claro es blanco */
 
@@ -434,26 +435,7 @@ h1 .hl, h2 .hl { color: var(--rosa); }
 .hero-mockup { margin: 14px auto 0; width: 100%; max-width: 720px; }
 .hero-mockup img { width: 100%; height: auto; display: block; filter: drop-shadow(0 14px 22px rgba(var(--rgb-tinta), .16)); }
 
-/* Los relojes son texto, no botones: el unico que parece boton es el CTA */
-.reloj {
-  display: block; margin: 14px auto 0; text-align: center;
-  font-size: .95rem; font-weight: 600; color: var(--tinta);
-}
-.reloj b, .franja-reloj b {
-  font-family: "Bricolage Grotesque", sans-serif; font-weight: 800; font-size: 1.15rem;
-  font-variant-numeric: tabular-nums; letter-spacing: .02em;
-}
-.reloj b { color: var(--rosa-texto); }
-.reloj[hidden], .franja-reloj[hidden], .cuenta-inicio[hidden], .js-motivo[hidden] { display: none; }
-.franja-reloj .motivo { display: block; margin-bottom: 2px; font-weight: 700; line-height: 1.35; }
-.motivo-regalos { margin-top: 22px; text-align: center; font-family: "Bricolage Grotesque", sans-serif; font-weight: 800; font-size: 1.1rem; color: var(--rosa-texto); }
-.motivo-regalos + .ahorro { margin-top: 6px; }
-/* En el hero, franja de lado a lado pegada al borde de abajo */
-.hero-oferta { padding-bottom: 0; }
-.franja-reloj {
-  margin: 26px -20px 0; padding: 12px 16px; text-align: center;
-  background: var(--naranja); color: var(--tinta); font-size: .95rem; font-weight: 600;
-}
+.js-motivo[hidden] { display: none; }
 
 /* "Incluido" sobre cada cosa del reto: los unicos con precio son los regalos */
 .incluido {
@@ -466,19 +448,12 @@ h1 .hl, h2 .hl { color: var(--rosa); }
 .ahorro { margin-top: 20px; text-align: center; font-size: 1.02rem; font-weight: 600; }
 .ahorro b { color: var(--rosa-texto); }
 
-/* -t: la amiga vive dentro de la card, no en otra caja */
+/* -t y -dos: la amiga vive dentro de la card, no en otra caja */
 .amiga-card {
   margin: 0 0 18px; padding: 14px 16px; border-radius: 12px;
   border: 2px dashed var(--naranja); background: var(--blanco);
 }
 .amiga-card p { font-size: .93rem; line-height: 1.5; }
-.amiga-card .reloj { margin-top: 8px; text-align: left; font-size: .9rem; }
-
-/* Cuenta regresiva al inicio de la generacion */
-.cuenta-inicio { display: flex; justify-content: center; gap: 10px; margin-top: 22px; }
-.cuenta-inicio div { min-width: 78px; padding: 12px 8px 10px; border-radius: 14px; background: var(--blanco); border: 1px solid var(--card-borde); text-align: center; }
-.cuenta-inicio b { display: block; font-family: "Bricolage Grotesque", sans-serif; font-weight: 800; font-size: 2.1rem; line-height: 1; color: var(--rosa-texto); font-variant-numeric: tabular-nums; }
-.cuenta-inicio span { display: block; margin-top: 6px; font-size: .75rem; letter-spacing: .08em; text-transform: uppercase; color: var(--gris); }
 
 /* Es para ti / No es para ti, con mas peso */
 .filtro-grande h2 { font-size: clamp(1.7rem, 6vw, 2.6rem); }
@@ -624,7 +599,6 @@ footer b { display: block; font-family: "Bricolage Grotesque", sans-serif; font-
   .fila { grid-template-columns: 1.15fr 1fr; gap: 28px; padding: 24px 28px; }
   .fila:nth-child(even) img { order: 2; }
   .prueba.grande b { display: inline; }
-  .franja-reloj { margin: 32px -26px 0; }
   .credenciales ul { grid-template-columns: 1fr 1fr; }
   /* en laptops bajitas el mockup no debe sacar el boton de la primera pantalla */
   .hero-mockup img { width: auto; max-width: 100%; max-height: 42vh; margin-inline: auto; }
@@ -780,3 +754,43 @@ body.con-barra { padding-bottom: 96px; }
   font-size: .82rem; letter-spacing: .06em; text-transform: uppercase;
   padding: 9px 18px; border-radius: 999px;
 }
+
+/* ============================================================
+   CIERRE DE INSCRIPCIONES (todas las /reto-mas-musculo)
+   ============================================================ */
+.cierre[hidden], .sticky-cierre[hidden] { display: none; }
+.cierre { margin: 40px auto 6px; text-align: center; }
+.cierre-titulo {
+  font-family: "Bricolage Grotesque", sans-serif; font-weight: 800;
+  font-size: clamp(1.25rem, 4.6vw, 1.6rem); color: var(--rojo);
+}
+.cierre-reloj { display: flex; justify-content: center; gap: 8px; margin-top: 14px; }
+.cierre-reloj div {
+  flex: 1 1 0; max-width: 104px; padding: 12px 4px 10px; border-radius: 14px;
+  background: var(--blanco); border: 2px solid var(--rojo);
+}
+.cierre-reloj b {
+  display: block; font-family: "Bricolage Grotesque", sans-serif; font-weight: 800;
+  font-size: clamp(2.1rem, 9vw, 3.2rem); line-height: 1; color: var(--rojo);
+  font-variant-numeric: tabular-nums;
+}
+.cierre-reloj span {
+  display: block; margin-top: 6px; font-size: .72rem; font-weight: 600;
+  letter-spacing: .08em; text-transform: uppercase; color: var(--rojo);
+}
+/* Barra fija: de lado a lado, sin forma de boton */
+.sticky-cierre {
+  position: fixed; left: 0; right: 0; bottom: 0; z-index: 60;
+  display: flex; justify-content: center; align-items: baseline; flex-wrap: wrap; gap: 2px 8px;
+  padding: 11px 16px calc(11px + env(safe-area-inset-bottom));
+  background: var(--rojo); color: var(--blanco); text-decoration: none;
+  font-size: .95rem; font-weight: 600; text-align: center;
+  box-shadow: 0 -6px 18px rgba(var(--rgb-tinta), .18);
+  transition: transform .3s ease;
+}
+.sticky-cierre b {
+  font-family: "Bricolage Grotesque", sans-serif; font-weight: 800; font-size: 1.15rem;
+  font-variant-numeric: tabular-nums; letter-spacing: .02em;
+}
+.sticky-cierre.fuera { transform: translateY(110%); }
+body.con-sticky { padding-bottom: 72px; }
