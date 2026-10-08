@@ -109,6 +109,20 @@ window.FTN_CONFIG = {
     }
   },
 
+  /* --- MiniReto: Del Consultorio a Redes Sociales (/minireto) ---------
+     Reto de 3 días en vivo para profesionales de la salud. Todo lo que
+     cambia de edición a edición vive aquí:
+       - checkout.url vacía: los botones bajan a la oferta y no mandan
+         a ningún lado (no hay enlace muerto).
+       - precio en 0: la tarjeta no muestra monto.
+       - fechaTexto/horaTexto vacíos: el bloque de fecha se oculta.
+     El canal (?src=meta o /minireto/meta) viaja a Hotmart como &src=. */
+  minireto: {
+    fechaTexto: "",
+    horaTexto: "",
+    checkout: { url: "", nombre: "MiniReto - Del Consultorio a Redes Sociales", precio: 0, moneda: "MXN" }
+  },
+
   /* --- Masterclass (/masterclass) ------------------------------------
      Webinar de venta directa con Ale Rivera. Toda la fecha del evento se
      edita aqui: la landing, la pagina de oferta y la cuenta regresiva

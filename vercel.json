@@ -21,6 +21,10 @@
     {
       "source": "/:landing(reto-mas-musculo|reto-mas-musculo-m|reto-mas-musculo-t|reto-mas-musculo-dos|musculo-v5|musculo-v6)/:canal(meta|influencer|instagram|email|whatsapp|DaniNajera|AleRivera)",
       "destination": "/:landing"
+    },
+    {
+      "source": "/minireto/:canal(meta|influencer|instagram|email|whatsapp)",
+      "destination": "/minireto"
     }
   ],
   "headers": [
