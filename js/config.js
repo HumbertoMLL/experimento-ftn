@@ -114,13 +114,14 @@ window.FTN_CONFIG = {
      cambia de edición a edición vive aquí:
        - checkout.url vacía: los botones bajan a la oferta y no mandan
          a ningún lado (no hay enlace muerto).
-       - precio en 0: la tarjeta no muestra monto.
+       - precio: solo para el value de los eventos de Meta; el $197
+         visible está escrito en el HTML.
        - fechaTexto/horaTexto vacíos: el bloque de fecha se oculta.
      El canal (?src=meta o /minireto/meta) viaja a Hotmart como &src=. */
   minireto: {
-    fechaTexto: "",
+    fechaTexto: "9, 10 y 11 de noviembre",
     horaTexto: "",
-    checkout: { url: "", nombre: "MiniReto - Del Consultorio a Redes Sociales", precio: 0, moneda: "MXN" }
+    checkout: { url: "", nombre: "MiniReto - Del Consultorio a Redes Sociales", precio: 197, moneda: "MXN" }
   },
 
   /* --- Masterclass (/masterclass) ------------------------------------
