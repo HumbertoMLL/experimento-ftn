@@ -254,3 +254,16 @@ footer { padding: 28px 20px; text-align: center; font-size: .85rem; color: rgba(
 /* Firma de Brenvita en el pie (versión clara para el fondo oscuro) */
 footer { padding: 48px 20px 32px; }
 .logo-pie { width: 180px; height: auto; margin: 0 auto 18px; }
+
+/* "Y sí, es barato": la línea que explica el precio, dentro de la caja de la oferta */
+.barato { margin-top: 18px; font-size: .95rem; line-height: 1.55; color: var(--gris); text-align: left; }
+.angosto .micro { margin-top: 10px; }
+
+/* La caja de la oferta es blanca aunque viva en una banda oscura:
+   todo lo de adentro vuelve a los colores de fondo claro. */
+.oscuro .oferta { color: var(--texto); }
+.oscuro .oferta h2, .oscuro .oferta b, .oscuro .oferta strong { color: var(--tinta); }
+.oscuro .oferta h3 { color: var(--gris); }
+.oscuro .oferta .etiqueta { color: var(--tinta); }
+.oscuro .oferta .checks li::before { color: var(--cool-sky); }
+.oscuro .oferta .garantia b { color: var(--rose-texto); }
