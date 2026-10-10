@@ -1,90 +1,184 @@
-/* MiniReto extiende los componentes de /css/musculo.css. Solo lo que no existe allá. */
+/* ============================================================
+   MINIRETO · Del Consultorio a Redes Sociales
+   Distribución en zigzag: media de un lado, título + texto + botón
+   del otro, con bandas que alternan blanco y gris cálido.
+   Paleta de Bren: cool sky #5AA9E6 · sky blue #7FC8F8 ·
+   bright snow #F9F9F9 · rose kiss #FF6392. Tipografía: Noto Sans.
+   ============================================================ */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+[hidden] { display: none !important; }
+html { scroll-behavior: smooth; }
+img { max-width: 100%; height: auto; display: block; }
 
-/* Paleta de Bren: cool sky #5AA9E6 · sky blue #7FC8F8 · bright snow #F9F9F9 · rose kiss #FF6392.
-   Se redefine aquí encima de las variables de musculo.css, así que todos los
-   componentes compartidos cambian de color solo en esta página. */
-body.mr{
-  --rosa:#FF6392;          /* rose kiss: botones, acentos, bordes */
-  --naranja:#7FC8F8;       /* sky blue: chips, kicker, números (lleva tinta encima) */
-  --azul:#5AA9E6;          /* cool sky */
-  --blanco:#F9F9F9;        /* bright snow: fondo claro */
-  --rosa-nieve:#EFF7FE;    /* sky blue muy diluido: banda de descanso */
-  --rosa-tinte:#DDEFFC;    /* sky blue diluido: banda fuerte */
-  --rosa-papel:#FFF0F4;
-  --rosa-chip:#FFDCE6;
-  --rosa-texto:#C8205A;    /* rose kiss oscurecido para texto chico sobre claro */
-  --naranja-texto:#1E6AA6; /* cool sky oscurecido para texto chico sobre claro */
-  --rgb-rosa:255,99,146;
-  --rgb-naranja:90,169,230;
-  --rgb-blanco:249,249,249;
+:root {
+  --cool-sky: #5AA9E6;
+  --sky-blue: #7FC8F8;
+  --snow: #F9F9F9;
+  --rose: #FF6392;
+  --rose-texto: #C8205A;   /* rose kiss oscurecido para texto chico */
+  --azul-texto: #1E6AA6;   /* cool sky oscurecido para texto chico */
+  --gris-banda: #F2F1EF;   /* la banda alterna de la referencia */
+  --tinta: #111111;
+  --texto: #1F1F1F;
+  --gris: #5B5B5B;
+  --borde: rgba(17, 17, 17, .08);
+  --radio: 32px;
 }
-body.mr .plan .sello,body.mr .kicker{background:var(--naranja);color:var(--tinta)}
-body.mr .reto-card,body.mr .cadena span:not(.clave){background:#fff}
-.mr section[id]{scroll-margin-top:20px}
-.mr .hero .kicker{margin-bottom:16px}
-.mr .micro{max-width:520px;margin:12px auto 0;font-size:.85rem;line-height:1.5;color:var(--gris);text-align:center}
 
-/* Nombre del reto en el hero: la tarjeta con los tres días */
-.mr .reto-card{width:100%;max-width:560px;margin:24px auto 0;padding:22px 20px;background:var(--blanco);border:1px solid var(--card-borde);border-radius:22px;box-shadow:0 12px 28px rgba(var(--rgb-tinta),.1)}
-.mr .reto-card .nombre-reto{font-family:"Baskervville",Georgia,serif;font-weight:800;letter-spacing:-.03em;line-height:1.05;font-size:clamp(1.5rem,5.6vw,2.1rem);color:var(--tinta)}
-.mr .reto-card .nombre-reto small{display:block;margin-bottom:6px;font-size:.7rem;letter-spacing:.16em;text-transform:uppercase;color:var(--rosa-texto)}
-.mr .reto-dias{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:16px}
-.mr .reto-dias span{padding:10px 6px;border-radius:12px;background:var(--rosa-nieve);font-size:.8rem;line-height:1.3;font-weight:600}
-.mr .reto-dias b{display:block;font-family:"Baskervville",Georgia,serif;color:var(--rosa-texto);font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;margin-bottom:3px}
-.mr .reto-fecha{margin-top:14px;font-family:"Baskervville",Georgia,serif;font-weight:700;font-size:.95rem;color:var(--naranja-texto)}
+body {
+  font-family: "Noto Sans", system-ui, sans-serif;
+  background: var(--snow); color: var(--texto);
+  -webkit-font-smoothing: antialiased;
+}
+h1, h2, h3 { font-weight: 800; letter-spacing: -.02em; line-height: 1.12; color: var(--tinta); }
+h1 { font-size: clamp(2rem, 5.4vw, 3.4rem); }
+h2 { font-size: clamp(1.75rem, 4.4vw, 2.75rem); }
+h3 { font-size: 1.15rem; }
+.acento { color: var(--cool-sky); }
+p { font-size: clamp(1.02rem, 1.6vw, 1.2rem); line-height: 1.5; }
+b, strong { font-weight: 700; }
+
+/* ---------- Banda + fila ---------- */
+.banda { padding: 56px 20px; }
+.banda.gris { background: var(--gris-banda); }
+.fila { max-width: 1120px; margin: 0 auto; display: grid; gap: 36px; align-items: center; }
+.texto > * + * { margin-top: 22px; }
+.texto h1 + p, .texto h2 + p { margin-top: 28px; }
+.etiqueta {
+  display: inline-block; font-size: .78rem; font-weight: 700; letter-spacing: .14em;
+  text-transform: uppercase; color: var(--rose-texto);
+}
+
+/* ---------- Botón píldora ---------- */
+.boton {
+  display: inline-flex; align-items: center; justify-content: center;
+  min-width: 240px; padding: 18px 40px; border-radius: 999px;
+  background: var(--sky-blue); color: var(--tinta);
+  font-family: inherit; font-size: 1.15rem; font-weight: 600; text-decoration: none;
+  transition: transform .2s ease, box-shadow .2s ease, background .2s ease;
+}
+.boton:hover { background: var(--cool-sky); transform: translateY(-2px); box-shadow: 0 10px 24px rgba(90, 169, 230, .35); }
+.boton:focus-visible, summary:focus-visible { outline: 3px solid var(--tinta); outline-offset: 4px; }
+.texto .boton { margin-top: 36px; }
+.micro { font-size: .88rem; color: var(--gris); }
+.texto .boton + .micro { margin-top: 12px; }
+
+/* ---------- Media: foto o tarjeta, misma caja ---------- */
+.media { border-radius: var(--radio); overflow: hidden; }
+.media.foto { aspect-ratio: 1 / 1; background: var(--sky-blue); }
+.media.foto img { width: 100%; height: 100%; object-fit: cover; object-position: center top; }
+.media.tarjeta {
+  background: #fff; border: 1px solid var(--borde);
+  padding: 32px 28px; display: grid; gap: 14px; align-content: center;
+}
+.banda:not(.gris) .media.tarjeta { background: #EEF6FD; border-color: transparent; }
+
+/* Tarjeta del reto */
+.reto-dias { display: grid; gap: 12px; }
+.reto-dias li {
+  list-style: none; display: grid; grid-template-columns: 64px 1fr; gap: 14px; align-items: center;
+  background: var(--snow); border-radius: 18px; padding: 16px 18px;
+}
+.reto-dias b { font-size: .75rem; letter-spacing: .12em; text-transform: uppercase; color: var(--rose-texto); }
+.reto-dias span { font-weight: 600; line-height: 1.35; }
+.reto-fecha { font-weight: 700; color: var(--azul-texto); text-align: center; }
+
+/* Número grande */
+.numero { font-size: clamp(3.4rem, 9vw, 5.4rem); font-weight: 800; letter-spacing: -.04em; line-height: 1; color: var(--rose); }
+.numero-pie { font-weight: 600; color: var(--gris); }
+
+/* Lista con palomita */
+.checks { list-style: none; display: grid; gap: 12px; }
+.checks li { display: flex; gap: 12px; line-height: 1.45; font-size: 1.02rem; }
+.checks li::before { content: "\2713"; flex: none; font-weight: 800; color: var(--cool-sky); }
+.checks.no li::before { content: "\2715"; color: var(--gris); }
+.checks.no li { color: var(--gris); }
 
 /* Congreso vs sillón */
-.mr .contraste{display:grid;gap:14px;margin-top:28px}
-.mr .contraste div{padding:22px;border-radius:18px;background:var(--card-bg);border:1px solid var(--card-borde)}
-.mr .contraste .si{border:2px solid var(--rosa)}
-.mr .contraste h3{font-size:1.05rem}
-.mr .contraste p{margin-top:8px;font-size:.96rem;line-height:1.5}
-.mr .contraste .etq{display:inline-block;margin-bottom:10px;padding:3px 9px;border-radius:6px;font-size:.7rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;background:var(--rosa-chip);color:var(--rosa-texto)}
-.mr .contraste .no .etq{background:rgba(var(--rgb-tinta),.08);color:var(--gris)}
+.lado { border-radius: 20px; padding: 20px 22px; background: #fff; }
+.lado.si { border: 2px solid var(--rose); }
+.lado small { display: block; font-size: .72rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--gris); margin-bottom: 6px; }
+.lado.si small { color: var(--rose-texto); }
+.lado p { font-size: .98rem; margin-top: 6px; }
 
-/* El tercer requisito es donde se atora todo el mundo */
-.mr .pieza.atora{border:2px solid var(--rosa)}
-.mr .pieza .nota{margin-top:14px;font-weight:700;font-size:.9rem;color:var(--rosa-texto)}
+/* Los tres requisitos */
+.req { display: grid; grid-template-columns: 40px 1fr; gap: 14px; align-items: start; background: var(--snow); border-radius: 20px; padding: 18px 20px; }
+.req.atora { border: 2px solid var(--rose); }
+.req .n { width: 40px; height: 40px; border-radius: 50%; display: grid; place-items: center; background: var(--sky-blue); font-weight: 800; }
+.req.atora .n { background: var(--rose); color: #fff; }
+.req p { font-size: .96rem; margin-top: 4px; }
+.req em { display: block; margin-top: 6px; font-style: normal; font-weight: 700; font-size: .88rem; color: var(--rose-texto); }
 
-/* La cadena: te ve → te entiende → te agenda */
-.mr .cadena{display:flex;flex-direction:column;align-items:center;gap:8px;margin-top:30px}
-.mr .cadena span{padding:14px 22px;border-radius:999px;background:var(--blanco);border:1px solid var(--card-borde);font-family:"Baskervville",Georgia,serif;font-weight:800;font-size:1.05rem}
-.mr .cadena span.clave{background:var(--rosa);border-color:var(--rosa);color:var(--blanco)}
-.mr .cadena i{font-style:normal;font-weight:800;color:var(--rosa);font-size:1.3rem;transform:rotate(90deg)}
+/* La cadena */
+.cadena { display: grid; gap: 10px; justify-items: center; }
+.cadena span { width: 100%; max-width: 320px; text-align: center; padding: 18px 20px; border-radius: 999px; background: #fff; font-weight: 700; font-size: 1.1rem; }
+.cadena span.clave { background: var(--rose); color: #fff; }
+.cadena i { font-style: normal; font-weight: 800; color: var(--cool-sky); font-size: 1.4rem; }
 
-/* Cómo empezó: 20 → miles */
-.mr .crecio{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:26px}
-.mr .crecio div{padding:14px 6px;border-radius:14px;text-align:center;background:var(--card-bg);border:1px solid var(--card-borde)}
-.mr .crecio b{display:block;font-family:"Baskervville",Georgia,serif;font-size:1.45rem;line-height:1.1;color:var(--rosa-texto)}
-.mr .crecio span{display:block;margin-top:4px;font-size:.7rem;line-height:1.3;color:var(--gris)}
-.mr .crecio .hoy{background:var(--rosa);border-color:var(--rosa)}
-.mr .crecio .hoy b,.mr .crecio .hoy span{color:var(--blanco)}
-.mr .bren p+p{margin-top:16px}
+/* Cómo creció */
+.crecio { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
+.crecio div { background: #fff; border-radius: 18px; padding: 16px 8px; text-align: center; }
+.crecio b { display: block; font-size: 1.6rem; line-height: 1.1; color: var(--azul-texto); }
+.crecio span { display: block; margin-top: 4px; font-size: .74rem; line-height: 1.3; color: var(--gris); }
+.crecio .hoy { background: var(--rose); }
+.crecio .hoy b, .crecio .hoy span { color: #fff; }
 
-.mr .plan .sin-precio{margin-top:14px;font-family:"Baskervville",Georgia,serif;font-weight:700;color:var(--naranja-texto)}
-.mr a:focus-visible,.mr summary:focus-visible{outline:3px solid var(--tinta);outline-offset:4px}
+/* Plan */
+.precio { font-size: clamp(2.4rem, 6vw, 3.2rem); font-weight: 800; letter-spacing: -.03em; color: var(--tinta); }
+.precio-nota { font-weight: 600; color: var(--azul-texto); }
 
-@media(min-width:780px){
-  .mr .contraste{grid-template-columns:1fr 1fr}
-  .mr .cadena{flex-direction:row;justify-content:center}
-  .mr .cadena i{transform:none}
-  .mr .crecio{grid-template-columns:repeat(6,1fr)}
+/* Cita */
+.cita { border-left: 5px solid var(--rose); padding-left: 20px; font-size: clamp(1.15rem, 2vw, 1.35rem); font-weight: 700; line-height: 1.4; color: var(--tinta); }
+
+/* ---------- Bloques de una sola columna (empresas, FAQ) ---------- */
+.solo { max-width: 780px; margin: 0 auto; }
+.solo.ancho { max-width: 1120px; }
+.solo h2 { text-align: center; }
+.solo .intro { text-align: center; margin-top: 18px; color: var(--gris); }
+.solo .centro { text-align: center; margin-top: 36px; }
+
+/* Mis empresas */
+.empresas { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 36px; }
+.empresa {
+  display: grid; place-items: center; aspect-ratio: 16 / 9;
+  background: #fff; border-radius: 24px; padding: 18px 22px;
 }
-@media(max-width:359px){.mr .reto-dias span{font-size:.72rem}}
-@media(prefers-reduced-motion:reduce){.mr .cta{transition:none}.mr .cta:hover{transform:none}}
+.empresa img { width: auto; max-width: 100%; max-height: 64px; object-fit: contain; }
+/* Inrise todavía no tiene logo en el repo: va como palabra */
+.empresa .palabra { font-size: clamp(1.4rem, 3.6vw, 2.2rem); font-weight: 800; letter-spacing: -.03em; color: var(--tinta); text-transform: lowercase; }
 
-/* Tipografía de Bren: Baskervville en títulos y piezas de display (texto corrido sigue en Inter).
-   musculo.css nombra Bricolage en cada componente, así que se reemplaza aquí uno por uno.
-   Baskervville llega a 700: el 800 de musculo.css se baja para que no se sintetice. */
-body.mr h1,body.mr h2,body.mr h3,body.mr .cta,body.mr .kicker,body.mr .presenta b,
-body.mr .yalo .rojo,body.mr .promesa p,body.mr .pieza .num,body.mr .plan .sello,
-body.mr .plan .nombre,body.mr .plan .precio .monto,body.mr .plan .por-mes,
-body.mr .faq summary,body.mr .puente{
-  font-family:"Baskervville",Georgia,serif;font-weight:700;letter-spacing:-.01em
+/* FAQ */
+.faq { display: grid; gap: 12px; margin-top: 36px; }
+.faq details { background: #EEF6FD; border-radius: 20px; overflow: hidden; }
+.faq summary {
+  cursor: pointer; list-style: none; padding: 20px 24px; font-weight: 700; font-size: 1.05rem;
+  display: flex; justify-content: space-between; gap: 16px; align-items: center;
 }
-body.mr h1,body.mr h2{line-height:1.12}
-body.mr .nombre-reto,body.mr .cadena span,body.mr .crecio b,body.mr .reto-dias b,body.mr .reto-fecha{font-weight:700;letter-spacing:-.01em}
-body.mr .kicker,body.mr .plan .sello,body.mr .reto-dias b,body.mr .nombre-reto small{letter-spacing:.1em}
+.faq summary::-webkit-details-marker { display: none; }
+.faq summary::after {
+  content: "+"; flex: none; width: 30px; height: 30px; border-radius: 50%;
+  background: var(--sky-blue); display: grid; place-items: center; font-weight: 800;
+}
+.faq details[open] summary::after { content: "\2212"; }
+.faq .respuesta { padding: 0 24px 22px; display: grid; gap: 10px; }
+.faq .respuesta p { font-size: 1rem; }
 
-/* Todo lo que no es título va en Work Sans (musculo.css usa Inter) */
-body.mr,body.mr .regalo-mockup .valor s{font-family:"Work Sans",system-ui,sans-serif}
+footer { padding: 32px 20px; text-align: center; font-size: .85rem; color: var(--gris); background: var(--gris-banda); }
+
+/* ---------- Escritorio: zigzag ---------- */
+@media (min-width: 860px) {
+  .banda { padding: 72px 40px; }
+  .fila { grid-template-columns: 1fr 1fr; gap: 96px; }
+  /* .invertida pone la media a la derecha */
+  .fila.invertida .media { order: 2; }
+  .media.tarjeta { padding: 40px 36px; min-height: 440px; }
+  .empresa img { max-height: 80px; }
+}
+@media (max-width: 859px) {
+  /* En teléfono el título va primero y la media después, en todas las filas */
+  .fila .media { order: 2; }
+  .boton { width: 100%; }
+  .empresas { gap: 10px; }
+  .empresa { border-radius: 18px; padding: 12px; }
+}
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } .boton { transition: none; } .boton:hover { transform: none; } }
