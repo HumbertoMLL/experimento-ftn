@@ -250,3 +250,7 @@ footer { padding: 28px 20px; text-align: center; font-size: .85rem; color: rgba(
 
 /* Aviso: en el reto se cuenta cómo seguir aprendiendo con Bren */
 .aviso { margin-top: 24px; padding: 16px 18px; border-radius: 16px; border: 1px dashed var(--cool-sky); background: #EEF6FD; font-size: .94rem; line-height: 1.55; }
+
+/* Firma de Brenvita en el pie (versión clara para el fondo oscuro) */
+footer { padding: 48px 20px 32px; }
+.logo-pie { width: 180px; height: auto; margin: 0 auto 18px; }
