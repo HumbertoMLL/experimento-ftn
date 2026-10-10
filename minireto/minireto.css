@@ -85,3 +85,6 @@ body.mr .faq summary,body.mr .puente{
 body.mr h1,body.mr h2{line-height:1.12}
 body.mr .nombre-reto,body.mr .cadena span,body.mr .crecio b,body.mr .reto-dias b,body.mr .reto-fecha{font-weight:700;letter-spacing:-.01em}
 body.mr .kicker,body.mr .plan .sello,body.mr .reto-dias b,body.mr .nombre-reto small{letter-spacing:.1em}
+
+/* Todo lo que no es título va en Work Sans (musculo.css usa Inter) */
+body.mr,body.mr .regalo-mockup .valor s{font-family:"Work Sans",system-ui,sans-serif}
