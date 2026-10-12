@@ -564,3 +564,8 @@ footer { padding: 48px 20px 32px; text-align: center; font-size: .85rem; color: 
 /* la línea del scroll es texto corrido: el ícono va en línea, no en flex */
 .quien-ve .scroll { display: block; }
 .quien-ve .scroll .i { display: inline-block; vertical-align: -4px; margin-right: 6px; }
+
+/* Calendario: solo los tres días del reto */
+.cal-semana { grid-template-columns: repeat(3, 1fr); gap: 10px; padding: 16px; }
+.cal-semana div { padding: 16px 0; font-size: .78rem; }
+.cal-semana b { font-size: 1.9rem; line-height: 1; }
