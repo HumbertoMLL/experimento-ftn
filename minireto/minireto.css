@@ -430,3 +430,58 @@ footer { padding: 48px 20px 32px; text-align: center; font-size: .85rem; color: 
   .cal-semana b { font-size: .95rem; }
 }
 @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } .boton { transition: none; } .boton:hover { transform: none; } }
+
+/* Marca del segundo 3 en la curva de retención */
+.grafica .t.marca { fill: var(--rose-texto); font-weight: 700; }
+
+/* ---------- Agitación: lo que culpabas vs lo que de verdad pasaba ---------- */
+.diagnostico { max-width: 720px; margin: 36px auto 0; display: grid; gap: 0; }
+.culpas, .real { border-radius: 24px; padding: 22px 20px; }
+.culpas { background: var(--noche-2); border: 1px solid var(--noche-3); }
+.real { background: rgba(255, 99, 146, .1); border: 2px solid var(--rose); }
+.diag-titulo { display: flex; align-items: center; gap: 8px; font-size: .78rem !important; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; color: rgba(249, 249, 249, .7); }
+.diag-titulo .i { width: 18px; height: 18px; color: var(--rose); stroke-width: 2.4; }
+.real .diag-titulo { color: var(--rose); }
+.culpas ul { list-style: none; display: grid; gap: 10px; margin-top: 14px; }
+.culpas li { display: grid; grid-template-columns: 24px 1fr; gap: 12px; align-items: start; padding: 12px 14px; border-radius: 14px; background: var(--noche); }
+.culpas li .i { color: rgba(249, 249, 249, .45); margin-top: 2px; }
+.culpas li b { display: block; color: rgba(249, 249, 249, .55) !important; text-decoration: line-through; text-decoration-color: var(--rose); text-decoration-thickness: 2px; }
+.culpas li span { font-size: .9rem; line-height: 1.4; color: rgba(249, 249, 249, .6); }
+.diag-flecha { display: grid; place-items: center; height: 44px; color: var(--rose); }
+.real-texto { margin-top: 10px; font-size: clamp(1.1rem, 3vw, 1.3rem) !important; font-weight: 700; line-height: 1.4 !important; color: var(--snow); }
+@media (min-width: 860px) {
+  .diagnostico { grid-template-columns: 1.2fr 44px 1fr; align-items: center; max-width: 980px; }
+  .diag-flecha { height: auto; transform: rotate(-90deg); }
+}
+
+/* ============================================================
+   MÓVIL: todo centrado. Las listas con palomita se quedan
+   alineadas a la izquierda dentro de su tarjeta para que se lean.
+   ============================================================ */
+@media (max-width: 859px) {
+  .texto, .angosto, .hero .angosto { text-align: center; }
+  .etiqueta, .reloj-titulo, .diag-titulo { justify-content: center; }
+  .presenta { flex-direction: column; text-align: center; }
+  .chips, .giro, .tres-no, .cierre-lista { justify-content: center; }
+  .reloj { margin-inline: auto; }
+  .sellos { justify-items: center; }
+  .sello { flex-direction: column; text-align: center; gap: 8px; }
+  .cita { border-left: 0; padding-left: 0; padding-top: 16px; border-top: 4px solid var(--rose); max-width: 30ch; margin-inline: auto; }
+  .intentos li { justify-content: center; text-align: center; }
+  /* tarjetas con ícono: el ícono arriba y el texto centrado */
+  .lado, .req, .dia, .eslabon { grid-template-columns: 1fr; justify-items: center; text-align: center; }
+  .dia .sales { justify-content: center; }
+  .regalo-cabeza { flex-direction: column; text-align: center; padding-right: 0; }
+  .regalo p { text-align: center; }
+  .gratis { right: 50%; transform: translateX(50%); top: -1px; border-radius: 0 0 10px 10px; }
+  .regalo { padding-top: 34px; }
+  .aviso { grid-template-columns: 1fr; justify-items: center; text-align: center; }
+  .garantia { grid-template-columns: 1fr; justify-items: center; text-align: center; }
+  .barato { text-align: center; }
+  .filtro h3 { justify-content: center; }
+  .culpas li { text-align: left; }
+  .real { text-align: center; }
+  .oferta h3 { text-align: center; }
+  .foto-bren .arroba-chip { left: 50%; transform: translateX(-50%); }
+  .faq summary { text-align: left; }
+}
