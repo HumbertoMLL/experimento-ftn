@@ -485,3 +485,82 @@ footer { padding: 48px 20px 32px; text-align: center; font-size: .85rem; color: 
   .foto-bren .arroba-chip { left: 50%; transform: translateX(-50%); }
   .faq summary { text-align: left; }
 }
+
+/* ============================================================
+   Ronda de Humberto: hero con promesa y precio, conectores
+   grandes, "quien te ve", curva roja y la escalerita comparada.
+   ============================================================ */
+.promesa-hero { margin-top: 28px !important; padding: 22px 20px; border-radius: 24px; background: var(--noche-2); border: 1px solid var(--noche-3); }
+.promesa-hero p { color: var(--snow); font-weight: 600; }
+.precio-hero { margin-top: 14px; font-size: clamp(3rem, 13vw, 4.2rem) !important; font-weight: 800; letter-spacing: -.03em; line-height: 1 !important; color: var(--sky-blue) !important; }
+.precio-hero small { font-size: .36em; letter-spacing: 0; color: var(--snow); }
+
+/* Frase que conecta con la siguiente sección, en grande */
+.conector {
+  max-width: 760px; margin: 52px auto 0; text-align: center;
+  font-size: clamp(1.5rem, 5vw, 2.2rem); font-weight: 800; letter-spacing: -.02em; line-height: 1.2; color: var(--snow);
+}
+.conector::after {
+  content: "\2193"; display: block; margin: 16px auto 0;
+  width: 40px; height: 40px; line-height: 40px; border-radius: 50%;
+  background: var(--sky-blue); color: var(--tinta); font-size: 1.1rem;
+}
+.conector.oscuro-texto { color: var(--tinta); }
+.conector.oscuro-texto::after { display: none; }
+.conector.oscuro-texto + .puente { margin-top: 14px; }
+
+.sorpresa { font-weight: 700; color: var(--tinta); }
+
+/* Quien te está viendo */
+.quien-ve { max-width: 720px; margin: 28px auto 0; display: grid; grid-template-columns: 52px 1fr; gap: 14px; align-items: start; padding: 22px 20px; border-radius: 24px; background: #fff; border: 2px solid var(--rose); }
+.quien-ve small { display: block; margin-bottom: 6px; font-size: .72rem; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; color: var(--rose-texto); }
+.quien-ve p { font-size: 1rem; }
+.quien-ve .scroll { display: flex; align-items: center; gap: 8px; margin-top: 10px; font-weight: 600; color: var(--tinta); }
+.quien-ve .scroll .i { width: 20px; height: 20px; color: var(--rose-texto); }
+.quien-ve .scroll b { color: var(--rose-texto); }
+
+/* Curva: el congreso en rojo y cayendo en el segundo 1 */
+.grafica .c-congreso { stroke: var(--rose); stroke-dasharray: none; stroke-width: 3.5; }
+.leyenda i.rojo { background: var(--rose); }
+.grafica .t.marca { font-size: 10.5px; }
+.grafica .t.marca-sub { font-size: 9.5px; fill: var(--gris); }
+
+/* La escalerita comparada: dos videos */
+.embudos { max-width: 980px; margin: 36px auto 0; display: grid; gap: 14px; }
+.embudo { border-radius: 24px; padding: 22px 20px; background: var(--noche-2); border: 1px solid var(--noche-3); }
+.embudo.roto { border-color: rgba(255, 99, 146, .5); }
+.embudo-titulo { display: flex; align-items: center; gap: 8px; font-size: .8rem !important; font-weight: 800; letter-spacing: .1em; text-transform: uppercase; color: var(--snow); }
+.embudo-titulo .i { width: 18px; height: 18px; color: var(--sky-blue); }
+.embudo.roto .embudo-titulo .i { color: var(--rose); }
+.paso { display: grid; grid-template-columns: 96px 1fr auto; gap: 10px; align-items: center; margin-top: 12px; font-size: .86rem; }
+.paso span { color: rgba(249, 249, 249, .7); text-align: left; }
+.paso i { height: 12px; border-radius: 6px; background: rgba(249, 249, 249, .08); position: relative; overflow: hidden; }
+.paso i::after { content: ""; position: absolute; inset: 0 auto 0 0; width: max(var(--w), 4px); border-radius: 6px; background: var(--sky-blue); }
+.paso b { font-size: .86rem; white-space: nowrap; }
+.embudo.roto .paso i::after { background: rgba(249, 249, 249, .35); }
+.embudo.roto .paso.falla i { outline: 2px dashed var(--rose); outline-offset: 2px; }
+.embudo.roto .paso.falla i::after { background: var(--rose); }
+.embudo.roto .paso.falla b, .embudo.roto .paso.falla span { color: var(--rose) !important; }
+.embudo-nota { display: flex; align-items: center; gap: 8px; margin-top: 16px; font-size: .88rem !important; font-weight: 700; color: var(--rose); }
+.embudo-nota .i { width: 18px; height: 18px; stroke-width: 2.4; }
+.embudo-nota.bien { color: var(--sky-blue); }
+.nota-oscura { margin-top: 10px; text-align: center; font-size: .75rem !important; color: rgba(249, 249, 249, .5); }
+
+.crema .centro .boton { max-width: 420px; margin: 32px auto 0; }
+
+/* Cuatro empresas */
+.empresas { grid-template-columns: repeat(2, 1fr); }
+
+@media (min-width: 860px) {
+  .embudos { grid-template-columns: 1fr 1fr; }
+  .empresas { grid-template-columns: repeat(4, 1fr); }
+  .hero .promesa-hero { max-width: 620px; margin-inline: auto; }
+}
+@media (max-width: 859px) {
+  .quien-ve { grid-template-columns: 1fr; justify-items: center; text-align: center; }
+  .quien-ve .scroll { justify-content: center; }
+  .embudo-titulo, .embudo-nota { justify-content: center; }
+}
+/* la línea del scroll es texto corrido: el ícono va en línea, no en flex */
+.quien-ve .scroll { display: block; }
+.quien-ve .scroll .i { display: inline-block; vertical-align: -4px; margin-right: 6px; }
