@@ -619,7 +619,8 @@ footer { padding: 48px 20px 32px; text-align: center; font-size: .85rem; color: 
   background: radial-gradient(90% 70% at 50% 35%, var(--sky-blue), var(--cool-sky));
 }
 
-.logo-reto-pie { width: 240px; height: auto; margin: 0 auto 28px; }
+/* Logo del reto (texto oscuro) arriba del mapa de los tres días */
+.logo-mapa { width: 100%; max-width: 380px; margin: 0 auto 6px; }
 
 @media (min-width: 860px) {
   .oferta-cabeza { margin: -44px -40px 0; padding: 32px 40px 26px; }
