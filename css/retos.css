@@ -236,3 +236,37 @@
   .todo-nada, .combo { grid-template-columns: 1fr; }
   .todo-nada > span, .combo > span { display: none; }
 }
+
+/* ============================================================
+   RETO 4x4 · ronda de Humberto
+   ============================================================ */
+/* Banner de arriba a todo lo ancho */
+.banner-top { display: flex; align-items: center; justify-content: center; gap: 10px; padding: 12px 16px; background: var(--rosa); color: #fff; text-align: center;
+  font-family: "Bricolage Grotesque", sans-serif; font-weight: 800; font-size: clamp(.86rem, 3.4vw, 1.05rem); letter-spacing: .04em; text-transform: uppercase; }
+.banner-top .i { width: 20px; height: 20px; }
+
+/* RETO más protagonista */
+.reto-id.grande small { font-size: clamp(1.4rem, 6vw, 2.2rem); letter-spacing: .32em; color: var(--rosa); margin-bottom: 2px; }
+.reto-id.grande b { font-size: clamp(4.6rem, 22vw, 8rem); }
+
+/* Barrita rosa de prueba social */
+.barra-rosa { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px 28px; padding: 16px 20px; background: var(--rosa-tinte); border-top: 3px solid var(--rosa); border-bottom: 3px solid var(--rosa); text-align: center; }
+.barra-rosa span { display: inline-flex; align-items: center; gap: 8px; font-size: 1rem; font-weight: 600; color: var(--tinta); }
+.barra-rosa b { font-family: "Bricolage Grotesque", sans-serif; font-weight: 800; font-size: 1.25rem; color: var(--rosa-texto); }
+.barra-rosa .i { width: 20px; height: 20px; color: var(--rosa-texto); }
+
+/* Basic 4 solo con títulos */
+.basic4.solo-titulos .b4 { padding: 26px 14px 22px; }
+.basic4.solo-titulos h3 { font-size: clamp(1rem, 3.6vw, 1.2rem); }
+
+/* Las dos cosas más: nutrición y cápsulas */
+.dos-mas { display: grid; gap: 12px; margin-top: 22px; }
+.mas { display: grid; grid-template-columns: 52px 1fr; gap: 14px; align-items: start; padding: 22px 20px; border-radius: 22px; background: var(--card-bg); border: 1px solid var(--card-borde); text-align: left; }
+.mas h3 { font-size: 1.15rem; }
+.mas p { margin-top: 6px; font-size: .96rem; line-height: 1.55; }
+.plan .para { margin-top: 12px; }
+@media (min-width: 780px) { .dos-mas { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 779px) { .mas { grid-template-columns: 1fr; justify-items: center; text-align: center; } }
+/* la barra rosa es texto corrido: ícono en línea, no flex */
+.barra-rosa span { display: block; }
+.barra-rosa .i { display: inline-block; vertical-align: -4px; margin-right: 6px; }
