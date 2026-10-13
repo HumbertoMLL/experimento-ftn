@@ -86,7 +86,7 @@
       <p class="precio-hero">$197 <small>MXN</small></p>
     </div>
 
-    <a href="#oferta" class="boton js-mr-checkout">Quiero mi lugar<svg class="i"><use href="#i-flecha-der"/></svg></a>
+    <a href="#oferta" class="boton">Quiero mi lugar<svg class="i"><use href="#i-flecha-der"/></svg></a>
   </div>
 </section>
 
@@ -191,7 +191,7 @@
     <p class="cita">Cambia la forma en la que hablas, no cuántas veces publicas.</p>
     <p>Porque si publicas 100 videos más hablando igual, probablemente vas a seguir teniendo los mismos resultados.</p>
   </div>
-  <div class="centro"><a href="#oferta" class="boton js-mr-checkout">Quiero cambiar cómo hablo<svg class="i"><use href="#i-flecha-der"/></svg></a></div>
+  <div class="centro"><a href="#oferta" class="boton">Quiero cambiar cómo hablo<svg class="i"><use href="#i-flecha-der"/></svg></a></div>
   <p class="conector oscuro-texto">Claro, hermana, claro que esto tiene solución.</p>
   <p class="puente">Pero antes necesitas saber algo que nadie te ha dicho.</p>
 
@@ -255,7 +255,7 @@
     <p><b>Si sientes que te falta el tres, este reto es para ti.</b></p>
     <p class="micro">Si sientes que te falta el uno, este reto no te va a servir. Es para profesionales de la salud que ya estudiaron.</p>
   </div>
-  <div class="centro"><a href="#oferta" class="boton js-mr-checkout">Me falta el tres, quiero entrar<svg class="i"><use href="#i-flecha-der"/></svg></a></div>
+  <div class="centro"><a href="#oferta" class="boton">Me falta el tres, quiero entrar<svg class="i"><use href="#i-flecha-der"/></svg></a></div>
 </section>
 
 <!-- 5 · LA ESCALERITA · oscuro -->
@@ -302,7 +302,7 @@
   <div class="angosto" style="margin-top:36px">
     <p class="cita">Y vender no es malo, te lo pintaron así. Vender es decirle a la gente que tú tienes la solución. Si te quedas callada, le estás haciendo daño a la gente que te necesita.</p>
   </div>
-  <div class="centro"><a href="#oferta" class="boton js-mr-checkout">Quiero arreglar ese eslabón<svg class="i"><use href="#i-flecha-der"/></svg></a></div>
+  <div class="centro"><a href="#oferta" class="boton">Quiero arreglar ese eslabón<svg class="i"><use href="#i-flecha-der"/></svg></a></div>
   <p class="conector">En tres días no te enseño la fórmula para ser viral. No la tengo. Pero sí te comparto mi camino y cómo he logrado que la gente me entienda.</p>
 </section>
 
@@ -355,7 +355,7 @@
       </div>
     </div>
   </div>
-  <div class="centro"><a href="#oferta" class="boton js-mr-checkout">Aparta tu lugar por $197 MXN<svg class="i"><use href="#i-flecha-der"/></svg></a></div>
+  <div class="centro"><a href="#oferta" class="boton">Aparta tu lugar por $197 MXN<svg class="i"><use href="#i-flecha-der"/></svg></a></div>
 </section>
 
 <!-- 7 · OFERTA Y PRECIO · oscuro -->
@@ -471,7 +471,7 @@
       </ul>
     </div>
   </div>
-  <div class="centro"><a href="#oferta" class="boton js-mr-checkout">Sí, es para mí<svg class="i"><use href="#i-flecha-der"/></svg></a></div>
+  <div class="centro"><a href="#oferta" class="boton">Sí, es para mí<svg class="i"><use href="#i-flecha-der"/></svg></a></div>
 </section>
 
 <!-- 10 · FAQ · crema -->
@@ -500,7 +500,7 @@
         <div class="respuesta"><p class="js-mr-fecha-faq">Tres sesiones en vivo por Zoom de 60 minutos. Al pagar recibes el link por correo y WhatsApp. Si no puedes en vivo, tienes la grabación 30 días.</p></div>
       </details>
     </div>
-    <div class="centro"><a href="#oferta" class="boton js-mr-checkout">Quiero mi lugar<svg class="i"><use href="#i-flecha-der"/></svg></a></div>
+    <div class="centro"><a href="#oferta" class="boton">Quiero mi lugar<svg class="i"><use href="#i-flecha-der"/></svg></a></div>
   </div>
 </section>
 
@@ -548,9 +548,10 @@
   }
   if (tic()) setInterval(tic, 1000);
 
-  /* Checkout: todos los CTAs llevan al mismo pago. Si el canal tiene su
-     link propio (checkout.canales), va ese; si no, checkout.url + &src=.
-     Sin URL, bajan a la oferta (su href="#oferta") y no mandan a ningún lado. */
+  /* Checkout: solo el botón de la caja de la oferta va a Hotmart. Los demás
+     CTAs de la página bajan a #oferta (href fijo en el HTML). Ese botón usa el
+     link propio del canal (checkout.canales); si no, checkout.url + &src=.
+     Sin URL, se queda en href="#oferta" y no manda a ningún lado. */
   var propia = canal && co.canales && co.canales[canal];
   var url = (propia || co.url || "").trim();
   if (url && canal && !propia) url += (url.indexOf("?") === -1 ? "?" : "&") + "src=" + canal;
