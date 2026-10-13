@@ -85,7 +85,7 @@ b, strong { font-weight: 600; }
 
 /* ---------- Teléfono (mockups de la app en CSS, en neutros) ---------- */
 .telefono { width: 252px; margin: 0 auto; padding: 10px; border-radius: 42px; background: #111; box-shadow: 0 40px 70px rgba(47, 49, 51, .25); }
-.pantalla { position: relative; border-radius: 33px; overflow: hidden; background: #FBFAF8; min-height: 480px; padding: 36px 14px 16px; text-align: left; }
+.pantalla { position: relative; border-radius: 33px; overflow: hidden; background: #FBFAF8; color: var(--tinta); min-height: 480px; padding: 36px 14px 16px; text-align: left; }
 .pantalla::before { content: ""; position: absolute; top: 10px; left: 50%; transform: translateX(-50%); width: 78px; height: 20px; border-radius: 12px; background: #111; }
 .app-cabeza { display: flex; justify-content: space-between; align-items: center; }
 .app-cabeza b { font-family: var(--serif); font-weight: 400; font-size: 1.05rem; }
@@ -145,7 +145,7 @@ b, strong { font-weight: 600; }
 .completado .medalla { width: 92px; height: 92px; margin: 0 auto; border-radius: 50%; display: grid; place-items: center; background: var(--camel); color: var(--tinta); }
 .completado .medalla .i { width: 44px; height: 44px; }
 .completado b { display: block; margin-top: 14px; font-family: var(--serif); font-weight: 400; font-size: 1.25rem; }
-.completado-datos { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-top: 16px; }
+.completado-datos { display: grid; grid-template-columns: 1fr; max-width: 130px; margin-inline: auto; gap: 8px; margin-top: 16px; }
 .completado-datos div { padding: 12px 6px; border-radius: 12px; background: #fff; border: 1px solid #EEE9E3; }
 .completado-datos strong { display: block; font-family: var(--serif); font-weight: 400; font-size: 1.4rem; }
 .completado-datos span { font-size: .6rem; letter-spacing: .12em; text-transform: uppercase; color: var(--gris); }
@@ -153,7 +153,7 @@ b, strong { font-weight: 600; }
 
 /* ---------- 2 · Tres columnas con etiqueta (estilo "Form first") ---------- */
 .con-telefono { display: grid; gap: 40px; align-items: center; }
-.foto-app { max-width: 380px; margin: 0 auto; filter: drop-shadow(0 30px 40px rgba(47,49,51,.18)); }
+.foto-app { width: 100%; max-width: min(380px, 100%); margin: 0 auto; filter: drop-shadow(0 30px 40px rgba(47,49,51,.18)); }
 .bloque + .bloque { margin-top: 44px; padding-top: 44px; border-top: 1px solid var(--piedra); }
 .tres { display: grid; gap: 26px; margin-top: 28px; }
 .tres h3 { font-family: var(--sans); font-weight: 500; font-size: .74rem; letter-spacing: .3em; text-transform: uppercase; }
@@ -252,7 +252,7 @@ b, strong { font-weight: 600; }
 .faq .respuesta { padding: 0 4px 22px; color: var(--gris); }
 
 /* ---------- 12 · Banda final (estilo "Unlock our full library") ---------- */
-.final { display: grid; gap: 40px; align-items: center; }
+.final { display: grid; gap: 40px; align-items: center; text-align: center; }
 .final .sello-ftn { width: 72px; height: 72px; margin: 0 auto 20px; border-radius: 50%; display: grid; place-items: center; background: var(--camel); }
 .final .sello-ftn img { width: 44px; filter: brightness(0); opacity: .85; }
 .final p { margin-top: 14px; color: rgba(243,241,238,.8); }
@@ -349,6 +349,7 @@ footer { background: var(--carbon); border-top: 1px solid rgba(243,241,238,.12);
 .hero-capa h1 em { font-style: normal; color: var(--camel); }
 .hero-capa .etiqueta { color: #F3F1EE; }
 .hero-capa .hero-sub { margin-top: 16px; font-family: var(--serif); font-size: clamp(1.2rem, 3.6vw, 1.75rem); line-height: 1.3; max-width: 30ch; margin-inline: auto; }
+.hero-capa .hero-cuerpo { margin-top: 18px; max-width: 46ch; margin-inline: auto; color: rgba(243,241,238,.9); }
 .hero-capa .boton { margin-top: 28px; }
 .hero-capa .micro { color: rgba(243,241,238,.8); }
 .hero-datos-barra { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px 30px; padding: 16px 20px; background: var(--arena); border-bottom: 1px solid var(--piedra); font-size: .72rem; font-weight: 500; letter-spacing: .2em; text-transform: uppercase; }
@@ -383,7 +384,7 @@ footer { background: var(--carbon); border-top: 1px solid rgba(243,241,238,.12);
 @media (min-width: 860px) {
   .hero-video { min-height: 82vh; align-items: center; }
   .hero-capa { padding: 80px 40px; text-align: left; }
-  .hero-capa .hero-sub { margin-inline: 0; }
+  .hero-capa .hero-sub, .hero-capa .hero-cuerpo { margin-inline: 0; }
   .hero-media { align-items: end; }
   .hero-video::after { background: linear-gradient(90deg, rgba(20,20,20,.62) 0%, rgba(20,20,20,.25) 55%, rgba(20,20,20,0) 100%); }
   .testimonios { grid-template-columns: repeat(3, 1fr); }
