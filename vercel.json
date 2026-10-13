@@ -19,7 +19,7 @@
       "destination": "/reto-mas-musculo-dos"
     },
     {
-      "source": "/:landing(reto-mas-musculo|reto-mas-musculo-m|reto-mas-musculo-t|reto-mas-musculo-dos|musculo-v5|musculo-v6)/:canal(meta|influencer|instagram|email|whatsapp|DaniNajera|AleRivera)",
+      "source": "/:landing(reto-mas-musculo|reto-mas-musculo-m|reto-mas-musculo-t|reto-mas-musculo-dos|musculo-v5|musculo-v6|reto4por4|retopilatesxstrength)/:canal(meta|influencer|instagram|email|whatsapp|DaniNajera|AleRivera)",
       "destination": "/:landing"
     },
     {

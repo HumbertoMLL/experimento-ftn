@@ -109,6 +109,31 @@ window.FTN_CONFIG = {
     }
   },
 
+  /* --- Reto 4x4 (/reto4por4) y Pilates x Strength (/retopilatesxstrength) ---
+     Mismo producto, dos puertas de entrada. Cada landing lee su bloque por
+     su data-variante. Un plan sin url: el botón baja a #oferta y no manda a
+     ningún lado. El canal (?src=meta o /reto4por4/meta) viaja como &src=.
+     cierreISO: cierre de inscripciones, 1 nov 23:59 CDMX (UTC-6). El reloj
+     de cierre solo aparece cuando faltan 7 días o menos. */
+  retos: {
+    reto4por4: {
+      nombre: "Reto 4x4",
+      cierreISO: "2026-11-02T05:59:00Z",
+      checkout: {
+        mensual:    { url: "", nombre: "Reto 4x4 - Mensual",    precio: 599 },
+        trimestral: { url: "", nombre: "Reto 4x4 - Trimestral", precio: 1197 }
+      }
+    },
+    retopilatesxstrength: {
+      nombre: "Reto Pilates x Strength",
+      cierreISO: "2026-11-02T05:59:00Z",
+      checkout: {
+        mensual:    { url: "", nombre: "Pilates x Strength - Mensual",    precio: 599 },
+        trimestral: { url: "", nombre: "Pilates x Strength - Trimestral", precio: 1197 }
+      }
+    }
+  },
+
   /* --- MiniReto: Del Consultorio a Redes Sociales (/minireto) ---------
      Reto de 3 días en vivo para profesionales de la salud. Todo lo que
      cambia de edición a edición vive aquí:
