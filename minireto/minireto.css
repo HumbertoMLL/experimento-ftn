@@ -569,3 +569,14 @@ footer { padding: 48px 20px 32px; text-align: center; font-size: .85rem; color: 
 .cal-semana { grid-template-columns: repeat(3, 1fr); gap: 10px; padding: 16px; }
 .cal-semana div { padding: 16px 0; font-size: .78rem; }
 .cal-semana b { font-size: 1.9rem; line-height: 1; }
+
+/* Agitación: el Reel como fondo tenue detrás del texto */
+.agitacion .angosto { position: relative; z-index: 1; }
+.reel-fondo { position: absolute; inset: 0; display: flex; justify-content: center; align-items: center; pointer-events: none; opacity: .16; }
+.reel-fondo .reel { width: 300px; transform: rotate(-6deg); box-shadow: none; }
+.agitacion .intentos li { background: rgba(24, 40, 64, .88); }
+@media (min-width: 860px) {
+  .reel-fondo { justify-content: flex-end; padding-right: 6%; opacity: .22; }
+  .reel-fondo .reel { width: 340px; }
+}
+.claro .centro .boton, .crema .centro .boton { max-width: 420px; margin: 32px auto 0; }
