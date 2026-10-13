@@ -32,52 +32,37 @@
       <a href="#coaches">Coaches</a>
     </div>
     <a class="nav-logo" href="#inicio"><img src="/assets/logo-ftn.webp" width="740" height="404" alt="FTN"><span>Pilates x Strength</span></a>
-    <a href="#oferta" class="boton">Ver el plan</a>
+    <a href="#oferta" class="boton">Quiero ver el plan</a>
   </div>
 </nav>
 
 <main>
 
-<!-- 1 · HERO -->
-<header class="hero" id="inicio">
-  <div class="hero-in">
-    <div>
-      <span class="etiqueta camel">Nuevo en la app FTN · Empieza el 2 de noviembre</span>
-      <h1>Pilates <em>x</em><br>Strength.</h1>
-      <p class="hero-sub">2 días de fuerza. 2 días de pilates y barre. 28 días para un cuerpo fuerte que no se ve inflado.</p>
-      <p class="cuerpo">El primer reto de FTN que junta entreno de fuerza tipo PUMP con barre, pilates y yoga en una sola semana. Plan de comida, cápsulas Focus y tu tracker, todo dentro de la app.</p>
-      <a href="#oferta" class="boton">Quiero ver el plan</a>
-      <p class="micro">Desde $599 MXN al mes · Sin permanencia · Cancelas desde la app</p>
-      <div class="hero-datos"><span>+1,000 mujeres transformadas</span><span>+60 mil entrenaron con Bren</span><span>Nutriólogas con cédula</span></div>
-    </div>
-    <div>
-      <div class="telefono" aria-label="Pantalla de inicio de la app con la semana 1 del reto">
-        <div class="pantalla">
-          <div class="app-cabeza"><b>Semana 1</b><img src="/assets/logo-ftn.webp" width="740" height="404" alt=""></div>
-          <p class="app-sub">Pilates x Strength · Día 1 de 28</p>
-          <div class="app-filas">
-            <div class="app-fila fuerza"><span class="dia">LUN</span><span>Fuerza PUMP<small>35 min</small></span><svg class="i"><use href="/assets/iconos-retos.svg#i-pesa"/></svg></div>
-            <div class="app-fila fuerza"><span class="dia">MAR</span><span>Fuerza PUMP<small>35 min</small></span><svg class="i"><use href="/assets/iconos-retos.svg#i-pesa"/></svg></div>
-            <div class="app-fila"><span class="dia">MIÉ</span><span>4,000 pasos</span><svg class="i"><use href="/assets/iconos-retos.svg#i-pasos"/></svg></div>
-            <div class="app-fila suave-dia"><span class="dia">JUE</span><span>Pilates<small>30 min</small></span><svg class="i"><use href="/assets/iconos-retos.svg#i-flor"/></svg></div>
-            <div class="app-fila suave-dia"><span class="dia">VIE</span><span>Barre<small>35 min</small></span><svg class="i"><use href="/assets/iconos-retos.svg#i-flor"/></svg></div>
-            <div class="app-fila"><span class="dia">SÁB</span><span>4,000 pasos</span><svg class="i"><use href="/assets/iconos-retos.svg#i-pasos"/></svg></div>
-            <div class="app-fila"><span class="dia">DOM</span><span>4,000 pasos</span><svg class="i"><use href="/assets/iconos-retos.svg#i-pasos"/></svg></div>
-          </div>
-        </div>
-      </div>
-    </div>
+<!-- 1 · HERO: video de fondo a todo lo ancho, texto encima.
+     Para poner el video: dentro de .slot agrega
+     <video autoplay muted loop playsinline poster="/assets/pilates/hero.webp" src="/assets/pilates/hero.mp4"></video>
+     y cubre el achurado solo. -->
+<header class="hero-video" id="inicio">
+  <div class="slot oscuro hero-media"><span class="slot-label"><b>Video de fondo</b>Horizontal 16:9 · 10–15 s en loop, sin audio · clase de pilates en tapete<small>assets/pilates/hero.mp4</small></span></div>
+  <div class="hero-capa">
+    <span class="etiqueta">Nuevo en la app FTN · Empieza el 2 de noviembre</span>
+    <h1>Pilates <em>x</em><br>Strength.</h1>
+    <p class="hero-sub">2 días de fuerza. 2 días de pilates y barre. 28 días para un cuerpo fuerte que no se ve inflado.</p>
+    <a href="#oferta" class="boton">Quiero ver el plan</a>
+    <p class="micro">Desde $599 MXN al mes · Sin permanencia · Cancelas desde la app</p>
   </div>
 </header>
+<div class="hero-datos-barra"><span>+1,000 mujeres transformadas</span><span>+60 mil entrenaron con Bren</span><span>Nutriólogas con cédula</span></div>
 
 <!-- 2 · EL MÉTODO: tres columnas con etiqueta -->
 <section class="banda hueso" id="metodo">
   <div class="ancho con-telefono">
-    <img class="foto-app" src="/assets/mm-contenido-ftn.webp" width="829" height="941" loading="lazy" alt="La app de FTN en tres teléfonos: clases, hábitos y seguimiento nutricional">
+    <div class="telefono-video"><div class="telefono"><div class="pantalla pantalla-video"><div class="slot "><span class="slot-label"><b>Video vertical</b>9:16 · fuerza o barre, 8–10 s en loop<small>assets/pilates/metodo.mp4</small></span></div></div></div></div>
     <div class="texto">
       <div class="bloque">
         <span class="etiqueta">Fuerza + pilates</span>
         <h2>Fuerza sola te hace fuerte. Pilates solo te hace flexible. Juntos cambian cómo te ves.</h2>
+        <p class="mt">El primer reto de FTN que junta entreno de fuerza tipo PUMP con barre, pilates y yoga en una sola semana. Plan de comida, cápsulas Focus y tu tracker, todo dentro de la app.</p>
         <div class="tres">
           <div><h3>Fuerza</h3><p>Lunes y martes construyes músculo con las clases PUMP. Las que solo hacen pilates se sienten increíble, pero no cambian sus proporciones.</p></div>
           <div><h3>Core y postura</h3><p>Jueves y viernes alargas, estabilizas y trabajas el core con barre, pilates y yoga. Las que solo hacen pesas acaban fuertes, pero rígidas.</p></div>
@@ -106,23 +91,23 @@
     <div class="mosaico">
       <div class="loseta">
         <span class="nombre">Entrar</span><span class="sem">Semana 1</span>
-        <span class="icono"><svg class="i"><use href="/assets/iconos-retos.svg#i-flor"/></svg></span>
+        <div class="slot loseta-foto"><span class="slot-label"><b>Foto</b>Vertical · pilates mat<small>assets/pilates/semana-1.webp</small></span></div>
         <ul><li>Full body PUMP, técnica</li><li>Barre fundamentos + pilates mat</li></ul>
       </div>
       <div class="loseta">
         <span class="nombre">Subir carga</span><span class="sem">Semana 2</span>
-        <span class="icono"><svg class="i"><use href="/assets/iconos-retos.svg#i-pesa"/></svg></span>
+        <div class="slot loseta-foto"><span class="slot-label"><b>Foto</b>Vertical · fuerza con mancuernas<small>assets/pilates/semana-2.webp</small></span></div>
         <ul><li>Tren inferior + superior</li><li>Barre glúteo + yoga de movilidad</li></ul>
       </div>
       <div class="loseta critica">
         <span class="chip-critica">Aquí no</span>
         <span class="nombre">Sostener</span><span class="sem">Semana 3</span>
-        <span class="icono"><svg class="i"><use href="/assets/iconos-retos.svg#i-cerebro"/></svg></span>
+        <div class="slot loseta-foto"><span class="slot-label"><b>Foto</b>Vertical · barre o core<small>assets/pilates/semana-3.webp</small></span></div>
         <ul><li>PUMP intensidad media</li><li>Pilates core + barre completo</li></ul>
       </div>
       <div class="loseta">
         <span class="nombre">Cerrar</span><span class="sem">Semana 4</span>
-        <span class="icono"><svg class="i"><use href="/assets/iconos-retos.svg#i-medalla"/></svg></span>
+        <div class="slot loseta-foto"><span class="slot-label"><b>Foto</b>Vertical · pilates flow<small>assets/pilates/semana-4.webp</small></span></div>
         <ul><li>PUMP reto final</li><li>Barre + pilates flow</li></ul>
       </div>
     </div>
@@ -236,21 +221,40 @@
   <div class="medio">
     <p><b>Pilates x Strength</b> es un reto de 28 días que alterna fuerza y pilates a propósito, para que termines más fuerte, con mejor postura y sin empezar de cero en diciembre.</p>
   </div>
+  <div class="ancho declaracion-media"><div class="slot "><span class="slot-label"><b>Video horizontal</b>16:9 · Daya en tapete, fondo claro, 10 s en loop<small>assets/pilates/declaracion.mp4</small></span></div></div>
 </section>
 
-<!-- 6 · TESTIMONIOS · oculto hasta tener permiso y fotos -->
-<section class="banda arena" hidden>
+<!-- 6 · TESTIMONIOS: lugares marcados hasta tener testimonios con permiso.
+     #1 que la app le dice qué hacer · #2 postura o fuerza, no kilos -->
+<section class="banda arena">
   <div class="ancho centro">
     <span class="etiqueta">Mujeres reales,</span>
     <h2>Reseñas reales</h2>
-    <!-- PENDIENTE: 3 tarjetas con foto redonda, frase, nombre, edad y ocupación.
-         Testimonio #1: review de la app que diga que la app le dice qué hacer.
-         Testimonio #2: postura o fuerza, no kilos. Solo con permiso. -->
+    <div class="testimonios">
+      <div class="testimonio">
+        <div class="slot redondo"><span class="slot-label"><b>Video</b>Testimonio 1<small>assets/pilates/testimonio-1.mp4</small></span></div>
+        <p class="frase">"Frase del testimonio 1"</p>
+        <p class="quien">Nombre, edad</p>
+        <p class="oficio">Ocupación</p>
+      </div>
+      <div class="testimonio">
+        <div class="slot redondo"><span class="slot-label"><b>Video</b>Testimonio 2<small>assets/pilates/testimonio-2.mp4</small></span></div>
+        <p class="frase">"Frase del testimonio 2"</p>
+        <p class="quien">Nombre, edad</p>
+        <p class="oficio">Ocupación</p>
+      </div>
+      <div class="testimonio">
+        <div class="slot redondo"><span class="slot-label"><b>Video</b>Testimonio 3<small>assets/pilates/testimonio-3.mp4</small></span></div>
+        <p class="frase">"Frase del testimonio 3"</p>
+        <p class="quien">Nombre, edad</p>
+        <p class="oficio">Ocupación</p>
+      </div>
+    </div>
   </div>
 </section>
 
 <!-- 7 · ES PARA TI -->
-<section class="banda arena">
+<section class="banda hueso">
   <div class="ancho centro">
     <span class="etiqueta">Antes de entrar</span>
     <h2>¿Es para ti?</h2>
@@ -278,7 +282,7 @@
 </section>
 
 <!-- 8 · PLANES -->
-<section class="banda hueso" id="oferta" style="scroll-margin-top:70px">
+<section class="banda arena" id="oferta" style="scroll-margin-top:70px">
   <div class="ancho centro">
     <h2>Únete a Pilates x Strength</h2>
     <div class="reloj-cierre js-cierre" hidden>
@@ -332,6 +336,16 @@
   </div>
 </div>
 
+<!-- 10a · DAYA: bloque partido con foto -->
+<section class="partido invertido" aria-label="Daya, coach de barre y pilates">
+  <div class="lado-texto">
+    <span class="etiqueta camel">Tu coach de barre y pilates</span>
+    <h2>Daya</h2>
+    <p>Coach certificada y mamá. Da clases en estudios de CDMX y grabó cada clase con dos opciones: la de entrada y la fuerte, para que entres por donde estés hoy.</p>
+  </div>
+  <div class="lado-foto"><div class="slot "><span class="slot-label"><b>Foto o video</b>Daya · vertical u horizontal, luz natural<small>assets/pilates/daya.webp</small></span></div></div>
+</section>
+
 <!-- 10 · NOTA DE BREN + QUIÉN TE ENTRENA -->
 <section class="banda hueso" id="coaches">
   <div class="ancho nota">
@@ -355,6 +369,7 @@
   <div class="ancho centro">
     <span class="etiqueta">Todo dentro de la app</span>
     <h2>Qué incluye</h2>
+    <img class="foto-app" src="/assets/mm-contenido-ftn.webp" width="829" height="941" loading="lazy" alt="La app de FTN en tres teléfonos: clases, hábitos y seguimiento nutricional" style="margin-top:30px">
     <ul class="incluye">
       <li><svg class="i"><use href="/assets/iconos-retos.svg#i-video"/></svg><span>16 clases grabadas de 30–40 min: 8 de fuerza PUMP, 8 de barre, pilates y yoga</span></li>
       <li><svg class="i"><use href="/assets/iconos-retos.svg#i-calendario"/></svg><span>Calendario del reto, con tu siguiente clase siempre visible</span></li>

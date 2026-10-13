@@ -314,3 +314,78 @@ footer { background: var(--carbon); border-top: 1px solid rgba(243,241,238,.12);
   .plan .sello { position: static; display: inline-block; width: auto; height: auto; padding: 7px 16px; border-radius: 999px; margin-bottom: 14px; }
   .plan .sello br { display: none; }
 }
+
+/* ============================================================
+   LUGARES PARA FOTO Y VIDEO (achurado)
+   Cada .slot dice qué va y con qué nombre de archivo. Para llenarlo,
+   mete dentro un <img> o un <video autoplay muted loop playsinline>:
+   cubre el achurado solo, no hay que tocar el CSS.
+   ============================================================ */
+.slot { position: relative; overflow: hidden; display: grid; place-items: center; min-height: 160px;
+  background: repeating-linear-gradient(45deg, #DCD3C9 0 10px, #E9E4DE 10px 20px); }
+.slot.oscuro { background: repeating-linear-gradient(45deg, #2A2C2E 0 12px, #36393C 12px 24px); }
+.slot > img, .slot > video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: 1; }
+.slot-label { display: grid; gap: 4px; max-width: 86%; padding: 10px 14px; border-radius: 6px; background: rgba(255,255,255,.88); color: var(--tinta); font-size: .74rem; line-height: 1.4; text-align: center; letter-spacing: .02em; }
+.slot-label b { font-weight: 600; font-size: .66rem; letter-spacing: .24em; text-transform: uppercase; color: var(--camel-texto); }
+.slot-label small { font-size: .66rem; color: var(--gris); font-family: ui-monospace, Menlo, monospace; }
+
+/* Nav en teléfono: FTN a la izquierda, botón a la derecha */
+@media (max-width: 859px) {
+  .nav-in { display: flex; justify-content: space-between; }
+  .nav-logo { order: 1; }
+  .nav .boton { order: 2; }
+}
+
+/* Hero con video de fondo */
+.hero-video { position: relative; min-height: 640px; display: flex; align-items: flex-end; overflow: hidden; background: var(--carbon); }
+.hero-media { position: absolute; inset: 0; min-height: 0; align-items: start; justify-items: end; padding: 18px; }
+.hero-media .slot-label { background: rgba(255,255,255,.14); color: #F3F1EE; }
+.hero-media .slot-label b { color: var(--camel); }
+.hero-media .slot-label small { color: rgba(243,241,238,.7); }
+.hero-video::after { content: ""; position: absolute; inset: 0; z-index: 2; pointer-events: none;
+  background: linear-gradient(180deg, rgba(20,20,20,0) 30%, rgba(20,20,20,.65) 100%); }
+.hero-capa { position: relative; z-index: 3; width: 100%; max-width: 1160px; margin: 0 auto; padding: 48px 22px 54px; color: #F3F1EE; text-align: center; }
+.hero-capa h1 { color: #F3F1EE; }
+.hero-capa h1 em { font-style: normal; color: var(--camel); }
+.hero-capa .etiqueta { color: #F3F1EE; }
+.hero-capa .hero-sub { margin-top: 16px; font-family: var(--serif); font-size: clamp(1.2rem, 3.6vw, 1.75rem); line-height: 1.3; max-width: 30ch; margin-inline: auto; }
+.hero-capa .boton { margin-top: 28px; }
+.hero-capa .micro { color: rgba(243,241,238,.8); }
+.hero-datos-barra { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px 30px; padding: 16px 20px; background: var(--arena); border-bottom: 1px solid var(--piedra); font-size: .72rem; font-weight: 500; letter-spacing: .2em; text-transform: uppercase; }
+
+/* Teléfono con video (El método) */
+.telefono-video .telefono { width: 260px; }
+.pantalla-video { padding: 0; min-height: 0; aspect-ratio: 9 / 19.5; }
+.pantalla-video .slot { position: absolute; inset: 0; min-height: 0; }
+.pantalla-video::before { z-index: 2; }
+
+/* Foto en cada semana del mosaico */
+.loseta-foto { width: 100%; flex: 1; min-height: 150px; margin: 14px 0; border-radius: 3px; }
+.loseta-foto .slot-label { font-size: .64rem; padding: 8px 8px; }
+
+/* Video debajo de la declaración */
+.declaracion-media { margin-top: 40px; }
+.declaracion-media .slot { aspect-ratio: 16 / 9; border-radius: 4px; }
+
+/* Testimonios */
+.testimonios { display: grid; gap: 70px 22px; margin-top: 90px; }
+.testimonio { position: relative; padding: 110px 22px 30px; border: 2px solid var(--piedra); border-radius: 22px; background: transparent; text-align: center; }
+.testimonio .redondo { position: absolute; top: -70px; left: 50%; transform: translateX(-50%); width: 150px; height: 150px; min-height: 0; border-radius: 50%; }
+.testimonio .redondo .slot-label { font-size: .6rem; padding: 6px 8px; }
+.testimonio .frase { font-family: var(--serif); font-size: 1.15rem; line-height: 1.55; color: var(--gris); }
+.testimonio .quien { margin-top: 22px; font-family: var(--serif); font-size: 1.45rem; }
+.testimonio .oficio { font-size: .7rem; letter-spacing: .26em; text-transform: uppercase; color: var(--camel-texto); }
+
+/* Daya: bloque partido con foto */
+.partido .lado-foto { display: grid; min-height: 360px; }
+.partido .lado-foto .slot { min-height: 360px; }
+
+@media (min-width: 860px) {
+  .hero-video { min-height: 82vh; align-items: center; }
+  .hero-capa { padding: 80px 40px; text-align: left; }
+  .hero-capa .hero-sub { margin-inline: 0; }
+  .hero-media { align-items: end; }
+  .hero-video::after { background: linear-gradient(90deg, rgba(20,20,20,.62) 0%, rgba(20,20,20,.25) 55%, rgba(20,20,20,0) 100%); }
+  .testimonios { grid-template-columns: repeat(3, 1fr); }
+  .partido .lado-foto, .partido .lado-foto .slot { min-height: 520px; }
+}
