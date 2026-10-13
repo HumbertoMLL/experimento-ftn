@@ -580,3 +580,38 @@ footer { padding: 48px 20px 32px; text-align: center; font-size: .85rem; color: 
   .reel-fondo .reel { width: 340px; }
 }
 .claro .centro .boton, .crema .centro .boton { max-width: 420px; margin: 32px auto 0; }
+
+/* ============================================================
+   Imágenes del reto: logo con Bren en el hero, logo en la oferta
+   y el footer, Bren recortada en el about y foto de fondo en la oferta
+   ============================================================ */
+.logo-hero { margin-top: 18px !important; }
+.logo-hero img { width: 100%; max-width: 760px; margin: 0 auto; }
+.hero .presenta { margin-top: 14px !important; justify-content: center; text-align: center !important; }
+
+.con-fondo {
+  background:
+    linear-gradient(180deg, rgba(15, 27, 43, .9), rgba(15, 27, 43, .72) 45%, rgba(15, 27, 43, .92)),
+    url("/assets/bren-fondo.webp") center top / cover no-repeat,
+    var(--noche);
+}
+.con-fondo .oferta { position: relative; }
+
+.oferta-cabeza {
+  margin: -30px -20px 0; padding: 26px 20px 22px; text-align: center;
+  background: var(--noche); border-radius: var(--radio) var(--radio) 0 0;
+}
+.oferta-cabeza h2 { margin-top: 14px; }
+.oferta-cabeza h2 img { width: 100%; max-width: 440px; margin: 0 auto; }
+.oferta .sub { margin-top: 18px; }
+
+.foto-bren img {
+  aspect-ratio: 840 / 1055; object-fit: contain; object-position: center bottom;
+  background: radial-gradient(90% 70% at 50% 35%, var(--sky-blue), var(--cool-sky));
+}
+
+.logo-reto-pie { width: 240px; height: auto; margin: 0 auto 28px; }
+
+@media (min-width: 860px) {
+  .oferta-cabeza { margin: -44px -40px 0; padding: 32px 40px 26px; }
+}
