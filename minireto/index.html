@@ -548,10 +548,12 @@
   }
   if (tic()) setInterval(tic, 1000);
 
-  /* Checkout: los cinco CTAs llevan al mismo pago. Sin URL todavía,
-     bajan a la oferta (su href="#oferta") y no mandan a ningún lado. */
-  var url = (co.url || "").trim();
-  if (url && canal) url += (url.indexOf("?") === -1 ? "?" : "&") + "src=" + canal;
+  /* Checkout: todos los CTAs llevan al mismo pago. Si el canal tiene su
+     link propio (checkout.canales), va ese; si no, checkout.url + &src=.
+     Sin URL, bajan a la oferta (su href="#oferta") y no mandan a ningún lado. */
+  var propia = canal && co.canales && co.canales[canal];
+  var url = (propia || co.url || "").trim();
+  if (url && canal && !propia) url += (url.indexOf("?") === -1 ? "?" : "&") + "src=" + canal;
   document.querySelectorAll(".js-mr-checkout").forEach(function (btn) {
     if (url) btn.href = url;
     btn.addEventListener("click", function () {

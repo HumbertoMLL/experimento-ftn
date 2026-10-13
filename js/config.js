@@ -142,7 +142,12 @@ window.FTN_CONFIG = {
        - precio: solo para el value de los eventos de Meta; el $197
          visible está escrito en el HTML.
        - fechaTexto/horaTexto vacíos: el bloque de fecha se oculta.
-     El canal (?src=meta o /minireto/meta) viaja a Hotmart como &src=. */
+     Canales: cada uno tiene su página y su link de pago con su src.
+       brenvita.shop/minireto/meta        → checkout.canales.meta
+       brenvita.shop/minireto/influencer  → checkout.canales.influencer
+     (también sirve ?src=meta). Un canal sin link propio (instagram, email,
+     whatsapp) usa checkout.url + &src=<canal>. Sin canal: checkout.url
+     tal cual, sin src. */
   minireto: {
     fechaTexto: "9, 10 y 11 de noviembre",
     horaTexto: "",
@@ -151,7 +156,14 @@ window.FTN_CONFIG = {
        (UTC-6). Cuando se sepa la hora, cámbiala aquí: 19:00 CDMX sería
        "2026-11-10T01:00:00Z". Cuando pasa, el reloj se oculta solo. */
     inicioISO: "2026-11-09T06:00:00Z",
-    checkout: { url: "", nombre: "MiniReto - Del Consultorio a Redes Sociales", precio: 197, moneda: "MXN" }
+    checkout: {
+      url: "https://pay.hotmart.com/R107964739Y?off=v55rexas&checkoutMode=10",
+      canales: {
+        meta:       "https://pay.hotmart.com/R107964739Y?off=v55rexas&checkoutMode=10&src=meta",
+        influencer: "https://pay.hotmart.com/R107964739Y?off=v55rexas&checkoutMode=10&src=influencer"
+      },
+      nombre: "MiniReto - Del Consultorio a Redes Sociales", precio: 197, moneda: "MXN"
+    }
   },
 
   /* --- Masterclass (/masterclass) ------------------------------------
