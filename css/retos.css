@@ -106,6 +106,10 @@ h2 { font-size: clamp(1.75rem, 6vw, 3rem); }
 .hero { padding: 44px 20px 0; }
 .hero .in { display: flex; flex-direction: column; align-items: center; text-align: center; }
 .marca-ftn { width: 84px; height: auto; margin: 0 auto 22px; }
+/* El logo oficial del reto: "RETO" coral y "4x4" blanco con la mancuerna
+   en degradado. Viene hecho para fondo oscuro, por eso vive en el hero. */
+.logo-4x4 { width: min(300px, 72vw); height: auto; margin: 0 auto 6px; filter: drop-shadow(0 20px 50px rgba(var(--rgb-rosa), .35)); }
+footer .marca.logo-4x4-pie { width: 110px; margin-bottom: 14px; }
 .reto-id { display: inline-grid; justify-items: center; margin-bottom: 10px; }
 .reto-id small {
   font-family: "Bricolage Grotesque", sans-serif; font-weight: 800;
