@@ -39,6 +39,24 @@
     });
   });
 
+  /* ---------- Videos diferidos ----------
+     .js-video-diferido trae sus <source data-src>; se cargan y arrancan
+     cuando el video se acerca a la pantalla, para no bajar megas de golpe. */
+  var diferidos = document.querySelectorAll("video.js-video-diferido");
+  function cargarVideo(v) {
+    v.querySelectorAll("source[data-src]").forEach(function (s) { s.src = s.getAttribute("data-src"); s.removeAttribute("data-src"); });
+    v.autoplay = true;
+    v.load();
+  }
+  if ("IntersectionObserver" in window) {
+    var ioVideo = new IntersectionObserver(function (ents) {
+      ents.forEach(function (e) { if (e.isIntersecting) { ioVideo.unobserve(e.target); cargarVideo(e.target); } });
+    }, { rootMargin: "300px 0px" });
+    diferidos.forEach(function (v) { ioVideo.observe(v); });
+  } else {
+    diferidos.forEach(cargarVideo);
+  }
+
   /* ---------- ViewContent: cuando los precios entran a pantalla ---------- */
   var oferta = document.getElementById("oferta");
   if ("IntersectionObserver" in window && oferta) {

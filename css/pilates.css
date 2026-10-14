@@ -161,7 +161,7 @@ b, strong { font-weight: 600; }
 
 /* ---------- 3 · Grid tipo "Workouts for everybody" ---------- */
 .mosaico { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 36px; }
-.loseta { position: relative; aspect-ratio: 3 / 4; border-radius: 4px; overflow: hidden; padding: 44px 14px 20px; display: flex; flex-direction: column; align-items: center; text-align: center; background: linear-gradient(180deg, #ECE7E1, #DCD3C9); }
+.loseta { position: relative; border-radius: 4px; overflow: hidden; padding: 44px 14px 20px; display: flex; flex-direction: column; align-items: center; text-align: center; background: linear-gradient(180deg, #ECE7E1, #DCD3C9); }
 .loseta:nth-child(2) { background: linear-gradient(180deg, #E9E1D8, #D5C4B2); }
 .loseta:nth-child(3) { background: linear-gradient(180deg, #E6E1DC, #CFC8C0); }
 .loseta:nth-child(4) { background: linear-gradient(180deg, #EFE5DA, #D9BFA4); }
@@ -274,6 +274,7 @@ footer { background: var(--carbon); border-top: 1px solid rgba(243,241,238,.12);
   .telefono { width: 280px; }
   .con-telefono { grid-template-columns: .8fr 1.2fr; gap: 70px; }
   .mosaico { grid-template-columns: repeat(4, 1fr); gap: 22px; }
+  .loseta .nombre { font-size: clamp(1rem, 1.7vw, 1.5rem); letter-spacing: .16em; }
   .partido { grid-template-columns: 1fr 1fr; }
   .partido .lado-texto { padding: 90px 70px; text-align: left; display: flex; flex-direction: column; justify-content: center; }
   .partido.invertido .lado-texto { order: 2; }
@@ -364,7 +365,9 @@ footer { background: var(--carbon); border-top: 1px solid rgba(243,241,238,.12);
 .pantalla-video::before { z-index: 2; }
 
 /* Foto en cada semana del mosaico */
-.loseta-foto { width: 100%; flex: 1; min-height: 150px; margin: 14px 0; border-radius: 3px; }
+.loseta-foto { width: 100%; flex: none; aspect-ratio: 19 / 20; min-height: 0; margin: 14px 0; border-radius: 3px; }
+.loseta ul { margin-top: auto; width: 100%; }
+.loseta .nombre { white-space: nowrap; }
 .loseta-foto .slot-label { font-size: .64rem; padding: 8px 8px; }
 
 /* Video debajo de la declaración */
@@ -389,7 +392,17 @@ footer { background: var(--carbon); border-top: 1px solid rgba(243,241,238,.12);
   .hero-capa { padding: 80px 40px; text-align: left; }
   .hero-capa .hero-sub, .hero-capa .hero-cuerpo { margin-inline: 0; }
   .hero-media { align-items: end; }
-  .hero-video::after { background: linear-gradient(90deg, rgba(20,20,20,.62) 0%, rgba(20,20,20,.25) 55%, rgba(20,20,20,0) 100%); }
+  .hero-video::after { background: linear-gradient(90deg, rgba(20,20,20,.78) 0%, rgba(20,20,20,.5) 45%, rgba(20,20,20,.1) 100%); }
   .testimonios { grid-template-columns: repeat(3, 1fr); }
   .partido .lado-foto, .partido .lado-foto .slot { min-height: 520px; }
+}
+
+/* Hero en teléfono: el video 16:9 completo arriba y el texto abajo sobre carbón,
+   para no recortar a la coach ni poner texto claro sobre pared blanca */
+@media (max-width: 859px) {
+  .hero-video { flex-direction: column; align-items: stretch; min-height: 0; }
+  .hero-video::after { display: none; }
+  .hero-media { position: relative; inset: auto; width: 100%; aspect-ratio: 16 / 9; padding: 0; }
+  .hero-media:has(video) .slot-label { display: none; }
+  .hero-capa { padding: 34px 22px 48px; }
 }
