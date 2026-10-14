@@ -69,7 +69,7 @@ b, strong { font-weight: 600; }
 .nav-links a { font-size: .76rem; font-weight: 500; letter-spacing: .2em; text-transform: uppercase; color: var(--tinta); text-decoration: none; }
 .nav-logo { grid-column: 2; display: flex; align-items: center; gap: 10px; text-decoration: none; color: var(--tinta); }
 .nav-logo img { width: 52px; filter: brightness(0) saturate(100%); opacity: .88; }
-.nav-logo span { font-family: var(--serif); font-size: 1.1rem; letter-spacing: .02em; }
+.nav-logo .nav-reto { width: 150px; filter: none; opacity: 1; }
 .nav .boton { grid-column: 3; justify-self: end; padding: 10px 14px; font-size: .68rem; letter-spacing: .18em; border-radius: 6px; }
 
 /* ---------- 1 · Hero ---------- */
@@ -294,7 +294,7 @@ footer { background: var(--carbon); border-top: 1px solid rgba(243,241,238,.12);
   .nota-texto .firma { margin-inline: auto; }
   .boton { width: 100%; max-width: 380px; }
   .nav .boton { width: auto; }
-  .nav-logo span { display: none; }
+  .nav-logo .nav-reto { display: none; }
 }
 @media (max-width: 380px) {
   .nav .boton { font-size: .6rem; padding: 9px 10px; letter-spacing: .12em; }
@@ -394,7 +394,7 @@ footer { background: var(--carbon); border-top: 1px solid rgba(243,241,238,.12);
   .hero-capa { padding: 80px 40px; text-align: left; }
   .hero-capa .hero-sub, .hero-capa .hero-cuerpo { margin-inline: 0; }
   .hero-media { align-items: end; }
-  .hero-video::after { background: linear-gradient(90deg, rgba(20,20,20,.78) 0%, rgba(20,20,20,.5) 45%, rgba(20,20,20,.1) 100%); }
+  .hero-video::after { background: linear-gradient(90deg, rgba(20,20,20,.86) 0%, rgba(20,20,20,.62) 50%, rgba(20,20,20,.15) 100%); }
   .testimonios { grid-template-columns: repeat(3, 1fr); }
   .partido .lado-foto, .partido .lado-foto .slot { min-height: 520px; }
 }
@@ -407,4 +407,13 @@ footer { background: var(--carbon); border-top: 1px solid rgba(243,241,238,.12);
   .hero-media { position: relative; inset: auto; width: 100%; aspect-ratio: 16 / 9; padding: 0; }
   .hero-media:has(video) .slot-label { display: none; }
   .hero-capa { padding: 34px 22px 48px; }
+}
+
+/* Logo del reto (blanco con "x" camel y pastilla RETO) */
+.hero-logo { line-height: 0; margin-top: 6px; }
+.hero-logo img { width: min(100%, 340px); margin: 0 auto; }
+.final-logo { width: min(100%, 300px); margin: 0 auto 22px; }
+@media (min-width: 860px) {
+  .hero-logo img { width: 540px; margin: 0; }
+  .final-logo { width: 360px; }
 }
