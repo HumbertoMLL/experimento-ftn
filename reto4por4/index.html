@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Reto 4x4 · 4 entrenos, 4 semanas · Empieza el 2 de noviembre | FTN</title>
 <meta name="description" content="Reto 4x4 de FTN, nuestro último reto del año: 4 cosas, 4 semanas, 4 hábitos para cerrar bien el año. Empieza el 2 de noviembre.">
+<meta name="theme-color" content="#1C1026">
 <link rel="icon" href="/assets/favicon-ftn.png" type="image/png">
 <link rel="apple-touch-icon" href="/assets/apple-touch-icon-ftn.png">
 <link rel="canonical" href="https://www.brenvita.shop/reto4por4">
@@ -23,16 +24,34 @@
 </head>
 <body data-variante="reto4por4">
 
+<!-- Degradado rosa → naranja de los anillos de los Basic 4 -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <linearGradient id="grad-b4" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#FF2A6B"/>
+      <stop offset="1" stop-color="#FF931E"/>
+    </linearGradient>
+  </defs>
+</svg>
+
 <!-- BANNER: lo primero que se ve -->
 <div class="banner-top"><svg class="i"><use href="/assets/iconos-retos.svg#i-calendario"/></svg>Nuestro último reto del año · Empieza el 2 de noviembre</div>
 
-<!-- 1 · HERO -->
-<header class="hero hero-oferta" id="inicio">
+<!-- 1 · HERO · oscuro -->
+<header class="sec noche hero" id="inicio">
   <div class="in">
-    <img class="marca-ftn" src="/assets/logo-ftn.webp" width="740" height="404" alt="FTN">
-    <div class="reto-id grande"><small>RETO</small><b>4<em>x</em>4</b></div>
-    <h1 class="largo"><span class="hl">4 hábitos</span> para cerrar bien el año.</h1>
-    <div class="cta-wrap"><a href="#oferta" class="cta">Quiero mis Basic 4</a></div>
+    <img class="marca-ftn" src="/assets/logo-ftn-blanco.webp" width="1152" height="629" alt="FTN" fetchpriority="high">
+    <div class="reto-id"><small>RETO</small><b>4<em>x</em>4</b></div>
+    <h1><span class="hl">4 hábitos</span> para cerrar bien el año.</h1>
+
+    <div class="anillos-hero" aria-label="Tus Basic 4: 4 entrenos a la semana, 4,000 pasos al día, 4 vasos de agua y 4 verduras al día">
+      <div class="anillo-b4"><div class="cuerpo"><svg class="aro" viewBox="0 0 80 80"><circle class="pista" cx="40" cy="40" r="33"/><circle class="arco" cx="40" cy="40" r="33"/></svg><svg class="i"><use href="/assets/iconos-retos.svg#i-pesa"/></svg></div><b>4</b><span>entrenos<br>a la semana</span></div>
+      <div class="anillo-b4"><div class="cuerpo"><svg class="aro" viewBox="0 0 80 80"><circle class="pista" cx="40" cy="40" r="33"/><circle class="arco" cx="40" cy="40" r="33"/></svg><svg class="i"><use href="/assets/iconos-retos.svg#i-pasos"/></svg></div><b>4,000</b><span>pasos<br>al día</span></div>
+      <div class="anillo-b4"><div class="cuerpo"><svg class="aro" viewBox="0 0 80 80"><circle class="pista" cx="40" cy="40" r="33"/><circle class="arco" cx="40" cy="40" r="33"/></svg><svg class="i"><use href="/assets/iconos-retos.svg#i-vaso"/></svg></div><b>4</b><span>vasos<br>de agua</span></div>
+      <div class="anillo-b4"><div class="cuerpo"><svg class="aro" viewBox="0 0 80 80"><circle class="pista" cx="40" cy="40" r="33"/><circle class="arco" cx="40" cy="40" r="33"/></svg><svg class="i"><use href="/assets/iconos-retos.svg#i-hoja"/></svg></div><b>4</b><span>verduras<br>al día</span></div>
+    </div>
+
+    <div class="cta-wrap"><a href="#oferta" class="cta">Quiero mis Basic 4<svg class="i"><use href="/assets/iconos-retos.svg#i-flecha-der"/></svg></a></div>
     <p class="micro">Tenemos opciones desde menos de $15 pesitos al día.</p>
   </div>
 </header>
@@ -41,32 +60,43 @@
   <span><svg class="i"><use href="/assets/iconos-retos.svg#i-check"/></svg>Coaches y nutriólogas certificadas</span>
 </div>
 
-<!-- 2 · LOS PROPÓSITOS Y EL TODO O NADA -->
-<section class="sec claro sigue">
+<!-- 2 · LOS PROPÓSITOS Y EL TODO O NADA · blanco -->
+<section class="sec claro">
   <div class="in narrow">
-    <h2 class="center">El 31 de diciembre de 2025 <span class="hl">anotaste tus propósitos.</span></h2>
+    <span class="etiqueta"><svg class="i"><use href="/assets/iconos-retos.svg#i-calendario"/></svg>Hace 10 meses</span>
+    <h2>El 31 de diciembre de 2025 <span class="hl">anotaste tus propósitos.</span></h2>
     <p class="mt">Y volver a hacer ejercicio casi siempre está en esa lista. Si tú lo anotaste, muy probablemente hoy no lo estás cumpliendo.</p>
     <p class="mt"><b>Pero aún se puede cambiar lo que vas a hacer.</b></p>
     <p class="mt">La mayoría de la gente no logra instalar el hábito del ejercicio porque se queda en la filosofía del todo o nada.</p>
-    <div class="todo-nada">
-      <div><b>Todo</b><small>Dos horas de gym y cero calorías</small></div>
-      <span>o</span>
-      <div class="nada"><b>Nada</b><small>Y si falla un día, el progreso ya no cuenta</small></div>
+
+    <div class="ton">
+      <div class="ton-card">
+        <small>TODO</small>
+        <div class="puntos" aria-hidden="true"><i>L</i><i>M</i><i>M</i><i>J</i><i>V</i><i>S</i><i>D</i></div>
+        <p>Dos horas de gym y cero calorías, los 7 días.</p>
+      </div>
+      <span class="ton-o">o</span>
+      <div class="ton-card nada">
+        <small>NADA</small>
+        <div class="puntos" aria-hidden="true"><i>L</i><i>M</i><i class="falto">✕</i><i class="perdido">J</i><i class="perdido">V</i><i class="perdido">S</i><i class="perdido">D</i></div>
+        <p>Y si falla un día, el progreso ya no cuenta.</p>
+        <p class="nota">"Ya para qué, el lunes empiezo otra vez."</p>
+      </div>
     </div>
-    <p class="mt">Vives en un loop que te deja insatisfecha a las pocas semanas. Dejas de creer en ti, te sientes mal, y terminas diciendo: otra vez, no soy disciplinada, no soy suficiente, no soy buena. Un autodiálogo que te termina dañando.</p>
+
+    <p class="mt" style="margin-top:30px">Vives en un loop que te deja insatisfecha a las pocas semanas. Dejas de creer en ti, te sientes mal, y terminas diciendo: otra vez, no soy disciplinada, no soy suficiente, no soy buena. Un autodiálogo que te termina dañando.</p>
   </div>
-  <span class="puente" aria-hidden="true">↓</span>
+  <p class="conector">Pero hermana, te invito a pensarlo un segundo.</p>
 </section>
 
-<!-- 3 · EL ESTANCAMIENTO -->
-<section class="sec fuerte viene-de">
+<!-- 3 · EL ESTANCAMIENTO · oscuro -->
+<section class="sec noche">
   <div class="in narrow">
-    <p class="center">Pero hermana, te invito a pensarlo un segundo.</p>
-    <h2 class="center" style="margin-top:12px">¿Y si el problema para salir del estancamiento <span class="hl">nunca fue tu disciplina?</span></h2>
+    <h2>¿Y si el problema para salir del estancamiento <span class="hl">nunca fue tu disciplina?</span></h2>
     <p class="mt">Y no te hablo solo del estancamiento del cuerpo.</p>
     <div class="escena">
       <div><svg class="i"><use href="/assets/iconos-retos.svg#i-celular"/></svg><span>El de seguir perdiendo tiempo scrolleando.</span></div>
-      <div><svg class="i"><use href="/assets/iconos-retos.svg#i-info"/></svg><span>El de los proyectos e ideas que no han podido ver la luz.</span></div>
+      <div><svg class="i"><use href="/assets/iconos-retos.svg#i-chispas"/></svg><span>El de los proyectos e ideas que no han podido ver la luz.</span></div>
       <div><svg class="i"><use href="/assets/iconos-retos.svg#i-sube"/></svg><span>El de ese emprendimiento. El de cambiar de trabajo. Hasta el de cambiar de relación.</span></div>
       <div><svg class="i"><use href="/assets/iconos-retos.svg#i-repetir"/></svg><span>El de seguir en la misma vida de siempre.</span></div>
     </div>
@@ -75,17 +105,24 @@
   </div>
 </section>
 
-<!-- 4 · BASIC 4 -->
+<!-- 4 · BASIC 4 · blanco -->
 <section class="sec claro">
   <div class="in">
-    <h2 class="center">4 cosas. 4 semanas. <span class="hl">Eso es todo.</span></h2>
-    <div class="basic4 solo-titulos">
-      <div class="b4"><span class="num">4</span><span class="burbuja"><svg class="i"><use href="/assets/iconos-retos.svg#i-pesa"/></svg></span><h3>4 entrenos a la semana</h3></div>
-      <div class="b4"><span class="num">4</span><span class="burbuja naranja"><svg class="i"><use href="/assets/iconos-retos.svg#i-pasos"/></svg></span><h3>4,000 pasos al día</h3></div>
-      <div class="b4"><span class="num">4</span><span class="burbuja"><svg class="i"><use href="/assets/iconos-retos.svg#i-vaso"/></svg></span><h3>4 vasos de agua</h3></div>
-      <div class="b4"><span class="num">4</span><span class="burbuja naranja"><svg class="i"><use href="/assets/iconos-retos.svg#i-hoja"/></svg></span><h3>4 verduras al día</h3></div>
+    <div class="narrow">
+      <span class="etiqueta"><svg class="i"><use href="/assets/iconos-retos.svg#i-lista"/></svg>El método Basic 4</span>
+      <h2>4 cosas. 4 semanas. <span class="hl">Eso es todo.</span></h2>
     </div>
-    <p class="center mt">Te damos clases de fuerza, barre y pilates. Y los días que no hay clase, pasos.</p>
+    <div class="basic4">
+      <div class="b4"><div class="cuerpo"><svg class="aro" viewBox="0 0 80 80"><circle class="pista" cx="40" cy="40" r="33"/><circle class="arco" cx="40" cy="40" r="33"/></svg><span class="num">4<svg class="i"><use href="/assets/iconos-retos.svg#i-pesa"/></svg></span></div><h3>4 entrenos a la semana</h3><small>Fuerza, barre y pilates</small></div>
+      <div class="b4"><div class="cuerpo"><svg class="aro" viewBox="0 0 80 80"><circle class="pista" cx="40" cy="40" r="33"/><circle class="arco" cx="40" cy="40" r="33"/></svg><span class="num">4<svg class="i"><use href="/assets/iconos-retos.svg#i-pasos"/></svg></span></div><h3>4,000 pasos al día</h3><small>Los días que no hay clase</small></div>
+      <div class="b4"><div class="cuerpo"><svg class="aro" viewBox="0 0 80 80"><circle class="pista" cx="40" cy="40" r="33"/><circle class="arco" cx="40" cy="40" r="33"/></svg><span class="num">4<svg class="i"><use href="/assets/iconos-retos.svg#i-vaso"/></svg></span></div><h3>4 vasos de agua</h3><small>Todos los días</small></div>
+      <div class="b4"><div class="cuerpo"><svg class="aro" viewBox="0 0 80 80"><circle class="pista" cx="40" cy="40" r="33"/><circle class="arco" cx="40" cy="40" r="33"/></svg><span class="num">4<svg class="i"><use href="/assets/iconos-retos.svg#i-hoja"/></svg></span></div><h3>4 verduras al día</h3><small>En tu plan de comida</small></div>
+    </div>
+
+    <div class="narrow sub-bloque">
+      <h3>Así se ve tu semana</h3>
+      <p class="mt">Te damos clases de fuerza, barre y pilates. Y los días que no hay clase, pasos.</p>
+    </div>
     <div class="semana" aria-label="Tu semana: lunes y martes fuerza, jueves y viernes barre o pilates, miércoles, sábado y domingo 4,000 pasos">
       <div class="fuerza">Lun<svg class="i"><use href="/assets/iconos-retos.svg#i-pesa"/></svg><b>Fuerza</b></div>
       <div class="fuerza">Mar<svg class="i"><use href="/assets/iconos-retos.svg#i-pesa"/></svg><b>Fuerza</b></div>
@@ -96,42 +133,56 @@
       <div class="pasos">Dom<svg class="i"><use href="/assets/iconos-retos.svg#i-pasos"/></svg><b>Pasos</b></div>
     </div>
 
-    <div class="in narrow" style="padding:0;margin-top:44px">
-      <p class="center">Hasta aquí, el entrenamiento es algo que podrías ver en cualquier otro lado, hermana.</p>
-      <h3 class="center" style="margin-top:10px;font-size:clamp(1.3rem,4.4vw,1.8rem)">Pero aquí tienes dos cosas más.</h3>
-      <div class="dos-mas">
-        <div class="mas">
-          <span class="burbuja naranja"><svg class="i"><use href="/assets/iconos-retos.svg#i-cubiertos"/></svg></span>
-          <div>
-            <h3>Nutrición</h3>
-            <p>Un plan de comida pensado específicamente para que tu entreno te traiga muchos más resultados.</p>
-          </div>
-        </div>
-        <div class="mas">
-          <span class="burbuja"><svg class="i"><use href="/assets/iconos-retos.svg#i-cerebro"/></svg></span>
-          <div>
-            <h3>Cápsulas diarias</h3>
-            <p>Pequeños audios diarios para cuando la mente te quiera sabotear. Cuando quieras decirte que no eres suficiente, que no puedes, que otra vez vas a volver a caer, ahí va a estar tu audio del día para recordarte que estoy contigo en este proceso y que sí podemos.</p>
-          </div>
+    <div class="mes28" aria-label="Calendario del reto: del 2 al 29 de noviembre, cuatro semanas con la misma estructura">
+      <div class="mes-cabeza"><span>Noviembre 2026</span><small>28 días · 4 semanas</small></div>
+      <div class="mes-fila"><span>Sem 1</span><i class="f">2</i><i class="f">3</i><i>4</i><i class="s">5</i><i class="s">6</i><i>7</i><i>8</i></div>
+      <div class="mes-fila"><span>Sem 2</span><i class="f">9</i><i class="f">10</i><i>11</i><i class="s">12</i><i class="s">13</i><i>14</i><i>15</i></div>
+      <div class="mes-fila"><span>Sem 3</span><i class="f">16</i><i class="f">17</i><i>18</i><i class="s">19</i><i class="s">20</i><i>21</i><i>22</i></div>
+      <div class="mes-fila"><span>Sem 4</span><i class="f">23</i><i class="f">24</i><i>25</i><i class="s">26</i><i class="s">27</i><i>28</i><i>29</i></div>
+      <div class="mes-leyenda"><span><i class="f"></i>Fuerza</span><span><i class="s"></i>Barre / Pilates</span><span><i></i>4,000 pasos</span></div>
+    </div>
+  </div>
+  <p class="conector">Hasta aquí, el entrenamiento es algo que podrías ver en cualquier otro lado, hermana.</p>
+</section>
+
+<!-- 5 · DOS COSAS MÁS · rosa -->
+<section class="sec rosa">
+  <div class="in narrow">
+    <span class="etiqueta"><svg class="i"><use href="/assets/iconos-retos.svg#i-chispas"/></svg>Lo que no vas a ver en otro lado</span>
+    <h2>Pero aquí tienes <span class="hl">dos cosas más.</span></h2>
+    <div class="dos-mas">
+      <div class="mas">
+        <span class="burbuja naranja"><svg class="i"><use href="/assets/iconos-retos.svg#i-cubiertos"/></svg></span>
+        <div>
+          <h3>Nutrición</h3>
+          <p>Un plan de comida pensado específicamente para que tu entreno te traiga muchos más resultados.</p>
         </div>
       </div>
-      <p class="center mt">Además, la increíble comunidad de FTN, donde nos apapachamos y nos echamos porras siempre.</p>
+      <div class="mas">
+        <span class="burbuja"><svg class="i"><use href="/assets/iconos-retos.svg#i-audio"/></svg></span>
+        <div>
+          <h3>Cápsulas diarias</h3>
+          <p>Pequeños audios diarios para cuando la mente te quiera sabotear. Cuando quieras decirte que no eres suficiente, que no puedes, que otra vez vas a volver a caer, ahí va a estar tu audio del día para recordarte que estoy contigo en este proceso y que sí podemos.</p>
+        </div>
+      </div>
     </div>
-    <div class="cta-wrap"><a href="#oferta" class="cta">Quiero entrar al 4x4</a></div>
+    <p class="comunidad"><svg class="i"><use href="/assets/iconos-retos.svg#i-gente"/></svg>Además, la comunidad de FTN, donde nos apapachamos y nos echamos porras siempre.</p>
+    <div class="cta-wrap"><a href="#oferta" class="cta blanco">Quiero entrar al 4x4<svg class="i"><use href="/assets/iconos-retos.svg#i-flecha-der"/></svg></a></div>
   </div>
 </section>
 
-<!-- 5 · TODO EN UNA SOLA APP -->
-<section class="sec suave">
+<!-- 6 · TODO EN UNA SOLA APP · oscuro -->
+<section class="sec noche">
   <div class="in narrow">
-    <h2 class="center">Todo esto, <span class="hl">en una sola app</span></h2>
+    <span class="etiqueta"><svg class="i"><use href="/assets/iconos-retos.svg#i-celular"/></svg>La app de FTN</span>
+    <h2>Todo esto, <span class="hl">en una sola app</span></h2>
     <figure class="figura">
-      <img src="/assets/mm-contenido-ftn.webp" width="829" height="941" loading="lazy" alt="La app de FTN: clases, hábitos y seguimiento nutricional">
+      <img src="/assets/mock-ftn.webp" width="1200" height="1362" loading="lazy" alt="La app de FTN: clases, hábitos y seguimiento nutricional">
     </figure>
     <ul class="incluye-i">
       <li><span class="burbuja"><svg class="i"><use href="/assets/iconos-retos.svg#i-video"/></svg></span><span>16 entrenos grabados de 30–40 min (8 de fuerza, 8 de barre, pilates y yoga), disponibles cuando tú puedas.</span></li>
       <li><span class="burbuja naranja"><svg class="i"><use href="/assets/iconos-retos.svg#i-cubiertos"/></svg></span><span>Plan de nutrición en déficit calórico con recetas, lista de súper y hacks para comer fuera.</span></li>
-      <li><span class="burbuja"><svg class="i"><use href="/assets/iconos-retos.svg#i-cerebro"/></svg></span><span>28 cápsulas diarias de 3 minutos.</span></li>
+      <li><span class="burbuja"><svg class="i"><use href="/assets/iconos-retos.svg#i-audio"/></svg></span><span>28 cápsulas diarias de 3 minutos.</span></li>
       <li><span class="burbuja naranja"><svg class="i"><use href="/assets/iconos-retos.svg#i-lista"/></svg></span><span>Tracker de tus Basic 4 (entrenos, pasos, agua, verduras) dentro de la app.</span></li>
       <li><span class="burbuja"><svg class="i"><use href="/assets/iconos-retos.svg#i-gente"/></svg></span><span>Comunidad del reto para no hacerlo sola.</span></li>
     </ul>
@@ -145,10 +196,10 @@
   </div>
 </section>
 
-<!-- 6 · ES PARA TI / NO ES PARA TI -->
-<section class="sec fuerte filtro-grande">
+<!-- 7 · ES PARA TI / NO ES PARA TI · blanco -->
+<section class="sec claro filtro-grande">
   <div class="in">
-    <h2 class="center">Esto es para ti si…</h2>
+    <div class="narrow"><h2>Esto es para ti si…</h2></div>
     <div class="filtro">
       <div class="col si"><h3>Es para ti si…</h3><ul>
         <li><span>Llevas meses (o años) diciendo "el lunes empiezo".</span></li>
@@ -166,10 +217,13 @@
   </div>
 </section>
 
-<!-- 7 · OFERTA -->
-<section class="sec claro" id="oferta" style="scroll-margin-top:20px">
+<!-- 8 · OFERTA · oscuro -->
+<section class="sec noche" id="oferta" style="scroll-margin-top:20px">
   <div class="in">
-    <h2 class="center">Elige cómo entrar</h2>
+    <div class="narrow">
+      <span class="etiqueta"><svg class="i"><use href="/assets/iconos-retos.svg#i-calendario"/></svg>Empezamos el 2 de noviembre</span>
+      <h2>Elige <span class="hl">cómo entrar</span></h2>
+    </div>
     <div class="cierre js-cierre" hidden>
       <p class="cierre-titulo">Cerramos inscripciones en:</p>
       <div class="cierre-reloj">
@@ -208,10 +262,13 @@
   </div>
 </section>
 
-<!-- 8 · QUIÉN TE ACOMPAÑA -->
-<section class="sec suave">
+<!-- 9 · QUIÉN TE ACOMPAÑA · crema -->
+<section class="sec crema">
   <div class="in">
-    <h2 class="center">Daya, Bren y <span class="hl">el equipo FTN</span></h2>
+    <div class="narrow">
+      <span class="etiqueta"><svg class="i"><use href="/assets/iconos-retos.svg#i-corazon"/></svg>Quién te acompaña</span>
+      <h2>Daya, Bren y <span class="hl">el equipo FTN</span></h2>
+    </div>
     <div class="coaches">
       <div class="coach">
         <span class="inicial">D</span>
@@ -228,7 +285,7 @@
         </div>
       </div>
     </div>
-    <div class="in narrow" style="padding:0">
+    <div class="narrow">
       <div class="promesa"><p>Nutriólogas con cédula hicieron el plan de comida. No es un PDF: es un equipo.</p></div>
     </div>
   </div>
@@ -241,10 +298,10 @@
   </div>
 </section>
 
-<!-- 9 · FAQ -->
+<!-- 10 · FAQ · blanco -->
 <section class="sec claro">
   <div class="in narrow">
-    <h2 class="center">Preguntas frecuentes</h2>
+    <h2>Preguntas frecuentes</h2>
     <div class="faq">
       <details><summary>¿Llevo mucho sin entrenar, puedo entrar?</summary><div class="respuesta"><p>Sí. Cada clase tiene variante de entrada y variante avanzada. Daya las muestra en pantalla. Si tienes una lesión o condición médica, consulta antes.</p></div></details>
       <details><summary>¿Necesito equipo?</summary><div class="respuesta"><p>Para los días de fuerza, un par de mancuernas o lo que tengas en casa. Para barre y pilates, tu tapete.</p></div></details>
@@ -256,8 +313,8 @@
   </div>
 </section>
 
-<!-- 10 · CIERRE -->
-<section class="sec fuerte">
+<!-- 11 · CIERRE · rosa -->
+<section class="sec rosa">
   <div class="in narrow center">
     <h2>El último reto del año puede ser <span class="hl">el primero que sí terminas</span></h2>
     <p class="mt">No necesitas más motivación. Necesitas un sistema tan simple que no puedas fallarle.</p>
@@ -269,15 +326,13 @@
       <span class="chip"><svg class="i"><use href="/assets/iconos-retos.svg#i-calendario"/></svg>4 semanas</span>
     </div>
     <p class="mt">Empieza el 2 de noviembre. Termina el 29. Llegas a diciembre distinta.</p>
-    <div class="cta-wrap"><a href="#oferta" class="cta">Quiero mis Basic 4</a></div>
+    <div class="cta-wrap"><a href="#oferta" class="cta blanco">Quiero mis Basic 4<svg class="i"><use href="/assets/iconos-retos.svg#i-flecha-der"/></svg></a></div>
+    <p class="micro" style="color:rgba(255,255,255,.8)">+1,000 mujeres ya lo lograron con FTN</p>
   </div>
 </section>
-<div class="barra-rosa">
-  <span><svg class="i"><use href="/assets/iconos-retos.svg#i-corazon"/></svg><b>+1,000 mujeres</b> ya lo lograron con FTN</span>
-</div>
 
 <footer>
-  <img class="marca" src="/assets/logo-ftn.webp" width="740" height="404" alt="FTN" style="width:90px">
+  <img class="marca" src="/assets/logo-ftn-blanco.webp" width="1152" height="629" alt="FTN">
   <p style="font-size:.82rem">© 2026 FTN · Reto 4x4</p>
 </footer>
 

@@ -1,272 +1,334 @@
 /* ============================================================
-   RETO 4x4 y PILATES x STRENGTH
-   Extiende /css/musculo.css (paleta, botones, planes, filtro, faq).
-   Aquí solo vive lo nuevo: el ID del reto, íconos de línea, la semana,
-   los Basic 4 y los mockups de la app hechos con CSS.
+   RETO 4x4 · hoja propia de /reto4por4
+   Extiende /css/musculo.css (reset, tipografía, .cta, .planes,
+   .filtro, .faq, .cierre, .pendiente, footer). Aquí vive el look
+   de esta landing: tres fondos que alternan (blanco · rosa sólido ·
+   ciruela oscuro) y gráficos hechos en CSS/SVG: los anillos de los
+   Basic 4, el todo o nada, la semana y el mes de 28 días.
    Mobile first y centrado en teléfono.
    ============================================================ */
 
-/* ---------- Íconos de una sola línea (sprite en cada HTML) ---------- */
+:root {
+  --noche:   #1C1026;   /* ciruela casi negro: hero, estancamiento, app, oferta */
+  --noche-2: #2B1A3A;   /* tarjetas sobre oscuro */
+  --noche-3: #43305A;   /* bordes y rieles sobre oscuro */
+  --crema:   #F7F4F9;   /* blanco con un pelo de lila: coaches y FAQ */
+  --nieve:   rgba(255,255,255,.82);
+}
+
+/* ---------- Íconos de una sola línea ---------- */
 .i { width: 24px; height: 24px; flex: none; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
 .burbuja { width: 52px; height: 52px; border-radius: 16px; flex: none; display: grid; place-items: center; background: var(--rosa-papel); color: var(--rosa-texto); }
 .burbuja.naranja { background: #FFF1DE; color: var(--naranja-texto); }
 
-/* ---------- ID del reto: lo primero que se ve ---------- */
-.marca-ftn { width: 74px; height: auto; margin: 0 auto 18px; }
-.reto-id { display: inline-grid; justify-items: center; margin-bottom: 18px; }
-.reto-id small { font-family: "Bricolage Grotesque", sans-serif; font-weight: 800; font-size: .8rem; letter-spacing: .3em; color: var(--tinta); }
-.reto-id b { font-family: "Bricolage Grotesque", sans-serif; font-weight: 800; letter-spacing: -.05em; line-height: .9; color: var(--rosa); font-size: clamp(3.4rem, 15vw, 5.4rem); }
-.reto-id b em { font-style: normal; color: var(--naranja); }
-.reto-id.largo b { font-size: clamp(2.3rem, 10vw, 4rem); }
-.hero p.sub { margin-left: auto; margin-right: auto; }
-.chips { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; margin-top: 20px; }
-.chip { display: inline-flex; align-items: center; gap: 8px; padding: 9px 14px; border-radius: 999px; background: var(--blanco); border: 1px solid var(--card-borde); font-size: .86rem; font-weight: 600; }
-.chip .i { width: 18px; height: 18px; color: var(--rosa-texto); }
-.hero .micro { margin-top: 12px; font-size: .86rem; color: var(--gris); text-align: center; }
-.barra-prueba { display: grid; gap: 8px; margin-top: 22px; }
-.barra-prueba span { display: flex; align-items: center; justify-content: center; gap: 8px; font-size: .86rem; font-weight: 600; color: var(--tinta); }
-.barra-prueba .i { width: 18px; height: 18px; color: var(--naranja-texto); stroke-width: 2.4; }
+/* ============================================================
+   BANDAS. El ritmo lo da el fondo: cada capítulo cambia.
+   ============================================================ */
+.sec { padding: 64px 20px; overflow: hidden; }
+.sec.claro { background: var(--blanco); --card-bg: var(--crema); --card-borde: rgba(var(--rgb-tinta), .1); }
+.sec.crema { background: var(--crema); --card-bg: var(--blanco); --card-borde: rgba(var(--rgb-tinta), .1); }
 
-/* ---------- La semana: lun a dom ---------- */
-.semana { display: grid; grid-template-columns: repeat(7, 1fr); gap: 5px; margin-top: 26px; }
-.semana div { display: grid; justify-items: center; gap: 6px; padding: 10px 2px; border-radius: 14px; background: var(--card-bg); border: 1px solid var(--card-borde); font-size: .64rem; font-weight: 700; text-transform: uppercase; letter-spacing: .04em; color: var(--gris); text-align: center; }
-.semana div .i { width: 20px; height: 20px; }
-.semana div b { font-family: "Bricolage Grotesque", sans-serif; font-size: .82rem; text-transform: none; letter-spacing: 0; color: var(--tinta); line-height: 1.1; }
-.semana .fuerza { background: var(--rosa); border-color: var(--rosa); color: rgba(255,255,255,.85); }
-.semana .fuerza b { color: #fff; }
-.semana .suave-dia { background: var(--naranja); border-color: var(--naranja); color: var(--tinta); }
-.semana .pasos .i { color: var(--gris); }
-.semana-leyenda { display: flex; flex-wrap: wrap; justify-content: center; gap: 6px 14px; margin-top: 12px; font-size: .8rem; color: var(--gris); }
-.semana-leyenda i { display: inline-block; width: 10px; height: 10px; border-radius: 3px; margin-right: 6px; vertical-align: middle; }
+/* Rosa sólido: texto blanco encima. Los titulares en blanco; el acento va naranja. */
+.sec.rosa { background: var(--rosa); color: var(--blanco); --card-bg: var(--blanco); --card-borde: transparent; }
+.sec.rosa h2, .sec.rosa h3 { color: var(--blanco); }
+.sec.rosa h2 .hl { color: #FFD6A3; }
+.sec.rosa p { color: rgba(255,255,255,.92); }
 
-/* ---------- Escena (open loop) ---------- */
+/* Ciruela: el oscuro de esta landing. El rosa brilla encima. */
+.sec.noche { background: var(--noche); color: var(--nieve); --card-bg: var(--noche-2); --card-borde: var(--noche-3); }
+.sec.noche h1, .sec.noche h2, .sec.noche h3 { color: var(--blanco); }
+.sec.noche h2 .hl, .sec.noche h1 .hl { color: var(--rosa); }
+.sec.noche .hl { color: var(--rosa); }
+.sec.noche b, .sec.noche strong { color: var(--blanco); }
+.sec.noche .burbuja { background: var(--noche-3); color: #FF7FA6; }
+.sec.noche .burbuja.naranja { background: rgba(var(--rgb-naranja), .18); color: var(--naranja); }
+.sec.noche .micro { color: rgba(255,255,255,.6); }
+
+/* Halo de color detrás de las secciones oscuras, solo CSS */
+.sec.noche { position: relative; }
+.sec.noche::before {
+  content: ""; position: absolute; inset: 0; pointer-events: none;
+  background:
+    radial-gradient(60% 50% at 100% 0%, rgba(var(--rgb-rosa), .22), transparent 70%),
+    radial-gradient(50% 45% at 0% 100%, rgba(var(--rgb-naranja), .14), transparent 70%);
+}
+.sec.noche > * { position: relative; }
+
+.in { max-width: 960px; }
+/* los bloques de texto van centrados también en escritorio; las tarjetas con
+   lista se alinean solas a la izquierda */
+.narrow { max-width: 680px; text-align: center; }
+h2 { font-size: clamp(1.75rem, 6vw, 3rem); }
+.sec p { max-width: 60ch; margin-inline: auto; }
+
+/* ---------- Etiqueta (kicker) ---------- */
+.etiqueta {
+  display: inline-flex; align-items: center; gap: 8px; margin-bottom: 14px;
+  font-family: "Bricolage Grotesque", sans-serif; font-weight: 800; font-size: .74rem; letter-spacing: .16em; text-transform: uppercase;
+  color: var(--rosa-texto);
+}
+.etiqueta .i { width: 16px; height: 16px; stroke-width: 2.4; }
+.sec.noche .etiqueta { color: var(--naranja); }
+.sec.rosa .etiqueta { color: var(--blanco); }
+
+/* ---------- Conector: la frase grande que empuja a la siguiente sección ---------- */
+.conector {
+  max-width: 720px; margin: 44px auto 0; text-align: center;
+  font-family: "Bricolage Grotesque", sans-serif; font-weight: 800; letter-spacing: -.02em;
+  font-size: clamp(1.4rem, 5vw, 2.1rem); line-height: 1.2;
+}
+.conector::after {
+  content: "\2193"; display: block; margin: 16px auto 0;
+  width: 44px; height: 44px; line-height: 44px; border-radius: 50%;
+  background: var(--rosa); color: var(--blanco); font-size: 1.2rem;
+  box-shadow: 0 10px 24px rgba(var(--rgb-rosa), .35);
+}
+.sec.noche .conector { color: var(--blanco); }
+.sec.rosa .conector::after { background: var(--blanco); color: var(--rosa-texto); box-shadow: none; }
+
+/* ---------- Botones ---------- */
+.cta { border-radius: 999px; }
+.cta.blanco { background: var(--blanco); color: var(--rosa-texto); box-shadow: 0 10px 28px rgba(0,0,0,.18); }
+.cta.blanco:hover { box-shadow: 0 14px 34px rgba(0,0,0,.26); }
+.cta .i { width: 20px; height: 20px; margin-left: 10px; stroke-width: 2.4; }
+.micro { margin-top: 12px; font-size: .86rem; color: var(--gris); text-align: center; }
+
+/* ============================================================
+   BANNER + HERO
+   ============================================================ */
+.banner-top {
+  display: flex; align-items: center; justify-content: center; gap: 10px; padding: 11px 16px;
+  background: var(--rosa); color: #fff; text-align: center;
+  font-family: "Bricolage Grotesque", sans-serif; font-weight: 800; font-size: clamp(.8rem, 3.2vw, .98rem); letter-spacing: .06em; text-transform: uppercase;
+}
+.banner-top .i { width: 18px; height: 18px; stroke-width: 2.2; }
+
+.hero { padding: 44px 20px 0; }
+.hero .in { display: flex; flex-direction: column; align-items: center; text-align: center; }
+.marca-ftn { width: 84px; height: auto; margin: 0 auto 22px; }
+.reto-id { display: inline-grid; justify-items: center; margin-bottom: 10px; }
+.reto-id small {
+  font-family: "Bricolage Grotesque", sans-serif; font-weight: 800;
+  font-size: clamp(1.2rem, 5.4vw, 2rem); letter-spacing: .34em; margin-left: .34em; color: var(--naranja);
+}
+.reto-id b {
+  font-family: "Bricolage Grotesque", sans-serif; font-weight: 800; letter-spacing: -.06em; line-height: .88;
+  font-size: clamp(5.2rem, 26vw, 10rem); color: var(--blanco);
+  text-shadow: 0 20px 60px rgba(var(--rgb-rosa), .35);
+}
+.reto-id b em { font-style: normal; color: var(--rosa); }
+.hero h1 { max-width: 16ch; font-size: clamp(1.5rem, 6vw, 2.6rem); margin-top: 8px; }
+.hero h1 .hl { color: var(--rosa); }
+.hero .cta { margin-top: 26px; }
+
+/* Los cuatro anillos: el tracker de los Basic 4, cerrado */
+.anillos-hero { display: grid; grid-template-columns: repeat(4, 1fr); gap: 6px; width: 100%; max-width: 520px; margin: 34px auto 0; }
+.anillo-b4 { position: relative; display: grid; justify-items: center; gap: 6px; }
+.anillo-b4 svg.aro { width: 100%; max-width: 92px; height: auto; transform: rotate(-90deg); }
+.anillo-b4 .pista { fill: none; stroke: rgba(255,255,255,.1); stroke-width: 8; }
+.anillo-b4 .arco { fill: none; stroke: url(#grad-b4); stroke-width: 8; stroke-linecap: round; stroke-dasharray: 207.3; stroke-dashoffset: 4; }
+.anillo-b4 .i { position: absolute; top: calc(50% - 30px); left: 50%; transform: translate(-50%, -50%); width: 28px; height: 28px; color: var(--blanco); stroke-width: 2; }
+.anillo-b4 b { font-family: "Bricolage Grotesque", sans-serif; font-weight: 800; font-size: 1.3rem; line-height: 1; color: var(--blanco); }
+.anillo-b4 span { font-size: .68rem; font-weight: 600; line-height: 1.2; text-align: center; color: rgba(255,255,255,.7); }
+.anillo-b4 svg.aro + .i { top: 50%; }
+.anillo-b4 .cuerpo { position: relative; width: 100%; max-width: 92px; }
+.anillo-b4 .cuerpo .i { top: 50%; }
+
+/* Barra de prueba social: rosa sólido, texto corrido */
+.barra-rosa { display: flex; flex-wrap: wrap; justify-content: center; gap: 6px 28px; padding: 16px 20px; background: var(--rosa); color: #fff; text-align: center; }
+.barra-rosa span { display: block; font-size: .95rem; font-weight: 600; }
+.barra-rosa b { font-family: "Bricolage Grotesque", sans-serif; font-weight: 800; font-size: 1.15rem; color: #fff; }
+.barra-rosa .i { display: inline-block; vertical-align: -5px; margin-right: 6px; width: 20px; height: 20px; stroke-width: 2.2; }
+
+/* ============================================================
+   TODO O NADA
+   ============================================================ */
+.ton { display: grid; gap: 14px; margin-top: 30px; }
+.ton-card { border-radius: 24px; padding: 24px 20px; background: var(--card-bg); border: 1px solid var(--card-borde); text-align: center; }
+.ton-card.nada { border: 2px dashed var(--rosa); }
+.ton-card small { display: block; font-family: "Bricolage Grotesque", sans-serif; font-weight: 800; font-size: 1.5rem; letter-spacing: .14em; color: var(--tinta); }
+.ton-card.nada small { color: var(--rosa-texto); }
+.ton-card p { margin-top: 12px; font-size: .95rem; color: var(--gris); }
+.ton-o { display: grid; place-items: center; width: 40px; height: 40px; margin: 0 auto; border-radius: 50%; background: var(--tinta); color: #fff; font-family: "Bricolage Grotesque", sans-serif; font-weight: 800; }
+/* los 7 días de la semana como puntos */
+.puntos { display: flex; justify-content: center; gap: 6px; margin-top: 16px; }
+.puntos i {
+  width: 32px; height: 32px; border-radius: 10px; display: grid; place-items: center;
+  background: var(--rosa); color: #fff; font-family: "Bricolage Grotesque", sans-serif; font-weight: 800; font-size: .7rem; font-style: normal;
+}
+.puntos i.falto { background: transparent; border: 2px solid var(--rojo); color: var(--rojo); }
+.puntos i.perdido { background: transparent; border: 2px dashed rgba(var(--rgb-tinta), .3); color: rgba(var(--rgb-tinta), .4); text-decoration: line-through; }
+.ton-card .nota { margin-top: 10px; font-size: .8rem; font-weight: 700; color: var(--rojo); }
+
+/* ============================================================
+   ESTANCAMIENTO
+   ============================================================ */
 .escena { display: grid; gap: 10px; margin-top: 26px; }
 .escena div { display: flex; align-items: center; gap: 12px; padding: 14px 16px; border-radius: 16px; background: var(--card-bg); border: 1px solid var(--card-borde); text-align: left; font-size: .98rem; line-height: 1.4; }
-.escena div .i { color: var(--rosa-texto); }
-.escena div s { color: var(--gris); text-decoration-color: var(--rosa); text-decoration-thickness: 2px; }
+.escena div .i { color: var(--rosa); }
+.remate { margin-top: 30px; padding: 24px 26px; background: var(--rosa); border-radius: 20px; box-shadow: 0 16px 40px rgba(var(--rgb-rosa), .3); }
+.remate p { font-family: "Bricolage Grotesque", sans-serif; font-weight: 800; letter-spacing: -.02em; font-size: clamp(1.25rem, 4vw, 1.7rem); line-height: 1.25; color: #fff; text-align: center; }
 
-/* Todo o nada */
-.todo-nada { display: grid; grid-template-columns: 1fr auto 1fr; gap: 10px; align-items: center; margin-top: 26px; }
-.todo-nada div { border-radius: 18px; padding: 18px 12px; text-align: center; background: var(--card-bg); border: 1px solid var(--card-borde); }
-.todo-nada b { display: block; font-family: "Bricolage Grotesque", sans-serif; font-size: 1.05rem; }
-.todo-nada small { display: block; margin-top: 4px; font-size: .8rem; color: var(--gris); line-height: 1.3; }
-.todo-nada > span { font-family: "Bricolage Grotesque", sans-serif; font-weight: 800; color: var(--gris); }
-.todo-nada .nada { border: 2px dashed var(--rosa); }
+/* ============================================================
+   BASIC 4: anillos grandes, la semana y el mes
+   ============================================================ */
+.basic4 { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 30px; }
+.b4 { position: relative; border-radius: 24px; padding: 22px 14px 20px; text-align: center; background: var(--card-bg); border: 1px solid var(--card-borde); display: grid; justify-items: center; }
+.b4 .cuerpo { position: relative; width: 96px; }
+.b4 svg.aro { width: 96px; height: 96px; transform: rotate(-90deg); display: block; }
+.b4 .pista { fill: none; stroke: rgba(var(--rgb-tinta), .08); stroke-width: 8; }
+.b4 .arco { fill: none; stroke: url(#grad-b4); stroke-width: 8; stroke-linecap: round; stroke-dasharray: 207.3; stroke-dashoffset: 4; }
+.b4 .num { position: absolute; inset: 0; display: grid; place-items: center; font-family: "Bricolage Grotesque", sans-serif; font-weight: 800; font-size: 2.4rem; letter-spacing: -.04em; color: var(--tinta); }
+.b4 .num .i { width: 18px; height: 18px; position: absolute; right: 22px; bottom: 20px; color: var(--rosa-texto); stroke-width: 2.4; }
+.b4 h3 { margin-top: 12px; font-size: clamp(.98rem, 3.4vw, 1.12rem); line-height: 1.2; }
+.b4 small { display: block; margin-top: 4px; font-size: .78rem; color: var(--gris); }
 
-/* ---------- Basic 4 ---------- */
-.basic4 { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 28px; }
-.b4 { position: relative; border-radius: 22px; padding: 22px 16px 18px; text-align: center; background: var(--card-bg); border: 1px solid var(--card-borde); }
-.b4 .num { position: absolute; top: 10px; right: 14px; font-family: "Bricolage Grotesque", sans-serif; font-weight: 800; font-size: 2.6rem; line-height: 1; color: var(--rosa); opacity: .18; }
-.b4 .burbuja { margin: 0 auto 12px; }
-.b4 h3 { font-size: 1.05rem; }
-.b4 p { margin-top: 6px; font-size: .9rem; line-height: 1.45; }
-.capa { display: grid; grid-template-columns: 52px 1fr; gap: 14px; align-items: center; margin-top: 16px; padding: 20px; border-radius: 22px; text-align: left; background: var(--tinta); color: #fff; }
-.capa .burbuja { background: rgba(255,255,255,.12); color: var(--naranja); }
-.capa p { font-size: .96rem; line-height: 1.5; }
-.capa b { color: var(--naranja); }
+.sub-bloque { margin-top: 48px; }
+.sub-bloque h3 { font-size: clamp(1.3rem, 4.6vw, 1.8rem); }
 
-/* Fuerza + barre */
-.combo { display: grid; grid-template-columns: 1fr auto 1fr; gap: 10px; align-items: stretch; margin-top: 28px; }
-.combo div { border-radius: 20px; padding: 20px 14px; text-align: center; background: var(--card-bg); border: 1px solid var(--card-borde); }
-.combo div .burbuja { margin: 0 auto 10px; }
-.combo b { display: block; font-family: "Bricolage Grotesque", sans-serif; font-size: 1rem; }
-.combo small { display: block; margin-top: 6px; font-size: .82rem; line-height: 1.35; color: var(--gris); }
-.combo > span { display: grid; place-items: center; font-family: "Bricolage Grotesque", sans-serif; font-weight: 800; font-size: 1.6rem; color: var(--naranja-texto); }
+/* La semana: 7 fichas */
+.semana { display: grid; grid-template-columns: repeat(7, 1fr); gap: 5px; margin-top: 22px; }
+.semana div { display: grid; justify-items: center; gap: 6px; padding: 12px 2px; border-radius: 14px; background: var(--blanco); border: 1px solid var(--card-borde); font-size: .62rem; font-weight: 700; text-transform: uppercase; letter-spacing: .04em; color: var(--gris); text-align: center; }
+.semana div .i { width: 20px; height: 20px; }
+.semana div b { font-family: "Bricolage Grotesque", sans-serif; font-size: .8rem; text-transform: none; letter-spacing: 0; color: var(--tinta); line-height: 1.1; }
+.semana .fuerza { background: var(--rosa); border-color: var(--rosa); color: rgba(255,255,255,.85); }
+.semana .fuerza b { color: #fff; }
+.semana .suave-dia { background: var(--naranja); border-color: var(--naranja); color: rgba(var(--rgb-tinta), .75); }
+.semana .pasos .i { color: var(--gris); }
 
-/* Faltar un día: la app te muestra dónde te quedaste */
-.continua { display: flex; justify-content: center; gap: 6px; margin-top: 24px; }
-.continua span { width: 34px; height: 34px; border-radius: 10px; display: grid; place-items: center; font-family: "Bricolage Grotesque", sans-serif; font-weight: 800; font-size: .8rem; background: var(--rosa); color: #fff; }
-.continua span.falto { background: transparent; border: 2px dashed var(--gris); color: var(--gris); }
-.continua span.sigue { background: var(--naranja); color: var(--tinta); outline: 3px solid rgba(var(--rgb-naranja), .35); }
-.continua-txt { margin-top: 10px; text-align: center; font-size: .82rem; color: var(--gris); }
+/* Los 28 días: 4 filas de 7, del 2 al 29 de noviembre */
+.mes28 { margin-top: 22px; border-radius: 22px; overflow: hidden; background: var(--blanco); border: 1px solid var(--card-borde); }
+.mes-cabeza { display: flex; justify-content: space-between; align-items: center; padding: 14px 16px; background: var(--noche); color: #fff; font-family: "Bricolage Grotesque", sans-serif; font-weight: 800; font-size: .92rem; }
+.mes-cabeza small { font-size: .72rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--naranja); }
+.mes-fila { display: grid; grid-template-columns: 54px repeat(7, 1fr); gap: 4px; align-items: center; padding: 6px 10px; }
+.mes-fila:first-of-type { padding-top: 12px; }
+.mes-fila:last-of-type { padding-bottom: 12px; }
+.mes-fila span { font-size: .62rem; font-weight: 800; letter-spacing: .06em; text-transform: uppercase; color: var(--gris); text-align: left; }
+.mes-fila i { display: grid; place-items: center; aspect-ratio: 1; border-radius: 8px; font-style: normal; font-family: "Bricolage Grotesque", sans-serif; font-weight: 800; font-size: .72rem; background: var(--crema); color: var(--gris); }
+.mes-fila i.f { background: var(--rosa); color: #fff; }
+.mes-fila i.s { background: var(--naranja); color: var(--tinta); }
+.mes-leyenda { display: flex; flex-wrap: wrap; justify-content: center; gap: 6px 16px; padding: 10px 12px 14px; font-size: .74rem; font-weight: 600; color: var(--gris); border-top: 1px solid var(--card-borde); }
+.mes-leyenda i { display: inline-block; width: 10px; height: 10px; border-radius: 3px; margin-right: 6px; vertical-align: middle; background: var(--crema); border: 1px solid var(--card-borde); }
+.mes-leyenda i.f { background: var(--rosa); border-color: var(--rosa); }
+.mes-leyenda i.s { background: var(--naranja); border-color: var(--naranja); }
 
-/* ---------- Coaches ---------- */
-.coaches { display: grid; gap: 12px; margin-top: 28px; }
-.coach { display: grid; grid-template-columns: 64px 1fr; gap: 14px; align-items: start; padding: 20px; border-radius: 22px; background: var(--card-bg); border: 1px solid var(--card-borde); text-align: left; }
-.coach img, .coach .inicial { width: 64px; height: 64px; border-radius: 50%; object-fit: cover; }
-.coach .inicial { display: grid; place-items: center; background: var(--rosa-chip); color: var(--rosa-texto); font-family: "Bricolage Grotesque", sans-serif; font-weight: 800; font-size: 1.6rem; }
-.coach .inicial .i { width: 28px; height: 28px; }
-.coach b { display: block; font-family: "Bricolage Grotesque", sans-serif; font-size: 1.08rem; }
-.coach small { display: block; font-size: .78rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--rosa-texto); margin-top: 2px; }
-.coach p { margin-top: 8px; font-size: .94rem; line-height: 1.5; }
+/* ============================================================
+   DOS COSAS MÁS (banda rosa)
+   ============================================================ */
+.dos-mas { display: grid; gap: 12px; margin-top: 28px; }
+.mas { display: grid; grid-template-columns: 52px 1fr; gap: 14px; align-items: start; padding: 22px 20px; border-radius: 22px; background: var(--blanco); color: var(--tinta); text-align: left; box-shadow: 0 16px 40px rgba(0,0,0,.14); }
+/* la tarjeta es blanca dentro de la banda rosa: el texto vuelve a tinta */
+.sec.rosa .mas h3 { font-size: 1.15rem; color: var(--tinta); }
+.sec.rosa .mas p { margin-top: 6px; font-size: .96rem; line-height: 1.55; color: var(--gris); }
+.mas .burbuja { background: var(--rosa-papel); color: var(--rosa-texto); }
+.mas .burbuja.naranja { background: #FFF1DE; color: var(--naranja-texto); }
+/* texto corrido: el ícono va en línea, no en flex */
+.comunidad { display: block; margin: 22px auto 0; padding: 14px 20px; border-radius: 24px; background: rgba(255,255,255,.14); border: 1px solid rgba(255,255,255,.3); font-size: .95rem; font-weight: 600; width: fit-content; max-width: 100%; text-align: center; }
+.comunidad .i { display: inline-block; vertical-align: -5px; margin-right: 8px; width: 20px; height: 20px; stroke-width: 2.2; }
 
-/* ---------- Lista de lo que incluye, con íconos ---------- */
+/* ============================================================
+   APP
+   ============================================================ */
+.figura { margin: 26px auto 0; max-width: 520px; }
+.figura img { width: 100%; height: auto; filter: drop-shadow(0 30px 50px rgba(0,0,0,.45)); }
 .incluye-i { list-style: none; display: grid; gap: 10px; margin-top: 26px; }
 .incluye-i li { display: grid; grid-template-columns: 44px 1fr; gap: 12px; align-items: center; padding: 14px 16px; border-radius: 16px; background: var(--card-bg); border: 1px solid var(--card-borde); text-align: left; font-size: .96rem; line-height: 1.45; }
 .incluye-i .burbuja { width: 44px; height: 44px; border-radius: 13px; }
 .incluye-i .burbuja .i { width: 22px; height: 22px; }
 
-/* ---------- Oferta: tabla corta dentro de cada tarjeta ---------- */
-.plan .dato { display: flex; justify-content: space-between; gap: 12px; padding: 10px 0; border-top: 1px solid var(--card-borde); font-size: .9rem; }
-.plan .dato span { color: var(--gris); }
-.plan .dato b { text-align: right; }
-.plan .datos { margin: 16px 0 20px; }
-.argumento { max-width: 680px; margin: 30px auto 0; padding: 22px 22px; border-radius: 20px; background: var(--blanco); border-left: 6px solid var(--naranja); }
-.argumento p { font-size: 1rem; }
-.letra-oferta { margin-top: 18px; text-align: center; font-size: .86rem; line-height: 1.5; color: var(--gris); }
-.cierre-fecha { display: inline-flex; align-items: center; gap: 8px; margin-top: 18px; padding: 10px 16px; border-radius: 999px; background: var(--rosa-papel); color: var(--rosa-texto); font-weight: 700; font-size: .9rem; }
-.cierre-fecha .i { width: 18px; height: 18px; }
+/* ============================================================
+   ES PARA TI
+   ============================================================ */
+.filtro .si { border: 2px solid var(--rosa); background: var(--blanco); box-shadow: 0 16px 40px rgba(var(--rgb-rosa), .14); }
+.filtro .si li::before { color: var(--rosa); }
+.filtro .no { background: var(--crema); }
+.filtro h3 { font-family: "Bricolage Grotesque", sans-serif; letter-spacing: .12em; }
 
 /* ============================================================
-   MOCKUPS DE LA APP (Pilates x Strength), todo en CSS
+   OFERTA (sobre oscuro)
    ============================================================ */
-.telefono {
-  width: 250px; margin: 0 auto; padding: 10px; border-radius: 40px; background: #0E1116;
-  box-shadow: 0 30px 60px rgba(var(--rgb-tinta), .28);
-}
-.pantalla { position: relative; border-radius: 31px; overflow: hidden; background: #F6F7F9; min-height: 470px; padding: 34px 14px 16px; text-align: left; }
-.pantalla::before { content: ""; position: absolute; top: 10px; left: 50%; transform: translateX(-50%); width: 76px; height: 20px; border-radius: 12px; background: #0E1116; }
-.app-cabeza { display: flex; justify-content: space-between; align-items: center; }
-.app-cabeza b { font-family: "Bricolage Grotesque", sans-serif; font-size: 1rem; color: var(--tinta); }
-.app-cabeza img { width: 30px; height: auto; }
-.app-sub { margin-top: 2px; font-size: .7rem; color: var(--gris); }
-.app-filas { display: grid; gap: 6px; margin-top: 12px; }
-.app-fila { display: grid; grid-template-columns: 30px 1fr auto; gap: 8px; align-items: center; padding: 8px 10px; border-radius: 12px; background: #fff; font-size: .74rem; font-weight: 600; color: var(--tinta); }
-.app-fila .i { width: 18px; height: 18px; }
-.app-fila small { font-size: .62rem; color: var(--gris); font-weight: 600; }
-.app-fila .dia { font-family: "Bricolage Grotesque", sans-serif; font-weight: 800; font-size: .68rem; color: var(--gris); }
-.app-fila.fuerza { background: var(--rosa); color: #fff; }
-.app-fila.fuerza .dia, .app-fila.fuerza small { color: rgba(255,255,255,.85); }
-.app-fila.suave-dia { background: #FFE6C7; }
-.app-tarjeta { margin-top: 12px; border-radius: 18px; overflow: hidden; background: #fff; }
-.app-video { position: relative; height: 150px; background: linear-gradient(150deg, var(--rosa) 0%, #FF6A8E 55%, var(--naranja) 100%); display: grid; place-items: center; }
-.app-video .play { width: 54px; height: 54px; border-radius: 50%; display: grid; place-items: center; background: rgba(255,255,255,.95); color: var(--rosa); }
-.app-video .play .i { fill: currentColor; stroke: none; margin-left: 3px; }
-.app-video small { position: absolute; left: 10px; bottom: 10px; padding: 3px 8px; border-radius: 6px; background: rgba(0,0,0,.35); color: #fff; font-size: .62rem; font-weight: 700; }
-.app-info { padding: 12px; }
-.app-info b { display: block; font-family: "Bricolage Grotesque", sans-serif; font-size: .95rem; }
-.app-meta { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 8px; }
-.app-meta span { display: inline-flex; align-items: center; gap: 4px; padding: 4px 8px; border-radius: 8px; background: #F2F3F5; font-size: .64rem; font-weight: 700; color: var(--gris); }
-.app-meta .i { width: 12px; height: 12px; }
-.app-boton { margin-top: 10px; padding: 10px; border-radius: 12px; background: var(--rosa); color: #fff; text-align: center; font-family: "Bricolage Grotesque", sans-serif; font-weight: 800; font-size: .82rem; }
-.app-aviso { display: flex; gap: 6px; align-items: center; margin-top: 10px; padding: 8px 10px; border-radius: 10px; background: #FFF1DE; font-size: .66rem; font-weight: 600; color: var(--naranja-texto); }
-.app-aviso .i { width: 14px; height: 14px; }
-.anillos { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 14px; }
-.anillo { display: grid; justify-items: center; gap: 4px; padding: 12px 6px; border-radius: 16px; background: #fff; }
-.anillo svg { width: 66px; height: 66px; transform: rotate(-90deg); }
-.anillo circle { fill: none; stroke-width: 7; }
-.anillo .fondo { stroke: #EEF0F3; }
-.anillo .avance { stroke: var(--rosa); stroke-linecap: round; }
-.anillo.n .avance { stroke: var(--naranja); }
-.anillo b { font-family: "Bricolage Grotesque", sans-serif; font-size: .78rem; color: var(--tinta); }
-.anillo small { font-size: .6rem; color: var(--gris); font-weight: 600; }
-.receta-img { height: 110px; border-radius: 14px; margin-top: 12px; background:
-  radial-gradient(circle at 30% 40%, #8BC34A 0 18%, transparent 19%),
-  radial-gradient(circle at 62% 55%, #FF8A65 0 16%, transparent 17%),
-  radial-gradient(circle at 48% 30%, #FFD54F 0 12%, transparent 13%),
-  radial-gradient(circle at 50% 50%, #fff 0 42%, #E9ECEF 43% 47%, transparent 48%),
-  linear-gradient(135deg, #FFE6C7, #FFD4E2); }
-.super { display: grid; gap: 6px; margin-top: 10px; }
-.super span { display: flex; align-items: center; gap: 8px; padding: 7px 10px; border-radius: 10px; background: #fff; font-size: .7rem; font-weight: 600; color: var(--tinta); }
-.super span i { width: 14px; height: 14px; border-radius: 4px; border: 2px solid var(--rosa); flex: none; }
-.super span.ok i { background: var(--rosa); }
-.super span.ok { color: var(--gris); text-decoration: line-through; }
-.focus-tarjeta { margin-top: 14px; padding: 18px 14px; border-radius: 20px; text-align: center; background: linear-gradient(160deg, var(--tinta), #1B2A33); color: #fff; }
-.focus-tarjeta small { font-size: .62rem; font-weight: 800; letter-spacing: .14em; text-transform: uppercase; color: var(--naranja); }
-.focus-tarjeta b { display: block; margin-top: 6px; font-family: "Bricolage Grotesque", sans-serif; font-size: 1.05rem; line-height: 1.2; }
-.focus-onda { display: flex; justify-content: center; align-items: center; gap: 3px; height: 44px; margin-top: 12px; }
-.focus-onda i { width: 4px; border-radius: 2px; background: var(--naranja); }
-.focus-cuenta { margin-top: 10px; font-size: .68rem; color: rgba(255,255,255,.7); }
-.focus-barra { height: 6px; border-radius: 3px; background: rgba(255,255,255,.15); margin-top: 6px; overflow: hidden; }
-.focus-barra i { display: block; height: 100%; width: 43%; background: var(--naranja); border-radius: 3px; }
-.completado { margin-top: 18px; text-align: center; }
-.completado .medalla { width: 92px; height: 92px; margin: 0 auto; border-radius: 50%; display: grid; place-items: center; background: linear-gradient(150deg, var(--naranja), var(--rosa)); color: #fff; box-shadow: 0 12px 26px rgba(var(--rgb-rosa), .35); }
-.completado .medalla .i { width: 46px; height: 46px; stroke-width: 1.6; }
-.completado b { display: block; margin-top: 14px; font-family: "Bricolage Grotesque", sans-serif; font-size: 1.2rem; }
-.completado-datos { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-top: 14px; }
-.completado-datos div { padding: 12px 6px; border-radius: 14px; background: #fff; }
-.completado-datos strong { display: block; font-family: "Bricolage Grotesque", sans-serif; font-size: 1.3rem; color: var(--rosa); }
-.completado-datos span { font-size: .62rem; font-weight: 600; color: var(--gris); }
-.nota-mock { margin-top: 12px; text-align: center; font-size: .74rem; color: var(--gris); }
+.sec.noche .plan { background: var(--noche-2); border-color: var(--noche-3); color: var(--nieve); }
+.sec.noche .plan.destacado { border: 2px solid var(--rosa); box-shadow: 0 24px 60px rgba(var(--rgb-rosa), .22); }
+.sec.noche .plan .nombre, .sec.noche .plan .precio .monto { color: var(--blanco); }
+.sec.noche .plan .para { color: rgba(255,255,255,.75); }
+.sec.noche .plan .ancla { color: rgba(255,255,255,.5); }
+.sec.noche .plan .por-mes { color: var(--naranja); }
+.plan .para { margin-top: 12px; }
+.plan .dato { display: flex; justify-content: space-between; gap: 12px; padding: 10px 0; border-top: 1px solid var(--card-borde); font-size: .9rem; }
+.plan .dato span { color: var(--gris); flex: none; }
+.sec.noche .plan .dato span { color: rgba(255,255,255,.55); }
+.plan .dato b { text-align: right; }
+.plan .datos { margin: 16px 0 20px; }
+.letra-oferta { margin-top: 18px; text-align: center; font-size: .86rem; line-height: 1.5; color: var(--gris); }
+.sec.noche .letra-oferta { color: rgba(255,255,255,.55); }
+.sec.noche .cierre-reloj div { background: var(--noche-2); border-color: var(--rosa); }
+.sec.noche .cierre-titulo, .sec.noche .cierre-reloj b, .sec.noche .cierre-reloj span { color: var(--rosa); }
+.sec.noche .cierre-reloj b { color: var(--blanco); }
 
-/* Mockup al lado de su texto */
-.duo { display: grid; gap: 28px; align-items: center; margin-top: 34px; }
-.duo .texto-duo h3 { font-size: clamp(1.2rem, 4vw, 1.5rem); }
-.duo .texto-duo p { margin-top: 10px; }
-.duo .etiq { display: inline-block; margin-bottom: 10px; padding: 4px 10px; border-radius: 8px; background: var(--rosa-chip); color: var(--rosa-texto); font-size: .72rem; font-weight: 800; letter-spacing: .1em; text-transform: uppercase; }
-
-/* Plan semana por semana */
-.mes { display: grid; gap: 10px; margin-top: 28px; }
-.sem { border-radius: 20px; padding: 18px; background: var(--card-bg); border: 1px solid var(--card-borde); text-align: left; }
-.sem-cabeza { display: flex; justify-content: space-between; align-items: center; gap: 10px; }
-.sem-cabeza b { font-family: "Bricolage Grotesque", sans-serif; font-size: 1.05rem; }
-.sem-cabeza span { padding: 4px 10px; border-radius: 999px; background: var(--naranja); font-size: .72rem; font-weight: 800; color: var(--tinta); }
-.sem.critica { border: 2px solid var(--rosa); }
-.sem.critica .sem-cabeza span { background: var(--rosa); color: #fff; }
-.sem-filas { display: grid; gap: 6px; margin-top: 12px; }
-.sem-filas div { display: grid; grid-template-columns: 22px 1fr; gap: 8px; align-items: start; font-size: .9rem; line-height: 1.4; }
-.sem-filas .i { width: 18px; height: 18px; margin-top: 1px; color: var(--rosa-texto); }
-.sem-filas .barre .i { color: var(--naranja-texto); }
-
-/* Hero con teléfono (Pilates) */
-.hero-duo { display: grid; gap: 30px; align-items: center; }
+/* ============================================================
+   COACHES
+   ============================================================ */
+.coaches { display: grid; gap: 12px; margin-top: 28px; }
+.coach { display: grid; grid-template-columns: 72px 1fr; gap: 16px; align-items: start; padding: 22px; border-radius: 22px; background: var(--card-bg); border: 1px solid var(--card-borde); text-align: left; }
+.coach img, .coach .inicial { width: 72px; height: 72px; border-radius: 50%; object-fit: cover; border: 3px solid var(--blanco); box-shadow: 0 8px 20px rgba(var(--rgb-tinta), .14); }
+.coach .inicial { display: grid; place-items: center; background: linear-gradient(150deg, var(--rosa), var(--naranja)); color: #fff; font-family: "Bricolage Grotesque", sans-serif; font-weight: 800; font-size: 1.8rem; }
+.coach b { display: block; font-family: "Bricolage Grotesque", sans-serif; font-size: 1.12rem; }
+.coach small { display: block; font-size: .74rem; font-weight: 800; letter-spacing: .1em; text-transform: uppercase; color: var(--rosa-texto); margin-top: 3px; }
+.coach p { margin-top: 8px; font-size: .94rem; line-height: 1.5; }
+.promesa { margin-top: 18px; border-left-color: var(--rosa); }
 
 /* Testimonio: lugar reservado hasta tener permiso */
 .testimonio-espera { max-width: 640px; margin: 0 auto; }
 
+/* ============================================================
+   CIERRE (banda rosa)
+   ============================================================ */
+.chips { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; margin-top: 22px; }
+.chip { display: inline-flex; align-items: center; gap: 8px; padding: 9px 14px; border-radius: 999px; background: rgba(255,255,255,.14); border: 1px solid rgba(255,255,255,.35); color: #fff; font-size: .86rem; font-weight: 700; }
+.chip .i { width: 18px; height: 18px; stroke-width: 2.2; }
+.sec.rosa .cta { margin-top: 28px; }
+
+footer { background: var(--noche); color: rgba(255,255,255,.55); }
+footer .marca { width: 80px; margin-bottom: 14px; }
+
+/* ============================================================
+   ESCRITORIO
+   ============================================================ */
 @media (min-width: 780px) {
+  .sec { padding: 92px 26px; }
+  .hero { padding: 64px 26px 0; }
+  .anillos-hero { gap: 14px; max-width: 620px; }
+  .anillo-b4 svg.aro, .anillo-b4 .cuerpo { max-width: 120px; }
+  .anillo-b4 span { font-size: .8rem; }
+  .ton { grid-template-columns: 1fr 40px 1fr; align-items: center; }
   .basic4 { grid-template-columns: repeat(4, 1fr); }
-  .barra-prueba { grid-template-columns: repeat(3, auto); justify-content: center; gap: 8px 26px; }
-  .coaches { grid-template-columns: 1fr 1fr; }
-  .duo { grid-template-columns: 1fr 1fr; gap: 56px; }
-  .duo.invertido .telefono-caja { order: 2; }
-  .duo .texto-duo { text-align: left; }
-  .mes { grid-template-columns: 1fr 1fr; }
-  .hero-duo { grid-template-columns: 1.15fr .85fr; text-align: left; }
-  .hero-duo .chips, .hero-duo .barra-prueba span { justify-content: flex-start; }
-  .hero-duo .barra-prueba { grid-template-columns: 1fr; justify-content: start; }
-  .hero-duo .cta-wrap { justify-content: flex-start; }
-  .hero-duo .cta { margin-left: 0; }
-  .hero-duo .micro { text-align: left; }
-  .hero-duo .reto-id { justify-items: start; }
-  .hero-duo .marca-ftn { margin-left: 0; }
   .semana { gap: 8px; }
-  .semana div { font-size: .7rem; padding: 14px 4px; }
-}
-@media (max-width: 779px) {
-  .narrow, .in { text-align: center; }
-  .yalo li, .incluye-i li, .filtro li { text-align: left; }
-  .coach { grid-template-columns: 1fr; justify-items: center; text-align: center; }
-  .capa { grid-template-columns: 1fr; justify-items: center; text-align: center; }
-  .promesa { text-align: left; }
-}
-@media (max-width: 380px) {
-  .semana div b { font-size: .7rem; }
-  .semana div { font-size: .56rem; }
-  .todo-nada, .combo { grid-template-columns: 1fr; }
-  .todo-nada > span, .combo > span { display: none; }
+  .semana div { font-size: .72rem; padding: 16px 4px; }
+  .semana div b { font-size: .95rem; }
+  .mes-fila { grid-template-columns: 90px repeat(7, 1fr); gap: 8px; padding: 6px 16px; }
+  .mes-fila span { font-size: .7rem; }
+  .mes-fila i { font-size: .85rem; border-radius: 10px; max-width: 44px; width: 100%; margin: 0 auto; }
+  .dos-mas { grid-template-columns: 1fr 1fr; }
+  .coaches { grid-template-columns: 1fr 1fr; }
+  .figura { max-width: 600px; }
 }
 
 /* ============================================================
-   RETO 4x4 · ronda de Humberto
+   TELÉFONO: todo centrado. Las listas con palomita se quedan a la
+   izquierda dentro de su tarjeta para que se lean.
    ============================================================ */
-/* Banner de arriba a todo lo ancho */
-.banner-top { display: flex; align-items: center; justify-content: center; gap: 10px; padding: 12px 16px; background: var(--rosa); color: #fff; text-align: center;
-  font-family: "Bricolage Grotesque", sans-serif; font-weight: 800; font-size: clamp(.86rem, 3.4vw, 1.05rem); letter-spacing: .04em; text-transform: uppercase; }
-.banner-top .i { width: 20px; height: 20px; }
-
-/* RETO más protagonista */
-.reto-id.grande small { font-size: clamp(1.4rem, 6vw, 2.2rem); letter-spacing: .32em; color: var(--rosa); margin-bottom: 2px; }
-.reto-id.grande b { font-size: clamp(4.6rem, 22vw, 8rem); }
-
-/* Barrita rosa de prueba social */
-.barra-rosa { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px 28px; padding: 16px 20px; background: var(--rosa-tinte); border-top: 3px solid var(--rosa); border-bottom: 3px solid var(--rosa); text-align: center; }
-.barra-rosa span { display: inline-flex; align-items: center; gap: 8px; font-size: 1rem; font-weight: 600; color: var(--tinta); }
-.barra-rosa b { font-family: "Bricolage Grotesque", sans-serif; font-weight: 800; font-size: 1.25rem; color: var(--rosa-texto); }
-.barra-rosa .i { width: 20px; height: 20px; color: var(--rosa-texto); }
-
-/* Basic 4 solo con títulos */
-.basic4.solo-titulos .b4 { padding: 26px 14px 22px; }
-.basic4.solo-titulos h3 { font-size: clamp(1rem, 3.6vw, 1.2rem); }
-
-/* Las dos cosas más: nutrición y cápsulas */
-.dos-mas { display: grid; gap: 12px; margin-top: 22px; }
-.mas { display: grid; grid-template-columns: 52px 1fr; gap: 14px; align-items: start; padding: 22px 20px; border-radius: 22px; background: var(--card-bg); border: 1px solid var(--card-borde); text-align: left; }
-.mas h3 { font-size: 1.15rem; }
-.mas p { margin-top: 6px; font-size: .96rem; line-height: 1.55; }
-.plan .para { margin-top: 12px; }
-@media (min-width: 780px) { .dos-mas { grid-template-columns: 1fr 1fr; } }
-@media (max-width: 779px) { .mas { grid-template-columns: 1fr; justify-items: center; text-align: center; } }
-/* la barra rosa es texto corrido: ícono en línea, no flex */
-.barra-rosa span { display: block; }
-.barra-rosa .i { display: inline-block; vertical-align: -4px; margin-right: 6px; }
+@media (max-width: 779px) {
+  .narrow, .in { text-align: center; }
+  .incluye-i li, .filtro li { text-align: left; }
+  .ton-o { margin: 2px auto; }
+  .coach { grid-template-columns: 1fr; justify-items: center; text-align: center; }
+  .mas { grid-template-columns: 1fr; justify-items: center; text-align: center; }
+  .promesa { text-align: left; }
+  .escena div { text-align: left; }
+}
+@media (max-width: 380px) {
+  .semana div b { font-size: .68rem; }
+  .semana div { font-size: .54rem; }
+  .puntos i { width: 28px; height: 28px; }
+  .anillo-b4 span { font-size: .62rem; }
+}
