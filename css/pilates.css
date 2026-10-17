@@ -342,6 +342,11 @@ footer { background: var(--carbon); border-top: 1px solid rgba(243,241,238,.12);
 .pantalla-captura > img { width: 100%; height: 100%; object-fit: cover; object-position: top; }
 .pantalla-video .slot { position: absolute; inset: 40px 0 0; min-height: 0; }
 .pantalla-video::before { z-index: 2; }
+/* Barra de estado del color de la pared del video: el video parece seguir hasta arriba */
+.pantalla-video { background: #C3CBD9; }
+.barra-estado { position: absolute; top: 0; left: 0; right: 0; height: 40px; z-index: 1; display: flex; justify-content: space-between; align-items: center; padding: 2px 18px 0 24px; color: #1F1F1F; font-size: .7rem; font-weight: 600; letter-spacing: .02em; }
+.estado-iconos { display: flex; align-items: center; gap: 4px; }
+.estado-iconos svg { height: 8.5px; width: auto; fill: currentColor; }
 /* La coach del video está un poco a la derecha del centro: el recorte vertical la sigue */
 .pantalla-video video { object-position: 59% 50%; }
 
