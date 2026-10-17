@@ -400,12 +400,21 @@ footer { background: var(--carbon); border-top: 1px solid rgba(243,241,238,.12);
 .final-ftn { width: 92px; margin: 0 auto 22px; filter: brightness(0) invert(1); opacity: .92; }
 .final h2 { margin-top: 8px; }
 
-/* Fechas del reto: inicia y termina, claras en cada sección clave */
-.fechas { display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 8px 14px; margin: 18px auto 0; font-family: var(--sans); font-size: .86rem !important; font-weight: 600; letter-spacing: .2em; text-transform: uppercase; line-height: 1.4 !important; }
-.fechas span { padding: 8px 16px; border: 1px solid currentColor; border-radius: 999px; }
-.unete + .fechas { color: var(--camel-texto); }
-.declaracion-capa .fechas { font-family: var(--sans); line-height: 1.4; margin: 0 auto 26px; color: #F3F1EE; text-transform: uppercase; letter-spacing: .2em; font-size: .86rem !important; }
-.final .fechas { color: var(--camel); margin-top: 20px; }
+/* Fechas del reto: "Inicia 2 noviembre ——28 días——> Termina 29 noviembre" */
+.fechas { display: flex; align-items: center; justify-content: center; gap: 14px; max-width: 440px; margin: 26px auto 0; color: var(--tinta); }
+.fecha { display: grid; justify-items: center; line-height: 1; }
+.fecha small { font-size: .72rem; font-weight: 500; letter-spacing: .28em; text-transform: uppercase; color: var(--gris); }
+.fecha b { margin-top: 6px; font-family: var(--serif); font-weight: 400; font-size: 3.2rem; line-height: 1; color: var(--camel-texto); }
+.fecha span { margin-top: 6px; font-size: .74rem; font-weight: 500; letter-spacing: .24em; text-transform: uppercase; }
+.fecha-linea { position: relative; flex: 1; min-width: 60px; height: 1px; margin-top: 8px; background: currentColor; opacity: .55; }
+.fecha-linea::after { content: ""; position: absolute; right: -1px; top: -4px; width: 8px; height: 8px; border-top: 1px solid currentColor; border-right: 1px solid currentColor; transform: rotate(45deg); }
+.fecha-linea span { position: absolute; left: 50%; bottom: 8px; transform: translateX(-50%); white-space: nowrap; font-size: .7rem; font-weight: 500; letter-spacing: .22em; text-transform: uppercase; }
+.declaracion-capa .fechas, .final .fechas { color: #F3F1EE; }
+.declaracion-capa .fechas { margin: 6px auto 30px; }
+.declaracion-capa .fecha small, .final .fecha small { color: rgba(243,241,238,.75); }
+.declaracion-capa .fecha b, .final .fecha b { color: var(--camel); }
+.declaracion-capa .fecha span { font-family: var(--sans); font-size: .74rem; line-height: 1; letter-spacing: .24em; }
+.final .fechas { margin-top: 24px; }
 
 /* Capturas reales de la app dentro del teléfono, con barra de estado propia */
 .pantalla-app { background: #F0F0F0; }
