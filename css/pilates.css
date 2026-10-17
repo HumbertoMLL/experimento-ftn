@@ -87,60 +87,6 @@ b, strong { font-weight: 600; }
 .telefono { width: 252px; margin: 0 auto; padding: 10px; border-radius: 42px; background: #111; box-shadow: 0 40px 70px rgba(47, 49, 51, .25); }
 .pantalla { position: relative; border-radius: 33px; overflow: hidden; background: #FBFAF8; color: var(--tinta); aspect-ratio: 9 / 19.5; padding: 36px 14px 16px; text-align: left; }
 .pantalla::before { content: ""; position: absolute; top: 10px; left: 50%; transform: translateX(-50%); width: 78px; height: 20px; border-radius: 12px; background: #111; }
-.app-cabeza { display: flex; justify-content: space-between; align-items: center; }
-.app-cabeza b { font-family: var(--serif); font-weight: 400; font-size: 1.05rem; }
-.app-cabeza img { width: 30px; }
-.app-sub { margin-top: 2px; font-size: .66rem !important; letter-spacing: .14em; text-transform: uppercase; color: var(--gris); line-height: 1.4 !important; }
-.app-filas { display: grid; gap: 6px; margin-top: 14px; }
-.app-fila { display: grid; grid-template-columns: 34px 1fr auto; gap: 8px; align-items: center; padding: 9px 10px; border-radius: 10px; background: #fff; border: 1px solid #EEE9E3; font-size: .76rem; }
-.app-fila .dia { font-size: .62rem; font-weight: 600; letter-spacing: .12em; color: var(--gris); }
-.app-fila small { display: block; font-size: .62rem; color: var(--gris); }
-.app-fila .i { width: 18px; height: 18px; color: var(--gris); }
-.app-fila.fuerza { background: var(--carbon); border-color: var(--carbon); color: #fff; }
-.app-fila.fuerza .dia, .app-fila.fuerza small, .app-fila.fuerza .i { color: rgba(255,255,255,.75); }
-.app-fila.suave-dia { background: #F1E4D6; border-color: #F1E4D6; }
-.app-fila.suave-dia .i { color: var(--camel-texto); }
-.app-tarjeta { margin-top: 14px; border-radius: 16px; overflow: hidden; background: #fff; border: 1px solid #EEE9E3; }
-.app-video { position: relative; height: 150px; display: grid; place-items: center; background: linear-gradient(150deg, #CDB8A2, #E8DCCD 60%, #F4EEE7); }
-.app-video .play { width: 52px; height: 52px; border-radius: 50%; display: grid; place-items: center; background: rgba(255,255,255,.92); color: var(--tinta); }
-.app-video .play .i { fill: currentColor; stroke: none; margin-left: 3px; width: 20px; height: 20px; }
-.app-video small { position: absolute; left: 10px; bottom: 10px; padding: 3px 8px; border-radius: 4px; background: rgba(31,31,31,.55); color: #fff; font-size: .6rem; letter-spacing: .1em; text-transform: uppercase; }
-.app-info { padding: 12px; }
-.app-info b { display: block; font-family: var(--serif); font-weight: 400; font-size: .98rem; }
-.app-meta { display: flex; gap: 6px; margin-top: 8px; }
-.app-meta span { display: inline-flex; align-items: center; gap: 4px; padding: 4px 8px; border-radius: 6px; background: var(--hueso); font-size: .62rem; color: var(--gris); }
-.app-meta .i { width: 12px; height: 12px; }
-.app-boton { margin-top: 10px; padding: 10px; border-radius: 8px; background: var(--camel); text-align: center; font-size: .66rem; font-weight: 500; letter-spacing: .2em; text-transform: uppercase; }
-.app-aviso { display: flex; gap: 6px; align-items: center; margin-top: 10px; padding: 8px 10px; border-radius: 8px; background: #F1E4D6; font-size: .64rem; color: var(--camel-texto); }
-.app-aviso .i { width: 14px; height: 14px; }
-.anillos { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 14px; }
-.anillo { display: grid; justify-items: center; gap: 4px; padding: 12px 6px; border-radius: 14px; background: #fff; border: 1px solid #EEE9E3; }
-.anillo svg { width: 64px; height: 64px; transform: rotate(-90deg); }
-.anillo circle { fill: none; stroke-width: 6; }
-.anillo .fondo { stroke: #EEE9E3; }
-.anillo .avance { stroke: var(--carbon); stroke-linecap: round; }
-.anillo.c .avance { stroke: var(--camel); }
-.anillo b { font-size: .74rem; font-weight: 500; }
-.anillo small { font-size: .58rem; color: var(--gris); }
-.receta-img { height: 108px; border-radius: 12px; margin-top: 12px; background:
-  radial-gradient(circle at 32% 42%, #9DB68A 0 17%, transparent 18%),
-  radial-gradient(circle at 62% 56%, #D9A07A 0 15%, transparent 16%),
-  radial-gradient(circle at 48% 30%, #E8D18E 0 11%, transparent 12%),
-  radial-gradient(circle at 50% 50%, #fff 0 42%, #EAE4DC 43% 47%, transparent 48%),
-  linear-gradient(135deg, #EFE6DC, #E2D6C8); }
-.super { display: grid; gap: 6px; margin-top: 10px; }
-.super span { display: flex; align-items: center; gap: 8px; padding: 7px 10px; border-radius: 8px; background: #fff; border: 1px solid #EEE9E3; font-size: .68rem; }
-.super span i { width: 13px; height: 13px; border-radius: 3px; border: 1.5px solid var(--camel-texto); flex: none; }
-.super span.ok i { background: var(--camel); border-color: var(--camel); }
-.super span.ok { color: var(--gris); text-decoration: line-through; }
-.focus-tarjeta { margin-top: 14px; padding: 20px 14px; border-radius: 18px; text-align: center; background: var(--carbon); color: #fff; }
-.focus-tarjeta small { font-size: .6rem; letter-spacing: .24em; text-transform: uppercase; color: var(--camel); }
-.focus-tarjeta b { display: block; margin-top: 8px; font-family: var(--serif); font-weight: 400; font-size: 1.05rem; line-height: 1.3; }
-.focus-onda { display: flex; justify-content: center; align-items: center; gap: 3px; height: 44px; margin-top: 12px; }
-.focus-onda i { width: 3px; border-radius: 2px; background: var(--camel); }
-.focus-cuenta { margin-top: 10px; font-size: .64rem !important; letter-spacing: .1em; color: rgba(255,255,255,.7); }
-.focus-barra { height: 4px; border-radius: 2px; background: rgba(255,255,255,.15); margin-top: 6px; overflow: hidden; }
-.focus-barra i { display: block; height: 100%; width: 43%; background: var(--camel); }
 .nota-mock { margin-top: 14px; font-size: .74rem !important; color: var(--gris); text-align: center; }
 
 /* ---------- 2 · Tres columnas con etiqueta (estilo "Form first") ---------- */
@@ -460,3 +406,7 @@ footer { background: var(--carbon); border-top: 1px solid rgba(243,241,238,.12);
 .unete + .fechas { color: var(--camel-texto); }
 .declaracion-capa .fechas { font-family: var(--sans); line-height: 1.4; margin: 0 auto 26px; color: #F3F1EE; text-transform: uppercase; letter-spacing: .2em; font-size: .86rem !important; }
 .final .fechas { color: var(--camel); margin-top: 20px; }
+
+/* Capturas reales de la app dentro del teléfono, con barra de estado propia */
+.pantalla-app { background: #F0F0F0; }
+.pantalla-app > img { position: absolute; top: 40px; left: 0; width: 100%; height: calc(100% - 40px); object-fit: cover; object-position: top; }
