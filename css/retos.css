@@ -246,8 +246,11 @@ footer .marca.logo-4x4-pie { width: 110px; margin-bottom: 14px; }
 .comunidad .i { display: inline-block; vertical-align: -5px; margin-right: 8px; width: 20px; height: 20px; stroke-width: 2.2; }
 
 /* ============================================================
-   APP
+   APP (dentro de la banda rosa)
    ============================================================ */
+.app-bloque { margin-top: 56px; }
+.app-video { display: block; width: 100%; max-width: 440px; aspect-ratio: 1; margin: 26px auto 0; border-radius: 28px; object-fit: cover; box-shadow: 0 30px 70px rgba(0,0,0,.28); }
+@media (prefers-reduced-motion: reduce) { .app-video { display: none; } }
 .figura { margin: 26px auto 0; max-width: 520px; }
 .figura img { width: 100%; height: auto; filter: drop-shadow(0 30px 50px rgba(0,0,0,.45)); }
 .incluye-i { list-style: none; display: grid; gap: 10px; margin-top: 26px; }
