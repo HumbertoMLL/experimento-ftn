@@ -161,7 +161,7 @@ b, strong { font-weight: 600; }
 
 /* ---------- 3 · Grid tipo "Workouts for everybody" ---------- */
 .mosaico { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 36px; }
-.loseta { position: relative; border-radius: 4px; overflow: hidden; padding: 44px 14px 20px; display: flex; flex-direction: column; align-items: center; text-align: center; background: linear-gradient(180deg, #ECE7E1, #DCD3C9); }
+.loseta { position: relative; border-radius: 4px; overflow: hidden; padding: 20px 14px; display: flex; flex-direction: column; align-items: center; text-align: center; background: linear-gradient(180deg, #ECE7E1, #DCD3C9); }
 .loseta:nth-child(2) { background: linear-gradient(180deg, #E9E1D8, #D5C4B2); }
 .loseta:nth-child(3) { background: linear-gradient(180deg, #E6E1DC, #CFC8C0); }
 .loseta:nth-child(4) { background: linear-gradient(180deg, #EFE5DA, #D9BFA4); }
@@ -171,8 +171,6 @@ b, strong { font-weight: 600; }
 .loseta .icono .i { width: 64px; height: 64px; stroke-width: 1; }
 .loseta ul { list-style: none; display: grid; gap: 6px; font-size: .78rem; line-height: 1.35; }
 .loseta li { padding: 6px 8px; border-radius: 4px; background: rgba(255,255,255,.55); }
-.loseta.critica { outline: 2px solid var(--camel); outline-offset: -2px; }
-.loseta .chip-critica { position: absolute; top: 12px; left: 50%; transform: translateX(-50%); white-space: nowrap; padding: 3px 8px; border-radius: 3px; background: var(--carbon); color: #fff; font-size: .56rem; letter-spacing: .16em; text-transform: uppercase; }
 
 /* ---------- 4 · Bloques partidos (estilo "Getting started") ---------- */
 .partido { display: grid; }
@@ -217,24 +215,7 @@ b, strong { font-weight: 600; }
 .reloj-cierre b { display: block; font-family: var(--serif); font-weight: 400; font-size: 1.8rem; font-variant-numeric: tabular-nums; }
 .reloj-cierre span { font-size: .6rem; letter-spacing: .2em; text-transform: uppercase; color: var(--gris); }
 
-/* ---------- 8 · Prensa (estilo "Featured in") ---------- */
-.prensa { background: var(--carbon); color: #F3F1EE; }
-.prensa-in { max-width: 1240px; margin: 0 auto; padding: 30px 22px; display: grid; gap: 18px; align-items: center; text-align: center; }
-.prensa-titulo { font-size: .74rem; font-weight: 500; letter-spacing: .3em; text-transform: uppercase; }
-.prensa-medios { display: flex; flex-wrap: wrap; justify-content: center; gap: 14px 40px; }
-.prensa-medios span { font-family: var(--serif); font-size: clamp(1.3rem, 4vw, 1.9rem); letter-spacing: .02em; color: #fff; opacity: .92; }
-.prensa-medios span.italica { font-style: italic; font-family: Georgia, serif; }
 
-/* ---------- 9 · Nota de Bren (estilo "A note from") ---------- */
-.nota { display: grid; gap: 36px; align-items: center; }
-.nota-foto img { width: 100%; aspect-ratio: 1; object-fit: cover; object-position: center top; }
-.nota-texto p + p { margin-top: 16px; }
-.nota-texto .firma { width: 170px; margin-top: 22px; }
-.equipo { list-style: none; display: grid; gap: 14px; margin-top: 22px; text-align: left; }
-.equipo li { padding-top: 14px; border-top: 1px solid var(--piedra); }
-.equipo b { display: block; font-family: var(--serif); font-weight: 400; font-size: 1.15rem; }
-.equipo small { display: block; margin-top: 2px; font-size: .7rem; font-weight: 500; letter-spacing: .24em; text-transform: uppercase; color: var(--camel-texto); }
-.equipo p { margin-top: 6px; font-size: .95rem; }
 
 /* ---------- 10 · Qué incluye ---------- */
 .incluye { list-style: none; display: grid; gap: 0; margin-top: 30px; text-align: left; }
@@ -280,19 +261,13 @@ footer { background: var(--carbon); border-top: 1px solid rgba(243,241,238,.12);
   .partido.invertido .lado-texto { order: 2; }
   .para { grid-template-columns: 1fr 1fr; }
   .planes { grid-template-columns: 1fr 1fr; }
-  .prensa-in { grid-template-columns: auto 1fr; text-align: left; padding: 34px 40px; }
-  .prensa-titulo { padding-right: 34px; border-right: 1px solid rgba(243,241,238,.35); }
-  .prensa-medios { justify-content: space-around; }
-  .nota { grid-template-columns: 1fr 1fr; gap: 80px; }
-  .incluye { grid-template-columns: 1fr 1fr; column-gap: 40px; }
+          .incluye { grid-template-columns: 1fr 1fr; column-gap: 40px; }
   .incluye li:nth-last-child(2) { border-bottom: 1px solid var(--piedra); }
   .final { grid-template-columns: 1fr 1fr; text-align: center; }
 }
 @media (max-width: 859px) {
   .bloque, .con-telefono .texto { text-align: center; }
-  .nota-texto { text-align: center; }
-  .nota-texto .firma { margin-inline: auto; }
-  .boton { width: 100%; max-width: 380px; }
+      .boton { width: 100%; max-width: 380px; }
   .nav .boton { width: auto; }
   .nav-logo .nav-reto { display: none; }
 }
@@ -305,7 +280,7 @@ footer { background: var(--carbon); border-top: 1px solid rgba(243,241,238,.12);
 @media (min-width: 640px) and (max-width: 1099px) { .con-telefono .tres { grid-template-columns: 1fr; } }
 /* En teléfono la loseta crece con su contenido en vez de recortarlo */
 @media (max-width: 859px) {
-  .loseta { aspect-ratio: auto; padding: 42px 10px 12px; }
+  .loseta { aspect-ratio: auto; padding: 18px 10px 12px; }
   .loseta .icono { margin: 12px 0; }
   .loseta .icono .i { width: 48px; height: 48px; }
   .loseta ul { width: 100%; font-size: .74rem; }
@@ -385,9 +360,6 @@ footer { background: var(--carbon); border-top: 1px solid rgba(243,241,238,.12);
 .testimonio .quien { margin-top: 22px; font-family: var(--serif); font-size: 1.45rem; }
 .testimonio .oficio { font-size: .7rem; letter-spacing: .26em; text-transform: uppercase; color: var(--camel-texto); }
 
-/* Daya: bloque partido con foto */
-.partido .lado-foto { display: grid; min-height: 360px; }
-.partido .lado-foto .slot { min-height: 360px; }
 
 @media (min-width: 860px) {
   .hero-video { min-height: 82vh; align-items: center; }
@@ -396,8 +368,7 @@ footer { background: var(--carbon); border-top: 1px solid rgba(243,241,238,.12);
   .hero-media { align-items: end; }
   .hero-video::after { background: linear-gradient(90deg, rgba(20,20,20,.86) 0%, rgba(20,20,20,.62) 50%, rgba(20,20,20,.15) 100%); }
   .testimonios { grid-template-columns: repeat(3, 1fr); }
-  .partido .lado-foto, .partido .lado-foto .slot { min-height: 520px; }
-}
+  }
 
 /* Hero en teléfono: el video 16:9 completo arriba y el texto abajo sobre carbón,
    para no recortar a la coach ni poner texto claro sobre pared blanca */
@@ -416,4 +387,53 @@ footer { background: var(--carbon); border-top: 1px solid rgba(243,241,238,.12);
 @media (min-width: 860px) {
   .hero-logo img { width: 540px; margin: 0; }
   .final-logo { width: 360px; }
+}
+
+/* Hero en teléfono: etiqueta y logo arriba, luego el video, luego el texto */
+@media (max-width: 859px) {
+  .hero-capa { display: contents; }
+  .hero-capa > * { order: 4; margin-inline: 22px; }
+  .hero-capa .etiqueta { order: 1; margin-top: 30px; text-align: center; color: #F3F1EE; }
+  .hero-capa .hero-logo { order: 2; margin-top: 10px; margin-bottom: 26px; }
+  .hero-media { order: 3; }
+  .hero-capa .hero-cuerpo { margin-top: 24px; margin-inline: auto; padding-inline: 22px; text-align: center; color: rgba(243,241,238,.9); }
+  .hero-capa .hero-sub { text-align: center; margin-inline: auto; padding-inline: 22px; color: #F3F1EE; }
+  .hero-capa .boton { align-self: center; width: calc(100% - 44px); }
+  .hero-capa .micro { text-align: center; margin-bottom: 44px; color: rgba(243,241,238,.8); }
+}
+
+/* Botón extra con la fecha de arranque */
+.cta-linea { margin-top: 40px; text-align: center; }
+.cta-linea .micro { margin-top: 12px; }
+.cta-banda { padding-top: 10px; padding-bottom: 64px; }
+.semana-tres { max-width: 640px; margin: 30px auto 0; font-family: var(--serif); font-size: clamp(1.15rem, 3.4vw, 1.5rem); line-height: 1.45; }
+
+/* Logo del reto dentro de textos */
+.declaracion-logo { width: min(100%, 420px); margin: 0 auto 18px; }
+.unete { display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 10px 16px; }
+.unete img { width: min(100%, 360px); }
+
+/* Quién te entrena */
+.coaches { display: grid; gap: 50px; margin-top: 36px; text-align: left; }
+.coach-foto img { width: 100%; aspect-ratio: 1; object-fit: cover; object-position: center top; border-radius: 4px; }
+.coach small { display: block; margin-top: 20px; font-size: .7rem; font-weight: 500; letter-spacing: .24em; text-transform: uppercase; color: var(--camel-texto); }
+.coach h3 { margin-top: 6px; font-size: 1.7rem; }
+.coach p { margin-top: 12px; }
+.coach .firma { width: 160px; margin-top: 20px; }
+.notas { margin-top: 64px; padding-top: 44px; border-top: 1px solid var(--piedra); }
+.notas h3 { font-family: var(--sans); font-weight: 500; font-size: .76rem; letter-spacing: .3em; text-transform: uppercase; }
+.notas-grid { display: grid; gap: 26px; margin-top: 26px; text-align: left; }
+.notas figure { background: #fff; border: 1px solid var(--piedra); border-radius: 6px; overflow: hidden; }
+.notas figure img { width: 100%; aspect-ratio: 16 / 10; object-fit: cover; object-position: top; }
+.notas figcaption { padding: 16px 18px 20px; }
+.notas figcaption span { font-size: .68rem; font-weight: 500; letter-spacing: .24em; text-transform: uppercase; color: var(--camel-texto); }
+.notas figcaption p { margin-top: 6px; font-family: var(--serif); font-size: 1.08rem; line-height: 1.4; }
+@media (max-width: 859px) {
+  .coach { text-align: center; }
+  .coach .firma { margin-inline: auto; }
+}
+@media (min-width: 860px) {
+  .coaches { grid-template-columns: 1fr 1fr; gap: 60px; align-items: start; }
+  .notas-grid { grid-template-columns: repeat(3, 1fr); }
+  .cta-banda { padding-bottom: 90px; }
 }
