@@ -112,16 +112,22 @@ window.FTN_CONFIG = {
   /* --- Reto 4x4 (/reto4por4) y Pilates x Strength (/retopilatesxstrength) ---
      Mismo producto, dos puertas de entrada. Cada landing lee su bloque por
      su data-variante. Un plan sin url: el botón baja a #oferta y no manda a
-     ningún lado. El canal (?src=meta o /reto4por4/meta) viaja como &src=.
+     ningún lado. El canal (?src=meta o /reto4por4/meta) viaja a Hotmart como
+     &src=<srcPrefijo><canal>: /reto4por4/meta → &src=4por4-meta. Un reto con
+     su propia lista `canales` no usa la de musculo. Sin canal, la URL va tal
+     cual, sin src.
      cierreISO: cierre de inscripciones, 1 nov 23:59 CDMX (UTC-6). El reloj
      de cierre solo aparece cuando faltan 7 días o menos. */
   retos: {
     reto4por4: {
       nombre: "Reto 4x4",
       cierreISO: "2026-11-02T05:59:00Z",
+      /* brenvita.shop/reto4por4/meta · /influencer · /mail · /customersuccess · /whatsapp */
+      canales: ["meta", "influencer", "mail", "customersuccess", "whatsapp"],
+      srcPrefijo: "4por4-",
       checkout: {
-        mensual:    { url: "", nombre: "Reto 4x4 - Mensual",    precio: 599 },
-        trimestral: { url: "", nombre: "Reto 4x4 - Trimestral", precio: 1197 }
+        mensual:    { url: "https://pay.hotmart.com/T76408466K?off=pica3cj7&checkoutMode=10", nombre: "Reto 4x4 - Mensual",    precio: 599 },
+        trimestral: { url: "https://pay.hotmart.com/T76408466K?off=v5pcvf7s&checkoutMode=10", nombre: "Reto 4x4 - Trimestral", precio: 1197 }
       }
     },
     retopilatesxstrength: {

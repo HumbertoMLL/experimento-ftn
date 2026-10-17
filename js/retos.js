@@ -12,7 +12,8 @@
   /* ---------- Canal de origen ----------
      ?src=meta o /reto4por4/meta. Solo los canales dados de alta en
      musculo.canales; se guarda en sessionStorage por si navega y vuelve. */
-  var canales = (cfg.musculo && cfg.musculo.canales) || [];
+  var canales = reto.canales || (cfg.musculo && cfg.musculo.canales) || [];
+  var srcPrefijo = reto.srcPrefijo || "";
   var crudo = ((location.search.match(/[?&]src=([\w-]+)/i) || [])[1]
             || (location.pathname.match(new RegExp("/" + variante + "/([\\w-]+)/?$")) || [])[1] || "").toLowerCase();
   var canal = canales.indexOf(crudo) !== -1 ? crudo : "";
@@ -28,7 +29,7 @@
     var plan = btn.getAttribute("data-plan");
     var datos = planes[plan] || {};
     var url = (datos.url || "").trim();
-    if (url && canal) url += (url.indexOf("?") === -1 ? "?" : "&") + "src=" + canal;
+    if (url && canal) url += (url.indexOf("?") === -1 ? "?" : "&") + "src=" + srcPrefijo + canal;
     if (url) btn.href = url;
     btn.addEventListener("click", function () {
       if (!url) { console.warn("[" + variante + "] Falta checkout." + plan + ".url en js/config.js"); return; }
