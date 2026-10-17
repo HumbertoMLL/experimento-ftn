@@ -453,3 +453,10 @@ footer { background: var(--carbon); border-top: 1px solid rgba(243,241,238,.12);
 .final { display: block; text-align: center; }
 .final-ftn { width: 92px; margin: 0 auto 22px; filter: brightness(0) invert(1); opacity: .92; }
 .final h2 { margin-top: 8px; }
+
+/* Fechas del reto: inicia y termina, claras en cada sección clave */
+.fechas { display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 8px 14px; margin: 18px auto 0; font-family: var(--sans); font-size: .86rem !important; font-weight: 600; letter-spacing: .2em; text-transform: uppercase; line-height: 1.4 !important; }
+.fechas span { padding: 8px 16px; border: 1px solid currentColor; border-radius: 999px; }
+.unete + .fechas { color: var(--camel-texto); }
+.declaracion-capa .fechas { font-family: var(--sans); line-height: 1.4; margin: 0 auto 26px; color: #F3F1EE; text-transform: uppercase; letter-spacing: .2em; font-size: .86rem !important; }
+.final .fechas { color: var(--camel); margin-top: 20px; }
