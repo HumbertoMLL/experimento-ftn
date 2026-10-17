@@ -411,11 +411,9 @@ footer { background: var(--carbon); border-top: 1px solid rgba(243,241,238,.12);
 .coach small { display: block; margin-top: 20px; font-size: .7rem; font-weight: 500; letter-spacing: .24em; text-transform: uppercase; color: var(--camel-texto); }
 .coach h3 { margin-top: 6px; font-size: 1.7rem; }
 .coach p { margin-top: 12px; }
-.coach .firma { width: 160px; margin-top: 20px; }
 @media (max-width: 859px) {
   .coach { text-align: center; }
-  .coach .firma { margin-inline: auto; }
-}
+  }
 @media (min-width: 860px) {
   .coaches { grid-template-columns: 1fr 1fr; gap: 60px; align-items: start; }
     .cta-banda { padding-bottom: 90px; }
@@ -446,11 +444,10 @@ footer { background: var(--carbon); border-top: 1px solid rgba(243,241,238,.12);
 
 /* Fotos de las coaches en arco, con un marco camel desfasado */
 .coach { text-align: center; }
-.coach-foto { position: relative; max-width: 400px; margin: 0 auto; }
+.coach-foto { position: relative; max-width: 320px; margin: 0 auto; }
 .coach-foto::before { content: ""; position: absolute; inset: 14px -14px -14px 14px; border: 1px solid var(--camel); border-radius: 999px 999px 10px 10px; }
 .coach-foto img { position: relative; width: 100%; aspect-ratio: 4 / 5; object-fit: cover; object-position: center top; border-radius: 999px 999px 10px 10px; }
 .coach small { margin-top: 34px; }
-.coach .firma { margin-inline: auto; }
 
 /* Banda final: logo FTN sin círculo y logo del reto */
 .final { display: block; text-align: center; }
