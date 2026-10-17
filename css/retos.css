@@ -104,7 +104,17 @@ h2 { font-size: clamp(1.75rem, 6vw, 3rem); }
 .banner-top { flex-direction: column; gap: 4px; }
 .banner-top .i { width: 20px; height: 20px; stroke-width: 2.2; }
 
-.hero { padding: 44px 20px 0; }
+.hero { padding: 44px 20px 56px; }
+/* Video de fondo: cubre todo el hero, y encima un velo ciruela para que el
+   logo, los anillos y el botón se lean. El halo rosa/naranja (::before) queda
+   entre el video y el contenido. */
+.hero > .hero-video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center 30%; z-index: 0; filter: saturate(.85); }
+.hero.sec.noche::before { z-index: 1; background:
+  radial-gradient(60% 50% at 100% 0%, rgba(var(--rgb-rosa), .26), transparent 70%),
+  radial-gradient(50% 45% at 0% 100%, rgba(var(--rgb-naranja), .18), transparent 70%),
+  linear-gradient(180deg, rgba(28,16,38,.78) 0%, rgba(28,16,38,.82) 55%, rgba(28,16,38,.96) 100%); }
+.hero > .in { z-index: 2; }
+@media (prefers-reduced-motion: reduce) { .hero-video { display: none; } }
 .hero .in { display: flex; flex-direction: column; align-items: center; text-align: center; }
 .marca-ftn { width: 84px; height: auto; margin: 0 auto 22px; }
 /* El logo oficial del reto: "RETO" coral y "4x4" blanco con la mancuerna
@@ -124,7 +134,7 @@ footer .marca.logo-4x4-pie { width: 110px; margin-bottom: 14px; }
 .reto-id b em { font-style: normal; color: var(--rosa); }
 .hero h1 { max-width: 16ch; font-size: clamp(1.5rem, 6vw, 2.6rem); margin-top: 8px; }
 .hero h1 .hl { color: var(--rosa); }
-.hero .cta { margin-top: 40px; margin-bottom: 8px; }
+.hero .cta { margin-top: 44px; }
 
 /* Los cuatro anillos: el tracker de los Basic 4, cerrado */
 .anillos-hero { display: grid; grid-template-columns: repeat(4, 1fr); gap: 6px; width: 100%; max-width: 520px; margin: 34px auto 0; }
@@ -310,7 +320,7 @@ footer .marca { width: 80px; margin-bottom: 14px; }
    ============================================================ */
 @media (min-width: 780px) {
   .sec { padding: 92px 26px; }
-  .hero { padding: 64px 26px 0; }
+  .hero { padding: 64px 26px 72px; }
   .anillos-hero { gap: 14px; max-width: 620px; }
   .anillo-b4 svg.aro, .anillo-b4 .cuerpo { max-width: 120px; }
   .anillo-b4 span { font-size: .8rem; }
