@@ -247,6 +247,10 @@ footer { background: var(--carbon); border-top: 1px solid rgba(243,241,238,.12);
   .banda { padding: 100px 40px; }
   .nav-in { padding: 14px 40px; }
   .nav-links { display: flex; }
+  /* FTN arriba y el logo del reto abajo, centrados */
+  .nav-logo { flex-direction: column; gap: 8px; }
+  .nav-logo img { width: 46px; }
+  .nav-logo .nav-reto { width: 160px; }
   .nav .boton { padding: 12px 22px; font-size: .74rem; }
   .hero { padding: 90px 40px 100px; }
   .hero-in { grid-template-columns: 1.25fr .75fr; text-align: left; }
