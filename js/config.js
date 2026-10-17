@@ -133,9 +133,13 @@ window.FTN_CONFIG = {
     retopilatesxstrength: {
       nombre: "Reto Pilates x Strength",
       cierreISO: "2026-11-02T05:59:00Z",
+      /* brenvita.shop/retopilatesxstrength/meta → &src=pilates-meta.
+         Para otro canal, agrégalo aquí (y en vercel.json si no está). */
+      canales: ["meta"],
+      srcPrefijo: "pilates-",
       checkout: {
-        mensual:    { url: "", nombre: "Pilates x Strength - Mensual",    precio: 599 },
-        trimestral: { url: "", nombre: "Pilates x Strength - Trimestral", precio: 1197 }
+        mensual:    { url: "https://pay.hotmart.com/T76408466K?off=pica3cj7&checkoutMode=10", nombre: "Pilates x Strength - Mensual",    precio: 599 },
+        trimestral: { url: "https://pay.hotmart.com/T76408466K?off=v5pcvf7s&checkoutMode=10", nombre: "Pilates x Strength - Trimestral", precio: 1197 }
       }
     }
   },
