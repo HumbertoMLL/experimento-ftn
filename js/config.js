@@ -15,7 +15,7 @@ window.FTN_CONFIG = {
 
   /* --- Microsoft Clarity --------------------------------------------
      Si queda vacío, Clarity no se carga. */
-  clarityId: "wrmiia5ld3",
+  clarityId: "z0ap4jmgnc",
 
   /* --- Checkout -----------------------------------------------------
      URLs a las que mandan los botones de compra.
