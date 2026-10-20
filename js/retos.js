@@ -40,6 +40,18 @@
     });
   });
 
+  /* ---------- Carrusel: el punto activo sigue a la tarjeta que se ve ---------- */
+  document.querySelectorAll(".carrusel").forEach(function (c) {
+    var puntos = c.parentNode.querySelectorAll(".carrusel-puntos i");
+    if (!puntos.length) return;
+    function marcar() {
+      var n = Math.round(c.scrollLeft / (c.scrollWidth - c.clientWidth || 1) * (puntos.length - 1));
+      puntos.forEach(function (p, i) { p.classList.toggle("activo", i === n); });
+    }
+    c.addEventListener("scroll", marcar, { passive: true });
+    marcar();
+  });
+
   /* ---------- Videos diferidos ----------
      .js-video-diferido trae sus <source data-src>; se cargan y arrancan
      cuando el video se acerca a la pantalla, para no bajar megas de golpe. */

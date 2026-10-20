@@ -52,6 +52,14 @@
 </header>
 <div class="hero-datos-barra"><span>Del 2 al 29 de noviembre</span><span>28 días</span></div>
 
+<!-- Respuestas rápidas: las dudas más clicadas del FAQ, antes de que se vayan -->
+<ul class="rapidas" aria-label="Lo básico del reto">
+  <li><svg class="i"><use href="/assets/iconos-retos.svg#i-reloj"/></svg><span><b>30–40 min</b> por clase</span></li>
+  <li><svg class="i"><use href="/assets/iconos-retos.svg#i-celular"/></svg><span><b>Todo grabado</b>, en casa o en el gym</span></li>
+  <li><svg class="i"><use href="/assets/iconos-retos.svg#i-pesa"/></svg><span><b>Solo necesitas</b> mancuernas y tapete</span></li>
+  <li><svg class="i"><use href="/assets/iconos-retos.svg#i-corazon"/></svg><span><b>¿Llevas tiempo sin entrenar?</b> También es para ti</span></li>
+</ul>
+
 <!-- 2 · EL MÉTODO: tres columnas con etiqueta -->
 <section class="banda hueso" id="metodo">
   <div class="ancho con-telefono">
@@ -74,13 +82,62 @@
           <div><h3>Descanso activo</h3><p>Los otros tres días caminas 4,000 pasos. Nada más.</p></div>
         </div>
       </div>
-      <div class="cta-linea"><a href="#oferta" class="boton">Quiero empezar</a></div>
     </div>
   </div>
 </section>
 
-<!-- 3 · EL PLAN: mosaico de las 4 semanas -->
-<section class="banda arena" id="plan">
+<!-- 3 · PLANES: justo después del método. Clarity: quien ve el precio sí da clic;
+     antes estaba al 59% del scroll y solo llegaba 1 de cada 7. -->
+<section class="banda arena" id="oferta" style="scroll-margin-top:70px">
+  <div class="ancho centro">
+    <h2 class="unete"><span>Únete a FTN</span><span class="unete-sub">y te incluimos el</span><img src="/assets/pilates/logo-pilatesxstrength-oscuro.svg" width="690" height="127" alt="Reto Pilates x Strength"></h2>
+    <div class="fechas" role="img" aria-label="Del 2 al 29 de noviembre, 28 días"><div class="fecha"><small>Inicia</small><b>2</b><span>noviembre</span></div><div class="fecha-linea"><span>28 días</span></div><div class="fecha"><small>Termina</small><b>29</b><span>noviembre</span></div></div>
+    <div class="reloj-cierre js-cierre" hidden>
+      <span class="etiqueta camel">Cerramos inscripciones en</span>
+      <div class="r">
+        <div><b data-u="d">--</b><span>días</span></div>
+        <div><b data-u="h">--</b><span>horas</span></div>
+        <div><b data-u="m">--</b><span>min</span></div>
+        <div><b data-u="s">--</b><span>seg</span></div>
+      </div>
+    </div>
+    <div class="planes">
+      <div class="plan">
+        <h3><small>Suscripción</small>Mensual</h3>
+        <p class="precio">$599 MXN al mes</p>
+        <ul>
+          <li>16 clases de fuerza, barre y pilates</li>
+          <li>Plan de nutrición y Focus diario</li>
+          <li>Acceso a más de 1,000 recetas</li>
+          <li>Acceso a más de 800 entrenamientos</li>
+        </ul>
+        <p class="renueva">Se renueva cada mes · Cancela cuando quieras</p>
+        <a href="#oferta" class="boton js-checkout" data-plan="mensual">Quiero empezar</a>
+      </div>
+      <div class="plan destacado">
+        <span class="mejor-precio">Mejor precio</span>
+        <span class="sello">Pagas 2, <br>te llevas 3</span>
+        <h3><small>Suscripción</small>Trimestral</h3>
+        <p class="precio">$1,197 MXN <s>$1,797</s></p>
+        <p class="equivale">Equivale a $399 al mes</p>
+        <ul>
+          <li>16 clases de fuerza, barre y pilates</li>
+          <li>Plan de nutrición y Focus diario</li>
+          <li>Acceso a más de 1,000 recetas</li>
+          <li>Acceso a más de 800 entrenamientos</li>
+          <li>2 meses más para mantener lo que lograste</li>
+          <li>1 amiga entra contigo gratis</li>
+        </ul>
+        <p class="renueva">Se renueva cada 3 meses · Cancela cuando quieras</p>
+        <a href="#oferta" class="boton js-checkout" data-plan="trimestral">Quiero empezar</a>
+      </div>
+    </div>
+    <p class="cierre-inscripcion">Cerramos inscripciones el 1 de noviembre</p>
+  </div>
+</section>
+
+<!-- 4 · EL PLAN: mosaico de las 4 semanas -->
+<section class="banda hueso" id="plan">
   <div class="ancho centro">
     <span class="etiqueta">28 días · 16 clases</span>
     <h2>Así se ve tu mes</h2>
@@ -111,43 +168,37 @@
   </div>
 </section>
 
-<!-- 4 · LO QUE VES ADENTRO: bloques partidos -->
-<section aria-label="Lo que ves adentro de la app">
-  <div class="partido">
-    <div class="lado-texto">
-      <span class="etiqueta camel etiqueta-logo">Con <img class="logo-linea" src="/assets/pilates/logo-pilatesxstrength-oscuro.svg" width="690" height="127" alt="Reto Pilates x Strength"></span>
-      <h2>Entras a la app y sabes qué te toca.</h2>
-      <p>No eliges entre 200 videos.</p>
-    </div>
-    <div class="lado-visual">
-      <div class="telefono" aria-label="Pantalla de inicio de la app"><div class="pantalla pantalla-captura pantalla-app"><div class="barra-estado" aria-hidden="true"><span>9:41</span><span class="estado-iconos"><svg viewBox="0 0 18 12"><rect x="0" y="8" width="3" height="4" rx="1"/><rect x="5" y="5.5" width="3" height="6.5" rx="1"/><rect x="10" y="3" width="3" height="9" rx="1"/><rect x="15" y="0" width="3" height="12" rx="1"/></svg><svg viewBox="0 0 16 12"><path d="M8 11.5 5.6 9a3.4 3.4 0 0 1 4.8 0z"/><path d="M3.4 6.8a6.5 6.5 0 0 1 9.2 0l-1.3 1.3a4.6 4.6 0 0 0-6.6 0z"/><path d="M1.1 4.5a9.8 9.8 0 0 1 13.8 0l-1.3 1.3a7.9 7.9 0 0 0-11.2 0z"/></svg><svg viewBox="0 0 27 12"><rect x=".5" y=".5" width="22" height="11" rx="3" fill="none" stroke="currentColor" opacity=".45"/><rect x="2" y="2" width="17" height="8" rx="1.8"/><rect x="24" y="4" width="2" height="4" rx="1" opacity=".45"/></svg></span></div><img src="/assets/pilates/app-hoy.webp" width="600" height="1217" alt="Pantalla de inicio de la app FTN: el reto, la semana, tu entreno y tu menú del día" loading="lazy"></div></div>
-    </div>
-  </div>
-  <div class="partido invertido">
-    <div class="lado-texto">
-      <span class="etiqueta camel">Nutrición</span>
-      <h2>Plan en déficit calórico hecho por nutriólogas expertas</h2>
-      <p>Recetas de 20 minutos, lista de súper de la semana y hacks para cuando comes fuera.</p>
-    </div>
-    <div class="lado-visual">
-      <div class="telefono" aria-label="Lista de súper de la app"><div class="pantalla pantalla-captura pantalla-app"><div class="barra-estado" aria-hidden="true"><span>9:41</span><span class="estado-iconos"><svg viewBox="0 0 18 12"><rect x="0" y="8" width="3" height="4" rx="1"/><rect x="5" y="5.5" width="3" height="6.5" rx="1"/><rect x="10" y="3" width="3" height="9" rx="1"/><rect x="15" y="0" width="3" height="12" rx="1"/></svg><svg viewBox="0 0 16 12"><path d="M8 11.5 5.6 9a3.4 3.4 0 0 1 4.8 0z"/><path d="M3.4 6.8a6.5 6.5 0 0 1 9.2 0l-1.3 1.3a4.6 4.6 0 0 0-6.6 0z"/><path d="M1.1 4.5a9.8 9.8 0 0 1 13.8 0l-1.3 1.3a7.9 7.9 0 0 0-11.2 0z"/></svg><svg viewBox="0 0 27 12"><rect x=".5" y=".5" width="22" height="11" rx="3" fill="none" stroke="currentColor" opacity=".45"/><rect x="2" y="2" width="17" height="8" rx="1.8"/><rect x="24" y="4" width="2" height="4" rx="1" opacity=".45"/></svg></span></div><img src="/assets/pilates/app-super.webp" width="600" height="1217" alt="Lista de súper de la app FTN con los ingredientes de la semana" loading="lazy"></div></div>
-    </div>
-  </div>
-  <div class="partido">
-    <div class="lado-texto">
-      <span class="etiqueta camel">Focus</span>
-      <h2>El arma secreta son 3 minutos al día</h2>
-      <p>La semana 2 y 3 es donde abandonan el 80% de las personas que empiezan un reto. No por el cuerpo: por la mentalidad.</p>
-      <p>Focus es una cápsula diaria de 3 minutos dentro de la app, pensada para ese momento.</p>
-    </div>
-    <div class="lado-visual">
-      <div>
+<!-- 5 · LO QUE VES ADENTRO: carrusel con las tres pantallas de la app
+     (en teléfono se desliza de lado; en escritorio son tres columnas) -->
+<section class="banda arena app-carrusel" aria-label="Lo que ves adentro de la app">
+  <div class="ancho centro">
+    <span class="etiqueta camel etiqueta-logo">Con <img class="logo-linea" src="/assets/pilates/logo-pilatesxstrength-oscuro.svg" width="690" height="127" alt="Reto Pilates x Strength"></span>
+    <h2>Entras a la app y sabes qué te toca</h2>
+    <p class="app-intro">No eliges entre 200 videos. Todo lo del día está en una pantalla.</p>
+    <div class="carrusel" tabindex="0" aria-label="Pantallas de la app, desliza para ver más">
+      <article class="tarjeta-app">
+        <div class="telefono" aria-label="Pantalla de inicio de la app"><div class="pantalla pantalla-captura pantalla-app"><div class="barra-estado" aria-hidden="true"><span>9:41</span><span class="estado-iconos"><svg viewBox="0 0 18 12"><rect x="0" y="8" width="3" height="4" rx="1"/><rect x="5" y="5.5" width="3" height="6.5" rx="1"/><rect x="10" y="3" width="3" height="9" rx="1"/><rect x="15" y="0" width="3" height="12" rx="1"/></svg><svg viewBox="0 0 16 12"><path d="M8 11.5 5.6 9a3.4 3.4 0 0 1 4.8 0z"/><path d="M3.4 6.8a6.5 6.5 0 0 1 9.2 0l-1.3 1.3a4.6 4.6 0 0 0-6.6 0z"/><path d="M1.1 4.5a9.8 9.8 0 0 1 13.8 0l-1.3 1.3a7.9 7.9 0 0 0-11.2 0z"/></svg><svg viewBox="0 0 27 12"><rect x=".5" y=".5" width="22" height="11" rx="3" fill="none" stroke="currentColor" opacity=".45"/><rect x="2" y="2" width="17" height="8" rx="1.8"/><rect x="24" y="4" width="2" height="4" rx="1" opacity=".45"/></svg></span></div><img src="/assets/pilates/app-hoy.webp" width="600" height="1217" alt="Pantalla de inicio de la app FTN: el reto, la semana, tu entreno y tu menú del día" loading="lazy"></div></div>
+        <span class="etiqueta camel">Tu día</span>
+        <h3>Tu entreno y tu menú, listos</h3>
+        <p>Abres la app y ya sabes qué clase toca, cuánto dura y qué comes hoy.</p>
+      </article>
+      <article class="tarjeta-app">
+        <div class="telefono" aria-label="Lista de súper de la app"><div class="pantalla pantalla-captura pantalla-app"><div class="barra-estado" aria-hidden="true"><span>9:41</span><span class="estado-iconos"><svg viewBox="0 0 18 12"><rect x="0" y="8" width="3" height="4" rx="1"/><rect x="5" y="5.5" width="3" height="6.5" rx="1"/><rect x="10" y="3" width="3" height="9" rx="1"/><rect x="15" y="0" width="3" height="12" rx="1"/></svg><svg viewBox="0 0 16 12"><path d="M8 11.5 5.6 9a3.4 3.4 0 0 1 4.8 0z"/><path d="M3.4 6.8a6.5 6.5 0 0 1 9.2 0l-1.3 1.3a4.6 4.6 0 0 0-6.6 0z"/><path d="M1.1 4.5a9.8 9.8 0 0 1 13.8 0l-1.3 1.3a7.9 7.9 0 0 0-11.2 0z"/></svg><svg viewBox="0 0 27 12"><rect x=".5" y=".5" width="22" height="11" rx="3" fill="none" stroke="currentColor" opacity=".45"/><rect x="2" y="2" width="17" height="8" rx="1.8"/><rect x="24" y="4" width="2" height="4" rx="1" opacity=".45"/></svg></span></div><img src="/assets/pilates/app-super.webp" width="600" height="1217" alt="Lista de súper de la app FTN con los ingredientes de la semana" loading="lazy"></div></div>
+        <span class="etiqueta camel">Nutrición</span>
+        <h3>Plan en déficit calórico</h3>
+        <p>Hecho por nutriólogas expertas: recetas de 20 minutos, tu lista de súper de la semana y hacks para cuando comes fuera.</p>
+      </article>
+      <article class="tarjeta-app">
         <div class="telefono" aria-label="Cápsula Focus de la app"><div class="pantalla pantalla-captura pantalla-app"><div class="barra-estado" aria-hidden="true"><span>9:41</span><span class="estado-iconos"><svg viewBox="0 0 18 12"><rect x="0" y="8" width="3" height="4" rx="1"/><rect x="5" y="5.5" width="3" height="6.5" rx="1"/><rect x="10" y="3" width="3" height="9" rx="1"/><rect x="15" y="0" width="3" height="12" rx="1"/></svg><svg viewBox="0 0 16 12"><path d="M8 11.5 5.6 9a3.4 3.4 0 0 1 4.8 0z"/><path d="M3.4 6.8a6.5 6.5 0 0 1 9.2 0l-1.3 1.3a4.6 4.6 0 0 0-6.6 0z"/><path d="M1.1 4.5a9.8 9.8 0 0 1 13.8 0l-1.3 1.3a7.9 7.9 0 0 0-11.2 0z"/></svg><svg viewBox="0 0 27 12"><rect x=".5" y=".5" width="22" height="11" rx="3" fill="none" stroke="currentColor" opacity=".45"/><rect x="2" y="2" width="17" height="8" rx="1.8"/><rect x="24" y="4" width="2" height="4" rx="1" opacity=".45"/></svg></span></div><img src="/assets/pilates/app-focus.webp" width="600" height="1217" alt="Cápsula Focus de la app FTN: El día que decidiste empezar" loading="lazy"></div></div>
-        <p class="nota-mock">Pantallas de la app FTN.</p>
-      </div>
+        <span class="etiqueta camel">Focus</span>
+        <h3>El arma secreta: 3 minutos al día</h3>
+        <p>Entre la semana 2 y la 3 abandona el 80% de quienes empiezan un reto. No por el cuerpo: por la mentalidad. Focus es una cápsula diaria de 3 minutos pensada para ese momento.</p>
+      </article>
     </div>
+    <div class="carrusel-puntos" aria-hidden="true"><i></i><i></i><i></i></div>
+    <p class="nota-mock">Pantallas de la app FTN.</p>
+    <div class="cta-linea"><a href="#oferta" class="boton">Quiero entrenar con pilates</a></div>
   </div>
-  <div class="banda hueso cta-banda"><div class="cta-linea"><a href="#oferta" class="boton">Quiero entrenar con pilates</a></div></div>
 </section>
 
 <!-- 5 · DECLARACIÓN: video de Bren a todo lo ancho con capa oscura y el texto encima -->
@@ -219,59 +270,11 @@
   </div>
 </section>
 
-<!-- 8 · PLANES -->
-<section class="banda arena" id="oferta" style="scroll-margin-top:70px">
-  <div class="ancho centro">
-    <h2 class="unete"><span>Únete a FTN</span><span class="unete-sub">y te incluimos el</span><img src="/assets/pilates/logo-pilatesxstrength-oscuro.svg" width="690" height="127" alt="Reto Pilates x Strength"></h2>
-    <div class="fechas" role="img" aria-label="Del 2 al 29 de noviembre, 28 días"><div class="fecha"><small>Inicia</small><b>2</b><span>noviembre</span></div><div class="fecha-linea"><span>28 días</span></div><div class="fecha"><small>Termina</small><b>29</b><span>noviembre</span></div></div>
-    <div class="reloj-cierre js-cierre" hidden>
-      <span class="etiqueta camel">Cerramos inscripciones en</span>
-      <div class="r">
-        <div><b data-u="d">--</b><span>días</span></div>
-        <div><b data-u="h">--</b><span>horas</span></div>
-        <div><b data-u="m">--</b><span>min</span></div>
-        <div><b data-u="s">--</b><span>seg</span></div>
-      </div>
-    </div>
-    <div class="planes">
-      <div class="plan">
-        <h3><small>Suscripción</small>Mensual</h3>
-        <p class="precio">$599 MXN al mes</p>
-        <ul>
-          <li>16 clases de fuerza, barre y pilates</li>
-          <li>Plan de nutrición y Focus diario</li>
-          <li>Acceso a más de 1,000 recetas</li>
-          <li>Acceso a más de 800 entrenamientos</li>
-        </ul>
-        <p class="renueva">Se renueva cada mes · Cancela cuando quieras</p>
-        <a href="#oferta" class="boton js-checkout" data-plan="mensual">Quiero empezar</a>
-      </div>
-      <div class="plan destacado">
-        <span class="mejor-precio">Mejor precio</span>
-        <span class="sello">Pagas 2, <br>te llevas 3</span>
-        <h3><small>Suscripción</small>Trimestral</h3>
-        <p class="precio">$1,197 MXN <s>$1,797</s></p>
-        <p class="equivale">Equivale a $399 al mes</p>
-        <ul>
-          <li>16 clases de fuerza, barre y pilates</li>
-          <li>Plan de nutrición y Focus diario</li>
-          <li>Acceso a más de 1,000 recetas</li>
-          <li>Acceso a más de 800 entrenamientos</li>
-          <li>2 meses más para mantener lo que lograste</li>
-          <li>1 amiga entra contigo gratis</li>
-        </ul>
-        <p class="renueva">Se renueva cada 3 meses · Cancela cuando quieras</p>
-        <a href="#oferta" class="boton js-checkout" data-plan="trimestral">Quiero empezar</a>
-      </div>
-    </div>
-    <p class="cierre-inscripcion">Cerramos inscripciones el 1 de noviembre</p>
-  </div>
-</section>
 
 </main>
 
 <!-- 9 · QUIÉN TE ACOMPAÑA: Bren (bio de Reto Más Músculo, Menos Grasa) y Daya -->
-<section class="banda hueso" id="coaches">
+<section class="banda arena" id="coaches">
   <div class="ancho centro">
     <span class="etiqueta">Quién te acompaña</span>
     <h2>Bren y Daya</h2>
@@ -297,7 +300,7 @@
 </section>
 
 <!-- 11 · QUÉ INCLUYE -->
-<section class="banda arena">
+<section class="banda hueso">
   <div class="ancho centro">
     <span class="etiqueta">Todo dentro de la app</span>
     <h2>Qué incluye</h2>
@@ -315,7 +318,7 @@
 </section>
 
 <!-- 12 · FAQ -->
-<section class="banda hueso">
+<section class="banda arena">
   <div class="medio centro">
     <span class="etiqueta">Preguntas frecuentes</span>
     <h2>Lo que nos preguntan antes de entrar</h2>

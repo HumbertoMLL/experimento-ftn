@@ -110,14 +110,6 @@ b, strong { font-weight: 600; }
 .loseta ul { list-style: none; display: grid; gap: 6px; font-size: .88rem; line-height: 1.35; }
 .loseta li { padding: 6px 8px; border-radius: 4px; background: rgba(255,255,255,.55); }
 
-/* ---------- 4 · Bloques partidos (estilo "Getting started") ---------- */
-.partido { display: grid; }
-.partido .lado-texto { padding: 56px 24px; background: var(--arena); text-align: center; }
-.partido .lado-texto p { margin-top: 14px; }
-.partido .lado-visual { padding: 48px 24px; background: linear-gradient(160deg, #E4DACE, #F3EDE6); display: grid; place-items: center; }
-.partido.invertido .lado-visual { background: linear-gradient(160deg, #DCD3C9, #EEE8E1); }
-.partido + .partido { border-top: 1px solid var(--piedra); }
-
 
 /* ---------- 6 · Es para ti ---------- */
 .para { display: grid; gap: 22px; margin-top: 34px; }
@@ -193,9 +185,6 @@ footer { background: var(--carbon); border-top: 1px solid rgba(243,241,238,.12);
   .con-telefono { grid-template-columns: .8fr 1.2fr; gap: 70px; }
   .mosaico { grid-template-columns: repeat(4, 1fr); gap: 22px; }
   .loseta .nombre { font-size: clamp(1rem, 1.7vw, 1.5rem); letter-spacing: .16em; }
-  .partido { grid-template-columns: 1fr 1fr; }
-  .partido .lado-texto { padding: 90px 70px; text-align: left; display: flex; flex-direction: column; justify-content: center; }
-  .partido.invertido .lado-texto { order: 2; }
   .para { grid-template-columns: 1fr 1fr; }
   .planes { grid-template-columns: 1fr 1fr; }
           .incluye { grid-template-columns: 1fr 1fr; column-gap: 40px; }
@@ -419,3 +408,38 @@ footer { background: var(--carbon); border-top: 1px solid rgba(243,241,238,.12);
 /* Capturas reales de la app dentro del teléfono, con barra de estado propia */
 .pantalla-app { background: #F0F0F0; }
 .pantalla-app > img { position: absolute; top: 40px; left: 0; width: 100%; height: calc(100% - 40px); object-fit: cover; object-position: top; }
+
+/* Respuestas rápidas debajo del hero: lo que más preguntan en el FAQ */
+.rapidas { list-style: none; display: grid; grid-template-columns: 1fr 1fr; gap: 22px 16px; padding: 30px 22px; background: var(--hueso); border-bottom: 1px solid var(--piedra); text-align: center; }
+.rapidas li { display: grid; justify-items: center; gap: 8px; font-size: .98rem; line-height: 1.4; }
+.rapidas b { font-weight: 600; }
+.rapidas .i { width: 28px; height: 28px; color: var(--camel-texto); }
+@media (min-width: 860px) {
+  .rapidas { grid-template-columns: repeat(4, 1fr); max-width: 1160px; margin: 0 auto; padding: 34px 40px; border-bottom: 0; }
+}
+
+/* Método en teléfono: primero el texto, después el video (más chico) */
+@media (max-width: 859px) {
+  .con-telefono .texto { order: 1; }
+  .con-telefono .telefono-video { order: 2; }
+  .telefono-video .telefono { width: 220px; }
+}
+
+/* Carrusel de pantallas de la app */
+.app-intro { max-width: 46ch; margin: 12px auto 0; }
+.carrusel { display: flex; gap: 18px; margin: 34px -22px 0; padding: 10px 22px 24px; overflow-x: auto; scroll-snap-type: x mandatory; scroll-padding: 0 22px; scrollbar-width: none; -webkit-overflow-scrolling: touch; }
+.carrusel::-webkit-scrollbar { display: none; }
+.tarjeta-app { flex: 0 0 84%; scroll-snap-align: center; display: flex; flex-direction: column; align-items: center; text-align: center; }
+.tarjeta-app .telefono { width: 220px; margin-bottom: 26px; }
+.tarjeta-app .etiqueta { margin-bottom: 6px; }
+.tarjeta-app h3 { font-size: 1.5rem; }
+.tarjeta-app p { margin-top: 10px; max-width: 34ch; }
+.carrusel-puntos { display: flex; justify-content: center; gap: 8px; margin-top: 4px; }
+.carrusel-puntos i { width: 7px; height: 7px; border-radius: 50%; background: var(--piedra); transition: background .2s, width .2s; }
+.carrusel-puntos i.activo { width: 22px; border-radius: 4px; background: var(--camel-texto); }
+@media (min-width: 860px) {
+  .carrusel { display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px; margin: 44px 0 0; padding: 0; overflow: visible; }
+  .tarjeta-app .telefono { width: 240px; }
+  .carrusel-puntos { display: none; }
+}
+.app-carrusel .etiqueta-logo { align-items: center; }
