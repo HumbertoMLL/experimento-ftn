@@ -23,7 +23,7 @@
       "destination": "/:landing"
     },
     {
-      "source": "/reto4por4/:canal(meta|influencer|mail|customersuccess|whatsapp)",
+      "source": "/reto4por4/:canal(meta|influencer|mail|customersuccess|whatsapp|daninajera|DaniNajera)",
       "destination": "/reto4por4"
     },
     {

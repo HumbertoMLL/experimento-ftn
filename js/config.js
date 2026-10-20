@@ -123,8 +123,11 @@ window.FTN_CONFIG = {
       nombre: "Reto 4x4",
       cierreISO: "2026-11-02T05:59:00Z",
       /* brenvita.shop/reto4por4/meta · /influencer · /mail · /customersuccess · /whatsapp */
-      canales: ["meta", "influencer", "mail", "customersuccess", "whatsapp"],
+      canales: ["meta", "influencer", "mail", "customersuccess", "whatsapp", "daninajera"],
       srcPrefijo: "4por4-",
+      /* Afiliadas: su canal manda a Hotmart con su propio src, sin el prefijo.
+         brenvita.shop/reto4por4/daninajera → &src=afiliada-DaniNajera */
+      srcPorCanal: { daninajera: "afiliada-DaniNajera" },
       checkout: {
         mensual:    { url: "https://pay.hotmart.com/T76408466K?off=pica3cj7&checkoutMode=10", nombre: "Reto 4x4 - Mensual",    precio: 599 },
         trimestral: { url: "https://pay.hotmart.com/T76408466K?off=v5pcvf7s&checkoutMode=10", nombre: "Reto 4x4 - Trimestral", precio: 1197 }
