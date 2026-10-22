@@ -125,6 +125,8 @@ window.FTN_CONFIG = {
       /* brenvita.shop/reto4por4/meta · /influencer · /mail · /customersuccess · /whatsapp */
       canales: ["meta", "influencer", "mail", "customersuccess", "whatsapp", "daninajera"],
       srcPrefijo: "4por4-",
+      /* Sin canal (/reto4por4 a secas) el checkout va con &src=4por4-organico */
+      canalDefault: "organico",
       /* Afiliadas: su canal manda a Hotmart con su propio src, sin el prefijo.
          brenvita.shop/reto4por4/daninajera → &src=afiliada-DaniNajera */
       srcPorCanal: { daninajera: "afiliada-DaniNajera" },
@@ -140,6 +142,7 @@ window.FTN_CONFIG = {
          Para otro canal, agrégalo aquí (y en vercel.json si no está). */
       canales: ["meta"],
       srcPrefijo: "pilates-",
+      canalDefault: "organico",
       checkout: {
         mensual:    { url: "https://pay.hotmart.com/U108131451I?off=sd2kwaky&checkoutMode=10&bid=1792618439138", nombre: "Pilates x Strength - Mensual",    precio: 599 },
         trimestral: { url: "https://pay.hotmart.com/K108133844H?off=wpa6cngw&checkoutMode=10&bid=1792618048788", nombre: "Pilates x Strength - Trimestral", precio: 1197 }

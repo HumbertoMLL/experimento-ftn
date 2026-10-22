@@ -30,7 +30,9 @@
     var plan = btn.getAttribute("data-plan");
     var datos = planes[plan] || {};
     var url = (datos.url || "").trim();
-    if (url && canal) url += (url.indexOf("?") === -1 ? "?" : "&") + "src=" + (srcPorCanal[canal] || srcPrefijo + canal);
+    /* Sin canal, el src va con canalDefault (organico): nada llega sin tracking. */
+    var canalSrc = canal || reto.canalDefault || "";
+    if (url && canalSrc) url += (url.indexOf("?") === -1 ? "?" : "&") + "src=" + (srcPorCanal[canalSrc] || srcPrefijo + canalSrc);
     if (url) btn.href = url;
     btn.addEventListener("click", function () {
       if (!url) { console.warn("[" + variante + "] Falta checkout." + plan + ".url en js/config.js"); return; }
