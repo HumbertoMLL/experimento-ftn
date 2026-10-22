@@ -35,25 +35,21 @@
 <!-- BANNER: lo primero que se ve -->
 <div class="banner-top"><svg class="i"><use href="/assets/iconos-retos.svg#i-calendario"/></svg>Nuestro último reto del año · Empieza el 2 de noviembre</div>
 
-<!-- 1 · HERO · oscuro -->
-<header class="sec noche hero" id="inicio">
-  <!-- Clip real de Bren entrenando (el mismo banco de clips de Pilates x Strength), de fondo y sin audio -->
-  <video class="hero-video" autoplay muted loop playsinline preload="none" poster="/assets/bg/hero-4x4-poster.jpg" aria-hidden="true">
-    <source src="/assets/bg/hero-4x4.mp4" type="video/mp4">
-    <source src="/assets/bg/hero-4x4.webm" type="video/webm">
-  </video>
+<!-- 1 · HERO · oscuro: el video del reto con voz. Arranca mudo (los navegadores
+     no permiten autoplay con audio); el botón "Escuchar" activa la voz y lo
+     reinicia para que se oiga completo. -->
+<header class="sec noche hero hero-pitch" id="inicio">
   <div class="in">
-    <img class="marca-ftn" src="/assets/logo-ftn-blanco.webp" width="1152" height="629" alt="FTN" fetchpriority="high">
-    <img class="logo-4x4" src="/assets/logo-4x4.svg" width="490" height="431" alt="Reto 4x4" fetchpriority="high">
+    <img class="logo-4x4 logo-chico" src="/assets/logo-4x4.svg" width="490" height="431" alt="Reto 4x4" fetchpriority="high">
     <h1><span class="hl">4 hábitos</span> para cerrar bien el año.</h1>
-
-    <div class="anillos-hero" aria-label="Tus 4 hábitos: 4 entrenos a la semana, 4,000 pasos al día, 4 vasos de agua y 4 verduras al día">
-      <div class="anillo-b4"><div class="cuerpo"><svg class="aro" viewBox="0 0 80 80"><circle class="pista" cx="40" cy="40" r="33"/><circle class="arco" cx="40" cy="40" r="33"/></svg><svg class="i"><use href="/assets/iconos-retos.svg#i-pesa"/></svg></div><b>4</b><span>entrenos<br>a la semana</span></div>
-      <div class="anillo-b4"><div class="cuerpo"><svg class="aro" viewBox="0 0 80 80"><circle class="pista" cx="40" cy="40" r="33"/><circle class="arco" cx="40" cy="40" r="33"/></svg><svg class="i"><use href="/assets/iconos-retos.svg#i-pasos"/></svg></div><b>4,000</b><span>pasos<br>al día</span></div>
-      <div class="anillo-b4"><div class="cuerpo"><svg class="aro" viewBox="0 0 80 80"><circle class="pista" cx="40" cy="40" r="33"/><circle class="arco" cx="40" cy="40" r="33"/></svg><svg class="i"><use href="/assets/iconos-retos.svg#i-vaso"/></svg></div><b>4</b><span>vasos<br>de agua</span></div>
-      <div class="anillo-b4"><div class="cuerpo"><svg class="aro" viewBox="0 0 80 80"><circle class="pista" cx="40" cy="40" r="33"/><circle class="arco" cx="40" cy="40" r="33"/></svg><svg class="i"><use href="/assets/iconos-retos.svg#i-hoja"/></svg></div><b>4</b><span>verduras<br>al día</span></div>
+    <div class="pitch">
+      <video class="pitch-video js-pitch" autoplay muted loop playsinline preload="metadata" poster="/assets/reto-4x4-hero-poster.jpg">
+        <source src="/assets/reto-4x4-hero.mp4" type="video/mp4">
+      </video>
+      <button type="button" class="sonido js-sonido" aria-pressed="false">
+        <svg class="i"><use href="/assets/iconos-retos.svg#i-audio"/></svg><span>Toca para escuchar</span>
+      </button>
     </div>
-
     <div class="cta-wrap"><a href="#oferta" class="cta">Quiero entrar al Reto 4x4</a></div>
   </div>
 </header>
@@ -65,6 +61,81 @@
   </div>
   <p class="cierre-frase frase-sola">Vas a ser otra, hermana.</p>
 </div>
+
+<!-- 7 · ES PARA TI / NO ES PARA TI · blanco -->
+<section class="sec claro filtro-grande">
+  <div class="in">
+    <div class="narrow"><h2>¿Es para ti?</h2></div>
+    <div class="filtro">
+      <div class="col si"><h3>Es para ti si…</h3><ul>
+        <li><span>Llevas meses (o años) diciendo "el lunes empiezo".</span></li>
+        <li><span>Entrenabas antes y hoy no sabes por dónde volver sin lastimarte ni sentirte atrasada.</span></li>
+        <li><span>Tu dieta de siempre dejó de funcionar y no entiendes por qué.</span></li>
+        <li><span>Quieres cerrar el año cumpliéndote, no empezando el 2027 con la misma lista.</span></li>
+        <li><span>Tienes 30–40 minutos, 4 días a la semana. No más.</span></li>
+      </ul></div>
+      <div class="col no"><h3>No es para ti si…</h3><ul>
+        <li><span>Buscas bajar 10 kilos en un mes. Aquí cambias composición, no haces milagros.</span></li>
+        <li><span>Quieres que alguien te grite para moverte. Aquí te acompañan, no te regañan.</span></li>
+        <li><span>No estás dispuesta a hacer 4 cosas chicas todos los días.</span></li>
+      </ul></div>
+    </div>
+  </div>
+</section>
+
+<!-- 8 · OFERTA · oscuro -->
+<section class="sec noche" id="oferta" style="scroll-margin-top:20px">
+  <div class="in">
+    <div class="narrow">
+      <img class="logo-4x4 logo-oferta" src="/assets/logo-4x4.svg" width="490" height="431" alt="Reto 4x4" loading="lazy">
+      <div class="fechas-cierre">
+        <div class="fecha"><small>Empieza</small><b>2 nov</b></div>
+        <span class="fecha-flecha"><svg class="i"><use href="/assets/iconos-retos.svg#i-flecha-der"/></svg></span>
+        <div class="fecha"><small>Termina</small><b>29 nov</b></div>
+      </div>
+      <h2>Elige <span class="hl">cómo entrar</span></h2>
+    </div>
+    <div class="cierre js-cierre" hidden>
+      <p class="cierre-titulo">Cerramos inscripciones en:</p>
+      <div class="cierre-reloj">
+        <div><b data-u="d">--</b><span>días</span></div>
+        <div><b data-u="h">--</b><span>horas</span></div>
+        <div><b data-u="m">--</b><span>min</span></div>
+        <div><b data-u="s">--</b><span>seg</span></div>
+      </div>
+    </div>
+    <div class="planes" id="precio">
+      <div class="plan">
+        <div class="nombre">Suscripción mensual</div>
+        <div class="precio"><span class="monto">$599</span><span class="moneda">MXN</span></div>
+        <p class="para">Si quieres probar, vente a la mensual y conoce a toda la comunidad de FTN.</p>
+        <ul class="plan-lista">
+          <li><span class="ck">✓</span>Acceso completo al Reto 4x4 en la app</li>
+          <li><span class="ck">✓</span>Más de 1,000 recetas</li>
+          <li><span class="ck">✓</span>Todas las clases y retos de FTN</li>
+        </ul>
+        <a href="#oferta" class="cta js-checkout" data-plan="mensual">Quiero empezar el 2 de noviembre</a>
+        <p class="cancela">Cancela cuando quieras</p>
+      </div>
+      <div class="plan destacado">
+        <span class="sello">Recomendado · 3x2</span>
+        <div class="nombre">Suscripción trimestral</div>
+        <div class="precio"><span class="monto">$1,197</span><span class="moneda">MXN</span><span class="ancla">$1,797</span></div>
+        <div class="por-mes">Pagas 2 meses, te llevas 3</div>
+        <p class="para">Hermana, creemos tanto en ti que si tú pagas 2 meses, nosotras ponemos 1. Te cubre hasta que termine enero: vamos con todo para cerrar e iniciar el año.</p>
+        <ul class="plan-lista">
+          <li><span class="ck">✓</span>Acceso completo al Reto 4x4 en la app</li>
+          <li><span class="ck">✓</span>Más de 1,000 recetas</li>
+          <li><span class="ck">✓</span>Todas las clases y retos de FTN</li>
+          <li class="extra"><span class="ck">✓</span>3 meses por el precio de 2</li>
+        </ul>
+        <a href="#oferta" class="cta js-checkout" data-plan="trimestral">Quiero inscribirme al mejor precio</a>
+        <p class="cancela">Cancela cuando quieras</p>
+      </div>
+    </div>
+  </div>
+  <p class="conector">¿Quieres que te cuente más? Sigue leyendo, hermana.</p>
+</section>
 
 <!-- 2 · LOS PROPÓSITOS Y EL TODO O NADA · blanco -->
 <section class="sec claro">
@@ -194,80 +265,6 @@
   </div>
 </section>
 
-<!-- 7 · ES PARA TI / NO ES PARA TI · blanco -->
-<section class="sec claro filtro-grande">
-  <div class="in">
-    <div class="narrow"><h2>¿Es para ti?</h2></div>
-    <div class="filtro">
-      <div class="col si"><h3>Es para ti si…</h3><ul>
-        <li><span>Llevas meses (o años) diciendo "el lunes empiezo".</span></li>
-        <li><span>Entrenabas antes y hoy no sabes por dónde volver sin lastimarte ni sentirte atrasada.</span></li>
-        <li><span>Tu dieta de siempre dejó de funcionar y no entiendes por qué.</span></li>
-        <li><span>Quieres cerrar el año cumpliéndote, no empezando el 2027 con la misma lista.</span></li>
-        <li><span>Tienes 30–40 minutos, 4 días a la semana. No más.</span></li>
-      </ul></div>
-      <div class="col no"><h3>No es para ti si…</h3><ul>
-        <li><span>Buscas bajar 10 kilos en un mes. Aquí cambias composición, no haces milagros.</span></li>
-        <li><span>Quieres que alguien te grite para moverte. Aquí te acompañan, no te regañan.</span></li>
-        <li><span>No estás dispuesta a hacer 4 cosas chicas todos los días.</span></li>
-      </ul></div>
-    </div>
-  </div>
-</section>
-
-<!-- 8 · OFERTA · oscuro -->
-<section class="sec noche" id="oferta" style="scroll-margin-top:20px">
-  <div class="in">
-    <div class="narrow">
-      <img class="logo-4x4 logo-oferta" src="/assets/logo-4x4.svg" width="490" height="431" alt="Reto 4x4" loading="lazy">
-      <div class="fechas-cierre">
-        <div class="fecha"><small>Empieza</small><b>2 nov</b></div>
-        <span class="fecha-flecha"><svg class="i"><use href="/assets/iconos-retos.svg#i-flecha-der"/></svg></span>
-        <div class="fecha"><small>Termina</small><b>29 nov</b></div>
-      </div>
-      <h2>Elige <span class="hl">cómo entrar</span></h2>
-    </div>
-    <div class="cierre js-cierre" hidden>
-      <p class="cierre-titulo">Cerramos inscripciones en:</p>
-      <div class="cierre-reloj">
-        <div><b data-u="d">--</b><span>días</span></div>
-        <div><b data-u="h">--</b><span>horas</span></div>
-        <div><b data-u="m">--</b><span>min</span></div>
-        <div><b data-u="s">--</b><span>seg</span></div>
-      </div>
-    </div>
-    <div class="planes" id="precio">
-      <div class="plan">
-        <div class="nombre">Suscripción mensual</div>
-        <div class="precio"><span class="monto">$599</span><span class="moneda">MXN</span></div>
-        <p class="para">Si quieres probar, vente a la mensual y conoce a toda la comunidad de FTN.</p>
-        <ul class="plan-lista">
-          <li><span class="ck">✓</span>Acceso completo al Reto 4x4 en la app</li>
-          <li><span class="ck">✓</span>Más de 1,000 recetas</li>
-          <li><span class="ck">✓</span>Todas las clases y retos de FTN</li>
-        </ul>
-        <a href="#oferta" class="cta js-checkout" data-plan="mensual">Quiero empezar el 2 de noviembre</a>
-        <p class="cancela">Cancela cuando quieras</p>
-      </div>
-      <div class="plan destacado">
-        <span class="sello">Recomendado · 3x2</span>
-        <div class="nombre">Suscripción trimestral</div>
-        <div class="precio"><span class="monto">$1,197</span><span class="moneda">MXN</span><span class="ancla">$1,797</span></div>
-        <div class="por-mes">Pagas 2 meses, te llevas 3</div>
-        <p class="para">Hermana, creemos tanto en ti que si tú pagas 2 meses, nosotras ponemos 1. Te cubre hasta que termine enero: vamos con todo para cerrar e iniciar el año.</p>
-        <ul class="plan-lista">
-          <li><span class="ck">✓</span>Acceso completo al Reto 4x4 en la app</li>
-          <li><span class="ck">✓</span>Más de 1,000 recetas</li>
-          <li><span class="ck">✓</span>Todas las clases y retos de FTN</li>
-          <li class="extra"><span class="ck">✓</span>3 meses por el precio de 2</li>
-        </ul>
-        <a href="#oferta" class="cta js-checkout" data-plan="trimestral">Quiero inscribirme al mejor precio</a>
-        <p class="cancela">Cancela cuando quieras</p>
-      </div>
-    </div>
-  </div>
-</section>
-
 <!-- 9 · QUIÉN TE ACOMPAÑA · crema -->
 <section class="sec crema">
   <div class="in">
@@ -322,6 +319,50 @@
   </div>
 </section>
 
+<!-- 8b · OFERTA otra vez, después de toda la explicación -->
+<section class="sec noche" id="oferta-2" style="scroll-margin-top:20px">
+  <div class="in">
+    <div class="narrow">
+      <img class="logo-4x4 logo-oferta" src="/assets/logo-4x4.svg" width="490" height="431" alt="Reto 4x4" loading="lazy">
+      <div class="fechas-cierre">
+        <div class="fecha"><small>Empieza</small><b>2 nov</b></div>
+        <span class="fecha-flecha"><svg class="i"><use href="/assets/iconos-retos.svg#i-flecha-der"/></svg></span>
+        <div class="fecha"><small>Termina</small><b>29 nov</b></div>
+      </div>
+      <h2>¿Lista? Elige <span class="hl">cómo entrar</span></h2>
+    </div>
+    <div class="planes" id="precio-2">
+      <div class="plan">
+        <div class="nombre">Suscripción mensual</div>
+        <div class="precio"><span class="monto">$599</span><span class="moneda">MXN</span></div>
+        <p class="para">Si quieres probar, vente a la mensual y conoce a toda la comunidad de FTN.</p>
+        <ul class="plan-lista">
+          <li><span class="ck">✓</span>Acceso completo al Reto 4x4 en la app</li>
+          <li><span class="ck">✓</span>Más de 1,000 recetas</li>
+          <li><span class="ck">✓</span>Todas las clases y retos de FTN</li>
+        </ul>
+        <a href="#oferta" class="cta js-checkout" data-plan="mensual">Quiero empezar el 2 de noviembre</a>
+        <p class="cancela">Cancela cuando quieras</p>
+      </div>
+      <div class="plan destacado">
+        <span class="sello">Recomendado · 3x2</span>
+        <div class="nombre">Suscripción trimestral</div>
+        <div class="precio"><span class="monto">$1,197</span><span class="moneda">MXN</span><span class="ancla">$1,797</span></div>
+        <div class="por-mes">Pagas 2 meses, te llevas 3</div>
+        <p class="para">Hermana, creemos tanto en ti que si tú pagas 2 meses, nosotras ponemos 1. Te cubre hasta que termine enero: vamos con todo para cerrar e iniciar el año.</p>
+        <ul class="plan-lista">
+          <li><span class="ck">✓</span>Acceso completo al Reto 4x4 en la app</li>
+          <li><span class="ck">✓</span>Más de 1,000 recetas</li>
+          <li><span class="ck">✓</span>Todas las clases y retos de FTN</li>
+          <li class="extra"><span class="ck">✓</span>3 meses por el precio de 2</li>
+        </ul>
+        <a href="#oferta" class="cta js-checkout" data-plan="trimestral">Quiero inscribirme al mejor precio</a>
+        <p class="cancela">Cancela cuando quieras</p>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- 11 · CIERRE · rosa -->
 <section class="sec rosa">
   <div class="in narrow center">
@@ -351,6 +392,21 @@
 </footer>
 
 <script src="/js/retos.js"></script>
+<script>
+/* Botón de sonido del video del hero: activa la voz y reinicia el video. */
+(function(){
+  var v=document.querySelector(".js-pitch"), b=document.querySelector(".js-sonido");
+  if(!v||!b) return;
+  b.addEventListener("click",function(){
+    var on=v.muted; v.muted=!on;
+    if(on){ v.currentTime=0; v.play(); }
+    b.setAttribute("aria-pressed", on?"true":"false");
+    b.querySelector("span").textContent = on ? "Silenciar" : "Toca para escuchar";
+    b.classList.toggle("activo", on);
+  });
+})();
+</script>
+
 
 </body>
 </html>

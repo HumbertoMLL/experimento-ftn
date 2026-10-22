@@ -61,6 +61,30 @@
 h2 { font-size: clamp(1.75rem, 6vw, 3rem); }
 .sec p { max-width: 60ch; margin-inline: auto; }
 
+/* ---------- Hero con el video del reto ---------- */
+.hero-pitch { padding: 28px 16px 48px; }
+.hero-pitch .logo-chico { width: min(150px, 40vw); margin-bottom: 8px; filter: none; }
+.hero-pitch h1 { font-size: clamp(1.35rem, 5.2vw, 2.1rem); margin: 0 0 18px; }
+.pitch { position: relative; width: 100%; max-width: 760px; aspect-ratio: 16 / 9; border-radius: 20px; overflow: hidden; background: #000; box-shadow: 0 30px 70px rgba(0,0,0,.5), 0 0 0 1px rgba(255,255,255,.08); }
+.pitch-video { display: block; width: 100%; height: 100%; object-fit: cover; }
+.sonido {
+  position: absolute; left: 12px; bottom: 12px; display: inline-flex; align-items: center; gap: 8px;
+  padding: 10px 16px; border: 0; border-radius: 999px; cursor: pointer;
+  background: var(--blanco); color: var(--tinta);
+  font-family: "Bricolage Grotesque", sans-serif; font-weight: 800; font-size: .9rem;
+  box-shadow: 0 10px 24px rgba(0,0,0,.35); animation: late 1.6s ease-in-out infinite;
+}
+.sonido .i { width: 18px; height: 18px; stroke-width: 2.4; }
+.sonido.activo { animation: none; background: rgba(28,16,38,.85); color: var(--blanco); }
+@keyframes late { 0%,100% { transform: scale(1); } 50% { transform: scale(1.05); } }
+@media (prefers-reduced-motion: reduce) { .sonido { animation: none; } }
+.hero-pitch .cta { margin-top: 26px; }
+@media (min-width: 780px) {
+  .hero-pitch { padding: 48px 26px 64px; }
+  .hero-pitch .logo-chico { width: 180px; }
+  .sonido { left: 18px; bottom: 18px; padding: 12px 20px; font-size: 1rem; }
+}
+
 /* ---------- Etiqueta (kicker) ---------- */
 .etiqueta {
   display: inline-flex; align-items: center; gap: 8px; margin-bottom: 14px;
@@ -327,7 +351,7 @@ footer .marca.logo-4x4-pie { width: 110px; margin-bottom: 14px; }
 .barra-fechas .cierre-frase { margin: 16px auto 0; font-size: clamp(1.2rem, 4.6vw, 1.7rem); }
 .cierre-frase.frase-sola { margin-top: 18px; font-size: clamp(1.5rem, 6vw, 2.2rem); color: #FFD6A3 !important; }
 .logo-oferta { width: min(240px, 60vw); margin-bottom: 4px; }
-#oferta .fechas-cierre { margin: 18px auto 28px; }
+#oferta .fechas-cierre, #oferta-2 .fechas-cierre { margin: 18px auto 28px; }
 .oferta-fechas { display: inline-flex; align-items: center; gap: 8px; margin-top: 14px; padding: 10px 16px; border-radius: 999px; background: var(--noche-2); border: 1px solid var(--noche-3); font-family: "Bricolage Grotesque", sans-serif; font-weight: 800; font-size: .95rem; color: var(--blanco); }
 .oferta-fechas .i { width: 18px; height: 18px; color: var(--naranja); stroke-width: 2.2; }
 .fecha-flecha .i { width: 32px; height: 32px; stroke-width: 2.4; }
