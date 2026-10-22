@@ -121,7 +121,8 @@ window.FTN_CONFIG = {
   retos: {
     reto4por4: {
       nombre: "Reto 4x4",
-      cierreISO: "2026-11-02T05:59:00Z",
+      /* El 4x4 arranca el 9 nov: cierra el 8 nov 23:59 CDMX */
+      cierreISO: "2026-11-09T05:59:00Z",
       /* brenvita.shop/reto4por4/meta · /influencer · /mail · /customersuccess · /whatsapp */
       canales: ["meta", "influencer", "mail", "customersuccess", "whatsapp", "daninajera"],
       srcPrefijo: "4por4-",
