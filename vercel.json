@@ -27,7 +27,7 @@
       "destination": "/reto4por4"
     },
     {
-      "source": "/minireto/:canal(meta|influencer|instagram|email|whatsapp)",
+      "source": "/minireto/:canal(meta|influencer|instagram|email|mail|whatsapp)",
       "destination": "/minireto"
     }
   ],

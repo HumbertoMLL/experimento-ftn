@@ -162,6 +162,7 @@ window.FTN_CONFIG = {
      Canales: cada uno tiene su página y su link de pago con su src.
        brenvita.shop/minireto/meta        → checkout.canales.meta
        brenvita.shop/minireto/influencer  → checkout.canales.influencer
+       brenvita.shop/minireto/mail        → checkout.canales.email (mail = email)
      (también sirve ?src=meta). Un canal sin link propio (instagram, email,
      whatsapp) usa checkout.url + &src=<canal>. Sin canal: checkout.url
      tal cual, sin src. */
@@ -177,7 +178,8 @@ window.FTN_CONFIG = {
       url: "https://pay.hotmart.com/R107964739Y?off=v55rexas&checkoutMode=10",
       canales: {
         meta:       "https://pay.hotmart.com/R107964739Y?off=v55rexas&checkoutMode=10&src=meta",
-        influencer: "https://pay.hotmart.com/R107964739Y?off=v55rexas&checkoutMode=10&src=influencer"
+        influencer: "https://pay.hotmart.com/R107964739Y?off=v55rexas&checkoutMode=10&src=influencer",
+        email:      "https://pay.hotmart.com/R107964739Y?off=v55rexas&checkoutMode=10&src=email"
       },
       nombre: "MiniReto - Del Consultorio a Redes Sociales", precio: 197, moneda: "MXN"
     }

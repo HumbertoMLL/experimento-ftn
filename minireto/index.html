@@ -521,6 +521,7 @@
   var canales = (cfg.musculo && cfg.musculo.canales) || [];
   var crudo = ((location.search.match(/[?&]src=([\w-]+)/i) || [])[1]
             || (location.pathname.match(/\/minireto\/([\w-]+)\/?$/) || [])[1] || "").toLowerCase();
+  if (crudo === "mail") crudo = "email";   /* /minireto/mail es el link de los correos */
   var canal = canales.indexOf(crudo) !== -1 ? crudo : "";
 
   /* Fecha y hora al inicio de la respuesta de "¿Cuándo es?" */
