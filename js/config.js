@@ -129,8 +129,8 @@ window.FTN_CONFIG = {
          brenvita.shop/reto4por4/daninajera → &src=afiliada-DaniNajera */
       srcPorCanal: { daninajera: "afiliada-DaniNajera" },
       checkout: {
-        mensual:    { url: "https://pay.hotmart.com/T76408466K?off=pica3cj7&checkoutMode=10", nombre: "Reto 4x4 - Mensual",    precio: 599 },
-        trimestral: { url: "https://pay.hotmart.com/T76408466K?off=v5pcvf7s&checkoutMode=10", nombre: "Reto 4x4 - Trimestral", precio: 1197 }
+        mensual:    { url: "https://pay.hotmart.com/U108131451I?off=sd2kwaky&checkoutMode=10&bid=1792618439138", nombre: "Reto 4x4 - Mensual",    precio: 599 },
+        trimestral: { url: "https://pay.hotmart.com/K108133844H?off=wpa6cngw&checkoutMode=10&bid=1792618048788", nombre: "Reto 4x4 - Trimestral", precio: 1197 }
       }
     },
     retopilatesxstrength: {
@@ -141,8 +141,8 @@ window.FTN_CONFIG = {
       canales: ["meta"],
       srcPrefijo: "pilates-",
       checkout: {
-        mensual:    { url: "https://pay.hotmart.com/T76408466K?off=pica3cj7&checkoutMode=10", nombre: "Pilates x Strength - Mensual",    precio: 599 },
-        trimestral: { url: "https://pay.hotmart.com/T76408466K?off=v5pcvf7s&checkoutMode=10", nombre: "Pilates x Strength - Trimestral", precio: 1197 }
+        mensual:    { url: "https://pay.hotmart.com/U108131451I?off=sd2kwaky&checkoutMode=10&bid=1792618439138", nombre: "Pilates x Strength - Mensual",    precio: 599 },
+        trimestral: { url: "https://pay.hotmart.com/K108133844H?off=wpa6cngw&checkoutMode=10&bid=1792618048788", nombre: "Pilates x Strength - Trimestral", precio: 1197 }
       }
     }
   },
