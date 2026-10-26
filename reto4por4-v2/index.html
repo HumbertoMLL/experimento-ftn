@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Reto 4x4 · Sal del estancamiento en 4 semanas · Empieza el 9 de noviembre | FTN</title>
+<meta name="description" content="Reto 4x4 de FTN: 4 hábitos chiquitos al día, desde tu casa, con Daya y Brenvita. Del 9 de noviembre al 6 de diciembre, desde $399 al mes.">
+<meta name="theme-color" content="#1C1026">
+<link rel="icon" href="/assets/favicon-ftn.png" type="image/png">
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon-ftn.png">
+<link rel="canonical" href="https://www.brenvita.shop/reto4por4-v2">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,700;12..96,800&family=Inter:wght@400;500;600;700&display=swap">
+<style>
+:root{
+  --noche:#1C1026; --noche2:#2B1A3A; --rosa:#FF2A6B; --naranja:#FF931E; --tinta:#2E4350;
+  --papel:#FFEAF1; --blanco:#fff; --gris:#6B6475;
+  --grad:linear-gradient(120deg,var(--rosa),var(--naranja));
+  }
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:Inter,system-ui,sans-serif;color:var(--tinta);background:var(--blanco);line-height:1.5;-webkit-font-smoothing:antialiased}
+img{max-width:100%;display:block}
+h1,h2,h3{font-family:"Bricolage Grotesque",Inter,sans-serif;font-weight:800;letter-spacing:-.02em;line-height:1.08}
+.in{max-width:560px;margin:0 auto;padding:0 20px}
+.sec{padding:56px 0}
+.noche{background:var(--noche);color:#fff}
+.papel{background:var(--papel)}
+.hl{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+.kicker{font-size:12px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--rosa);margin-bottom:10px}
+.noche .kicker{color:var(--naranja)}
+h2{font-size:clamp(28px,7vw,38px);margin-bottom:16px}
+p+p{margin-top:12px}
+.lead{font-size:18px}
+.centro{text-align:center}
+
+/* CTA */
+.cta{display:block;width:100%;text-align:center;background:var(--grad);color:#fff;font-weight:700;font-size:18px;
+  padding:18px 20px;border-radius:999px;text-decoration:none;box-shadow:0 10px 30px rgba(255,42,107,.35);transition:transform .15s}
+.cta:active{transform:scale(.98)}
+.cta-sub{font-size:13px;text-align:center;margin-top:10px;opacity:.75}
+
+/* HERO */
+.hero{padding:22px 0 36px;text-align:center;background:radial-gradient(120% 70% at 50% 0%,#3a1d47 0%,var(--noche) 70%)}
+.cinta{display:inline-block;font-size:13px;font-weight:600;background:rgba(255,255,255,.08);
+  border:1px solid rgba(255,255,255,.14);padding:8px 16px;border-radius:18px;line-height:1.35}
+.cinta b{display:block;color:var(--naranja);font-size:15px}
+.hero .logo{width:64px;height:auto;margin:14px auto 10px}
+.hero h1{font-size:clamp(34px,9.5vw,52px);margin-bottom:10px}
+.hero .sub{font-size:16px;color:#E9DDF0;max-width:420px;margin:0 auto}
+.chips{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;margin:16px 0 14px}
+.chip{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);border-radius:12px;padding:8px 4px;font-size:11.5px;line-height:1.2}
+.chip b{display:block;font-family:"Bricolage Grotesque";font-size:20px;background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+.energia{display:flex;align-items:center;justify-content:center;gap:8px;margin:2px 0 12px;font-size:20px}
+.energia i{width:120px;height:12px;border-radius:999px;background:rgba(255,255,255,.12);overflow:hidden;display:block}
+.energia em{display:block;height:100%;width:12%;border-radius:999px;background:linear-gradient(90deg,#FF3B3B,#FFB020,#2BD67B);
+  background-size:120px 100%;animation:carga 2.4s .4s ease-out forwards}
+@keyframes carga{to{width:100%}}
+.precio-hero{font-size:15px;margin-bottom:14px;color:#E9DDF0}
+.precio-hero b{color:#fff;font-size:20px}
+.prueba{display:flex;align-items:center;justify-content:center;gap:10px;margin-top:16px;font-size:13px;color:#E9DDF0}
+.caras{display:flex}
+.caras img{width:30px;height:30px;border-radius:50%;border:2px solid var(--noche);margin-left:-8px;object-fit:cover}
+.caras img:first-child{margin-left:0}
+.firma{display:flex;align-items:center;gap:10px;justify-content:center;margin-top:18px;font-size:13px;color:#cbbfd6}
+.firma img{width:38px;height:38px;border-radius:50%;object-fit:cover;border:2px solid var(--rosa)}
+
+/* DOLOR */
+.lista-estanca{list-style:none;margin:18px 0}
+.lista-estanca li{padding:10px 0 10px 30px;position:relative;border-bottom:1px solid rgba(46,67,80,.12);font-weight:500}
+.lista-estanca li::before{content:"↻";position:absolute;left:0;color:var(--rosa);font-weight:700}
+.vs{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:22px 0}
+.vs div{border-radius:16px;padding:16px;font-size:15px}
+.vs .malo{background:#fff;border:1px solid rgba(46,67,80,.15)}
+.vs .bueno{background:var(--noche);color:#fff}
+.vs h3{font-size:18px;margin-bottom:6px}
+.vs .malo h3{text-decoration:line-through;text-decoration-color:var(--rosa);text-decoration-thickness:3px}
+.remate{font-family:"Bricolage Grotesque";font-weight:800;font-size:24px;line-height:1.15;margin-top:8px}
+
+/* VIDEO */
+.video-wrap{position:relative;border-radius:20px;overflow:hidden;aspect-ratio:4/5;background:#000;margin:18px 0 12px}
+.video-wrap video{width:100%;height:100%;object-fit:cover}
+.sonido{display:flex;align-items:center;justify-content:center;gap:10px;width:100%;margin:0 auto;background:#fff;
+  color:var(--noche);border:0;border-radius:999px;padding:16px 22px;font:700 17px Inter;cursor:pointer}
+
+/* METODO */
+.cuatro{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:20px 0}
+.cuatro div{background:var(--papel);border-radius:16px;padding:16px}
+.cuatro b{font-family:"Bricolage Grotesque";font-size:34px;line-height:1;display:block;background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+.cuatro span{font-weight:600}
+.cuatro small{display:block;color:var(--gris);font-size:13px;margin-top:4px}
+.semana{background:var(--noche);color:#fff;border-radius:16px;padding:16px;font-size:15px}
+.semana strong{color:var(--naranja)}
+
+/* PRUEBA */
+.alumnas{text-align:center;font-weight:700;font-size:19px;margin-top:-4px}
+.transf{position:relative;border-radius:16px;overflow:hidden;margin:16px 0 10px}
+.transf .emo{position:absolute;transform:translate(-50%,-100%);font-size:clamp(13px,3.6vw,20px);line-height:1;padding:3px 5px;
+  border-radius:999px;background:rgba(255,255,255,.88);box-shadow:0 2px 6px rgba(0,0,0,.18);white-space:nowrap}
+.leyenda{display:flex;justify-content:center;align-items:center;gap:12px;font-weight:700;font-size:15px}
+.leyenda span{background:#fff;border-radius:999px;padding:6px 12px}
+.leyenda b{color:var(--rosa)}
+.pie{font-size:12px;color:var(--gris);text-align:center}
+.cita{background:#fff;border-radius:16px;padding:18px;margin-top:12px;box-shadow:0 6px 20px rgba(46,67,80,.08);font-size:17px;font-weight:500}
+.cita small{display:block;font-size:13px;color:var(--gris);margin-top:8px;font-weight:600}
+.slot{border:2px dashed #c9b6c9;border-radius:16px;padding:18px;margin-top:12px;font-size:14px;color:var(--gris);text-align:center}
+
+/* INCLUYE */
+.sub-h{font-size:26px;margin:36px 0 14px;text-align:center}
+.apps{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin:0 0 18px}
+.apps figure{position:relative;border-radius:14px;overflow:hidden;background:var(--noche)}
+.apps img{width:100%}
+.apps figcaption{position:absolute;left:0;right:0;top:0;padding:10px 8px 26px;color:#fff;font-weight:700;font-size:13.5px;line-height:1.2;
+  background:linear-gradient(180deg,rgba(28,16,38,.92) 55%,rgba(28,16,38,0))}
+.coaches{display:grid;gap:10px;margin-top:8px}
+.coach{display:flex;gap:12px;align-items:center;background:var(--papel);border-radius:14px;padding:12px}
+.coach img{width:52px;height:52px;border-radius:50%;object-fit:cover;flex:none}
+.coach b{display:block;font-size:17px}
+.coach span{font-size:14px;color:var(--gris)}
+
+/* OFERTA */
+.fechas-big{display:flex;align-items:center;justify-content:center;gap:12px;margin-bottom:22px}
+.fechas-big div{background:#fff;color:var(--noche);border-radius:16px;padding:10px 18px;min-width:120px}
+.fechas-big small{display:block;font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--rosa)}
+.fechas-big b{font-family:"Bricolage Grotesque";font-size:34px;line-height:1.05}
+.fechas-big span{font-size:28px;color:var(--naranja);font-weight:800}
+.reloj{display:flex;gap:8px;justify-content:center;margin:12px 0 22px}
+.reloj div{background:rgba(255,255,255,.08);border-radius:12px;padding:8px 10px;min-width:62px;text-align:center}
+.reloj b{display:block;font-family:"Bricolage Grotesque";font-size:26px}
+.reloj span{font-size:11px;opacity:.7}
+.plan{background:#fff;color:var(--tinta);border-radius:20px;padding:22px;margin-bottom:14px;position:relative}
+.plan.top{border:3px solid transparent;background:linear-gradient(#fff,#fff) padding-box,var(--grad) border-box}
+.badge{position:absolute;top:-13px;left:50%;transform:translateX(-50%);background:var(--grad);color:#fff;font-size:12px;font-weight:700;padding:5px 14px;border-radius:999px;white-space:nowrap}
+.plan .nombre{font-weight:700}
+.plan .monto{font-family:"Bricolage Grotesque";font-size:42px;font-weight:800}
+.plan .tachado{text-decoration:line-through;color:var(--gris);margin-left:6px}
+.plan .mes{font-weight:700;color:var(--rosa)}
+.plan ul{list-style:none;margin:12px 0 16px;font-size:15px}
+.plan li{padding:4px 0}
+.plan li::before{content:"✓ ";color:var(--rosa);font-weight:700}
+.plan .cta-sec{display:block;text-align:center;border:2px solid var(--tinta);color:var(--tinta);border-radius:999px;padding:14px;font-weight:700;text-decoration:none}
+.cancela{font-size:13px;text-align:center;color:var(--gris);margin-top:8px}
+
+/* FAQ */
+details{border-bottom:1px solid rgba(46,67,80,.12);padding:14px 0}
+summary{font-weight:700;cursor:pointer;list-style:none}
+summary::after{content:"+";float:right;color:var(--rosa);font-size:20px;line-height:1}
+details[open] summary::after{content:"–"}
+details p{margin-top:8px;color:var(--gris)}
+
+/* STICKY */
+.sticky{position:fixed;left:0;right:0;bottom:0;z-index:40;background:rgba(28,16,38,.96);backdrop-filter:blur(8px);
+  padding:10px 16px calc(10px + env(safe-area-inset-bottom));display:flex;align-items:center;gap:12px;color:#fff;
+  transform:translateY(110%);transition:transform .25s}
+.sticky.on{transform:none}
+.sticky div{flex:1;font-size:13px;line-height:1.25}
+.sticky b{display:block;font-size:15px}
+.sticky a{background:var(--grad);color:#fff;font-weight:700;padding:12px 18px;border-radius:999px;text-decoration:none;white-space:nowrap}
+footer{padding:28px 0 100px;text-align:center;font-size:12px;color:var(--gris)}
+
+</style>
+<script src="/js/config.js"></script>
+<script src="/js/pixel.js"></script>
+<noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=1645815772229731&ev=PageView&noscript=1" /></noscript>
+</head>
+<body data-variante="reto4por4-v2">
+
+<!-- 1 · HERO -->
+<header class="hero noche">
+  <div class="in">
+    <span class="cinta">El último empujón para cerrar el año con todo <b>9 nov → 6 dic</b></span>
+    <img class="logo" src="/assets/logo-4x4.svg" alt="Reto 4x4" width="490" height="431">
+    <h1>Sal del <span class="hl">estancamiento</span> en 4 semanas.</h1>
+    <div class="energia" aria-hidden="true"><span>😔</span><i><em></em></i><span>🤩</span></div>
+    <p class="sub">4 hábitos chiquitos al día, desde tu casa, con Daya y Brenvita en FTN. Empezamos moviendo tu cuerpo porque es nuestra especialidad, y ya les funcionó a miles de mujeres.</p>
+    <div class="chips">
+      <div class="chip"><b>4</b>entrenos de 30 min a la semana</div>
+      <div class="chip"><b>4,000</b>pasos al día</div>
+      <div class="chip"><b>4</b>vasos de agua</div>
+      <div class="chip"><b>4</b>verduras al día</div>
+    </div>
+    <p class="precio-hero">Todo en la palma de tu mano con la app de FTN · desde <b>$399</b> al mes</p>
+    <a href="#oferta" class="cta">Quiero salir del estancamiento</a>
+    <div class="prueba">
+      <div class="caras">
+        <img src="/assets/4x4v2/t-Cecy.jpg" alt=""><img src="/assets/4x4v2/t-Yael.jpg" alt=""><img src="/assets/4x4v2/t-AnaLu-cuadro.jpg" alt=""><img src="/assets/4x4v2/t-Mariale.jpg" alt="">
+      </div>
+      <span>+60 mil mujeres ya entrenaron con el FTN Method</span>
+    </div>
+  </div>
+</header>
+
+<!-- 2 · DOLOR -->
+<section class="sec papel">
+  <div class="in">
+    <h2>Llevas meses diciendo "el lunes empiezo".</h2>
+    <p class="lead">Y no es solo el ejercicio. Es sentir que estás en el mismo lugar que hace un año:</p>
+    <ul class="lista-estanca">
+      <li>El mismo cuerpo que no te gusta ver en fotos.</li>
+      <li>El mismo tiempo perdido scrolleando en la noche en vez de dormir.</li>
+      <li>Los mismos proyectos guardados "para cuando tenga tiempo".</li>
+      <li>La misma lista de propósitos que va a terminar otro año sin cumplirse.</li>
+    </ul>
+    <p class="remate">No te falta disciplina, hermana. Te falta soltar el <span class="hl">todo o nada</span>.</p>
+    <div class="vs">
+      <div class="malo"><h3>Todo o nada</h3>2 horas de gym y dieta perfecta, o nada. Fallas un día y ya no cuenta.</div>
+      <div class="bueno"><h3>Reto 4x4</h3>4 hábitos pequeños al día. Si los cumples hoy, hoy cuenta mucho.</div>
+    </div>
+    <p class="lead">Y tener un sistema tan simple que no puedas fallarle. <b>Eso es el Reto 4x4.</b></p>
+  </div>
+</section>
+
+<!-- 3 · VIDEO -->
+<section class="sec noche">
+  <div class="in centro">
+    <p class="kicker">En 24 segundos</p>
+    <h2>Te explicamos qué es el Reto 4x4.</h2>
+    <div class="video-wrap">
+      <video id="vid" autoplay muted loop playsinline preload="none" poster="/assets/4x4v2/reto-4x4-v6-poster.jpg">
+        <source src="/assets/4x4v2/reto-4x4-v6-web.mp4" type="video/mp4">
+      </video>
+    </div>
+    <button type="button" class="sonido" id="btn-sonido">🔊 Escuchar con sonido</button>
+  </div>
+</section>
+
+<!-- 4 · PROMESA + APP + COACHES -->
+<section class="sec">
+  <div class="in">
+    <h2>28 días saliendo del <span class="hl">estancamiento</span> con 4 hábitos.</h2>
+    <p class="lead">Es un plan que sí vas a cumplir.</p>
+    <div class="cuatro">
+      <div><b>4</b><span>entrenos a la semana</span><small>30 min, en casa, grabados</small></div>
+      <div><b>4,000</b><span>pasos al día</span><small>los días que no hay clase</small></div>
+      <div><b>4</b><span>vasos de agua</span><small>mínimo, todos los días</small></div>
+      <div><b>4</b><span>verduras al día</span><small>con tu plan de comida</small></div>
+    </div>
+    <div class="semana">Tu semana se ve así: <strong>2 días de fuerza</strong>, <strong>2 días de barre y pilates</strong> y los demás días, <strong>4,000 pasos</strong>. Abres la app y ya sabes qué te toca.</div>
+
+    <h3 class="sub-h">Entrenamiento, nutrición y focus.<br><span class="hl">Todo en una app.</span></h3>
+    <div class="apps">
+      <figure><img src="/assets/4x4v2/app-hoy.webp" alt="Pantalla Tu día" loading="lazy"><figcaption>Qué ejercicio te toca hoy</figcaption></figure>
+      <figure><img src="/assets/4x4v2/app-super.webp" alt="Pantalla de súper" loading="lazy"><figcaption>Tu alimentación a un clic</figcaption></figure>
+      <figure><img src="/assets/4x4v2/app-focus.webp" alt="Pantalla Focus" loading="lazy"><figcaption>3 min de mentalidad para motivarte</figcaption></figure>
+    </div>
+    <div class="coaches">
+      <div class="coach"><img src="/assets/bren-hero.webp" alt="Brenvita"><div><b>Brenvita</b><span>Tu entrenadora de fuerza</span></div></div>
+      <div class="coach"><img src="/assets/pilates/daya.webp" alt="Daya"><div><b>Daya</b><span>Tu coach de barre y pilates</span></div></div>
+      <div class="coach"><img src="/assets/ale-avatar.webp" alt="Ale Rivera"><div><b>Ale Rivera</b><span>Tu nutrióloga</span></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- 5 · PRUEBA SOCIAL -->
+<section class="sec papel">
+  <div class="in">
+    <h2 class="centro">Ellas ya salieron del <span class="hl">estancamiento</span>.</h2>
+    <p class="alumnas">Alumnas de retos anteriores de FTN</p>
+    <div class="transf" id="transf">
+      <img src="/assets/transformaciones.webp" alt="Alumnas de FTN el día 1 y el día 21 de un reto anterior" loading="lazy">
+    </div>
+    <div class="leyenda"><span>🪫 ☁️ Día 1</span><b>→</b><span>🔋 ☀️ Día 21</span></div>
+  </div>
+</section>
+
+<!-- 7 · OFERTA -->
+<section class="sec noche" id="oferta" style="background:var(--noche2)">
+  <div class="in">
+    <div class="centro">
+      <div class="fechas-big"><div><small>Empieza</small><b>9 nov</b></div><span>→</span><div><small>Termina</small><b>6 dic</b></div></div>
+      <h2>Ahora sí, elige cómo entrar</h2>
+      <p style="font-size:14px;opacity:.8">Cerramos inscripciones el 8 de noviembre</p>
+      <div class="reloj" id="reloj">
+        <div><b data-u="d">--</b><span>días</span></div><div><b data-u="h">--</b><span>horas</span></div>
+        <div><b data-u="m">--</b><span>min</span></div><div><b data-u="s">--</b><span>seg</span></div>
+      </div>
+    </div>
+
+    <div class="plan top">
+      <span class="badge">Recomendado · 3x2</span>
+      <div class="nombre">Trimestral</div>
+      <div><span class="monto">$1,197</span> MXN <span class="tachado">$1,797</span></div>
+      <div class="mes">= $399 al mes. Pagas 2 meses, te llevas 3.</div>
+      <ul>
+        <li>Reto 4x4 completo + lo que sigue hasta enero</li>
+        <li>Plan de comida y más de 1,000 recetas</li>
+        <li>Todas las clases y retos de FTN</li>
+      </ul>
+      <a class="cta js-checkout" data-plan="trimestral" href="#oferta">Quiero el 3x2</a>
+      <p class="cancela">Un pago cada 3 meses · cancela cuando quieras</p>
+    </div>
+
+    <div class="plan">
+      <div class="nombre">Mensual</div>
+      <div><span class="monto">$599</span> MXN</div>
+      <ul>
+        <li>Reto 4x4 completo</li>
+        <li>Plan de comida y más de 1,000 recetas</li>
+        <li>Todas las clases y retos de FTN</li>
+      </ul>
+      <a class="cta-sec js-checkout" data-plan="mensual" href="#oferta">Empezar con el mensual</a>
+      <p class="cancela">Se renueva cada mes · cancela desde la app</p>
+    </div>
+  </div>
+</section>
+
+<!-- 8 · FAQ -->
+<section class="sec">
+  <div class="in">
+    <h2>Dudas rápidas</h2>
+    <details><summary>Llevo mucho sin entrenar, ¿puedo?</summary><p>Sí. Cada clase tiene opción de entrada y opción avanzada. Si tienes una lesión o condición médica, consulta antes.</p></details>
+    <details><summary>¿Necesito equipo?</summary><p>Un par de mancuernas o lo que tengas en casa, y tu tapete.</p></details>
+    <details><summary>¿Voy a bajar de peso?</summary><p>La mayoría cambia medidas y composición. No prometemos kilos: prometemos un sistema que, si lo cumples, da resultados.</p></details>
+    <details><summary>¿El cobro se repite?</summary><p>Mensual: $599 cada mes hasta que canceles. Trimestral: $1,197 una vez por 3 meses. Cancelas desde la app, sin llamadas.</p></details>
+  </div>
+</section>
+
+<!-- 9 · CIERRE -->
+<section class="sec noche centro">
+  <div class="in">
+    <h2>El 6 de diciembre vas a ser otra, hermana.</h2>
+    <p class="lead" style="color:#E9DDF0;margin-bottom:22px">4 cosas chicas al día. 28 días. Este año sí cierra diferente.</p>
+    <a href="#oferta" class="cta">Quiero entrar al 4x4</a>
+  </div>
+</section>
+
+<footer>© 2026 FTN · Reto 4x4</footer>
+
+<div class="sticky" id="sticky">
+  <div><b>Reto 4x4 · 9 nov</b>Desde $399 al mes</div>
+  <a href="#oferta">Quiero entrar</a>
+</div>
+
+<script src="/js/retos.js"></script>
+<script src="/js/scroll-eventos.js"></script>
+<script>
+// Sonido del video: reinicia con audio
+const vid = document.getElementById('vid');
+document.getElementById('btn-sonido').onclick = (e) => { vid.muted = false; vid.currentTime = 0; vid.play(); e.currentTarget.textContent = '🔊 Sonando'; };
+
+// Emojis sobre transformaciones.webp (1600x1264: 3 filas x 3 pares antes/después)
+const COLS = [0, 267, 540, 807, 1080, 1347], CW = 252, ROWS = [0, 428, 856], RH = 407;
+const transf = document.getElementById('transf');
+ROWS.forEach(y => COLS.forEach((x, i) => {
+  const s = document.createElement('span');
+  s.className = 'emo';
+  s.textContent = i % 2 ? '🔋☀️' : '🪫☁️';
+  s.style.left = (x + CW / 2) / 1600 * 100 + '%';
+  s.style.top = (y + RH - 10) / 1264 * 100 + '%';
+  transf.appendChild(s);
+}));
+
+// Barra fija después del hero
+const hero = document.querySelector('.hero'), sticky = document.getElementById('sticky'), oferta = document.getElementById('oferta');
+new IntersectionObserver(([e]) => sticky.classList.toggle('on', !e.isIntersecting)).observe(hero);
+new IntersectionObserver(([e]) => { if (e.isIntersecting) sticky.classList.remove('on'); }, {threshold: .2}).observe(oferta);
+
+// Reloj de cierre: config.js → retos["reto4por4-v2"].cierreISO (8 nov 23:59 CDMX)
+const cierre = new Date(((window.FTN_CONFIG || {}).retos || {})['reto4por4-v2'].cierreISO);
+function tick() {
+  let s = Math.max(0, Math.floor((cierre - Date.now()) / 1000));
+  const u = {d: Math.floor(s / 86400), h: Math.floor(s % 86400 / 3600), m: Math.floor(s % 3600 / 60), s: s % 60};
+  for (const k in u) document.querySelector(`#reloj [data-u="${k}"]`).textContent = String(u[k]).padStart(2, '0');
+}
+tick(); setInterval(tick, 1000);
+
+// InitiateCheckout (con canal) lo manda js/retos.js; aquí solo el evento de Clarity por plan
+if (window.clarity) clarity('set', 'variante', 'reto4por4-v2');
+document.querySelectorAll('.js-checkout').forEach(a => a.addEventListener('click', () => {
+  if (window.clarity) clarity('event', 'checkout_' + a.dataset.plan);
+}));
+</script>
+</body>
+</html>

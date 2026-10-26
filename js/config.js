@@ -136,6 +136,21 @@ window.FTN_CONFIG = {
         trimestral: { url: "https://pay.hotmart.com/K108133844H?off=wpa6cngw&checkoutMode=10&bid=1792618048788", nombre: "Reto 4x4 - Trimestral", precio: 1197 }
       }
     },
+    /* /reto4por4-v2: landing nueva del mismo reto (más corta, estancamiento,
+       video 4:5 con la voz de Bren). Mismos canales, links de Hotmart y src
+       que /reto4por4: brenvita.shop/reto4por4-v2/meta → &src=4por4-meta. */
+    "reto4por4-v2": {
+      nombre: "Reto 4x4",
+      cierreISO: "2026-11-09T05:59:00Z",
+      canales: ["meta", "influencer", "mail", "customersuccess", "whatsapp", "daninajera"],
+      srcPrefijo: "4por4-",
+      canalDefault: "organico",
+      srcPorCanal: { daninajera: "afiliada-DaniNajera" },
+      checkout: {
+        mensual:    { url: "https://pay.hotmart.com/U108131451I?off=sd2kwaky&checkoutMode=10&bid=1792618439138", nombre: "Reto 4x4 - Mensual",    precio: 599 },
+        trimestral: { url: "https://pay.hotmart.com/K108133844H?off=wpa6cngw&checkoutMode=10&bid=1792618048788", nombre: "Reto 4x4 - Trimestral", precio: 1197 }
+      }
+    },
     retopilatesxstrength: {
       nombre: "Reto Pilates x Strength",
       cierreISO: "2026-11-02T05:59:00Z",

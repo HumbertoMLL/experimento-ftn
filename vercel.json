@@ -27,6 +27,10 @@
       "destination": "/reto4por4"
     },
     {
+      "source": "/reto4por4-v2/:canal(meta|influencer|mail|customersuccess|whatsapp|daninajera|DaniNajera)",
+      "destination": "/reto4por4-v2"
+    },
+    {
       "source": "/minireto/:canal(meta|influencer|instagram|email|mail|whatsapp)",
       "destination": "/minireto"
     }
