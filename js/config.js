@@ -183,12 +183,10 @@ window.FTN_CONFIG = {
      tal cual, sin src. */
   minireto: {
     fechaTexto: "9, 10 y 11 de noviembre",
-    horaTexto: "",
-    /* Inicio del día 1 en UTC, para la cuenta regresiva "Iniciamos en".
-       Mientras no haya hora, cuenta hasta las 00:00 del 9 de nov en CDMX
-       (UTC-6). Cuando se sepa la hora, cámbiala aquí: 19:00 CDMX sería
-       "2026-11-10T01:00:00Z". Cuando pasa, el reloj se oculta solo. */
-    inicioISO: "2026-11-09T06:00:00Z",
+    horaTexto: "10:00 AM, hora Ciudad de México",
+    /* Inicio del día 1 en UTC, para la cuenta regresiva "Iniciamos en":
+       lunes 9 de nov, 10:00 CDMX (UTC-6). Cuando pasa, el reloj se oculta solo. */
+    inicioISO: "2026-11-09T16:00:00Z",
     checkout: {
       url: "https://pay.hotmart.com/R107964739Y?off=v55rexas&checkoutMode=10",
       canales: {
