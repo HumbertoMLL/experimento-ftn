@@ -33,6 +33,10 @@
     {
       "source": "/minireto/:canal(meta|influencer|instagram|email|mail|whatsapp)",
       "destination": "/minireto"
+    },
+    {
+      "source": "/minireto-v2/:canal(meta|influencer|instagram|email|mail|whatsapp)",
+      "destination": "/minireto-v2"
     }
   ],
   "headers": [
