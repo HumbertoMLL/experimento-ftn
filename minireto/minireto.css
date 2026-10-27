@@ -633,3 +633,12 @@ footer { padding: 48px 20px 32px; text-align: center; font-size: .85rem; color: 
 .horarios li { display: inline-flex; align-items: center; gap: 6px; padding: 6px 10px; border-radius: 999px; background: var(--hielo); font-size: .8rem; color: var(--gris); }
 .horarios li b { color: var(--tinta); }
 .horarios .bandera { font-size: 1rem; line-height: 1; }
+
+/* Mis empresas: logos sueltos sobre el fondo crema, grandes, sin cuadritos blancos */
+.empresas { grid-template-columns: repeat(2, 1fr); gap: 22px 18px; align-items: center; max-width: 760px; margin-top: 22px; }
+.empresa { background: transparent; border-radius: 0; padding: 0; aspect-ratio: auto; }
+.empresa img { max-height: 54px; max-width: 150px; }
+@media (min-width: 860px) {
+  .empresas { grid-template-columns: repeat(4, 1fr); max-width: 1000px; gap: 28px; }
+  .empresa img { max-height: 82px; max-width: 220px; }
+}
