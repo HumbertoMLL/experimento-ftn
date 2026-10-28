@@ -142,7 +142,7 @@ window.FTN_CONFIG = {
     "reto4por4-v2": {
       nombre: "Reto 4x4",
       cierreISO: "2026-11-09T05:59:00Z",
-      canales: ["meta", "influencer", "mail", "customersuccess", "whatsapp", "daninajera"],
+      canales: ["meta", "influencer", "instagram", "mail", "customersuccess", "whatsapp", "daninajera"],
       srcPrefijo: "4por4-",
       canalDefault: "organico",
       srcPorCanal: { daninajera: "afiliada-DaniNajera" },

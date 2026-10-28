@@ -27,7 +27,7 @@
       "destination": "/reto4por4"
     },
     {
-      "source": "/reto4por4-v2/:canal(meta|influencer|mail|customersuccess|whatsapp|daninajera|DaniNajera)",
+      "source": "/reto4por4-v2/:canal(meta|influencer|instagram|mail|customersuccess|whatsapp|daninajera|DaniNajera)",
       "destination": "/reto4por4-v2"
     },
     {
