@@ -68,7 +68,10 @@
 <!-- 1 · HERO · oscuro -->
 <section class="banda oscuro hero" id="inicio">
   <div class="angosto">
-    <div class="logo-aliado js-aliado" data-canal="global-university" hidden><img src="/assets/logo-global-university.webp" width="437" height="109" alt="Global University"></div>
+    <div class="logo-aliado js-aliado" data-canal="global-university" hidden>
+      <img src="/assets/logo-global-university.webp" width="437" height="109" alt="Global University">
+      <p class="acceso-aliado"><svg class="i"><use href="#i-info"/></svg>Acceso especial · Alumnos Global University</p>
+    </div>
     <h1 class="logo-hero"><img src="/assets/logo-reto-bren.webp" width="1460" height="509" alt="Reto: Del Consultorio a Redes Sociales, con Brenvita" fetchpriority="high"></h1>
 
     <div class="presenta">
@@ -84,7 +87,12 @@
 
     <div class="promesa-hero">
       <p>No tengo la fórmula para ser viral, y llevo más de 10 años en redes sociales. Lo que tengo es mi camino, y te lo voy a compartir por menos de lo que cuesta una consulta contigo.</p>
-      <p class="precio-hero">$197 <small>MXN</small></p>
+      <p class="precio-hero js-sin-promo">$197 <small>MXN</small></p>
+      <div class="js-promo" hidden>
+        <p class="promo-etiqueta">Precio preferencial Global University</p>
+        <p class="precio-hero"><s class="js-promo-antes">$297</s> <span class="js-promo-precio">$100</span> <small>MXN</small></p>
+        <p class="promo-vence">Vence en <b class="js-promo-falta">--</b></p>
+      </div>
     </div>
 
     <a href="#oferta" class="boton">Quiero mi lugar<svg class="i"><use href="#i-flecha-der"/></svg></a>
@@ -366,7 +374,7 @@
       </div>
     </div>
   </div>
-  <div class="centro"><a href="#oferta" class="boton">Aparta tu lugar por $197 MXN<svg class="i"><use href="#i-flecha-der"/></svg></a></div>
+  <div class="centro"><a href="#oferta" class="boton"><span>Aparta tu lugar por <span class="js-precio-txt">$197</span> MXN</span><svg class="i"><use href="#i-flecha-der"/></svg></a></div>
 </section>
 
 <!-- 7 · OFERTA Y PRECIO · oscuro -->
@@ -406,7 +414,16 @@
     <p class="aviso"><svg class="i"><use href="#i-info"/></svg><span>Además de darte muchísimo contenido de valor, en el reto te voy a contar cómo puedes seguir aprendiendo conmigo y con mi equipo. Si te interesa, puedes seguir. Si no, no pasa nada: te llevas muchísimo valor.</span></p>
 
     <div class="precio-caja">
-      <div class="js-reloj-bloque">
+      <div class="js-promo promo-reloj" hidden>
+        <p class="reloj-titulo"><svg class="i"><use href="#i-reloj"/></svg>Tu precio preferencial vence en</p>
+        <div class="reloj js-reloj-promo">
+          <div><b data-u="d">--</b><span>días</span></div>
+          <div><b data-u="h">--</b><span>horas</span></div>
+          <div><b data-u="m">--</b><span>min</span></div>
+          <div><b data-u="s">--</b><span>seg</span></div>
+        </div>
+      </div>
+      <div class="js-reloj-bloque js-sin-promo">
         <p class="reloj-titulo"><svg class="i"><use href="#i-reloj"/></svg>Iniciamos en</p>
         <div class="reloj js-reloj">
           <div><b data-u="d">--</b><span>días</span></div>
@@ -415,10 +432,12 @@
           <div><b data-u="s">--</b><span>seg</span></div>
         </div>
       </div>
-      <p class="ancla">Una consulta contigo: <s>$600 a $1,200 MXN</s></p>
-      <p class="precio">$197 <small>MXN</small></p>
-      <p class="precio-nota">Gran parte de mi experiencia creando contenido.</p>
-      <a href="#oferta" class="boton js-mr-checkout">Aparta tu lugar por $197 MXN<svg class="i"><use href="#i-flecha-der"/></svg></a>
+      <p class="ancla js-sin-promo">Una consulta contigo: <s>$600 a $1,200 MXN</s></p>
+      <p class="ancla js-promo" hidden>Precio regular: <s class="js-promo-antes">$297</s> MXN</p>
+      <p class="precio"><span class="js-precio-txt">$197</span> <small>MXN</small></p>
+      <p class="precio-nota js-sin-promo">Gran parte de mi experiencia creando contenido.</p>
+      <p class="precio-nota js-promo" hidden>Precio preferencial solo para alumnos de Global University.</p>
+      <a href="#oferta" class="boton js-mr-checkout"><span>Aparta tu lugar por <span class="js-precio-txt">$197</span> MXN</span><svg class="i"><use href="#i-flecha-der"/></svg></a>
     </div>
   </div>
   <p class="puente">Antes de que te apuntes, quiero que sepas quién te va a acompañar.</p>
@@ -504,7 +523,7 @@
       </details>
       <details>
         <summary>¿Me vas a enseñar a hacerme viral?</summary>
-        <div class="respuesta"><p>No. Si eso buscas, este no es tu reto y te ahorro los $197. Te enseño a que te entiendan y a que te agenden. Lo viral, si llega, llega después.</p></div>
+        <div class="respuesta"><p>No. Si eso buscas, este no es tu reto y te ahorro los <span class="js-precio-txt">$197</span>. Te enseño a que te entiendan y a que te agenden. Lo viral, si llega, llega después.</p></div>
       </details>
       <details>
         <summary>¿Cuándo es y cómo me conecto?</summary>
@@ -540,6 +559,26 @@
     el.hidden = el.getAttribute("data-canal") !== canal;
   });
 
+  /* Precio preferencial del aliado, vigente hasta aliado.venceISO.
+     Al vencer, la página regresa al precio normal sin recargar. */
+  var aliado = (canal && mr.aliados && mr.aliados[canal]) || null;
+  var vence = aliado ? Date.parse(aliado.venceISO || "") : NaN;
+  function promoVigente() { return !!aliado && vence > Date.now(); }
+  function pesos(n) { return "$" + n; }
+  function pintarPromo() {
+    var on = promoVigente();
+    document.querySelectorAll(".js-promo").forEach(function (el) { el.hidden = !on; });
+    document.querySelectorAll(".js-sin-promo").forEach(function (el) { el.hidden = on; });
+    document.querySelectorAll(".js-precio-txt").forEach(function (el) {
+      el.textContent = on ? pesos(aliado.precio) : "$197";
+    });
+    if (on) {
+      document.querySelectorAll(".js-promo-antes").forEach(function (el) { el.textContent = pesos(aliado.precioAntes); });
+      document.querySelectorAll(".js-promo-precio").forEach(function (el) { el.textContent = pesos(aliado.precio); });
+    }
+    return on;
+  }
+
   /* Fecha y hora al inicio de la respuesta de "¿Cuándo es?" */
   var fecha = [mr.fechaTexto, mr.horaTexto].filter(Boolean).join(" · ");
   if (fecha) {
@@ -552,32 +591,63 @@
   var inicio = Date.parse(mr.inicioISO || "");
   var bloques = document.querySelectorAll(".js-reloj-bloque");
   function dos(n) { return n < 10 ? "0" + n : "" + n; }
-  function tic() {
-    var falta = inicio - Date.now();
-    if (!(falta > 0)) { bloques.forEach(function (b) { b.hidden = true; }); return false; }
+  function partes(falta) {
     var s = Math.floor(falta / 1000);
-    var v = { d: Math.floor(s / 86400), h: Math.floor(s % 86400 / 3600), m: Math.floor(s % 3600 / 60), s: s % 60 };
-    document.querySelectorAll(".js-reloj [data-u]").forEach(function (el) {
+    return { d: Math.floor(s / 86400), h: Math.floor(s % 86400 / 3600), m: Math.floor(s % 3600 / 60), s: s % 60 };
+  }
+  function pintar(sel, v) {
+    document.querySelectorAll(sel + " [data-u]").forEach(function (el) {
       var u = el.getAttribute("data-u");
       el.textContent = u === "d" ? v.d : dos(v[u]);
     });
-    return true;
   }
-  if (tic()) setInterval(tic, 1000);
+  var promoAntes = pintarPromo();
+  function tic() {
+    var vivo = false;
+    var falta = inicio - Date.now();
+    if (falta > 0) { pintar(".js-reloj", partes(falta)); vivo = true; }
+    else bloques.forEach(function (b) { b.hidden = true; });
+
+    var promo = pintarPromo();
+    if (promo !== promoAntes) { promoAntes = promo; ponerCheckout(); }
+    if (promo) {
+      var v = partes(vence - Date.now());
+      pintar(".js-reloj-promo", v);
+      document.querySelectorAll(".js-promo-falta").forEach(function (el) {
+        el.textContent = v.d + "d " + dos(v.h) + "h " + dos(v.m) + "m " + dos(v.s) + "s";
+      });
+      vivo = true;
+    }
+    if (!(falta > 0)) bloques.forEach(function (b) { b.hidden = true; });
+    return vivo;
+  }
 
   /* Checkout: solo el botón de la caja de la oferta va a Hotmart. Los demás
      CTAs de la página bajan a #oferta (href fijo en el HTML). Ese botón usa el
      link propio del canal (checkout.canales); si no, checkout.url + &src=.
      Sin URL, se queda en href="#oferta" y no manda a ningún lado. */
-  var propia = canal && co.canales && co.canales[canal];
-  var url = (propia || co.url || "").trim();
-  if (url && canal && !propia) url += (url.indexOf("?") === -1 ? "?" : "&") + "src=" + canal;
+  var url = "", valor = co.precio || 0;
+  function ponerCheckout() {
+    if (promoVigente()) {
+      url = (aliado.checkout || "").trim();
+      valor = aliado.precio;
+    } else {
+      var propia = canal && co.canales && co.canales[canal];
+      url = (propia || co.url || "").trim();
+      if (url && canal && !propia) url += (url.indexOf("?") === -1 ? "?" : "&") + "src=" + canal;
+      valor = co.precio || 0;
+    }
+    document.querySelectorAll(".js-mr-checkout").forEach(function (btn) {
+      btn.href = url || "#oferta";
+    });
+  }
+  ponerCheckout();
+  if (tic()) setInterval(tic, 1000);
   document.querySelectorAll(".js-mr-checkout").forEach(function (btn) {
-    if (url) btn.href = url;
     btn.addEventListener("click", function () {
-      if (!url) { console.warn("[MiniReto] Falta checkout.url en js/config.js → minireto"); return; }
+      if (!url) { console.warn("[MiniReto] Falta el link de Hotmart en js/config.js → minireto"); return; }
       if (window.ftnTrack) window.ftnTrack("InitiateCheckout", {
-        content_name: co.nombre, value: co.precio || 0, currency: co.moneda || "MXN",
+        content_name: co.nombre, value: valor, currency: co.moneda || "MXN",
         variante: variante, canal: canal || "directo"
       });
     });
@@ -589,7 +659,7 @@
     var io = new IntersectionObserver(function (ents) {
       if (ents[0].isIntersecting) {
         io.disconnect();
-        if (window.ftnTrack) window.ftnTrack("ViewContent", { content_name: co.nombre, value: co.precio || 0, currency: co.moneda || "MXN", variante: variante, canal: canal || "directo" });
+        if (window.ftnTrack) window.ftnTrack("ViewContent", { content_name: co.nombre, value: valor, currency: co.moneda || "MXN", variante: variante, canal: canal || "directo" });
       }
     }, { threshold: .25 });
     io.observe(oferta);

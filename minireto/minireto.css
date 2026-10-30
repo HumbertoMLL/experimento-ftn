@@ -586,9 +586,22 @@ footer { padding: 48px 20px 32px; text-align: center; font-size: .85rem; color: 
    y el footer, Bren recortada en el about y foto de fondo en la oferta
    ============================================================ */
 /* El logo con Bren va dentro de una tarjeta: Bren se apoya en el borde de abajo */
-.logo-aliado { display: flex; justify-content: center; padding: 4px 0 22px; }
+.logo-aliado { display: flex; flex-direction: column; align-items: center; gap: 14px; padding: 4px 0 22px; }
 .logo-aliado[hidden] { display: none; }
 .logo-aliado img { width: 220px; max-width: 60%; height: auto; }
+.acceso-aliado {
+  display: inline-flex; align-items: center; gap: 8px; margin: 0 !important;
+  padding: 8px 16px; border-radius: 999px; border: 1px solid rgba(127, 200, 248, .45);
+  background: rgba(127, 200, 248, .12); color: var(--snow);
+  font-size: .8rem !important; font-weight: 700; letter-spacing: .08em; text-transform: uppercase;
+}
+.acceso-aliado .i { width: 16px; height: 16px; color: var(--sky-blue); }
+.promo-etiqueta { margin-top: 18px; font-size: .8rem !important; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; color: var(--rose); }
+.precio-hero s, .precio s { font-size: .5em; font-weight: 700; color: rgba(249, 249, 249, .55); text-decoration-thickness: 3px; text-decoration-color: var(--rose); vertical-align: middle; }
+.promo-vence { margin-top: 10px; font-size: .95rem !important; color: rgba(249, 249, 249, .8); }
+.promo-vence b { color: var(--snow); font-variant-numeric: tabular-nums; }
+.promo-reloj { margin-bottom: 18px; }
+.oferta .promo-reloj .reloj-titulo { color: var(--rose-texto); }
 .logo-hero {
   margin-top: 0 !important; max-width: 760px; margin-inline: auto; padding: 18px 14px 0;
   border-radius: var(--radio); overflow: hidden; border: 1px solid var(--noche-3);

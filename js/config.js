@@ -181,10 +181,24 @@ window.FTN_CONFIG = {
      (también sirve ?src=meta). Un canal sin link propio (instagram, email,
      whatsapp) usa checkout.url + &src=<canal>. Sin canal: checkout.url
      tal cual, sin src.
-     Aliados: brenvita.shop/minireto/global-university muestra el logo de
-     Global University arriba del hero y paga con &src=globaluniversity. */
+     Aliados (minireto.aliados): /minireto/<canal> muestra el logo del
+     aliado arriba del hero. Mientras no pase venceISO, además enseña su
+     precio preferencial (precioAntes tachado), un reloj hasta venceISO y
+     paga con aliado.checkout. Al vencer, la página vuelve sola al precio
+     normal. Sin aliado.checkout el botón no manda a ningún lado: hace
+     falta la oferta de Hotmart con ese precio. */
   minireto: {
     canales: ["meta", "influencer", "instagram", "email", "whatsapp", "global-university"],
+    aliados: {
+      "global-university": {
+        precio: 100,
+        precioAntes: 297,
+        /* 5 de nov, 23:59 CDMX (UTC-6) */
+        venceISO: "2026-11-06T05:59:00Z",
+        /* Oferta normal + cupón GlobalUniversity de Hotmart */
+        checkout: "https://pay.hotmart.com/R107964739Y?off=v55rexas&checkoutMode=10&offDiscount=GlobalUniversity&src=globaluniversity"
+      }
+    },
     fechaTexto: "9, 10 y 11 de noviembre",
     horaTexto: "10:00 AM, hora Ciudad de México",
     /* Inicio del día 1 en UTC, para la cuenta regresiva "Iniciamos en":
