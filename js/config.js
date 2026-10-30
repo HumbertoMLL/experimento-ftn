@@ -180,8 +180,11 @@ window.FTN_CONFIG = {
        brenvita.shop/minireto/mail        → checkout.canales.email (mail = email)
      (también sirve ?src=meta). Un canal sin link propio (instagram, email,
      whatsapp) usa checkout.url + &src=<canal>. Sin canal: checkout.url
-     tal cual, sin src. */
+     tal cual, sin src.
+     Aliados: brenvita.shop/minireto/global-university muestra el logo de
+     Global University arriba del hero y paga con &src=globaluniversity. */
   minireto: {
+    canales: ["meta", "influencer", "instagram", "email", "whatsapp", "global-university"],
     fechaTexto: "9, 10 y 11 de noviembre",
     horaTexto: "10:00 AM, hora Ciudad de México",
     /* Inicio del día 1 en UTC, para la cuenta regresiva "Iniciamos en":
@@ -192,7 +195,8 @@ window.FTN_CONFIG = {
       canales: {
         meta:       "https://pay.hotmart.com/R107964739Y?off=v55rexas&checkoutMode=10&src=meta",
         influencer: "https://pay.hotmart.com/R107964739Y?off=v55rexas&checkoutMode=10&src=influencer",
-        email:      "https://pay.hotmart.com/R107964739Y?off=v55rexas&checkoutMode=10&src=email"
+        email:      "https://pay.hotmart.com/R107964739Y?off=v55rexas&checkoutMode=10&src=email",
+        "global-university": "https://pay.hotmart.com/R107964739Y?off=v55rexas&checkoutMode=10&src=globaluniversity"
       },
       nombre: "MiniReto - Del Consultorio a Redes Sociales", precio: 197, moneda: "MXN"
     }

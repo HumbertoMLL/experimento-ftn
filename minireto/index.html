@@ -68,6 +68,7 @@
 <!-- 1 · HERO · oscuro -->
 <section class="banda oscuro hero" id="inicio">
   <div class="angosto">
+    <div class="logo-aliado js-aliado" data-canal="global-university" hidden><img src="/assets/logo-global-university.webp" width="437" height="109" alt="Global University"></div>
     <h1 class="logo-hero"><img src="/assets/logo-reto-bren.webp" width="1460" height="509" alt="Reto: Del Consultorio a Redes Sociales, con Brenvita" fetchpriority="high"></h1>
 
     <div class="presenta">
@@ -528,11 +529,16 @@
   var variante = document.body.getAttribute("data-variante");
 
   /* Canal: ?src=meta o /minireto/meta. Viaja al checkout como &src= */
-  var canales = (cfg.musculo && cfg.musculo.canales) || [];
+  var canales = mr.canales || (cfg.musculo && cfg.musculo.canales) || [];
   var crudo = ((location.search.match(/[?&]src=([\w-]+)/i) || [])[1]
             || (location.pathname.match(/\/minireto\/([\w-]+)\/?$/) || [])[1] || "").toLowerCase();
   if (crudo === "mail") crudo = "email";   /* /minireto/mail es el link de los correos */
   var canal = canales.indexOf(crudo) !== -1 ? crudo : "";
+
+  /* Logo del aliado arriba del hero (p. ej. /minireto/global-university) */
+  document.querySelectorAll(".js-aliado").forEach(function (el) {
+    el.hidden = el.getAttribute("data-canal") !== canal;
+  });
 
   /* Fecha y hora al inicio de la respuesta de "¿Cuándo es?" */
   var fecha = [mr.fechaTexto, mr.horaTexto].filter(Boolean).join(" · ");

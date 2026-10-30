@@ -586,6 +586,9 @@ footer { padding: 48px 20px 32px; text-align: center; font-size: .85rem; color: 
    y el footer, Bren recortada en el about y foto de fondo en la oferta
    ============================================================ */
 /* El logo con Bren va dentro de una tarjeta: Bren se apoya en el borde de abajo */
+.logo-aliado { display: flex; justify-content: center; padding: 4px 0 22px; }
+.logo-aliado[hidden] { display: none; }
+.logo-aliado img { width: 220px; max-width: 60%; height: auto; }
 .logo-hero {
   margin-top: 0 !important; max-width: 760px; margin-inline: auto; padding: 18px 14px 0;
   border-radius: var(--radio); overflow: hidden; border: 1px solid var(--noche-3);
