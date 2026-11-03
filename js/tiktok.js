@@ -1,7 +1,7 @@
 /* ============================================================
    TIKTOK PIXEL
-   Se carga en el <head> después de config.js y pixel.js, solo en
-   las landings de músculo. Manda PageView al cargar y repite hacia
+   Se carga en el <head> después de config.js y pixel.js (músculo,
+   minireto y minireto-v2). Manda PageView al cargar y repite hacia
    TikTok cada evento que pasa por window.ftnTrack (ViewContent,
    InitiateCheckout), con los mismos datos que van a Meta.
    ============================================================ */
@@ -18,8 +18,8 @@
   }(window, document, "ttq");
 
   /* Espejo: lo que ftnTrack manda a Meta, también sale a TikTok.
-     ViewContent lleva la variante como content_id; InitiateCheckout
-     lleva el plan (mensual/trimestral), el valor y la moneda. */
+     content_id: content_ids[0] (músculo), o la variante de la landing
+     (minireto, minireto-v2). content_name y value van tal cual. */
   var base = window.ftnTrack;
   window.ftnTrack = function (eventName, params) {
     if (typeof base === "function") base(eventName, params);
@@ -28,8 +28,8 @@
     var datos = {
       content_type: "product",
       contents: [{
-        content_id: ids[0] || params.content_category || "reto-mas-musculo",
-        content_name: params.content_name || "Reto Mas Musculo Menos Grasa",
+        content_id: ids[0] || params.variante || params.content_category || "landing",
+        content_name: params.content_name || document.title,
         quantity: 1,
         price: params.value || 0
       }],
