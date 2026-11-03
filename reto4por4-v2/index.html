@@ -157,6 +157,13 @@ details p{margin-top:8px;color:var(--gris)}
 .sticky div{flex:1;font-size:13px;line-height:1.25}
 .sticky b{display:block;font-size:15px}
 .sticky a{background:var(--grad);color:#fff;font-weight:700;padding:12px 18px;border-radius:999px;text-decoration:none;white-space:nowrap}
+/* BFIT · /reto4por4-v2/bfit: body.bfit enseña [data-bfit] y esconde [data-no-bfit] */
+body:not(.bfit) [data-bfit],body.bfit [data-no-bfit]{display:none!important}
+.aliado{display:flex;flex-direction:column;align-items:center;gap:8px;margin:0 0 10px}
+.aliado img{width:118px;height:auto}
+.aliado p{font-size:13px;font-weight:600;color:#C9CDFF;background:rgba(133,147,245,.14);border:1px solid rgba(133,147,245,.35);padding:6px 14px;border-radius:999px}
+.precio-hero s{opacity:.6;margin-left:4px}
+.plan .bfit-tag{display:block;font-size:13px;font-weight:700;color:#5B6BE0;margin-top:2px}
 footer{padding:28px 0 100px;text-align:center;font-size:12px;color:var(--gris)}
 
 </style>
@@ -165,10 +172,15 @@ footer{padding:28px 0 100px;text-align:center;font-size:12px;color:var(--gris)}
 <noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=1645815772229731&ev=PageView&noscript=1" /></noscript>
 </head>
 <body data-variante="reto4por4-v2">
+<script>if (/\/bfit\/?$/i.test(location.pathname) || /[?&]src=bfit(&|$)/i.test(location.search)) document.body.classList.add('bfit');</script>
 
 <!-- 1 · HERO -->
 <header class="hero noche">
   <div class="in">
+    <div class="aliado" data-bfit>
+      <img src="/assets/logo-bfit.webp" width="473" height="173" alt="BFIT">
+      <p>Acceso especial · Clientes BFIT</p>
+    </div>
     <span class="cinta">El último empujón para cerrar el año con todo <b>9 nov → 6 dic</b></span>
     <img class="logo" src="/assets/logo-4x4.svg" alt="Reto 4x4" width="490" height="431">
     <h1>Sal del <span class="hl">estancamiento</span> en 4 semanas.</h1>
@@ -180,7 +192,8 @@ footer{padding:28px 0 100px;text-align:center;font-size:12px;color:var(--gris)}
       <div class="chip"><b>4</b>vasos de agua</div>
       <div class="chip"><b>4</b>verduras al día</div>
     </div>
-    <p class="precio-hero">Todo en la palma de tu mano con la app de FTN · desde <b>$399</b> al mes</p>
+    <p class="precio-hero" data-no-bfit>Todo en la palma de tu mano con la app de FTN · desde <b>$399</b> al mes</p>
+    <p class="precio-hero" data-bfit>Por ser cliente BFIT, tu primer mes en la app de FTN a <b>$100</b><s>$599</s></p>
     <a href="#oferta" class="cta">Quiero salir del estancamiento</a>
     <div class="prueba">
       <div class="caras">
@@ -269,7 +282,8 @@ footer{padding:28px 0 100px;text-align:center;font-size:12px;color:var(--gris)}
   <div class="in">
     <div class="centro">
       <div class="fechas-big"><div><small>Empieza</small><b>9 nov</b></div><span>→</span><div><small>Termina</small><b>6 dic</b></div></div>
-      <h2>Ahora sí, elige cómo entrar</h2>
+      <h2 data-no-bfit>Ahora sí, elige cómo entrar</h2>
+      <h2 data-bfit>Ahora sí, entra con tu precio BFIT</h2>
       <p style="font-size:14px;opacity:.8">Cerramos inscripciones el 8 de noviembre</p>
       <div class="reloj" id="reloj">
         <div><b data-u="d">--</b><span>días</span></div><div><b data-u="h">--</b><span>horas</span></div>
@@ -277,7 +291,21 @@ footer{padding:28px 0 100px;text-align:center;font-size:12px;color:var(--gris)}
       </div>
     </div>
 
-    <div class="plan top">
+    <div class="plan top" data-bfit>
+      <span class="badge">Precio especial clientes BFIT</span>
+      <div class="nombre">Mensual</div>
+      <div><span class="monto">$100</span> MXN <span class="tachado">$599</span></div>
+      <div class="mes">Tu primer mes. Después, $599 al mes.</div>
+      <ul>
+        <li>Reto 4x4 completo</li>
+        <li>Plan de comida y más de 1,000 recetas</li>
+        <li>Todas las clases y retos de FTN</li>
+      </ul>
+      <a class="cta js-checkout" data-plan="bfit" href="#oferta">Entrar por $100</a>
+      <p class="cancela">Se renueva cada mes a $599 · cancela desde la app</p>
+    </div>
+
+    <div class="plan top" data-no-bfit>
       <span class="badge">Recomendado · 3x2</span>
       <div class="nombre">Trimestral</div>
       <div><span class="monto">$1,197</span> MXN <span class="tachado">$1,797</span></div>
@@ -291,7 +319,7 @@ footer{padding:28px 0 100px;text-align:center;font-size:12px;color:var(--gris)}
       <p class="cancela">Un pago cada 3 meses · cancela cuando quieras</p>
     </div>
 
-    <div class="plan">
+    <div class="plan" data-no-bfit>
       <div class="nombre">Mensual</div>
       <div><span class="monto">$599</span> MXN</div>
       <ul>
@@ -312,7 +340,8 @@ footer{padding:28px 0 100px;text-align:center;font-size:12px;color:var(--gris)}
     <details><summary>Llevo mucho sin entrenar, ¿puedo?</summary><p>Sí. Cada clase tiene opción de entrada y opción avanzada. Si tienes una lesión o condición médica, consulta antes.</p></details>
     <details><summary>¿Necesito equipo?</summary><p>Un par de mancuernas o lo que tengas en casa, y tu tapete.</p></details>
     <details><summary>¿Voy a bajar de peso?</summary><p>La mayoría cambia medidas y composición. No prometemos kilos: prometemos un sistema que, si lo cumples, da resultados.</p></details>
-    <details><summary>¿El cobro se repite?</summary><p>Mensual: $599 cada mes hasta que canceles. Trimestral: $1,197 una vez por 3 meses. Cancelas desde la app, sin llamadas.</p></details>
+    <details data-bfit><summary>¿El cobro se repite?</summary><p>Pagas $100 el primer mes y después $599 cada mes hasta que canceles. Cancelas desde la app, sin llamadas.</p></details>
+    <details data-no-bfit><summary>¿El cobro se repite?</summary><p>Mensual: $599 cada mes hasta que canceles. Trimestral: $1,197 una vez por 3 meses. Cancelas desde la app, sin llamadas.</p></details>
   </div>
 </section>
 
@@ -328,7 +357,8 @@ footer{padding:28px 0 100px;text-align:center;font-size:12px;color:var(--gris)}
 <footer>© 2026 FTN · Reto 4x4</footer>
 
 <div class="sticky" id="sticky">
-  <div><b>Reto 4x4 · 9 nov</b>Desde $399 al mes</div>
+  <div data-no-bfit><b>Reto 4x4 · 9 nov</b>Desde $399 al mes</div>
+  <div data-bfit><b>Reto 4x4 · 9 nov</b>Clientes BFIT: primer mes a $100</div>
   <a href="#oferta">Quiero entrar</a>
 </div>
 

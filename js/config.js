@@ -138,17 +138,21 @@ window.FTN_CONFIG = {
     },
     /* /reto4por4-v2: landing nueva del mismo reto (más corta, estancamiento,
        video 4:5 con la voz de Bren). Mismos canales, links de Hotmart y src
-       que /reto4por4: brenvita.shop/reto4por4-v2/meta → &src=4por4-meta. */
+       que /reto4por4: brenvita.shop/reto4por4-v2/meta → &src=4por4-meta.
+       BFIT: /reto4por4-v2/bfit enseña el logo de BFIT y una sola tarjeta,
+       checkout.bfit (mensual a $100 el primer mes y luego $599, oferta propia
+       de Hotmart), con &src=4por4-bfit. */
     "reto4por4-v2": {
       nombre: "Reto 4x4",
       cierreISO: "2026-11-09T05:59:00Z",
-      canales: ["meta", "influencer", "instagram", "mail", "customersuccess", "whatsapp", "daninajera"],
+      canales: ["meta", "influencer", "instagram", "mail", "customersuccess", "whatsapp", "daninajera", "bfit"],
       srcPrefijo: "4por4-",
       canalDefault: "organico",
       srcPorCanal: { daninajera: "afiliada-DaniNajera" },
       checkout: {
         mensual:    { url: "https://pay.hotmart.com/U108131451I?off=sd2kwaky&checkoutMode=10&bid=1792618439138", nombre: "Reto 4x4 - Mensual",    precio: 599 },
-        trimestral: { url: "https://pay.hotmart.com/K108133844H?off=wpa6cngw&checkoutMode=10&bid=1792618048788", nombre: "Reto 4x4 - Trimestral", precio: 1197 }
+        trimestral: { url: "https://pay.hotmart.com/K108133844H?off=wpa6cngw&checkoutMode=10&bid=1792618048788", nombre: "Reto 4x4 - Trimestral", precio: 1197 },
+        bfit:       { url: "https://pay.hotmart.com/T76408466K?off=juyjcchk&checkoutMode=10&bid=1793288248105", nombre: "Reto 4x4 - Mensual BFIT", precio: 100 }
       }
     },
     retopilatesxstrength: {
