@@ -639,8 +639,9 @@ footer { padding: 48px 20px 32px; text-align: center; font-size: .85rem; color: 
 .sube-hero .reloj-titulo { justify-content: center; color: var(--rose); }
 .sube-hero .reloj { margin: 10px auto 0; }
 .sube-hero .reloj-titulo .i { color: var(--rose); }
-.oferta .cierre-oferta .reloj-titulo { color: var(--rose-texto); }
-.oferta .cierre-oferta .reloj-titulo .i { color: var(--rose-texto); }
+.oferta .cierre-oferta .reloj-titulo { color: #C3101F; }
+.oferta .cierre-oferta .reloj-titulo .i { color: #C3101F; }
+.barra-precio small.js-cierre-bloque { color: #FF4D5A; }
 
 /* Cómo me has visto en */
 .prensa { max-width: 1120px; margin: 14px auto 0; display: grid; gap: 12px; }
@@ -714,7 +715,7 @@ footer { padding-bottom: 96px; }
 /* V2 · aviso rojo hasta arriba y timer del hero en rojo */
 .aviso-cierre {
   position: sticky; top: 0; z-index: 60; padding: 10px 16px; text-align: center;
-  background: var(--rose); color: #fff; box-shadow: 0 6px 20px rgba(255, 99, 146, .35);
+  background: #E11D2E; color: #fff; box-shadow: 0 6px 20px rgba(225, 29, 46, .4);
 }
 .aviso-cierre p { font-size: .9rem; line-height: 1.35; font-weight: 600; }
 .aviso-cierre b { font-weight: 800; }
@@ -722,14 +723,14 @@ footer { padding-bottom: 96px; }
 .aviso-cierre[hidden] { display: none !important; }
 .hero-oferta { font-size: 1.02rem !important; font-weight: 600; color: var(--snow); line-height: 1.4 !important; }
 .hero .precio-antes { margin-top: 10px; }
-.sube-hero { border-top: 0; margin-top: 14px; padding: 14px 12px 12px; border-radius: 18px; background: rgba(255, 99, 146, .12); border: 1px solid rgba(255, 99, 146, .5); }
+.sube-hero { border-top: 0; margin-top: 14px; padding: 14px 12px 12px; border-radius: 18px; background: rgba(225, 29, 46, .14); border: 1px solid rgba(225, 29, 46, .6); }
 .sube-hero .reloj-titulo { color: #fff; font-size: .78rem; }
 .sube-hero .reloj-titulo .i { color: #fff; }
-.sube-hero .reloj div { background: var(--rose); border-color: var(--rose); }
+.sube-hero .reloj div { background: #E11D2E; border-color: #E11D2E; }
 .sube-hero .reloj b { color: #fff; }
 .sube-hero .reloj span { color: rgba(255, 255, 255, .85); }
-.oferta .cierre-oferta { padding: 14px 12px 12px; border-radius: 18px; background: #FFF0F4; border: 1px solid rgba(255, 99, 146, .4); }
-.oferta .cierre-oferta .reloj div { background: var(--rose); }
+.oferta .cierre-oferta { padding: 14px 12px 12px; border-radius: 18px; background: #FFF1F1; border: 1px solid rgba(225, 29, 46, .4); }
+.oferta .cierre-oferta .reloj div { background: #E11D2E; }
 .oferta .cierre-oferta .reloj b, .oferta .cierre-oferta .reloj span { color: #fff; }
 @media (min-width: 860px) { .aviso-cierre p { font-size: 1rem; } .hero-oferta { max-width: 520px; margin-inline: auto; } }
 .solo-pc { display: none; }
@@ -757,7 +758,8 @@ footer { padding-bottom: 96px; }
 /* Cierre de inscripciones (js/cierre.js) */
 .aviso-cierre .js-cierre-txt { font-size: 1.05em; }
 .cierre-oferta { margin-bottom: 18px; }
-.oferta .cierre-oferta .reloj-titulo { color: var(--rose-texto); }
-.oferta .cierre-oferta .reloj-titulo .i { color: var(--rose-texto); }
+.oferta .cierre-oferta .reloj-titulo { color: #C3101F; }
+.oferta .cierre-oferta .reloj-titulo .i { color: #C3101F; }
+.barra-precio small.js-cierre-bloque { color: #FF4D5A; }
 .cierre-activo .js-reloj-bloque { display: none !important; }
 @media (min-width: 860px) { .aviso-cierre .solo-pc { display: inline; } }

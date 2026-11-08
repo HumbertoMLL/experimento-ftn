@@ -87,7 +87,6 @@
 
     <div class="promesa-hero">
       <p class="hero-oferta">Tres días de contenido, más recursos para facilitarte tu camino en redes, por solo:</p>
-      <p class="precio-antes js-antes"><s>$297 MXN</s></p>
       <p class="precio-hero"><span class="js-precio">$197</span> <small>MXN</small></p>
       <div class="js-cierre-bloque sube-hero">
         <p class="reloj-titulo"><svg class="i"><use href="#i-reloj"/></svg>Cerramos inscripciones en</p>
@@ -398,7 +397,6 @@
           <div><b data-u="s">--</b><span>seg</span></div>
         </div>
       </div>
-      <p class="precio-antes js-antes"><s>$297 MXN</s></p>
       <p class="precio"><span class="js-precio">$197</span> <small>MXN</small></p>
       <p class="precio-nota">Menos de lo que cobras por una consulta.</p>
       <a href="#oferta" class="boton js-mr-checkout"><span>Aparta tu lugar por <span class="js-precio">$197</span> MXN</span><svg class="i"><use href="#i-flecha-der"/></svg></a>
@@ -492,7 +490,7 @@
 
 <div class="barra js-barra" hidden>
   <div class="barra-precio">
-    <p><s class="js-antes">$297</s> <b class="js-precio">$197</b> MXN</p>
+    <p><b class="js-precio">$197</b> MXN</p>
     <small class="js-cierre-bloque">Cerramos en <span class="js-cierre-txt">--</span></small>
   </div>
   <a href="#oferta" class="boton">Quiero mi lugar</a>
@@ -523,12 +521,10 @@
     faq.textContent = fecha.charAt(0).toUpperCase() + fecha.slice(1) + ". " + faq.textContent;
   }
 
-  /* Precio de lanzamiento: $197 hasta el sábado 31 oct a las 23:59 CDMX.
-     El domingo 1 de noviembre (00:00 CDMX = 06:00 UTC) sube a $297:
-     se quita el tachado, todos los precios dicen $297 y el reloj de la
-     oferta vuelve a "Iniciamos en". El link de Hotmart NO cambia solo:
-     el precio de la oferta en Hotmart se sube a mano ese día. */
-  var PRECIO = { ahora: "$197", despues: "$297", subeISO: "2026-11-01T06:00:00Z" };
+  /* Precio: $197 MXN fijo (la subida a $297 del 1 de nov se descartó).
+     subeISO queda en el pasado para que no aparezca ningún tachado ni
+     bloque de "sube el precio"; el cierre lo maneja js/cierre.js. */
+  var PRECIO = { ahora: "$197", despues: "$197", subeISO: "2026-11-01T06:00:00Z" };
   var sube = Date.parse(PRECIO.subeISO);
   var inicio = Date.parse(mr.inicioISO || "");
   function dos(n) { return n < 10 ? "0" + n : "" + n; }
