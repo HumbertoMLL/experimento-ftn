@@ -208,6 +208,10 @@ window.FTN_CONFIG = {
     /* Inicio del día 1 en UTC, para la cuenta regresiva "Iniciamos en":
        lunes 9 de nov, 10:00 CDMX (UTC-6). Cuando pasa, el reloj se oculta solo. */
     inicioISO: "2026-11-09T16:00:00Z",
+    /* Cierre de inscripciones: domingo 8 nov, 11:59 PM CDMX (= 9 nov 05:59 UTC).
+       Lo usa js/cierre.js en /minireto y /minireto-v2: banda roja arriba y
+       relojes "Cerramos inscripciones en". Al vencer se esconden solos. */
+    cierreISO: "2026-11-09T05:59:59Z",
     checkout: {
       url: "https://pay.hotmart.com/R107964739Y?off=v55rexas&checkoutMode=10",
       canales: {

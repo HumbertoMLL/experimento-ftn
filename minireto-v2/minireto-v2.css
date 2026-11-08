@@ -639,8 +639,8 @@ footer { padding: 48px 20px 32px; text-align: center; font-size: .85rem; color: 
 .sube-hero .reloj-titulo { justify-content: center; color: var(--rose); }
 .sube-hero .reloj { margin: 10px auto 0; }
 .sube-hero .reloj-titulo .i { color: var(--rose); }
-.oferta .js-sube-bloque .reloj-titulo { color: var(--rose-texto); }
-.oferta .js-sube-bloque .reloj-titulo .i { color: var(--rose-texto); }
+.oferta .cierre-oferta .reloj-titulo { color: var(--rose-texto); }
+.oferta .cierre-oferta .reloj-titulo .i { color: var(--rose-texto); }
 
 /* Cómo me has visto en */
 .prensa { max-width: 1120px; margin: 14px auto 0; display: grid; gap: 12px; }
@@ -712,14 +712,14 @@ footer { padding-bottom: 96px; }
 .horarios .bandera { font-size: 1rem; line-height: 1; }
 
 /* V2 · aviso rojo hasta arriba y timer del hero en rojo */
-.aviso-sube {
+.aviso-cierre {
   position: sticky; top: 0; z-index: 60; padding: 10px 16px; text-align: center;
   background: var(--rose); color: #fff; box-shadow: 0 6px 20px rgba(255, 99, 146, .35);
 }
-.aviso-sube p { font-size: .9rem; line-height: 1.35; font-weight: 600; }
-.aviso-sube b { font-weight: 800; }
-.aviso-sube .js-barra-reloj { font-variant-numeric: tabular-nums; font-weight: 800; }
-.aviso-sube[hidden] { display: none !important; }
+.aviso-cierre p { font-size: .9rem; line-height: 1.35; font-weight: 600; }
+.aviso-cierre b { font-weight: 800; }
+.aviso-cierre .js-cierre-txt { font-variant-numeric: tabular-nums; font-weight: 800; }
+.aviso-cierre[hidden] { display: none !important; }
 .hero-oferta { font-size: 1.02rem !important; font-weight: 600; color: var(--snow); line-height: 1.4 !important; }
 .hero .precio-antes { margin-top: 10px; }
 .sube-hero { border-top: 0; margin-top: 14px; padding: 14px 12px 12px; border-radius: 18px; background: rgba(255, 99, 146, .12); border: 1px solid rgba(255, 99, 146, .5); }
@@ -728,13 +728,13 @@ footer { padding-bottom: 96px; }
 .sube-hero .reloj div { background: var(--rose); border-color: var(--rose); }
 .sube-hero .reloj b { color: #fff; }
 .sube-hero .reloj span { color: rgba(255, 255, 255, .85); }
-.oferta .js-sube-bloque { padding: 14px 12px 12px; border-radius: 18px; background: #FFF0F4; border: 1px solid rgba(255, 99, 146, .4); }
-.oferta .js-sube-bloque .reloj div { background: var(--rose); }
-.oferta .js-sube-bloque .reloj b, .oferta .js-sube-bloque .reloj span { color: #fff; }
-@media (min-width: 860px) { .aviso-sube p { font-size: 1rem; } .hero-oferta { max-width: 520px; margin-inline: auto; } }
+.oferta .cierre-oferta { padding: 14px 12px 12px; border-radius: 18px; background: #FFF0F4; border: 1px solid rgba(255, 99, 146, .4); }
+.oferta .cierre-oferta .reloj div { background: var(--rose); }
+.oferta .cierre-oferta .reloj b, .oferta .cierre-oferta .reloj span { color: #fff; }
+@media (min-width: 860px) { .aviso-cierre p { font-size: 1rem; } .hero-oferta { max-width: 520px; margin-inline: auto; } }
 .solo-pc { display: none; }
-.aviso-sube { padding: 9px 14px; }
-.aviso-sube p { font-size: .86rem; }
+.aviso-cierre { padding: 9px 14px; }
+.aviso-cierre p { font-size: .86rem; }
 .hero .chip { font-size: .84rem; }
 .hero .promesa-hero { padding-top: 16px; }
 .hero-oferta { font-size: .98rem !important; }
@@ -753,3 +753,11 @@ footer { padding-bottom: 96px; }
   .empresas { grid-template-columns: repeat(4, 1fr); max-width: 1000px; gap: 28px; }
   .empresa img { max-height: 82px; max-width: 220px; }
 }
+
+/* Cierre de inscripciones (js/cierre.js) */
+.aviso-cierre .js-cierre-txt { font-size: 1.05em; }
+.cierre-oferta { margin-bottom: 18px; }
+.oferta .cierre-oferta .reloj-titulo { color: var(--rose-texto); }
+.oferta .cierre-oferta .reloj-titulo .i { color: var(--rose-texto); }
+.cierre-activo .js-reloj-bloque { display: none !important; }
+@media (min-width: 860px) { .aviso-cierre .solo-pc { display: inline; } }

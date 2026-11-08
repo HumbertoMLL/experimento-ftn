@@ -64,6 +64,9 @@
   <symbol id="i-info" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></symbol>
 </svg>
 
+<div class="aviso-cierre js-cierre-bloque">
+  <p><b>Cerramos inscripciones en:</b> <span class="js-cierre-txt">--</span><span class="solo-pc"> · domingo 8 de noviembre, 11:59 PM hora CDMX</span></p>
+</div>
 <main>
 
 <!-- 1 · HERO · oscuro -->
@@ -89,6 +92,7 @@
     <div class="promesa-hero">
       <p>No tengo la fórmula para ser viral, y llevo más de 10 años en redes sociales. Lo que tengo es mi camino, y te lo voy a compartir por menos de lo que cuesta una consulta contigo.</p>
       <p class="precio-hero js-sin-promo">$197 <small>MXN</small></p>
+      <p class="cierre-hero js-cierre-bloque"><svg class="i"><use href="#i-reloj"/></svg>Cerramos inscripciones en <b class="js-cierre-txt">--</b></p>
       <div class="js-promo" hidden>
         <p class="promo-etiqueta">Precio preferencial Global University</p>
         <p class="precio-hero"><s class="js-promo-antes">$297</s> <span class="js-promo-precio">$100</span> <small>MXN</small></p>
@@ -424,6 +428,15 @@
           <div><b data-u="s">--</b><span>seg</span></div>
         </div>
       </div>
+      <div class="js-cierre-bloque cierre-oferta">
+        <p class="reloj-titulo"><svg class="i"><use href="#i-reloj"/></svg>Cerramos inscripciones en</p>
+        <div class="reloj js-cierre-reloj">
+          <div><b data-u="d">--</b><span>días</span></div>
+          <div><b data-u="h">--</b><span>horas</span></div>
+          <div><b data-u="m">--</b><span>min</span></div>
+          <div><b data-u="s">--</b><span>seg</span></div>
+        </div>
+      </div>
       <div class="js-reloj-bloque js-sin-promo">
         <p class="reloj-titulo"><svg class="i"><use href="#i-reloj"/></svg>Iniciamos en</p>
         <div class="reloj js-reloj">
@@ -668,5 +681,6 @@
 })();
 </script>
 <script src="/js/scroll-eventos.js"></script>
+<script src="/js/cierre.js"></script>
 </body>
 </html>

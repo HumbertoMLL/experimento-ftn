@@ -65,8 +65,8 @@
   <symbol id="i-info" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></symbol>
 </svg>
 
-<div class="aviso-sube js-sube-bloque">
-  <p><b>Últimos días a $197</b><span class="solo-pc"> · el domingo 1 de noviembre</span> sube a $297 · <span class="js-barra-reloj">--</span></p>
+<div class="aviso-cierre js-cierre-bloque">
+  <p><b>Cerramos inscripciones en:</b> <span class="js-cierre-txt">--</span><span class="solo-pc"> · domingo 8 de noviembre, 11:59 PM hora CDMX</span></p>
 </div>
 <main>
 
@@ -89,9 +89,9 @@
       <p class="hero-oferta">Tres días de contenido, más recursos para facilitarte tu camino en redes, por solo:</p>
       <p class="precio-antes js-antes"><s>$297 MXN</s></p>
       <p class="precio-hero"><span class="js-precio">$197</span> <small>MXN</small></p>
-      <div class="js-sube-bloque sube-hero">
-        <p class="reloj-titulo"><svg class="i"><use href="#i-reloj"/></svg>El precio sube el domingo 1 de noviembre</p>
-        <div class="reloj js-reloj-sube">
+      <div class="js-cierre-bloque sube-hero">
+        <p class="reloj-titulo"><svg class="i"><use href="#i-reloj"/></svg>Cerramos inscripciones en</p>
+        <div class="reloj js-cierre-reloj">
           <div><b data-u="d">--</b><span>días</span></div>
           <div><b data-u="h">--</b><span>horas</span></div>
           <div><b data-u="m">--</b><span>min</span></div>
@@ -380,9 +380,9 @@
     <p class="aviso"><svg class="i"><use href="#i-info"/></svg><span>Además de darte muchísimo contenido de valor, en el reto te voy a contar cómo puedes seguir aprendiendo conmigo y con mi equipo. Si te interesa, puedes seguir. Si no, no pasa nada: te llevas muchísimo valor.</span></p>
 
     <div class="precio-caja">
-      <div class="js-sube-bloque">
-        <p class="reloj-titulo"><svg class="i"><use href="#i-reloj"/></svg>Últimos días a $197 · el domingo sube a $297</p>
-        <div class="reloj js-reloj-sube">
+      <div class="js-cierre-bloque cierre-oferta">
+        <p class="reloj-titulo"><svg class="i"><use href="#i-reloj"/></svg>Cerramos inscripciones en</p>
+        <div class="reloj js-cierre-reloj">
           <div><b data-u="d">--</b><span>días</span></div>
           <div><b data-u="h">--</b><span>horas</span></div>
           <div><b data-u="m">--</b><span>min</span></div>
@@ -493,7 +493,7 @@
 <div class="barra js-barra" hidden>
   <div class="barra-precio">
     <p><s class="js-antes">$297</s> <b class="js-precio">$197</b> MXN</p>
-    <small class="js-sube-bloque">Sube a $297 en <span class="js-barra-reloj">--</span></small>
+    <small class="js-cierre-bloque">Cerramos en <span class="js-cierre-txt">--</span></small>
   </div>
   <a href="#oferta" class="boton">Quiero mi lugar</a>
 </div>
@@ -605,5 +605,6 @@
 })();
 </script>
 <script src="/js/scroll-eventos.js"></script>
+<script src="/js/cierre.js"></script>
 </body>
 </html>
