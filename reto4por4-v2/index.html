@@ -126,9 +126,9 @@ p+p{margin-top:12px}
 .fechas-big b{font-family:"Bricolage Grotesque";font-size:34px;line-height:1.05}
 .fechas-big span{font-size:28px;color:var(--naranja);font-weight:800}
 .reloj{display:flex;gap:8px;justify-content:center;margin:12px 0 22px}
-.reloj div{background:rgba(255,255,255,.08);border-radius:12px;padding:8px 10px;min-width:62px;text-align:center}
+.reloj div{background:#D3132B;border-radius:12px;padding:8px 10px;min-width:62px;text-align:center}
 .reloj b{display:block;font-family:"Bricolage Grotesque";font-size:26px}
-.reloj span{font-size:11px;opacity:.7}
+.reloj span{font-size:11px;opacity:.85}
 .plan{background:#fff;color:var(--tinta);border-radius:20px;padding:22px;margin-bottom:14px;position:relative}
 .plan.top{border:3px solid transparent;background:linear-gradient(#fff,#fff) padding-box,var(--grad) border-box}
 .badge{position:absolute;top:-13px;left:50%;transform:translateX(-50%);background:var(--grad);color:#fff;font-size:12px;font-weight:700;padding:5px 14px;border-radius:999px;white-space:nowrap}
@@ -170,6 +170,17 @@ body:not(.bfit) [data-bfit],body.bfit [data-no-bfit]{display:none!important}
 .banda-bfit span:last-child{color:#AEB6FF;white-space:nowrap}
 body.bfit{padding-top:38px}
 body.bfit #oferta{scroll-margin-top:38px}
+.barra-cierre[hidden]{display:none}
+.barra-cierre{position:fixed;top:0;left:0;right:0;z-index:50;display:flex;justify-content:center;align-items:baseline;gap:8px;
+  padding:9px 12px;background:#D3132B;color:#fff;text-decoration:none;font-size:13px;font-weight:600;white-space:nowrap}
+.barra-cierre b{font-size:16px;font-weight:800;font-variant-numeric:tabular-nums;letter-spacing:.02em}
+body:has(.barra-cierre:not([hidden])){padding-top:38px}
+body.bfit:has(.barra-cierre:not([hidden])){padding-top:76px}
+body:has(.barra-cierre:not([hidden])) .banda-bfit{top:38px}
+body:has(.barra-cierre:not([hidden])) #oferta{scroll-margin-top:38px}
+body.bfit:has(.barra-cierre:not([hidden])) #oferta{scroll-margin-top:76px}
+body.bfit:has(.barra-cierre:not([hidden])) .hero{padding-top:12px}
+body.bfit:has(.barra-cierre:not([hidden])) .hero .aliado img{width:92px}
 .plan .bfit-tag{display:block;font-size:13px;font-weight:700;color:#5B6BE0;margin-top:2px}
 footer{padding:28px 0 100px;text-align:center;font-size:12px;color:var(--gris)}
 
@@ -179,6 +190,7 @@ footer{padding:28px 0 100px;text-align:center;font-size:12px;color:var(--gris)}
 <noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=1645815772229731&ev=PageView&noscript=1" /></noscript>
 </head>
 <body data-variante="reto4por4-v2">
+<a class="barra-cierre js-cierre" href="#oferta" hidden>Cerramos inscripciones en: <b><span data-u="d">-</span>d <span data-u="h">--</span>:<span data-u="m">--</span>:<span data-u="s">--</span></b></a>
 <a class="banda-bfit" href="#oferta" data-bfit><img src="/assets/logo-bfit.webp" width="473" height="173" alt="BFIT"><span><b>Acceso especial</b> · tu primer mes a $100</span><span>→</span></a>
 <script>if (/\/bfit\/?$/i.test(location.pathname) || /[?&]src=bfit(&|$)/i.test(location.search)) document.body.classList.add('bfit');</script>
 
@@ -292,7 +304,7 @@ footer{padding:28px 0 100px;text-align:center;font-size:12px;color:var(--gris)}
       <h2 data-no-bfit>Ahora sí, elige cómo entrar</h2>
       <div class="aliado" data-bfit><img src="/assets/logo-bfit.webp" width="473" height="173" alt="BFIT" loading="lazy"></div>
       <h2 data-bfit>Ahora sí, entra con tu precio BFIT</h2>
-      <p style="font-size:14px;opacity:.8">Cerramos inscripciones el 8 de noviembre</p>
+      <p style="font-size:17px;font-weight:800;color:#FF4D5E">Cerramos inscripciones en:</p>
       <div class="reloj" id="reloj">
         <div><b data-u="d">--</b><span>días</span></div><div><b data-u="h">--</b><span>horas</span></div>
         <div><b data-u="m">--</b><span>min</span></div><div><b data-u="s">--</b><span>seg</span></div>

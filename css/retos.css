@@ -327,6 +327,10 @@ footer .marca.logo-4x4-pie { width: 110px; margin-bottom: 14px; }
 .sec.noche .cierre-reloj div { background: var(--noche-2); border-color: var(--rosa); }
 .sec.noche .cierre-titulo, .sec.noche .cierre-reloj b, .sec.noche .cierre-reloj span { color: var(--rosa); }
 .sec.noche .cierre-reloj b { color: var(--blanco); }
+/* Reto 4x4: reloj de la oferta en rojo */
+[data-variante="reto4por4"] .sec.noche .cierre-reloj div { background: var(--rojo); border-color: var(--rojo); }
+[data-variante="reto4por4"] .sec.noche .cierre-titulo { color: #FF4D5E; }
+[data-variante="reto4por4"] .sec.noche .cierre-reloj span { color: var(--blanco); }
 
 /* ============================================================
    COACHES
@@ -420,3 +424,18 @@ footer .marca { width: 80px; margin-bottom: 14px; }
   .puntos i { width: 28px; height: 28px; }
   .anillo-b4 span { font-size: .62rem; }
 }
+
+/* ============================================================
+   BARRA ROJA DE CIERRE (fija arriba, /reto4por4 y /reto4por4-v2)
+   La enciende js/retos.js (.js-cierre) cuando faltan 7 días o menos.
+   ============================================================ */
+.barra-cierre[hidden] { display: none; }
+.barra-cierre {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 50;
+  display: flex; justify-content: center; align-items: baseline; gap: 8px;
+  padding: 9px 12px; background: #D3132B; color: #fff; text-decoration: none;
+  font-size: 13px; font-weight: 600; white-space: nowrap;
+}
+.barra-cierre b { font-size: 16px; font-weight: 800; font-variant-numeric: tabular-nums; letter-spacing: .02em; }
+body:has(.barra-cierre:not([hidden])) { padding-top: 38px; }
+body:has(.barra-cierre:not([hidden])) #oferta { scroll-margin-top: 38px !important; }
