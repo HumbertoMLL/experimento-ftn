@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Edita tu primer reel con IA, paso a paso | Brenvita Shop</title>
+<meta name="description" content="Herramienta del mini reto: arma tu prompt, graba tu video, súbelo a Claude o ChatGPT y descarga tu reel editado.">
+<meta name="theme-color" content="#0F1B2B">
+<link rel="icon" href="/assets/favicon-ftn.png" type="image/png">
+<link rel="canonical" href="https://www.brenvita.shop/editar-tu-video-con-ia">
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,400;0,600;0,700;0,800;1,400&display=swap">
+<link rel="stylesheet" href="/editar-tu-video-con-ia/editar.css">
+<script defer src="/_vercel/insights/script.js"></script>
+<script defer src="/_vercel/speed-insights/script.js"></script>
+</head>
+<body>
+
+<!-- Íconos de una sola línea. Se usan con <svg class="i"><use href="#i-nombre"/></svg> -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-video" viewBox="0 0 24 24"><path d="m16 13 5.2 3.1a.5.5 0 0 0 .8-.4V8.3a.5.5 0 0 0-.8-.4L16 11"/><rect x="2" y="6" width="14" height="12" rx="2"/></symbol>
+  <symbol id="i-sol" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></symbol>
+  <symbol id="i-persona" viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></symbol>
+  <symbol id="i-reloj" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></symbol>
+  <symbol id="i-repetir" viewBox="0 0 24 24"><path d="M17 2l4 4-4 4"/><path d="M3 11V9a3 3 0 0 1 3-3h15M7 22l-4-4 4-4"/><path d="M21 13v2a3 3 0 0 1-3 3H3"/></symbol>
+  <symbol id="i-copiar" viewBox="0 0 24 24"><rect x="9" y="9" width="12" height="12" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h8"/></symbol>
+  <symbol id="i-check" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></symbol>
+  <symbol id="i-chispas" viewBox="0 0 24 24"><path d="M12 3l1.9 5.1L19 10l-5.1 1.9L12 17l-1.9-5.1L5 10l5.1-1.9Z"/><path d="M19 3v4M17 5h4M5 17v4M3 19h4"/></symbol>
+  <symbol id="i-comentario" viewBox="0 0 24 24"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/></symbol>
+  <symbol id="i-flecha-der" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></symbol>
+  <symbol id="i-flecha" viewBox="0 0 24 24"><path d="M12 5v14M19 12l-7 7-7-7"/></symbol>
+</svg>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<div class="inapp" id="inapp"><b>Estás dentro del navegador de una app.</b> Para copiar y subir tu video sin problemas, ábrelo en Chrome o Safari.<br><button type="button" id="inappcopy">Copiar enlace</button><button type="button" id="inappx">Entendido</button></div>
+
+<main>
+
+<!-- HERO · oscuro -->
+<section class="banda oscuro hero" id="inicio">
+  <div class="angosto centro">
+    <img class="logo-hero" src="/assets/logo-reto-bren.webp" width="1460" height="509" alt="Reto: Del Consultorio a Redes Sociales, con Brenvita">
+    <p class="etiqueta"><svg class="i"><use href="#i-chispas"/></svg>Herramienta del mini reto</p>
+    <h1>Edita tu primer reel <span class="acento">con IA</span>, paso a paso</h1>
+    <p class="hero-sub">Armamos tu prompt, subes tu video a Claude o ChatGPT y te lo entrega editado. Sin saber editar.</p>
+    <ol class="ruta">
+      <li><a href="#prompt"><span class="num">1</span><span><b>Arma tu prompt</b>Tu guion, hook y CTA</span></a></li>
+      <li><a href="#graba"><span class="num">2</span><span><b>Graba tu video</b>Vertical, máximo 60 s</span></a></li>
+      <li><a href="#pasos"><span class="num">3</span><span><b>Súbelo a la IA</b>Claude o ChatGPT</span></a></li>
+    </ol>
+    <a href="#prompt" class="boton">Empezar: armar mi prompt<svg class="i"><use href="#i-flecha-der"/></svg></a>
+    <p class="guia-pdf"><a href="/editar-tu-video-con-ia/Guia-Edita-tu-primer-reel-con-IA.pdf" target="_blank" rel="noopener">¿Primera vez? Lee la guía paso a paso en PDF</a></p>
+  </div>
+</section>
+
+<!-- PASO 1 · claro -->
+<section class="banda claro" id="prompt">
+  <div class="angosto centro">
+    <p class="etiqueta">Paso 1</p>
+    <h2>Vamos a armar <span class="acento">tu prompt</span></h2>
+    <p>Llena tus datos y copia el prompt completo. Es lo único que vas a pegar en Claude o ChatGPT.</p>
+  </div>
+  <div class="armador ancho">
+    <form class="tarjeta formulario" id="form" onsubmit="return false"></form>
+    <div class="tarjeta vista">
+      <div class="vista-barra">
+        <span class="etiqueta">Tu prompt</span>
+        <button type="button" class="copiar" id="copiar"><svg class="i"><use href="#i-copiar"/></svg><span>Copiar prompt</span></button>
+      </div>
+      <pre class="prompt" id="prompt-texto"></pre>
+    </div>
+  </div>
+</section>
+
+<!-- PASO 2 · crema -->
+<section class="banda crema" id="graba">
+  <div class="angosto centro">
+    <p class="etiqueta">Paso 2</p>
+    <h2>Graba <span class="acento">tu video</span></h2>
+    <p>Natural, como si le platicaras a una paciente.</p>
+    <ul class="lista-graba">
+      <li><span class="burbuja"><svg class="i"><use href="#i-video"/></svg></span><span><b>Vertical (9:16)</b>Ideal en 1080p a 30 fps. Si no, súbelo como esté.</span></li>
+      <li><span class="burbuja"><svg class="i"><use href="#i-sol"/></svg></span><span><b>Luz de frente</b>Si tienes una ventana, que esté enfrente de ti.</span></li>
+      <li><span class="burbuja"><svg class="i"><use href="#i-persona"/></svg></span><span><b>Cara y pecho en cuadro</b>Deja un poco de aire arriba de tu cabeza.</span></li>
+      <li><span class="burbuja"><svg class="i"><use href="#i-reloj"/></svg></span><span><b>Máximo 60 segundos</b>Lo ideal: de 30 a 60.</span></li>
+      <li><span class="burbuja rosa"><svg class="i"><use href="#i-repetir"/></svg></span><span><b>¿Te equivocaste?</b>Pausa 2 segundos y repite la frase. Claude lo corta por ti.</span></li>
+    </ul>
+  </div>
+</section>
+
+<!-- PASO 3 · oscuro -->
+<section class="banda oscuro" id="pasos">
+  <div class="angosto centro">
+    <p class="etiqueta">Paso 3</p>
+    <h2>Sube tu video y <span class="acento">pega tu prompt</span></h2>
+    <p>En Claude o ChatGPT. Así se ve:</p>
+  </div>
+  <div class="visor ancho" id="visor">
+    <ol class="pasos" id="pasos-lista"></ol>
+    <div class="visor-der">
+      <div class="ventana" id="win" aria-hidden="true">
+        <div class="v-top"><div class="v-puntos"><i></i><i></i><i></i></div><div class="v-titulo" id="wtitle">Chat anterior</div><span class="v-nuevo" id="newchat">+ Nuevo chat</span></div>
+        <div class="v-msgs" id="msgs"></div>
+        <div class="v-comp" id="comp">
+          <div class="v-chips" id="chips"></div>
+          <div class="v-texto" id="ctext"></div>
+          <div class="v-fila">
+            <span class="v-btn" id="bclip"><svg viewBox="0 0 24 24"><path d="M21 11.5l-8.6 8.6a5 5 0 0 1-7-7l9-9a3.3 3.3 0 0 1 4.7 4.7l-9 9a1.7 1.7 0 0 1-2.4-2.4l8.3-8.3"/></svg></span>
+            <span class="v-crece"></span>
+            <span class="v-btn" id="bsend"><svg viewBox="0 0 24 24"><path d="M12 19V5M6 11l6-6 6 6"/></svg></span>
+          </div>
+        </div>
+        <div class="v-dlg" id="dlg"></div>
+        <div class="v-cursor" id="cur"><svg viewBox="0 0 24 24"><path d="M3 2l7 18 2.6-7.4L20 10z" fill="#fff" stroke="#000" stroke-width="1.5" stroke-linejoin="round"/></svg></div>
+      </div>
+      <div class="v-ctrl">
+        <button type="button" id="vprev" aria-label="Paso anterior"><svg class="i" style="transform:rotate(180deg)"><use href="#i-flecha-der"/></svg></button>
+        <button type="button" class="pp" id="vpp" aria-label="Pausar"></button>
+        <button type="button" id="vnext" aria-label="Paso siguiente"><svg class="i"><use href="#i-flecha-der"/></svg></button>
+        <span class="v-cuenta" id="vcount">1 / 6</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- AJUSTES · claro -->
+<section class="banda claro" id="frases">
+  <div class="angosto centro">
+    <p class="etiqueta">Si algo no te gusta</p>
+    <h2>Frases para <span class="acento">ajustar</span></h2>
+    <p>Toca una para copiarla y pégasela a Claude.</p>
+  </div>
+  <div class="frases ancho" id="frases-lista"></div>
+</section>
+
+<!-- PROBLEMAS · crema -->
+<section class="banda crema" id="problemas">
+  <div class="angosto centro">
+    <p class="etiqueta">Si algo sale mal</p>
+    <h2>Problemas <span class="acento">comunes</span></h2>
+    <div class="faq" id="faq"></div>
+  </div>
+</section>
+
+<!-- CIERRE · oscuro -->
+<section class="banda oscuro cierre">
+  <div class="angosto centro">
+    <h2>Tu primer reel no tiene que ser perfecto, <span class="acento">tiene que estar publicado</span></h2>
+    <p>Cuando lo subas, manda tu link al grupo de WhatsApp.</p>
+    <a href="#prompt" class="boton">Armar mi prompt<svg class="i"><use href="#i-flecha-der"/></svg></a>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <img class="logo-pie" src="/assets/logo-reto-bren.webp" width="1460" height="509" alt="" loading="lazy">
+  <p>Mini reto Del Consultorio a Redes Sociales · Brenvita</p>
+</footer>
+
+<script src="/editar-tu-video-con-ia/editar.js"></script>
+</body>
+</html>
