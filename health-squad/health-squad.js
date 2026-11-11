@@ -65,11 +65,25 @@ var HS = {
   }
   tick();
 
-  // CTA fijo en móvil: se esconde cuando la oferta está a la vista
+  // CTA fijo en móvil: se esconde si hay cualquier otro botón a la vista o la oferta está en pantalla.
+  // Regla: nunca botón sobre botón.
   var sticky = document.querySelector(".sticky");
-  if (sticky && oferta && "IntersectionObserver" in window) {
-    new IntersectionObserver(function (es) {
-      sticky.classList.toggle("is-hidden", es[0].isIntersecting);
-    }).observe(oferta);
+  if (sticky) {
+    var targets = Array.prototype.slice.call(document.querySelectorAll(".btn"));
+    var check = function () {
+      var vh = window.innerHeight, margen = 110; // alto del sticky + aire
+      var choca = targets.some(function (t) {
+        var r = t.getBoundingClientRect();
+        return r.bottom > 0 && r.top < vh + margen;
+      });
+      if (oferta) {
+        var o = oferta.getBoundingClientRect();
+        if (o.top < vh && o.bottom > 0) choca = true;
+      }
+      sticky.classList.toggle("is-hidden", choca);
+    };
+    window.addEventListener("scroll", check, { passive: true });
+    window.addEventListener("resize", check);
+    check();
   }
 })();
