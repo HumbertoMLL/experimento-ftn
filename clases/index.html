@@ -30,7 +30,7 @@
 <section class="banda claro">
   <div class="ancho clases">
 
-    <!-- Para agregar un día: copia este <article>, cambia el número, el título y el src del video. -->
+    <!-- Para agregar un día: copia este <article>, cambia el número, el título, data-src (link del video) y data-poster. -->
     <article class="clase" id="dia-1">
       <div class="clase-cab">
         <span class="num">1</span>
@@ -40,12 +40,7 @@
         </div>
         <span class="duracion">59 min</span>
       </div>
-      <div class="video">
-        <video controls playsinline preload="metadata" poster="/clases/dia-1.jpg">
-          <source src="https://5jdchazrk9rq5yjg.public.blob.vercel-storage.com/clases/mini-reto-dia-1.mp4" type="video/mp4">
-          Tu navegador no puede reproducir este video.
-        </video>
-      </div>
+      <div class="video" data-src="https://firebasestorage.googleapis.com/v0/b/ia-sin-bullshit.firebasestorage.app/o/FTN%2Fclasedia1.mp4?alt=media&amp;token=88c2306f-f11c-4d46-a886-25c153533c8b" data-poster="/clases/dia-1.jpg" data-titulo="Día 1"></div>
     </article>
 
     <article class="clase" id="dia-2">
@@ -57,12 +52,7 @@
         </div>
         <span class="duracion">60 min</span>
       </div>
-      <div class="video">
-        <video controls playsinline preload="metadata" poster="/clases/dia-2.jpg">
-          <source src="https://5jdchazrk9rq5yjg.public.blob.vercel-storage.com/clases/mini-reto-dia-2.mp4" type="video/mp4">
-          Tu navegador no puede reproducir este video.
-        </video>
-      </div>
+      <div class="video" data-src="https://firebasestorage.googleapis.com/v0/b/ia-sin-bullshit.firebasestorage.app/o/FTN%2Fdia2.mp4?alt=media&amp;token=bdeeb2d5-7fd2-4ac7-80cc-49217504cc19" data-poster="/clases/dia-2.jpg" data-titulo="Día 2"></div>
     </article>
 
     <article class="clase pronto" id="dia-3">
@@ -94,5 +84,6 @@
   <p>Mini reto Del Consultorio a Redes Sociales · Brenvita</p>
 </footer>
 
+<script src="/clases/reproductor.js"></script>
 </body>
 </html>
