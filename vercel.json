@@ -11,6 +11,21 @@
       "source": "/musculo-v1/:resto*",
       "destination": "/reto-mas-musculo/:resto*",
       "permanent": true
+    },
+    {
+      "source": "/healthsquad",
+      "destination": "/health-squad",
+      "permanent": false
+    },
+    {
+      "source": "/health",
+      "destination": "/health-squad",
+      "permanent": false
+    },
+    {
+      "source": "/hs",
+      "destination": "/health-squad",
+      "permanent": false
     }
   ],
   "rewrites": [

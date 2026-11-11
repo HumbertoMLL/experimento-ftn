@@ -19,11 +19,9 @@ var HS = {
       if (src) url += (url.indexOf("?") > -1 ? "&" : "?") + "src=" + encodeURIComponent(src);
       cta.href = url;
     } else {
+      // Sin link de pago todavía: el botón no lleva a ningún lado
       cta.removeAttribute("href");
       cta.setAttribute("aria-disabled", "true");
-      cta.textContent = "Inscripciones abren muy pronto";
-      cta.style.opacity = ".6";
-      cta.style.pointerEvents = "none";
     }
     cta.addEventListener("click", function () {
       track("InitiateCheckout", { value: HS.precio, currency: "MXN", content_name: "Health Squad" });
