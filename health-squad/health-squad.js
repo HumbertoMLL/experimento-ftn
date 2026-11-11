@@ -8,7 +8,7 @@ var HS = {
   deadline: "2026-11-16T23:59:00-06:00",
   precio: 4997,
   // Bono de acción rápida: cuántos de los 20 lugares quedan. Actualízalo a mano conforme entren ventas.
-  lugaresRestantes: 20
+  lugaresRestantes: 17
 };
 
 (function () {
@@ -45,7 +45,15 @@ var HS = {
   // Lugares del bono de los primeros 20
   var quedan = Math.max(0, Math.min(20, HS.lugaresRestantes));
   ["spots-n", "spots-n2", "spots-n3"].forEach(function (id) { var el = document.getElementById(id); if (el) el.textContent = quedan; });
-  ["spots-fill", "spots-fill2"].forEach(function (id) { var el = document.getElementById(id); if (el) el.style.width = (quedan / 20 * 100) + "%"; });
+  // La barra arranca en lo que queda y baja despacio entre 2 y 3 % (nunca a cero) para que se note movimiento
+  var pct = quedan / 20 * 100;
+  ["spots-fill", "spots-fill2"].forEach(function (id) {
+    var el = document.getElementById(id);
+    if (!el) return;
+    el.style.setProperty("--desde", pct + "%");
+    el.style.setProperty("--hasta", Math.max(pct - 2.5, 3) + "%");
+    el.classList.add("spots-drain");
+  });
 
   // Cuenta regresiva: se oculta sola cuando pasa la fecha
   var end = new Date(HS.deadline).getTime();

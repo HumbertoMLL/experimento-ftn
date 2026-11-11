@@ -387,3 +387,9 @@ blockquote cite{display:block;font-family:var(--f-body);font-style:normal;font-s
   .formula-eq b,.formula-eq i{font-size:28px}
   .formula-eq small{white-space:normal;font-size:10px;max-width:72px}
 }
+
+/* v9 · barra de lugares que baja suave */
+.spots-drain{width:var(--hasta);animation:spots-drain 12s ease-in-out both;background-image:repeating-linear-gradient(-45deg,rgba(255,255,255,.28) 0 8px,transparent 8px 16px)!important;background-size:23px 23px;animation:spots-drain 12s ease-in-out both,spots-flow 1.6s linear infinite}
+@keyframes spots-drain{from{width:var(--desde)}to{width:var(--hasta)}}
+@keyframes spots-flow{from{background-position:0 0}to{background-position:-23px 0}}
+@media (prefers-reduced-motion:reduce){.spots-drain{animation:none;width:var(--hasta)}}
