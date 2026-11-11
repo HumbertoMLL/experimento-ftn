@@ -354,3 +354,36 @@ blockquote cite{display:block;font-family:var(--f-body);font-style:normal;font-s
 @media (max-width:640px){
   .spots-big{min-width:0;width:100%}
 }
+
+/* v7 · Bren en el hero */
+.hero-bren{position:relative;margin:0}
+.hero-bren img{width:100%;height:auto}
+.hero-bren figcaption{position:absolute;left:50%;bottom:14px;transform:translateX(-50%);width:max-content;max-width:92%;background:var(--navy);color:#fff;padding:10px 18px;border-radius:12px;font-size:13px;line-height:1.35;text-align:center;box-shadow:0 10px 24px rgba(0,0,0,.18)}
+.hero-bren figcaption b{display:block;font-family:var(--f-head);font-weight:400;font-size:22px;letter-spacing:.04em;color:var(--peach)}
+@media (min-width:901px){
+  .hero{text-align:left}
+  .hero-in{display:grid;grid-template-columns:1fr 400px;column-gap:40px;align-items:start}
+  .hero-in > *:not(.hero-bren){grid-column:1}
+  .hero-bren{grid-column:2;grid-row:1 / span 7;align-self:end}
+  .hero .lead{margin:22px 0 0}
+  .hero-logo{width:260px}
+}
+@media (max-width:900px){
+  .hero-bren{order:3;width:min(300px,80vw);margin:18px auto 0}
+  .hero h1{order:2}
+  .hero-logo,.hero .kicker{order:1}
+  .hero .lead,.hero .start,.hero .btn,.hero .micro{order:4}
+}
+
+/* v8 · fórmula en una sola línea */
+.formula-eq{display:flex;flex-wrap:nowrap;align-items:flex-start;justify-content:flex-start;gap:clamp(8px,2.4vw,22px);margin:10px 0 28px}
+.formula-eq span{display:flex;flex-direction:column;align-items:center;text-align:center}
+.formula-eq b{font-family:var(--f-head);font-weight:400;font-size:clamp(34px,7vw,64px);line-height:1;color:#fff}
+.formula-eq .res b{color:var(--peach)}
+.formula-eq small{font-family:var(--f-body);font-size:clamp(11px,2.6vw,14px);letter-spacing:.04em;color:rgba(255,255,255,.7);margin-top:4px;white-space:nowrap}
+.formula-eq i{font-style:normal;font-family:var(--f-head);font-size:clamp(34px,7vw,64px);line-height:1;color:var(--mint)}
+@media (max-width:370px){
+  .formula-eq{gap:6px}
+  .formula-eq b,.formula-eq i{font-size:28px}
+  .formula-eq small{white-space:normal;font-size:10px;max-width:72px}
+}
