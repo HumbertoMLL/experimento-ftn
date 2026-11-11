@@ -325,3 +325,8 @@ blockquote cite{display:block;font-family:var(--f-body);font-style:normal;font-s
   .urgency > p:first-child small{margin:6px auto 0}
   .price-row{gap:8px}
 }
+
+/* v5 · semanas con preguntas de curiosidad */
+.weeks .qs{list-style:none;margin:4px 0 14px}
+.weeks .qs li{font-family:var(--f-head);font-size:22px;line-height:1.1;color:var(--peach);padding:6px 0}
+.weeks .solve b{color:#fff}
