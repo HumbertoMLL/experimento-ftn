@@ -44,9 +44,8 @@ var HS = {
 
   // Lugares del bono de los primeros 20
   var quedan = Math.max(0, Math.min(20, HS.lugaresRestantes));
-  ["spots-n", "spots-n2"].forEach(function (id) { var el = document.getElementById(id); if (el) el.textContent = quedan; });
-  var fill = document.getElementById("spots-fill");
-  if (fill) fill.style.width = (quedan / 20 * 100) + "%";
+  ["spots-n", "spots-n2", "spots-n3"].forEach(function (id) { var el = document.getElementById(id); if (el) el.textContent = quedan; });
+  ["spots-fill", "spots-fill2"].forEach(function (id) { var el = document.getElementById(id); if (el) el.style.width = (quedan / 20 * 100) + "%"; });
 
   // Cuenta regresiva: se oculta sola cuando pasa la fecha
   var end = new Date(HS.deadline).getTime();

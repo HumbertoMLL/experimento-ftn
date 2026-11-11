@@ -330,3 +330,27 @@ blockquote cite{display:block;font-family:var(--f-body);font-style:normal;font-s
 .weeks .qs{list-style:none;margin:4px 0 14px}
 .weeks .qs li{font-family:var(--f-head);font-size:22px;line-height:1.1;color:var(--peach);padding:6px 0}
 .weeks .solve b{color:#fff}
+
+/* v6 · promesa, equipo, para ti, urgencia por lugares */
+.promise{display:grid;grid-template-columns:1.3fr .7fr;gap:40px;align-items:end;max-width:1000px}
+.promise-img{width:100%;max-width:340px;margin-left:auto}
+.team-k{margin-top:30px}
+.team{list-style:none}
+.team li{padding:12px 0;border-bottom:1px solid rgba(45,91,126,.18)}
+.team b{display:block;font-family:var(--f-head);font-weight:400;font-size:30px;line-height:1;color:var(--navy)}
+.fit{display:grid;grid-template-columns:1fr 1fr;gap:44px;max-width:1000px}
+.fit h2{font-size:clamp(34px,4.4vw,48px)}
+.lines-ok li::before{content:"✓";background:none;width:auto;height:auto;top:10px;color:var(--navy);font-weight:700}
+.urgency-spots{gap:40px}
+.spots-big{min-width:280px}
+.spots-big p{font-family:var(--f-head);font-size:34px;line-height:1;color:#fff}
+.spots-big b{font-weight:400;font-size:64px;color:var(--peach)}
+.spots-big .spots-bar{display:block;margin-top:10px;height:10px;background:rgba(255,255,255,.15);border-radius:99px;overflow:hidden}
+.spots-big .spots-bar span{display:block;height:100%;background:var(--peach)}
+@media (max-width:900px){
+  .promise,.fit{grid-template-columns:1fr;gap:24px}
+  .promise-img{max-width:260px;margin:0 auto}
+}
+@media (max-width:640px){
+  .spots-big{min-width:0;width:100%}
+}
