@@ -1,7 +1,9 @@
 /* Health Squad · lo editable está aquí arriba */
 var HS = {
-  // Link de pago (Hotmart u otro). Mientras esté vacío, el botón lleva a WhatsApp o se queda en la oferta.
-  checkoutUrl: "",
+  // Link de pago de Hotmart (oferta Health Squad)
+  checkoutUrl: "https://pay.hotmart.com/E108409744Y?off=h37ryq9d&checkoutMode=10&bid=1794352087533",
+  // Canales: brenvita.shop/health-squad-<canal> agrega &src=<canal> al checkout
+  canales: ["influencer", "meta", "webinar", "mail", "whatsapp"],
   // Precio y bonos vencen el lunes 16 de noviembre a las 23:59 (hora del centro de México, UTC-6)
   deadline: "2026-11-16T23:59:00-06:00",
   precio: 4997
@@ -14,7 +16,8 @@ var HS = {
   var cta = document.getElementById("cta-checkout");
   if (cta) {
     if (HS.checkoutUrl) {
-      var src = new URLSearchParams(location.search).get("src");
+      var m = location.pathname.match(/^\/health-squad-([a-z]+)\/?$/i);
+      var src = (m && HS.canales.indexOf(m[1].toLowerCase()) > -1) ? m[1].toLowerCase() : new URLSearchParams(location.search).get("src");
       var url = HS.checkoutUrl;
       if (src) url += (url.indexOf("?") > -1 ? "&" : "?") + "src=" + encodeURIComponent(src);
       cta.href = url;
