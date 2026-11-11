@@ -4,6 +4,8 @@ var HS = {
   checkoutUrl: "https://pay.hotmart.com/E108409744Y?off=h37ryq9d&checkoutMode=10&bid=1794352087533",
   // Canales: brenvita.shop/health-squad-<canal> agrega &src=<canal> al checkout
   canales: ["influencer", "meta", "webinar", "mail", "whatsapp"],
+  // Sin canal en la URL (brenvita.shop/health-squad, la del QR) el checkout sale con este src
+  srcDefault: "webinar",
   // Precio y bonos vencen el lunes 16 de noviembre a las 23:59 (hora del centro de México, UTC-6)
   deadline: "2026-11-16T23:59:00-06:00",
   precio: 4997,
@@ -19,7 +21,7 @@ var HS = {
   if (cta) {
     if (HS.checkoutUrl) {
       var m = location.pathname.match(/^\/health-squad-([a-z]+)\/?$/i);
-      var src = (m && HS.canales.indexOf(m[1].toLowerCase()) > -1) ? m[1].toLowerCase() : new URLSearchParams(location.search).get("src");
+      var src = (m && HS.canales.indexOf(m[1].toLowerCase()) > -1) ? m[1].toLowerCase() : (new URLSearchParams(location.search).get("src") || HS.srcDefault);
       var url = HS.checkoutUrl;
       if (src) url += (url.indexOf("?") > -1 ? "&" : "?") + "src=" + encodeURIComponent(src);
       cta.href = url;
