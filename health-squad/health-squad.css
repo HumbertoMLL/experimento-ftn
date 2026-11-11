@@ -210,3 +210,54 @@ blockquote cite{display:block;font-family:var(--f-body);font-style:normal;font-s
   .hero{padding:28px 0 56px}
   .hero .btn{width:100%}
 }
+
+/* v3 · problema → solución */
+.fixes{list-style:none;margin-top:10px}
+.fixes li{display:grid;grid-template-columns:1fr auto 1.3fr;gap:16px;align-items:center;padding:16px 0;border-bottom:1px solid rgba(45,91,126,.15)}
+.fixes .said{font-family:var(--f-head);font-size:clamp(24px,3.2vw,32px);line-height:1;color:#C0564A}
+.fixes .arrow{font-size:24px;color:var(--mint);font-weight:700}
+.fixes .fix{font-weight:600;color:var(--navy)}
+
+/* v3 · qué resuelves por semana */
+.weeks{display:grid;grid-template-columns:repeat(4,1fr);gap:28px;margin-top:20px}
+.weeks article{border-top:4px solid var(--peach);padding-top:16px}
+.weeks .wk{font-size:13px;letter-spacing:.16em;text-transform:uppercase;font-weight:600;color:var(--peach)}
+.weeks h3{font-family:var(--f-head);font-weight:400;font-size:40px;line-height:1;color:#fff;margin:6px 0 10px}
+.weeks .solve{font-size:15.5px;color:rgba(255,255,255,.88)}
+
+/* v3 · value stack */
+.vstack{margin-top:8px}
+.vs-grp{font-family:var(--f-head);font-size:24px;letter-spacing:.08em;color:var(--peach);margin-top:28px;padding-bottom:8px;border-bottom:2px solid var(--peach)}
+.vs{list-style:none}
+.vs li{display:grid;grid-template-columns:52px 1fr auto;gap:16px;align-items:center;padding:12px 0;border-bottom:1px solid rgba(255,255,255,.14)}
+.vs li img{width:52px;height:64px;object-fit:cover;border-radius:4px}
+.vs-ico{width:52px;height:52px;display:grid;place-items:center;border:2px solid var(--mint);border-radius:50%;font-family:var(--f-head);font-size:28px;color:var(--mint)}
+.vs li p{font-weight:600;font-size:16px;line-height:1.3;color:#fff}
+.vs li p small{display:block;font-weight:400;font-size:13.5px;color:rgba(255,255,255,.7);margin-top:2px}
+.vs li b{font-family:var(--f-head);font-weight:400;font-size:28px;color:var(--mint);white-space:nowrap}
+.vs-fast{margin-top:30px;padding:22px 0;border-top:3px solid var(--peach);border-bottom:3px solid var(--peach)}
+.vs-fast-tag{font-family:var(--f-head);font-size:26px;letter-spacing:.06em;color:var(--peach)}
+.vs-fast-row{display:flex;justify-content:space-between;gap:16px;align-items:baseline;margin-top:6px}
+.vs-fast-row p{font-weight:600;font-size:17px;color:#fff}
+.vs-fast-row b{font-family:var(--f-head);font-weight:400;font-size:34px;color:var(--peach);white-space:nowrap}
+.spots{margin-top:16px}
+.spots-bar{height:10px;background:rgba(255,255,255,.15);border-radius:99px;overflow:hidden}
+.spots-bar span{display:block;height:100%;width:100%;background:var(--peach);transition:width .6s}
+.spots p{margin-top:8px;font-size:15px;color:rgba(255,255,255,.85)}
+.spots b{color:var(--peach);font-size:18px}
+.vs-total{display:flex;justify-content:space-between;align-items:baseline;margin-top:22px}
+.vs-total p{font-family:var(--f-head);font-size:32px;color:#fff}
+.vs-total-n s{color:rgba(255,255,255,.65)}
+
+@media (max-width:900px){ .weeks{grid-template-columns:1fr 1fr} }
+@media (max-width:640px){
+  .fixes li{grid-template-columns:1fr;gap:4px}
+  .fixes .arrow{display:none}
+  .weeks{grid-template-columns:1fr;gap:22px}
+  .vs li{grid-template-columns:44px 1fr auto;gap:12px}
+  .vs li img{width:44px;height:56px}
+  .vs-ico{width:44px;height:44px;font-size:24px}
+  .vs li p{font-size:15px}
+  .vs li b{font-size:24px}
+  .vs-fast-row{flex-direction:column;gap:2px}
+}

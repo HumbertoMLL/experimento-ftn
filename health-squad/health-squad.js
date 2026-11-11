@@ -6,7 +6,9 @@ var HS = {
   canales: ["influencer", "meta", "webinar", "mail", "whatsapp"],
   // Precio y bonos vencen el lunes 16 de noviembre a las 23:59 (hora del centro de México, UTC-6)
   deadline: "2026-11-16T23:59:00-06:00",
-  precio: 4997
+  precio: 4997,
+  // Bono de acción rápida: cuántos de los 20 lugares quedan. Actualízalo a mano conforme entren ventas.
+  lugaresRestantes: 20
 };
 
 (function () {
@@ -39,6 +41,12 @@ var HS = {
     }, { threshold: .3 });
     io.observe(oferta);
   }
+
+  // Lugares del bono de los primeros 20
+  var quedan = Math.max(0, Math.min(20, HS.lugaresRestantes));
+  ["spots-n", "spots-n2"].forEach(function (id) { var el = document.getElementById(id); if (el) el.textContent = quedan; });
+  var fill = document.getElementById("spots-fill");
+  if (fill) fill.style.width = (quedan / 20 * 100) + "%";
 
   // Cuenta regresiva: se oculta sola cuando pasa la fecha
   var end = new Date(HS.deadline).getTime();
