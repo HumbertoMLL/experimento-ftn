@@ -224,6 +224,28 @@ window.FTN_CONFIG = {
     }
   },
 
+  /* --- MiniReto V2 (/minireto-v2), segunda apertura ----------------------
+     Tras el reto del 9-11 nov: grabaciones de los 3 días + 3 sesiones en vivo
+     de preguntas y revisión de tarea (mar 17, mié 18 y jue 19 de nov, 7:00 PM
+     CDMX). $297 MXN. Canales: /minireto-v2/meta y /minireto-v2/influencer
+     (o ?src=). La página lee este bloque por <body data-config="miniretoV2">. */
+  miniretoV2: {
+    fechaTexto: "martes 17, miércoles 18 y jueves 19 de noviembre",
+    horaTexto: "7:00 PM, hora Ciudad de México",
+    /* Primera sesión en vivo: mar 17 nov, 19:00 CDMX (UTC-6) */
+    inicioISO: "2026-11-18T01:00:00Z",
+    /* Cierre de inscripciones: lunes 16 nov, 11:59 PM CDMX (= 17 nov 05:59 UTC) */
+    cierreISO: "2026-11-17T05:59:59Z",
+    checkout: {
+      url: "https://pay.hotmart.com/R107964739Y?off=7p1ibtwh&checkoutMode=10&bid=1794509928283",
+      canales: {
+        meta:       "https://pay.hotmart.com/R107964739Y?off=7p1ibtwh&checkoutMode=10&bid=1794509928283&src=meta",
+        influencer: "https://pay.hotmart.com/R107964739Y?off=7p1ibtwh&checkoutMode=10&bid=1794509928283&src=influencer"
+      },
+      nombre: "MiniReto V2 - Grabaciones + 3 sesiones en vivo", precio: 297, moneda: "MXN"
+    }
+  },
+
   /* --- Masterclass (/masterclass) ------------------------------------
      Webinar de venta directa con Ale Rivera. Toda la fecha del evento se
      edita aqui: la landing, la pagina de oferta y la cuenta regresiva

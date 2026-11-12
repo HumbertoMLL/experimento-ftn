@@ -1,10 +1,11 @@
-/* Cuenta regresiva al cierre de inscripciones del MiniReto (config: minireto.cierreISO).
+/* Cuenta regresiva al cierre de inscripciones del MiniReto (config: minireto.cierreISO,
+   o el bloque que diga <body data-config="…">, p. ej. miniretoV2).
    Pinta .js-cierre-reloj (cajitas [data-u]) y .js-cierre-txt (texto "1d 05:12:33").
    Mientras corre, <html> lleva la clase .cierre-activo (el CSS esconde "Iniciamos en").
    Al vencer, esconde todo lo que tenga .js-cierre-bloque y quita la clase. */
 (function () {
   var cfg = window.FTN_CONFIG || {};
-  var mr = cfg.minireto || {};
+  var mr = cfg[document.body.getAttribute("data-config") || "minireto"] || {};
   var fin = Date.parse(mr.cierreISO || "");
   if (!(fin > 0)) return;
   function dos(n) { return n < 10 ? "0" + n : "" + n; }
