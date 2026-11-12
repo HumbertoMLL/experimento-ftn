@@ -6,11 +6,9 @@ var HS = {
   canales: ["influencer", "meta", "webinar", "mail", "whatsapp"],
   // Sin canal en la URL (brenvita.shop/health-squad, la del QR) el checkout sale con este src
   srcDefault: "webinar",
-  // Precio y bonos vencen el lunes 16 de noviembre a las 23:59 (hora del centro de México, UTC-6)
+  // El precio sube después del lunes 16 de noviembre a las 23:59 (hora del centro de México, UTC-6)
   deadline: "2026-11-16T23:59:00-06:00",
-  precio: 4997,
-  // Bono de acción rápida: cuántos de los 20 lugares quedan. Actualízalo a mano conforme entren ventas.
-  lugaresRestantes: 17
+  precio: 4997
 };
 
 (function () {
@@ -43,19 +41,6 @@ var HS = {
     }, { threshold: .3 });
     io.observe(oferta);
   }
-
-  // Lugares del bono de los primeros 20
-  var quedan = Math.max(0, Math.min(20, HS.lugaresRestantes));
-  ["spots-n", "spots-n2", "spots-n3"].forEach(function (id) { var el = document.getElementById(id); if (el) el.textContent = quedan; });
-  // La barra arranca en lo que queda y baja despacio entre 2 y 3 % (nunca a cero) para que se note movimiento
-  var pct = quedan / 20 * 100;
-  ["spots-fill", "spots-fill2"].forEach(function (id) {
-    var el = document.getElementById(id);
-    if (!el) return;
-    el.style.setProperty("--desde", pct + "%");
-    el.style.setProperty("--hasta", Math.max(pct - 2.5, 3) + "%");
-    el.classList.add("spots-drain");
-  });
 
   // Cuenta regresiva: se oculta sola cuando pasa la fecha
   var end = new Date(HS.deadline).getTime();

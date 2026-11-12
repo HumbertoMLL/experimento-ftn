@@ -184,9 +184,14 @@
   <!-- Oferta: value stack compacto -->
   <section class="band band-navy offer" id="inscripcion">
     <div class="wrap">
-      <div class="urgency urgency-spots">
-        <p>Sesión de enero con el equipo<small>Solo para los primeros 20 en inscribirse. Cuando se llenen, se cierra.</small></p>
-        <div class="spots-big"><p>Quedan <b id="spots-n3">20</b> de 20 lugares</p><span class="spots-bar"><span id="spots-fill2"></span></span></div>
+      <div class="urgency" id="timer" hidden>
+        <p>El lunes sube el precio<small>$4,997 solo hasta el lunes 16 de noviembre a las 11:59 p. m. El martes 17 ya cuesta más.</small></p>
+        <div class="clock" aria-live="off">
+          <div><b id="t-d">0</b><span>días</span></div><i>:</i>
+          <div><b id="t-h">00</b><span>horas</span></div><i>:</i>
+          <div><b id="t-m">00</b><span>min</span></div><i>:</i>
+          <div><b id="t-s">00</b><span>seg</span></div>
+        </div>
       </div>
 
       <div class="offer-grid">
@@ -198,9 +203,8 @@
             <li><span class="vs-ico">4</span><p>4 semanas de contenido<small>Qué decir, dónde, cómo vender y que sea negocio</small></p><b>$10,000</b></li>
             <li><span class="vs-ico">4</span><p>4 clínicas de contenido en vivo<small>Revisamos tu trabajo y resolvemos dudas</small></p><b>$4,000</b></li>
             <li class="vs-bonos"><span class="vs-ico">5</span><p>5 bonos<small>PDFs y plantillas: hooks y guiones ($997) · historias · sistema y métricas · edición con Edits e IA · colaboraciones y podcast ($500 c/u)</small></p><b>$2,997</b></li>
-            <li class="vs-fast"><span class="vs-ico">20</span><p>Primeros 20: sesión en enero con el equipo de Brenvita<small>Para tus preguntas y dudas · Quedan <b id="spots-n">20</b> de 20</small><span class="spots-bar"><span id="spots-fill"></span></span></p><b>$5,000</b></li>
           </ul>
-          <div class="vs-total"><p>Valor total</p><p class="vs-total-n"><s>$21,997</s></p></div>
+          <div class="vs-total"><p>Valor total</p><p class="vs-total-n"><s>$16,997</s></p></div>
           <div class="price price-row">
             <p>Hoy</p>
             <p class="price-n">$4,997 <small>MXN</small></p>
@@ -212,14 +216,13 @@
     </div>
   </section>
 
-  <!-- Primeros 20 -->
+  <!-- Sube el precio -->
   <section class="band band-peach">
     <div class="wrap narrow split">
-      <p class="big-num"><span id="spots-n2">20</span><small>lugares</small></p>
+      <p class="big-num">16<small>de noviembre</small></p>
       <div>
-        <h2>Los primeros 20 en inscribirse tienen acceso a una sesión en enero con el equipo de Brenvita.</h2>
-        <p>Una sesión de preguntas y respuestas en vivo por Zoom, grupal, en enero (fecha por confirmar). Traes tu contenido o las dudas que te hayan surgido y las resolvemos. Valor: $5,000, incluida.</p>
-        <p>Si quedaste entre los 20, te escribimos en los próximos días para confirmarte tu lugar.</p>
+        <h2>El lunes 16 sube el precio.</h2>
+        <p>Hasta el lunes a las 11:59 de la noche entras con $4,997 MXN o 3 pagos. Desde el martes 17 el mismo programa cuesta más.</p>
       </div>
     </div>
   </section>
@@ -254,7 +257,7 @@
       <p class="start">Comenzamos el<br><b>23 de noviembre</b></p>
       <p class="lead">El 20 de diciembre terminas con tu sistema armado. Diciembre para producir, enero para publicar.</p>
       <a class="btn" href="#inscripcion" data-cta="cierre">Quiero entrar al squad</a>
-      <p class="micro">$4,997 MXN o 3 pagos · Solo 20 lugares para la sesión de enero</p>
+      <p class="micro">$4,997 MXN o 3 pagos · Solo hasta el lunes 16 de noviembre</p>
     </div>
   </section>
 
@@ -269,6 +272,6 @@
 
 <a class="sticky" href="#inscripcion" data-cta="sticky">Inscríbete · $4,997 o 3 pagos</a>
 
-<script src="/health-squad/health-squad.js?v=11"></script>
+<script src="/health-squad/health-squad.js?v=12"></script>
 </body>
 </html>
