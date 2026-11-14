@@ -32,10 +32,19 @@
 .precio-nuevo{font-family:var(--f-head);font-size:30px;letter-spacing:.02em;color:var(--navy);line-height:1}
 .precio-nuevo s{color:var(--muted)}
 .crono{display:block;width:100%;height:auto;border-radius:12px;margin:4px 0 22px;box-shadow:0 10px 30px rgba(31,51,68,.12)}
+.btn-red{background:#E5483B;box-shadow:0 8px 0 #A8302A;color:#fff}
+.btn-red:hover{background:#D63D31}
+.pay{text-align:center;margin:40px 0 8px;padding-top:28px;border-top:2px solid #E5483B}
+.pay .btn{margin-top:12px}
+.pay-timer{font-weight:600;font-size:15px;letter-spacing:.04em;text-transform:uppercase;color:#C7362B}
+.pay-timer b{font-family:var(--f-head);font-size:30px;font-weight:400;letter-spacing:.04em;text-transform:none;display:block;line-height:1.05;margin-top:2px}
+.faq-hero .pay{border-top:0;padding-top:0;margin:30px 0 0}
+.cierre-faq .btn-red{box-shadow:0 8px 0 #8E2721}
 .cierre-faq{text-align:center}
 .cierre-faq h2{color:#fff}
 .cierre-faq .urgency{border-bottom:0;margin-bottom:8px;padding-bottom:0}
 @media (max-width:640px){
+  .faq-hero .pay{text-align:left}
   .faq-hero{text-align:left}
   .faq-hero .hero-logo{margin:0 0 22px}
   .faq-hero .lead{margin-left:0}
@@ -62,6 +71,11 @@
         <a href="#clases">Clases y acceso</a>
         <a href="#precio">Precio y pago</a>
       </nav>
+      <div class="pay" data-where="arriba">
+        <p class="pay-timer">El precio sube en <b class="cd">-</b></p>
+        <a class="btn btn-red btn-pay" href="#" data-cta="faq-arriba">Inscribirme a Health Squad</a>
+        <p class="micro">$4,997 MXN o 3 pagos · Desde el martes 17, $5,997</p>
+      </div>
     </div>
   </section>
 
@@ -85,6 +99,11 @@
             <p>Sí. Solo la clase de Cofepris es sobre la regulación mexicana, y aun así te sirve de guía.</p>
           </details>
         </div>
+      <div class="pay" data-where="para-mi">
+        <p class="pay-timer">El precio sube en <b class="cd">-</b></p>
+        <a class="btn btn-red btn-pay" href="#" data-cta="faq-para-mi">Inscribirme a Health Squad</a>
+        <p class="micro">$4,997 MXN o 3 pagos · Desde el martes 17, $5,997</p>
+      </div>
       </div>
 
       <div class="grupo" id="clinicas">
@@ -104,6 +123,11 @@
             <p>No. Tú lo haces, y en las clínicas te damos feedback para que cada video salga mejor.</p>
           </details>
         </div>
+      <div class="pay" data-where="clinicas">
+        <p class="pay-timer">El precio sube en <b class="cd">-</b></p>
+        <a class="btn btn-red btn-pay" href="#" data-cta="faq-clinicas">Inscribirme a Health Squad</a>
+        <p class="micro">$4,997 MXN o 3 pagos · Desde el martes 17, $5,997</p>
+      </div>
       </div>
 
       <div class="grupo" id="clases">
@@ -129,6 +153,11 @@
             <p>Sí. Hay una comunidad de WhatsApp y un equipo de soporte para tus dudas.</p>
           </details>
         </div>
+      <div class="pay" data-where="clases">
+        <p class="pay-timer">El precio sube en <b class="cd">-</b></p>
+        <a class="btn btn-red btn-pay" href="#" data-cta="faq-clases">Inscribirme a Health Squad</a>
+        <p class="micro">$4,997 MXN o 3 pagos · Desde el martes 17, $5,997</p>
+      </div>
       </div>
 
       <div class="grupo" id="precio">
@@ -162,7 +191,7 @@
           <div><b id="t-s">00</b><span>seg</span></div>
         </div>
       </div>
-      <a class="btn" id="cta-checkout" href="#" data-cta="faq">Inscribirme a Health Squad</a>
+      <a class="btn btn-red btn-pay" id="cta-checkout" href="#" data-cta="faq-cierre">Inscribirme a Health Squad</a>
       <p class="micro">$4,997 MXN o 3 pagos · Comenzamos el 23 de noviembre</p>
       <p class="micro"><a href="/health-squad" style="color:inherit">Ver todo lo que incluye</a></p>
     </div>
@@ -178,5 +207,29 @@
 </footer>
 
 <script src="/health-squad/health-squad.js?v=13"></script>
+<script>
+/* Página de preguntas: todos los botones de pago van al checkout con src=whatsapp,
+   y cada botón lleva arriba su cuenta regresiva al lunes 16, 23:59 (CDMX). */
+(function () {
+  var url = HS.checkoutUrl + (HS.checkoutUrl.indexOf("?") > -1 ? "&" : "?") + "src=whatsapp";
+  document.querySelectorAll(".btn-pay").forEach(function (a) {
+    a.href = url;
+    if (a.id !== "cta-checkout") a.addEventListener("click", function () {
+      if (typeof window.ftnTrack === "function") window.ftnTrack("InitiateCheckout", { value: HS.precio, currency: "MXN", content_name: "Health Squad" });
+    });
+  });
+  var end = new Date(HS.deadline).getTime(), cds = document.querySelectorAll(".cd");
+  function pad(n) { return n < 10 ? "0" + n : "" + n; }
+  function tick() {
+    var left = end - Date.now();
+    if (left <= 0) { document.querySelectorAll(".pay-timer").forEach(function (p) { p.hidden = true; }); return; }
+    var t = Math.floor(left / 1000);
+    var txt = Math.floor(t / 86400) + "d " + pad(Math.floor(t % 86400 / 3600)) + "h " + pad(Math.floor(t % 3600 / 60)) + "m " + pad(t % 60) + "s";
+    cds.forEach(function (b) { b.textContent = txt; });
+    setTimeout(tick, 1000);
+  }
+  tick();
+})();
+</script>
 </body>
 </html>
