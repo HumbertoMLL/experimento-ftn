@@ -24,6 +24,26 @@
 .grupo h2{margin-bottom:8px}
 .faq details p + p{margin-top:-8px}
 .precio-nuevo{font-family:var(--f-head);font-size:30px;letter-spacing:.02em;color:var(--navy);line-height:1}
+.faq details .stack-mini p{padding:0;margin:0}
+.faq details .stack-mini .sm-ahorro{padding-top:6px}
+.faq details .stack-mini .sm-timer{padding-top:12px}
+.stack-mini{background:var(--navy);color:#fff;padding:22px 20px 26px;margin:6px 0 22px;border-top:4px solid #E5483B}
+.stack-mini .vs li{grid-template-columns:44px 1fr auto;gap:12px;padding:10px 0}
+.stack-mini .vs-ico{width:44px;height:44px;font-size:24px}
+.stack-mini .vs li b{font-size:24px}
+.stack-mini .sm-row{display:flex;justify-content:space-between;align-items:baseline;padding:10px 0;border-bottom:1px solid rgba(255,255,255,.14);font-weight:600;font-size:16px}
+.stack-mini .sm-row p{padding:0}
+.stack-mini .sm-strike{font-family:var(--f-head);font-size:30px;font-weight:400;color:rgba(255,255,255,.75);text-decoration:line-through;text-decoration-thickness:3px;text-decoration-color:#E5483B}
+.stack-mini .sm-red{color:#FF8A7F}
+.stack-mini .sm-red .sm-strike{color:#FF8A7F}
+.stack-mini .sm-hoy{display:flex;align-items:baseline;justify-content:center;gap:12px;margin-top:16px;flex-wrap:wrap}
+.stack-mini .sm-hoy p{padding:0;font-weight:600}
+.stack-mini .sm-n{font-family:var(--f-head);font-weight:400 !important;font-size:64px;line-height:1;color:var(--peach)}
+.stack-mini .sm-n small{font-size:22px}
+.stack-mini .sm-ahorro{text-align:center;padding:4px 0 0;font-weight:600;color:var(--mint)}
+.stack-mini .sm-timer{text-align:center;padding:12px 0 0;font-weight:600;font-size:14px;letter-spacing:.06em;text-transform:uppercase;color:#FF8A7F}
+.stack-mini .sm-timer b{font-family:var(--f-head);font-weight:400;font-size:30px;letter-spacing:.04em;text-transform:none;margin-left:6px}
+.stack-mini .btn{margin-top:14px;box-shadow:0 8px 0 #8E2721}
 .crono{display:block;width:100%;height:auto;border-radius:12px;margin:4px 0 22px;box-shadow:0 10px 30px rgba(31,51,68,.12)}
 .btn-red{background:#E5483B;box-shadow:0 8px 0 #A8302A;color:#fff}
 .btn-red:hover{background:#D63D31}
@@ -157,7 +177,19 @@
         <div class="faq">
           <details open><summary>¿Cuánto sube el precio?</summary>
             <p>Hoy entras con <b>$4,997 MXN</b>. Después del <b>lunes 16 de noviembre a las 11:59 p. m.</b> sube a <b>$5,997 MXN</b>: el mismo programa, $1,000 más caro.</p>
-            <p class="precio-nuevo">Hoy $4,997 → martes 17, $5,997</p>
+            <div class="stack-mini">
+              <ul class="vs">
+                <li><span class="vs-ico">4</span><p>4 semanas de contenido<small>Qué decir, dónde, cómo vender y que sea negocio</small></p><b>$10,000</b></li>
+                <li><span class="vs-ico">4</span><p>4 clínicas en vivo<small>Tu trabajo revisado cada sábado</small></p><b>$4,000</b></li>
+                <li><span class="vs-ico">5</span><p>5 bonos<small>Hooks y guiones · historias · métricas · edición · podcast</small></p><b>$2,997</b></li>
+              </ul>
+              <div class="sm-row"><p>Valor total</p><p class="sm-strike">$16,997</p></div>
+              <div class="sm-row sm-red"><p>Desde el martes 17</p><p class="sm-strike">$5,997</p></div>
+              <div class="sm-hoy"><p>Hoy</p><p class="sm-n">$4,997 <small>MXN</small></p><p>o 3 pagos</p></div>
+              <p class="sm-ahorro">Te ahorras $1,000 si entras antes del lunes 11:59 p. m.</p>
+              <p class="sm-timer">Sube en <b class="cd">-</b></p>
+              <a class="btn btn-block btn-red btn-pay" href="#" data-cta="faq-precio">Asegurar mi precio de $4,997</a>
+            </div>
             <p>Por eso el mejor momento para entrar es hoy: te ahorras esos $1,000 y lo puedes pagar en 3 pagos.</p>
           </details>
           <details><summary>¿Cómo funcionan los 3 pagos?</summary>
