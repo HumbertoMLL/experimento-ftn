@@ -2,8 +2,8 @@
 var HS = {
   // Link de pago de Hotmart (oferta Health Squad)
   checkoutUrl: "https://pay.hotmart.com/E108409744Y?off=h37ryq9d&checkoutMode=10&bid=1794352087533",
-  // Canales: brenvita.shop/health-squad-<canal> agrega &src=<canal> al checkout
-  canales: ["influencer", "meta", "webinar", "mail", "whatsapp"],
+  // Canales: brenvita.shop/health-squad-<canal> agrega &src=<canal> al checkout (faq = la página /health-squad-faq)
+  canales: ["influencer", "meta", "webinar", "mail", "whatsapp", "faq"],
   // Sin canal en la URL (brenvita.shop/health-squad, la del QR) el checkout sale con este src
   srcDefault: "webinar",
   // El precio sube después del lunes 16 de noviembre a las 23:59 (hora del centro de México, UTC-6)
