@@ -142,6 +142,18 @@ window.FTN_CONFIG = {
        BFIT: /reto4por4-v2/bfit enseña el logo de BFIT y una sola tarjeta,
        checkout.bfit (mensual a $100 el primer mes y luego $599, oferta propia
        de Hotmart), con &src=4por4-bfit. */
+    /* Gran Fin: FTN Training a $197 (antes $399), solo hasta el lunes 16 nov
+       23:59 CDMX. Todo el tráfico va con src granfin-influencer. */
+    "gran-fin": {
+      nombre: "Gran Fin · FTN Training",
+      cierreISO: "2026-11-17T05:59:00Z",
+      canales: ["influencer"],
+      srcPrefijo: "granfin-",
+      canalDefault: "influencer",
+      checkout: {
+        training: { url: "https://pay.hotmart.com/T76408466K?off=1p89dgxj&checkoutMode=10&bid=1794765355871", nombre: "FTN Training - Gran Fin", precio: 197 }
+      }
+    },
     "reto4por4-v2": {
       nombre: "Reto 4x4",
       cierreISO: "2026-11-09T05:59:00Z",
