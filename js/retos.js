@@ -100,7 +100,7 @@
   function dos(n) { return n < 10 ? "0" + n : "" + n; }
   function tic() {
     var falta = cierre - Date.now();
-    var mostrar = falta > 0 && falta <= 7 * 864e5;
+    var mostrar = falta > 0 && falta <= (reto.relojDias || 7) * 864e5;
     relojes.forEach(function (r) { r.hidden = !mostrar; });
     if (!mostrar) return falta > 0;
     var s = Math.floor(falta / 1000);
