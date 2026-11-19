@@ -186,6 +186,23 @@ body:has(.barra-cierre:not([hidden])){padding-top:38px}
 .caras figcaption{font-size:13px;color:var(--gris);margin-top:6px}
 @media (prefers-reduced-motion:reduce){.cinta span{animation:none}}
 
+/* Evidencia agrupada por dudas */
+.duda{margin-top:64px;text-align:left}
+.duda h3{font-size:clamp(30px,8.4vw,40px);color:#fff}
+.duda h3::before{content:"";display:block;width:54px;height:5px;background:var(--rosa);margin-bottom:16px}
+.duda p{color:#E7DEE2;margin-top:10px}
+.capturas{display:grid;gap:16px;margin-top:22px}
+.capturas img{width:100%;border-radius:14px;box-shadow:0 14px 40px rgba(0,0,0,.55)}
+.lista{font-family:var(--display);font-weight:800;font-size:22px;line-height:1.15;color:#fff;margin:30px 0 0}
+.lista+.cta{margin-top:14px}
+.capturas img{cursor:zoom-in}
+.toca{font-size:13px;color:var(--gris);margin-top:14px}
+.lupa{position:fixed;inset:0;z-index:80;background:rgba(0,0,0,.94);overflow:auto;-webkit-overflow-scrolling:touch;cursor:zoom-out;padding:54px 12px 24px}
+.lupa[hidden]{display:none}
+.lupa img{display:block;max-width:none;width:min(1000px,230vw);margin:0 auto;border-radius:10px}
+.lupa.angosta img{width:min(560px,100%)}
+.lupa button{position:fixed;top:10px;right:12px;width:40px;height:40px;border:0;border-radius:50%;background:#fff;color:#000;font-size:24px;line-height:1;cursor:pointer}
+
 /* Dudas */
 details{border-bottom:1px solid var(--linea)}
 details:first-of-type{border-top:1px solid var(--linea)}
@@ -408,13 +425,76 @@ footer{padding:28px 0 96px;text-align:center;font-size:12px;color:rgba(255,255,2
 </section>
 
 <!-- 7 · PURA EVIDENCIA -->
-<section class="sec centro evidencia">
+<section class="sec centro evidencia" id="evidencia">
   <div class="in">
     <p class="kicker sube">Pura evidencia</p>
     <h2 class="sube">Mira todo lo que logramos juntas <span class="hl">este año.</span></h2>
     <p class="sube" style="color:#E7DEE2">Mujeres con la vida igual de llena que la tuya. Ninguna tenía tiempo. Todas dieron el primer paso.</p>
     <p class="numerote sube">+60,000</p>
     <p class="sube" style="margin-top:0;color:#fff;font-weight:600">fitatoneras ya entrenan con Bren</p>
+    <p class="toca sube">Toca cualquier captura para leerla en grande.</p>
+    <div class="duda sube">
+      <h3>¿Y si empiezo y lo vuelvo a dejar?</h3>
+      <p>Ellas también vivían en el “ahora sí”. Hasta que alguien caminó con ellas.</p>
+    </div>
+    <div class="capturas">
+      <img class="sube" src="/assets/black-friday/evidencia/e18.webp" width="830" height="1468" alt="Testimonio de una alumna de FTN: “El haber fortalecido mi autoconfianza. me demostré que si puedo”" loading="lazy">
+      <img class="sube ancha" src="/assets/black-friday/evidencia/e04.webp" width="1000" height="475" alt="Testimonio de una alumna de FTN: “Hoy quiero agradecerme a mi. he podido lograrlo sin fallarme”" loading="lazy">
+      <img class="sube ancha" src="/assets/black-friday/evidencia/e03.webp" width="1000" height="1019" alt="Testimonio de una alumna de FTN: “la comunidad, los entrenos, las comidas. de confiar en mi”" loading="lazy">
+    </div>
+    <p class="lista sube">¿Ya estás lista? Entra al mejor precio del año.</p>
+    <a class="cta js-checkout sube" data-plan="trimestral" href="#oferta">Ya estoy lista · $997</a>
+    <div class="duda sube">
+      <h3>¿Y si sola no me motivo?</h3>
+      <p>No vas sola. Hay miles de hermanas haciendo malabares igual que tú.</p>
+    </div>
+    <div class="capturas">
+      <img class="sube" src="/assets/black-friday/evidencia/e16.webp" width="830" height="1594" alt="Testimonio de una alumna de FTN: “marcó la diferencia fue la comunidad. Ver a tantas mujeres comprometidas”" loading="lazy">
+      <img class="sube" src="/assets/black-friday/evidencia/e17.webp" width="830" height="1570" alt="Testimonio de una alumna de FTN: “La comunidad sin duda alguna. era literal gasolina para mi dia a día”" loading="lazy">
+    </div>
+    <p class="lista sube">¿Ya estás lista? Entra al mejor precio del año.</p>
+    <a class="cta js-checkout sube" data-plan="trimestral" href="#oferta">Quiero entrar con ellas · $997</a>
+    <div class="duda sube">
+      <h3>¿Y si mi cuerpo ya no responde?</h3>
+      <p>Por la edad, por las hormonas, por todo lo que ya intentaste. Mira lo que dicen ellas.</p>
+    </div>
+    <div class="capturas">
+      <img class="sube ancha" src="/assets/black-friday/evidencia/e07.webp" width="1000" height="1166" alt="Testimonio de una alumna de FTN: “me siento feliz por mi cambio. eh aprendido a quererme”" loading="lazy">
+      <img class="sube ancha" src="/assets/black-friday/evidencia/e02.webp" width="1000" height="358" alt="Testimonio de una alumna de FTN: “estoy logrando un cambio de estilo de vida. me encanta sentirme acompañada por ustedes”" loading="lazy">
+      <img class="sube" src="/assets/black-friday/evidencia/e13.webp" width="464" height="1240" alt="Testimonio de una alumna de FTN: “Muy orgullosa de llegar al final de la Fase 2. mi cuerpo es muy fuerte”" loading="lazy">
+      <img class="sube" src="/assets/black-friday/evidencia/e15.webp" width="924" height="1584" alt="Testimonio de una alumna de FTN: “sentirte bien sí es posible. Lo más poderoso fue recuperar la confianza en mí”" loading="lazy">
+    </div>
+    <p class="lista sube">¿Ya estás lista? Entra al mejor precio del año.</p>
+    <a class="cta js-checkout sube" data-plan="trimestral" href="#oferta">Yo también puedo · $997</a>
+    <div class="duda sube">
+      <h3>¿Y si no tengo equipo?</h3>
+      <p>Una mancuerna y una bolsa de monedas. Aquí no buscamos el pretexto, buscamos el cómo sí.</p>
+    </div>
+    <div class="capturas">
+      <img class="sube" src="/assets/black-friday/evidencia/e14.webp" width="590" height="890" alt="Testimonio de una alumna de FTN: “De la pesita a Kevin. sólo utilizaba mis mancuernas azules de 3 kg”" loading="lazy">
+      <img class="sube" src="/assets/black-friday/evidencia/e12.webp" width="496" height="1252" alt="Testimonio de una alumna de FTN: “hoy si puedo reconocer que ya hay un cambio. soy capaz de ser constante”" loading="lazy">
+    </div>
+    <p class="lista sube">¿Ya estás lista? Entra al mejor precio del año.</p>
+    <a class="cta js-checkout sube" data-plan="trimestral" href="#oferta">Empiezo con lo que tengo · $997</a>
+    <div class="duda sube">
+      <h3>¿Y si lo mío es más de adentro?</h3>
+      <p>Muchas llegan por el cuerpo y se quedan por cómo se sienten.</p>
+    </div>
+    <div class="capturas">
+      <img class="sube" src="/assets/black-friday/evidencia/e05.webp" width="748" height="1180" alt="Testimonio de una alumna de FTN: “Fue un reset mental y emocional. que soy capaz de mucho más de lo que pensaba”" loading="lazy">
+      <img class="sube" src="/assets/black-friday/evidencia/e08.webp" width="812" height="1186" alt="Testimonio de una alumna de FTN: “entre a este reto nerviosa, con miedo. conectar otra vez conmigo misma”" loading="lazy">
+    </div>
+    <p class="lista sube">¿Ya estás lista? Entra al mejor precio del año.</p>
+    <a class="cta js-checkout sube" data-plan="trimestral" href="#oferta">Quiero sentirme así · $997</a>
+    <div class="duda sube">
+      <h3>¿Y si no veo cambios?</h3>
+      <p>Día 1 contra día 21. Sin filtros y sin ser perfectas.</p>
+    </div>
+    <div class="capturas">
+      <img class="sube" src="/assets/black-friday/evidencia/e06.webp" width="596" height="1216" alt="Testimonio de una alumna de FTN: “Quiero compartir esto bonito. Estoy finalizando el segundo reto”" loading="lazy">
+      <img class="sube ancha" src="/assets/black-friday/evidencia/e09.webp" width="1000" height="879" alt="Testimonio de una alumna de FTN: “Aunque no fue perfecto. me gustan mis resultados”" loading="lazy">
+      <img class="sube ancha" src="/assets/black-friday/evidencia/e10.webp" width="1000" height="1114" alt="Testimonio de una alumna de FTN: “No solo fue un cambio físico. mental para soltar todo”" loading="lazy">
+    </div>
     <div class="muro sube">
       <img src="/assets/black-friday/cambio-01.webp" width="522" height="414" alt="Antes y después de una alumna de FTN" loading="lazy">
       <img src="/assets/black-friday/cambio-02.webp" width="522" height="414" alt="Antes y después de una alumna de FTN" loading="lazy">
@@ -494,6 +574,8 @@ footer{padding:28px 0 96px;text-align:center;font-size:12px;color:rgba(255,255,2
 
 <footer><div class="in">FTN by HealthyVita · brenvita.shop</div></footer>
 
+<div class="lupa" id="lupa" hidden><button type="button" aria-label="Cerrar">×</button><img alt=""></div>
+
 <div class="sticky" id="sticky">
   <div><b>$997 MXN · 3 meses</b><s>$1,797</s>Black Friday FTN</div>
   <a class="js-checkout" data-plan="trimestral" href="#oferta">Lo quiero</a>
@@ -523,6 +605,18 @@ const revela = () => {
 addEventListener('scroll', revela, {passive: true});
 addEventListener('resize', revela);
 revela();
+
+// Capturas: tocar para leer en grande
+const lupa = document.getElementById('lupa'), lupaImg = lupa.querySelector('img');
+document.querySelectorAll('.capturas img').forEach(im => im.addEventListener('click', () => {
+  lupaImg.src = im.currentSrc || im.src; lupaImg.alt = im.alt;
+  lupa.classList.toggle('angosta', !im.classList.contains('ancha'));
+  lupa.hidden = false; lupa.scrollTo(0, 0); document.documentElement.style.overflow = 'hidden';
+  if (window.clarity) clarity('event', 'captura_ampliada');
+}));
+const cierraLupa = () => { lupa.hidden = true; document.documentElement.style.overflow = ''; };
+lupa.addEventListener('click', cierraLupa);
+addEventListener('keydown', e => { if (e.key === 'Escape') cierraLupa(); });
 
 if (window.clarity) clarity('set', 'variante', 'black-friday');
 document.querySelectorAll('.js-checkout').forEach(a => a.addEventListener('click', () => {
