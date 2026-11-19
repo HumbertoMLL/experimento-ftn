@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Black Friday FTN · 3 meses y 3 retos por $997</title>
+<meta name="description" content="Da el primer paso desde diciembre para que 2027 sí sea tu año: 3 meses de FTN con el Reto 4x4, el Reto Reset y el Reto 2% de regalo por $997 MXN (antes $1,797).">
+<meta name="theme-color" content="#09090A">
+<meta property="og:title" content="Black Friday FTN · Que 2027 sí sea tu año">
+<meta property="og:description" content="3 meses de FTN y 3 retos con Bren por $997 MXN (antes $1,797). Empieza desde diciembre.">
+<meta property="og:image" content="https://www.brenvita.shop/assets/black-friday/og.jpg">
+<meta property="og:type" content="website">
+<link rel="icon" href="/assets/favicon-ftn.png" type="image/png">
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon-ftn.png">
+<link rel="canonical" href="https://www.brenvita.shop/black-friday">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,700;12..96,800&family=Caveat:wght@600;700&family=Inter:wght@400;500;600;700&display=swap">
+<link rel="preload" as="image" href="/assets/black-friday/bren-hero.webp" fetchpriority="high">
+<style>
+:root{
+  --negro:#09090A; --tinta:#131114; --rosa:#FF2A6B; --rosa2:#FF86A8; --crema:#F7EFE8; --gris:#B9B0B6; --rojo:#D3132B;
+  --linea:rgba(255,255,255,.12);
+  --display:"Bricolage Grotesque",Inter,sans-serif; --mano:"Caveat",cursive;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+html,body{overflow-x:clip}
+body{font-family:Inter,system-ui,sans-serif;color:var(--crema);background:var(--negro);line-height:1.6;font-size:17px;-webkit-font-smoothing:antialiased}
+img{max-width:100%;height:auto;display:block}
+h1,h2,h3{font-family:var(--display);font-weight:800;letter-spacing:-.02em;line-height:1.04;text-wrap:balance}
+h2{font-size:clamp(30px,8vw,42px);margin-bottom:18px}
+.in{max-width:540px;margin:0 auto;padding:0 22px}
+.sec{padding:64px 0}
+.tinta{background:var(--tinta)}
+.centro{text-align:center}
+.hl{color:var(--rosa)}
+.kicker{font-size:12px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--rosa2);margin-bottom:12px}
+.mano{font-family:var(--mano);font-weight:700;font-size:30px;line-height:1.1;color:var(--rosa2)}
+p+p{margin-top:16px}
+.prosa p{color:#E7DEE2}
+.prosa b{color:#fff}
+.grande{font-family:var(--display);font-weight:800;font-size:26px;line-height:1.15;letter-spacing:-.01em;color:#fff}
+
+/* Barra roja fija con el reloj (la enciende js/retos.js) */
+.barra-cierre[hidden]{display:none}
+.barra-cierre{position:fixed;top:0;left:0;right:0;z-index:50;display:flex;justify-content:center;align-items:baseline;gap:8px;
+  padding:9px 12px;background:var(--rojo);color:#fff;text-decoration:none;font-size:13px;font-weight:600;white-space:nowrap}
+.barra-cierre b{font-size:16px;font-weight:800;font-variant-numeric:tabular-nums;letter-spacing:.02em}
+body:has(.barra-cierre:not([hidden])){padding-top:38px}
+#oferta{scroll-margin-top:38px}
+
+/* CTA */
+.cta{display:block;width:100%;text-align:center;background:var(--rosa);color:#fff;font-weight:700;font-size:18px;
+  padding:19px 20px;border-radius:999px;text-decoration:none;box-shadow:0 10px 34px rgba(255,42,107,.42);transition:transform .15s}
+.cta:active{transform:scale(.98)}
+.cta:focus-visible,.sticky a:focus-visible,summary:focus-visible{outline:3px solid #fff;outline-offset:3px}
+.cta-sub{font-size:13px;text-align:center;margin-top:12px;color:rgba(255,255,255,.62)}
+
+/* Logo Black Friday FTN */
+.bf-logo{width:210px;height:auto;margin:0 auto 26px;display:block}
+.bf-logo text{font-family:var(--display);font-weight:800}
+
+/* Precio */
+.precio{display:flex;justify-content:center;align-items:baseline;gap:14px;font-family:var(--display);font-weight:800;line-height:1}
+.precio s{font-size:26px;color:rgba(255,255,255,.5);text-decoration-color:var(--rosa);text-decoration-thickness:3px}
+.precio b{font-size:72px;letter-spacing:-.03em}
+.precio small{font-size:20px;margin-left:6px;letter-spacing:0}
+.precio-nota{text-align:center;font-size:15px;color:var(--gris);margin-top:8px}
+.precio-nota b{color:#fff}
+
+/* HERO */
+.hero{position:relative;padding:30px 0 44px;background:radial-gradient(90% 46% at 50% 0%,#3a0c22 0%,var(--negro) 72%)}
+.hero h1{font-size:clamp(44px,13vw,66px);margin-bottom:14px}
+.hero .sub{font-size:18px;color:#E7DEE2;max-width:430px;margin:0 auto}
+.hero-foto{position:relative;margin:-34px auto -150px;max-width:460px;
+  -webkit-mask-image:linear-gradient(transparent 2%,#000 16%,#000 52%,transparent 92%);mask-image:linear-gradient(transparent 2%,#000 16%,#000 52%,transparent 92%)}
+.hero>.in:first-child{position:relative;z-index:1}
+.hero-pie{position:relative}
+.hero .cta{margin-top:20px}
+
+/* Lista "te suena" y renglones con línea */
+.renglones{list-style:none;margin:26px 0}
+.renglones li{padding:16px 0;border-bottom:1px solid var(--linea);font-size:18px;color:#fff}
+.renglones li:first-child{border-top:1px solid var(--linea)}
+.renglones li span{display:block;font-size:15px;color:var(--gris);margin-top:2px}
+
+/* 2026 → 2027 */
+.anios{display:flex;justify-content:center;align-items:center;gap:16px;margin:34px 0 30px;font-family:var(--display);font-weight:800;line-height:1}
+.anios s{font-size:44px;color:rgba(255,255,255,.3);text-decoration-thickness:4px;text-decoration-color:rgba(255,255,255,.55)}
+.anios i{font-style:normal;font-size:30px;color:var(--rosa2)}
+.anios b{font-size:84px;color:var(--rosa);letter-spacing:-.04em;text-shadow:0 0 50px rgba(255,42,107,.45)}
+.meses{list-style:none;margin:26px 0 0}
+.meses li{display:flex;gap:16px;align-items:baseline;padding:15px 0;border-bottom:1px solid var(--linea)}
+.meses li:first-child{border-top:1px solid var(--linea)}
+.meses b{flex:0 0 104px;font-family:var(--display);font-size:20px;color:var(--rosa2)}
+.meses span{color:#fff}
+
+/* Ruta de los 3 retos: línea con puntos, sin cajas */
+.ruta{list-style:none;margin:34px 0 0;position:relative;padding-left:34px}
+.ruta::before{content:"";position:absolute;left:8px;top:10px;bottom:30px;width:2px;background:linear-gradient(var(--rosa),rgba(255,42,107,.15))}
+.ruta>li{position:relative;padding-bottom:46px}
+.ruta>li:last-child{padding-bottom:0}
+.ruta>li::before{content:"";position:absolute;left:-34px;top:6px;width:18px;height:18px;border-radius:50%;background:var(--negro);border:3px solid var(--rosa);box-shadow:0 0 18px rgba(255,42,107,.6)}
+.ruta .cuando{font-size:12px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--rosa2)}
+.ruta h3{font-size:34px;margin:4px 0 8px;color:#fff}
+.ruta .para{font-family:var(--mano);font-weight:700;font-size:25px;line-height:1.15;color:var(--rosa2);margin-bottom:10px}
+.ruta p{color:#E7DEE2}
+.ruta ul{list-style:none;margin-top:14px}
+.ruta ul li{padding:9px 0 9px 26px;position:relative;border-top:1px solid var(--linea);font-size:16px;color:#fff}
+.ruta ul li::before{content:"✓";position:absolute;left:2px;font-weight:800;color:var(--rosa)}
+.regalo{color:var(--rosa)}
+
+/* App */
+.pantallas{display:flex;justify-content:center;gap:12px;margin:26px 0 8px}
+.pantallas img{width:calc(50% - 6px);max-width:220px;border-radius:22px;border:5px solid #000;box-shadow:0 18px 50px rgba(0,0,0,.6)}
+.pantallas img:first-child{transform:rotate(-3deg)}
+.pantallas img:last-child{transform:rotate(3deg) translateY(14px)}
+.incluye{list-style:none;margin:30px 0 0;text-align:left}
+.incluye li{padding:14px 0 14px 32px;border-bottom:1px solid var(--linea);position:relative;color:#fff}
+.incluye li:first-child{border-top:1px solid var(--linea)}
+.incluye li::before{content:"✓";position:absolute;left:4px;font-weight:800;color:var(--rosa)}
+.incluye li span{display:block;font-size:15px;color:var(--gris)}
+
+/* Prueba */
+.cambios{border-radius:14px;margin:8px 0 14px}
+.nota{font-size:13px;color:rgba(255,255,255,.55);line-height:1.5}
+.social{display:flex;align-items:center;justify-content:center;gap:10px;margin-top:22px;font-size:15px;color:rgba(255,255,255,.78)}
+.social b{color:#fff}
+
+/* Oferta */
+.oferta{background:radial-gradient(90% 40% at 50% 0%,#3a0c22 0%,var(--tinta) 70%)}
+.ahorro{font-family:var(--mano);font-weight:700;font-size:28px;color:var(--rosa2);margin:10px 0 0;transform:rotate(-2deg)}
+.reloj-titulo{font-family:var(--display);font-weight:800;font-size:19px;color:var(--rosa2);margin-top:26px}
+.reloj-titulo[hidden],.reloj[hidden]{display:none}
+.reloj{display:flex;justify-content:center;gap:8px;margin:12px 0 6px}
+.reloj div{flex:1 1 0;max-width:92px;padding:10px 4px 8px;border-radius:14px;background:var(--rojo);text-align:center}
+.reloj b{display:block;font-family:var(--display);font-weight:800;font-size:34px;line-height:1.05;font-variant-numeric:tabular-nums}
+.reloj span{font-size:11px;font-weight:600;letter-spacing:.08em;text-transform:uppercase}
+.oferta .cta{margin-top:24px}
+
+/* Sección roja: todo lo que incluye */
+.roja{background:#DB0F2C;background-image:radial-gradient(80% 40% at 50% 0%,#F5334D 0%,transparent 70%);color:#fff;padding:0 0 0;overflow:hidden}
+.roja .in{padding-top:54px;padding-bottom:64px}
+.roja h2{font-size:clamp(36px,10vw,50px);margin-bottom:8px}
+.roja mark{background:linear-gradient(transparent 58%,#000 58%);color:#fff;padding:0 4px}
+.ama{color:#FFE14D}
+.cinta{background:#000;color:#fff;font-family:var(--display);font-weight:800;font-size:17px;letter-spacing:.04em;white-space:nowrap;padding:11px 0;transform:rotate(-2deg) scale(1.06);margin-top:-6px}
+.cinta.al-reves{transform:rotate(2deg) scale(1.06);margin:0 0 -6px}
+.cinta span{display:inline-block;animation:corre 26s linear infinite}
+.cinta i{font-style:normal;color:#FFE14D;margin:0 10px}
+@keyframes corre{to{transform:translateX(-50%)}}
+.pila{list-style:none;counter-reset:n;margin-top:22px}
+.pila li{counter-increment:n;position:relative;padding:18px 0 18px 58px;border-bottom:2px solid rgba(0,0,0,.22)}
+.pila li::before{content:counter(n);position:absolute;left:0;top:10px;width:46px;text-align:center;font-family:var(--display);font-weight:800;font-size:46px;line-height:1;color:transparent;-webkit-text-stroke:2px #000}
+.pila b{display:block;font-family:var(--display);font-weight:800;font-size:25px;line-height:1.1;letter-spacing:-.01em}
+.pila span{display:block;font-size:16px;color:rgba(255,255,255,.88);margin-top:3px}
+.pila em{display:inline-flex;align-items:center;gap:6px;font-family:var(--mano);font-style:normal;font-weight:700;font-size:28px;line-height:1;color:#FFE14D;transform:rotate(-3deg);margin-top:8px}
+.pila em svg{width:44px;height:22px;fill:none;stroke:#FFE14D;stroke-width:3;stroke-linecap:round;stroke-linejoin:round;transform:scaleX(-1) rotate(160deg)}
+.roja .pantallas img{border-color:#000;box-shadow:0 18px 50px rgba(0,0,0,.4)}
+.todo-por{font-family:var(--display);font-weight:800;font-size:30px;margin-top:10px}
+.todo-por s{font-size:22px;opacity:.7;text-decoration-thickness:3px}
+.todo-por b{font-size:54px;letter-spacing:-.03em}
+.cta.blanca{background:#fff;color:#C10B25;box-shadow:0 12px 34px rgba(0,0,0,.35);margin-top:14px}
+.cta.linea{background:transparent;border:2px solid var(--rosa);box-shadow:none;margin-top:20px}
+
+/* Plan anual, debajo del trimestral */
+.plan-nombre{font-size:12px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--rosa2);margin:6px 0 10px}
+.anual{margin-top:46px;padding-top:40px;border-top:1px solid var(--linea)}
+.anual .mano{margin-bottom:16px}
+.precio.chico b{font-size:52px}
+.precio.chico s{font-size:22px}
+.anual-txt{color:#E7DEE2;font-size:16px;max-width:420px;margin:14px auto 0}
+
+/* Muro de evidencia */
+.numerote{font-family:var(--display);font-weight:800;font-size:clamp(70px,22vw,110px);line-height:1;letter-spacing:-.04em;color:var(--rosa);margin-top:26px;text-shadow:0 0 50px rgba(255,42,107,.4)}
+.muro{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:28px}
+.muro img{width:100%;aspect-ratio:5/4;object-fit:cover;border-radius:10px}
+.muro img:nth-child(odd){transform:rotate(-1.2deg)}
+.muro img:nth-child(even){transform:rotate(1.2deg)}
+.muro img:last-child:nth-child(odd){grid-column:1/-1;aspect-ratio:5/3;transform:none}
+.muro.tres{grid-template-columns:repeat(3,1fr);margin-top:10px}
+.muro.tres img,.muro.tres img:last-child{aspect-ratio:1;grid-column:auto}
+.caras{display:flex;justify-content:center;gap:14px;margin:30px 0 18px}
+.caras img{width:64px;height:64px;border-radius:50%;object-fit:cover;border:2px solid var(--rosa)}
+.caras figcaption{font-size:13px;color:var(--gris);margin-top:6px}
+@media (prefers-reduced-motion:reduce){.cinta span{animation:none}}
+
+/* Dudas */
+details{border-bottom:1px solid var(--linea)}
+details:first-of-type{border-top:1px solid var(--linea)}
+summary{list-style:none;cursor:pointer;padding:18px 34px 18px 0;position:relative;font-weight:600;font-size:17px;color:#fff}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"+";position:absolute;right:4px;top:12px;font-size:26px;font-weight:400;color:var(--rosa);transition:transform .2s}
+details[open] summary::after{transform:rotate(45deg)}
+details p{padding:0 0 18px;color:#E7DEE2;font-size:16px}
+
+/* Carta final */
+.firma{display:flex;align-items:center;gap:14px;margin:26px 0 30px}
+.firma img{width:64px;height:64px;border-radius:50%;object-fit:cover}
+.firma b{font-family:var(--mano);font-size:34px;line-height:1;color:#fff}
+.firma span{display:block;font-size:13px;color:var(--gris)}
+
+/* Sticky: solo cuando ningún otro botón está a la vista */
+.sticky{position:fixed;left:0;right:0;bottom:0;z-index:40;background:rgba(9,9,10,.96);backdrop-filter:blur(8px);
+  border-top:1px solid var(--linea);padding:10px 16px calc(10px + env(safe-area-inset-bottom));display:flex;align-items:center;gap:12px;
+  transform:translateY(110%);transition:transform .3s}
+.sticky.on{transform:none}
+.sticky div{flex:1;font-size:13px;line-height:1.25;color:var(--gris)}
+.sticky div b{display:block;font-size:17px;color:#fff}
+.sticky div s{margin-right:4px}
+.sticky a{background:var(--rosa);color:#fff;font-weight:700;padding:13px 22px;border-radius:999px;text-decoration:none;white-space:nowrap}
+footer{padding:28px 0 96px;text-align:center;font-size:12px;color:rgba(255,255,255,.45)}
+
+/* Entrada suave al hacer scroll */
+.sube{opacity:0;transform:translateY(18px);transition:opacity .6s,transform .6s}
+.sube.ya{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){.sube{opacity:1;transform:none;transition:none}html{scroll-behavior:auto}}
+@media (min-width:700px){.sec{padding:84px 0}}
+</style>
+<script src="/js/config.js"></script>
+<script src="/js/pixel.js"></script>
+<noscript><style>.sube{opacity:1;transform:none}</style></noscript>
+<noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=1645815772229731&ev=PageView&noscript=1" /></noscript>
+</head>
+<body data-variante="black-friday">
+<a class="barra-cierre js-cierre" href="#oferta" hidden>Black Friday FTN termina en: <b><span data-u="d">-</span>d <span data-u="h">--</span>:<span data-u="m">--</span>:<span data-u="s">--</span></b></a>
+
+<!-- 1 · HERO -->
+<header class="hero centro">
+  <div class="in">
+    <svg class="bf-logo" viewBox="0 0 300 150" role="img" aria-label="Black Friday FTN">
+      <text x="0" y="62" font-size="74" textLength="300" lengthAdjust="spacingAndGlyphs" fill="none" stroke="#F7EFE8" stroke-width="2">BLACK</text>
+      <text x="0" y="128" font-size="74" textLength="300" lengthAdjust="spacingAndGlyphs" fill="#F7EFE8">FRIDAY</text>
+      <g transform="rotate(-9 236 76)">
+        <rect x="186" y="56" width="104" height="40" rx="6" fill="#FF2A6B"/>
+        <text x="238" y="86" font-size="30" text-anchor="middle" fill="#fff" letter-spacing="2">FTN</text>
+      </g>
+    </svg>
+    <h1>Que 2027 sí sea <span class="hl">tu año.</span></h1>
+    <p class="sub">Da el primer paso desde diciembre: 3 meses de FTN y 3 retos guiados por Bren, al mejor precio del año.</p>
+  </div>
+  <div class="hero-foto">
+    <img src="/assets/black-friday/bren-hero.webp" width="1080" height="1340" alt="Bren, coach de FTN" fetchpriority="high">
+  </div>
+  <div class="in hero-pie">
+    <div class="precio"><s>$1,797</s><b>$997<small>MXN</small></b></div>
+    <p class="precio-nota">3 meses completos · <b>menos de $12 al día</b></p>
+    <a class="cta js-checkout" data-plan="trimestral" href="#oferta">Quiero dar el primer paso</a>
+    <p class="cta-sub">Pago seguro con Hotmart · Suscripción trimestral, cancela cuando quieras</p>
+  </div>
+</header>
+
+<!-- 2 · CARTA: este año -->
+<section class="sec tinta">
+  <div class="in prosa">
+    <h2 class="sube">Hermana, hablemos de este año.</h2>
+    <div class="sube">
+      <p>En enero te prometiste que este sí. Que ibas a entrenar, a comer mejor, a volver a sentirte bien en tu cuerpo.</p>
+      <p>Y luego pasó la vida. El trabajo, la casa, los hijos, el cansancio, las semanas que se fueron sin avisar.</p>
+      <p>Hoy quedan <b><span class="js-semanas">6</span> semanas</b> de 2026 y tal vez sientes que, otra vez, no te cumpliste.</p>
+    </div>
+    <p class="mano sube" style="margin:30px 0 22px">Respira. No vengo a regañarte.</p>
+    <div class="sube">
+      <p>No te faltó fuerza de voluntad. Nadie cumple un propósito que no cabe en su vida.</p>
+      <p>Te faltó un plan del tamaño de tus días. Y alguien que caminara contigo cuando se te acabaran las ganas.</p>
+    </div>
+    <ul class="renglones sube">
+      <li>“El lunes empiezo.”<span>Y se te juntaron muchos lunes.</span></li>
+      <li>Pagaste el gym y fuiste tres veces.<span>No por floja. Porque nadie te esperaba ahí.</span></li>
+      <li>Empezaste la dieta con todo.<span>A la segunda semana ya no podías con ella.</span></li>
+      <li>Te viste en el espejo y pensaste “¿en qué momento?”.<span>Y preferiste no pensarlo más.</span></li>
+    </ul>
+    <p class="grande sube">No eres floja. Estás cansada de empezar sola.</p>
+    <p class="sube" style="margin-top:18px">Este año no fue. Y está bien. <b>El que sigue sí.</b></p>
+  </div>
+</section>
+
+<!-- 3 · POR QUÉ DICIEMBRE -->
+<section class="sec">
+  <div class="in prosa">
+    <p class="kicker sube">Por qué ahora y no en enero</p>
+    <h2 class="sube">Las que esperan a enero empiezan de cero. Tú vas a llegar <span class="hl">con ventaja.</span></h2>
+    <div class="sube">
+      <p>Enero es el mes en el que todas prometen. Diciembre es el mes en el que casi nadie empieza. Por eso funciona.</p>
+      <p>Si das el primer paso ahora, el 1 de enero no vas a estar escribiendo propósitos en una libreta. <b>Vas a estar cumpliéndolos.</b></p>
+    </div>
+    <div class="anios sube" aria-hidden="true"><s>2026</s><i>→</i><b>2027</b></div>
+    <ul class="meses sube">
+      <li><b>Diciembre</b><span>Das el primer paso. Sin esperar al lunes.</span></li>
+      <li><b>Enero</b><span>Ya tienes ritmo cuando las demás apenas arrancan.</span></li>
+      <li><b>Febrero</b><span>Ya no es un propósito. Es tu rutina.</span></li>
+    </ul>
+    <p class="mano sube" style="margin:30px 0 14px">¿Y las posadas, el recalentado, las cenas?</p>
+    <p class="sube">Van incluidas en el plan. Aquí no se trata de ser perfecta en diciembre. Se trata de no soltarte: 30 minutos, cuatro días a la semana, y sigues adelante aunque un día te comas el pastel.</p>
+  </div>
+</section>
+
+<!-- 4 · LOS 3 RETOS -->
+<section class="sec tinta">
+  <div class="in">
+    <p class="kicker sube">Tu ruta de 3 meses</p>
+    <h2 class="sube">3 retos. Un paso a la vez. Bren te lleva de la mano.</h2>
+    <p class="sube" style="color:#E7DEE2">No compras tres programas. Compras llegar a marzo siendo la que sí se cumplió. Cada reto te deja lista para el siguiente.</p>
+    <ol class="ruta">
+      <li class="sube">
+        <p class="cuando">Empiezas aquí · 28 días</p>
+        <h3>Reto 4x4</h3>
+        <p class="para">Para cerrar el año cumpliéndote.</p>
+        <p>Si llevas tiempo sin entrenar o sientes que nada te funciona, aquí arrancas. Una regla fácil de recordar: 4 semanas, 4 entrenos a la semana, 4 hábitos básicos.</p>
+        <ul>
+          <li>2 días de fuerza y 2 de pilates, barre y yoga</li>
+          <li>Entrenos de 30 a 40 minutos</li>
+          <li>4,000 pasos, 4 vasos de agua y 4 vegetales al día</li>
+          <li>Plan de nutrición en déficit calórico</li>
+        </ul>
+      </li>
+      <li class="sube">
+        <p class="cuando">Tu arranque de año</p>
+        <h3>Reto Reset</h3>
+        <p class="para">Para empezar enero por dentro.</p>
+        <p>Mientras todas empiezan de cero, tú llegas con un mes de ritmo y le das a tu cuerpo lo que pide después de las fiestas: orden.</p>
+        <ul>
+          <li>Equilibras tus hormonas: más energía y mejor ánimo</li>
+          <li>Reparas tu intestino y bajas la inflamación</li>
+          <li>Déficit calórico con enfoque en abdomen</li>
+          <li>Hábitos que sí puedes sostener todo el año</li>
+        </ul>
+      </li>
+      <li class="sube">
+        <p class="cuando regalo">De regalo · 21 días</p>
+        <h3>Reto 2%</h3>
+        <p class="para">Para los días en que la vida se complica.</p>
+        <p>Va a llegar una semana pesada. Para esa semana existe el 2%: de 20 a 30 minutos, el 2% de tu día. Así nunca vuelves a soltar todo. <b style="color:#fff">Estos 21 días van por nuestra cuenta.</b></p>
+        <ul>
+          <li>Entrenos cortos en casa o en el gym</li>
+          <li>Menú sencillo con alimentos de todos los días</li>
+          <li>Meditaciones para volver a creer en ti</li>
+        </ul>
+      </li>
+    </ol>
+    <a class="cta js-checkout sube" data-plan="trimestral" href="#oferta" style="margin-top:44px">Quiero mis 3 retos por $997</a>
+  </div>
+</section>
+
+<!-- 5 · TODO LO QUE INCLUYE (sección roja) -->
+<section class="roja">
+  <div class="cinta" aria-hidden="true"><span>BLACK FRIDAY FTN <i>✦</i> 3 MESES <i>✦</i> 3 RETOS <i>✦</i> $997 <i>✦</i> EL MEJOR PRECIO DEL AÑO <i>✦</i> BLACK FRIDAY FTN <i>✦</i> 3 MESES <i>✦</i> 3 RETOS <i>✦</i> $997 <i>✦</i> EL MEJOR PRECIO DEL AÑO <i>✦</i> </span></div>
+  <div class="in">
+    <p class="mano ama sube" style="transform:rotate(-3deg);margin-bottom:6px">¿Y qué me llevo, Bren?</p>
+    <h2 class="sube">Agárrate, porque <mark>va todo esto.</mark></h2>
+    <ol class="pila">
+      <li class="sube"><b>3 meses de FTN completo</b><span>Todas las clases y todos los retos. Sin candados.</span></li>
+      <li class="sube"><b>Reto 4x4</b><span>28 días para cerrar el año cumpliéndote.</span></li>
+      <li class="sube"><b>Reto Reset</b><span>Tu arranque de enero: hormonas, intestino y energía.</span></li>
+      <li class="sube"><b>Reto 2%</b><span>21 días para cuando la vida se complica.</span><em>¡este va de regalo!
+        <svg viewBox="0 0 60 30" aria-hidden="true"><path d="M58 6C40 2 18 6 6 22M6 22l1-11M6 22l11-2"/></svg></em></li>
+      <li class="sube"><b>Plan de comida y +1,000 recetas</b><span>Con lista del súper. Cero “¿y hoy qué como?”.</span></li>
+      <li class="sube"><b>Entrenos de 30 a 40 minutos</b><span>En tu sala o en el gym. Con opción de entrada y avanzada.</span></li>
+      <li class="sube"><b>Focus</b><span>Meditaciones y podcasts para cuando tu cabeza dice que no.</span></li>
+      <li class="sube"><b>Comunidad de hermanas</b><span>Las que te jalan el día que aflojas.</span></li>
+    </ol>
+    <div class="pantallas sube">
+      <img src="/assets/4x4v2/app-hoy.webp" width="600" height="1217" alt="App de FTN con el entreno y el menú del día" loading="lazy">
+      <img src="/assets/4x4v2/app-focus.webp" width="600" height="1219" alt="Sección Focus de la app de FTN" loading="lazy">
+    </div>
+    <p class="mano ama centro sube" style="margin-top:44px">Abres la app y ya sabes qué te toca hoy.</p>
+    <p class="todo-por centro sube">Todo, por <s>$1,797</s> <b>$997</b></p>
+    <a class="cta blanca js-checkout sube" data-plan="trimestral" href="#oferta">Lo quiero todo</a>
+  </div>
+  <div class="cinta al-reves" aria-hidden="true"><span>BLACK FRIDAY FTN <i>✦</i> 3 MESES <i>✦</i> 3 RETOS <i>✦</i> $997 <i>✦</i> EL MEJOR PRECIO DEL AÑO <i>✦</i> BLACK FRIDAY FTN <i>✦</i> 3 MESES <i>✦</i> 3 RETOS <i>✦</i> $997 <i>✦</i> EL MEJOR PRECIO DEL AÑO <i>✦</i> </span></div>
+</section>
+
+<!-- 6 · OFERTA -->
+<section class="sec oferta centro" id="oferta">
+  <div class="in">
+    <svg class="bf-logo" viewBox="0 0 300 150" role="img" aria-label="Black Friday FTN" style="width:150px;margin-bottom:20px">
+      <text x="0" y="62" font-size="74" textLength="300" lengthAdjust="spacingAndGlyphs" fill="none" stroke="#F7EFE8" stroke-width="2">BLACK</text>
+      <text x="0" y="128" font-size="74" textLength="300" lengthAdjust="spacingAndGlyphs" fill="#F7EFE8">FRIDAY</text>
+      <g transform="rotate(-9 236 76)">
+        <rect x="186" y="56" width="104" height="40" rx="6" fill="#FF2A6B"/>
+        <text x="238" y="86" font-size="30" text-anchor="middle" fill="#fff" letter-spacing="2">FTN</text>
+      </g>
+    </svg>
+    <h2>Tu primer paso, al mejor precio del año.</h2>
+    <p class="plan-nombre">Plan trimestral</p>
+    <div class="precio"><s>$1,797</s><b>$997<small>MXN</small></b></div>
+    <p class="precio-nota">3 meses · <b>menos de $12 al día</b></p>
+    <p class="ahorro">Te ahorras $800</p>
+    <p class="reloj-titulo js-cierre" hidden>Este precio se acaba en:</p>
+    <div class="reloj js-cierre" hidden>
+      <div><b data-u="d">-</b><span>días</span></div><div><b data-u="h">--</b><span>horas</span></div>
+      <div><b data-u="m">--</b><span>min</span></div><div><b data-u="s">--</b><span>seg</span></div>
+    </div>
+    <a class="cta js-checkout" data-plan="trimestral" href="#oferta">Sí, 2027 es mi año</a>
+    <p class="cta-sub">Pago seguro con Hotmart · Suscripción trimestral, cancela cuando quieras desde la app</p>
+
+    <div class="anual">
+      <p class="mano">¿Y si de una vez te regalas todo 2027?</p>
+      <p class="plan-nombre">Plan anual · mitad de precio</p>
+      <div class="precio chico"><s>$7,188</s><b>$3,594<small>MXN</small></b></div>
+      <p class="precio-nota">12 meses · <b>menos de $10 al día</b> · sale en $299.50 al mes</p>
+      <p class="anual-txt">Todo lo de arriba, pero el año completo: cada reto nuevo de 2027 ya es tuyo y no vuelves a pensar en pagos hasta el otro Black Friday.</p>
+      <a class="cta linea js-checkout" data-plan="anual" href="#oferta">Quiero mi año completo</a>
+      <p class="cta-sub">Un solo pago por 12 meses · Pago seguro con Hotmart</p>
+    </div>
+  </div>
+</section>
+
+<!-- 7 · PURA EVIDENCIA -->
+<section class="sec centro evidencia">
+  <div class="in">
+    <p class="kicker sube">Pura evidencia</p>
+    <h2 class="sube">Mira todo lo que logramos juntas <span class="hl">este año.</span></h2>
+    <p class="sube" style="color:#E7DEE2">Mujeres con la vida igual de llena que la tuya. Ninguna tenía tiempo. Todas dieron el primer paso.</p>
+    <p class="numerote sube">+60,000</p>
+    <p class="sube" style="margin-top:0;color:#fff;font-weight:600">fitatoneras ya entrenan con Bren</p>
+    <div class="muro sube">
+      <img src="/assets/black-friday/cambio-01.webp" width="522" height="414" alt="Antes y después de una alumna de FTN" loading="lazy">
+      <img src="/assets/black-friday/cambio-02.webp" width="522" height="414" alt="Antes y después de una alumna de FTN" loading="lazy">
+      <img src="/assets/black-friday/cambio-03.webp" width="522" height="414" alt="Antes y después de una alumna de FTN" loading="lazy">
+      <img src="/assets/black-friday/cambio-04.webp" width="522" height="414" alt="Antes y después de una alumna de FTN" loading="lazy">
+      <img src="/assets/black-friday/cambio-05.webp" width="522" height="414" alt="Antes y después de una alumna de FTN" loading="lazy">
+      <img src="/assets/black-friday/cambio-06.webp" width="522" height="414" alt="Antes y después de una alumna de FTN" loading="lazy">
+      <img src="/assets/black-friday/cambio-07.webp" width="522" height="414" alt="Antes y después de una alumna de FTN" loading="lazy">
+      <img src="/assets/black-friday/cambio-08.webp" width="522" height="414" alt="Antes y después de una alumna de FTN" loading="lazy">
+      <img src="/assets/black-friday/cambio-09.webp" width="522" height="414" alt="Antes y después de una alumna de FTN" loading="lazy">
+    </div>
+    <div class="muro tres sube">
+      <img src="/assets/black-friday/cambio-10.webp" width="366" height="366" alt="Antes y después de una alumna de FTN" loading="lazy">
+      <img src="/assets/black-friday/cambio-11.webp" width="366" height="366" alt="Antes y después de una alumna de FTN" loading="lazy">
+      <img src="/assets/black-friday/cambio-12.webp" width="366" height="366" alt="Antes y después de una alumna de FTN" loading="lazy">
+    </div>
+    <div class="caras sube">
+      <figure><img src="/assets/4x4v2/t-Cecy.jpg" width="160" height="160" alt="" loading="lazy"><figcaption>Cecy</figcaption></figure>
+      <figure><img src="/assets/4x4v2/t-Yael.jpg" width="160" height="160" alt="" loading="lazy"><figcaption>Yael</figcaption></figure>
+      <figure><img src="/assets/4x4v2/t-AnaLu-cuadro.jpg" width="160" height="160" alt="" loading="lazy"><figcaption>Ana Lu</figcaption></figure>
+      <figure><img src="/assets/4x4v2/t-Mariale.jpg" width="160" height="160" alt="" loading="lazy"><figcaption>Mariale</figcaption></figure>
+    </div>
+    <p class="nota sube">Alumnas de retos de FTN. Cada cuerpo responde distinto: no prometemos kilos, prometemos un sistema que, si lo cumples, da resultados.</p>
+    <p class="mano sube" style="font-size:33px;margin:34px 0 4px">La siguiente puedes ser tú.</p>
+    <a class="cta js-checkout sube" data-plan="trimestral" href="#oferta">La siguiente soy yo</a>
+  </div>
+</section>
+
+<!-- 8 · DUDAS -->
+<section class="sec">
+  <div class="in">
+    <h2>Lo que quizá te estás preguntando</h2>
+    <details>
+      <summary>¿Y si empiezo y lo vuelvo a dejar?</summary>
+      <p>Para eso está armado así. Si una semana se te cae, no empiezas de cero: retomas donde te quedaste, y para los días difíciles tienes el Reto 2%, con entrenos de 20 a 30 minutos. Soltarlo un día no es fallar.</p>
+    </details>
+    <details>
+      <summary>Llevo mucho sin entrenar, ¿puedo?</summary>
+      <p>Sí. Cada clase tiene opción de entrada y opción avanzada. Si tienes una lesión o condición médica, consulta antes con tu médico.</p>
+    </details>
+    <details>
+      <summary>¿Cuándo empiezo?</summary>
+      <p>Hoy mismo tienes tu acceso. La idea es que arranques en diciembre con el Reto 4x4 para llegar a enero con un mes de ventaja.</p>
+    </details>
+    <details>
+      <summary>¿Necesito equipo o ir al gym?</summary>
+      <p>No. Un par de mancuernas o lo que tengas en casa, y tu tapete. Si prefieres el gym, también hay opción para gym.</p>
+    </details>
+    <details>
+      <summary>En diciembre no tengo tiempo.</summary>
+      <p>Son 4 entrenos a la semana de 30 a 40 minutos. Los otros días solo caminas. Está pensado para una vida ocupada, con cenas y compromisos incluidos.</p>
+    </details>
+    <details>
+      <summary>¿El cobro se repite?</summary>
+      <p>El trimestral es una suscripción: hoy pagas $997 MXN por tus primeros 3 meses y puedes cancelar cuando quieras desde la app, sin llamadas. El anual es un solo pago de $3,594 MXN por 12 meses.</p>
+    </details>
+  </div>
+</section>
+
+<!-- 9 · CARTA FINAL -->
+<section class="sec tinta">
+  <div class="in prosa">
+    <h2 class="sube">El 1 de enero vas a despertar con un mes de ventaja.</h2>
+    <div class="sube">
+      <p>No con un propósito nuevo. Con cuatro semanas cumplidas, con más energía y con la prueba de que sí puedes.</p>
+      <p>No necesitas estar lista. No necesitas tener ganas todos los días. Necesitas dar el primer paso, y yo te acompaño en los que siguen.</p>
+      <p><b>Tal vez este año no fue. El que sigue lo empezamos juntas, desde hoy.</b></p>
+    </div>
+    <div class="firma sube">
+      <img src="/assets/bren-hero.webp" width="240" height="240" alt="Bren" loading="lazy">
+      <div><b>Bren</b><span>Nutrióloga, entrenadora y founder de FTN</span></div>
+    </div>
+    <a class="cta js-checkout" data-plan="trimestral" href="#oferta">Quiero dar el primer paso · $997</a>
+    <p class="cta-sub">Antes $1,797 · 3 meses de FTN y 3 retos</p>
+  </div>
+</section>
+
+<footer><div class="in">FTN by HealthyVita · brenvita.shop</div></footer>
+
+<div class="sticky" id="sticky">
+  <div><b>$997 MXN · 3 meses</b><s>$1,797</s>Black Friday FTN</div>
+  <a class="js-checkout" data-plan="trimestral" href="#oferta">Lo quiero</a>
+</div>
+
+<script src="/js/retos.js"></script>
+<script src="/js/scroll-eventos.js"></script>
+<script>
+// Sticky: aparece después del hero y se esconde cuando otro botón está a la vista
+const sticky = document.getElementById('sticky');
+const visibles = new Set();
+const pinta = () => sticky.classList.toggle('on', visibles.size === 0 && scrollY > 300);
+const io = new IntersectionObserver(es => {
+  es.forEach(e => e.isIntersecting ? visibles.add(e.target) : visibles.delete(e.target));
+  pinta();
+}, {threshold: 0});
+document.querySelectorAll('.cta').forEach(b => io.observe(b));
+addEventListener('scroll', pinta, {passive: true});
+
+// Entrada suave de cada bloque
+let porSubir = [...document.querySelectorAll('.sube')];
+const revela = () => {
+  const tope = innerHeight * .92;
+  porSubir = porSubir.filter(el => el.getBoundingClientRect().top < tope ? (el.classList.add('ya'), false) : true);
+  if (!porSubir.length) removeEventListener('scroll', revela);
+};
+addEventListener('scroll', revela, {passive: true});
+addEventListener('resize', revela);
+revela();
+
+if (window.clarity) clarity('set', 'variante', 'black-friday');
+document.querySelectorAll('.js-checkout').forEach(a => a.addEventListener('click', () => {
+  if (window.clarity) clarity('event', 'checkout_black_friday');
+}));
+</script>
+</body>
+</html>

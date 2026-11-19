@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ya diste el primer paso · Black Friday FTN</title>
+<meta name="robots" content="noindex,nofollow">
+<meta name="theme-color" content="#09090A">
+<link rel="icon" href="/assets/favicon-ftn.png" type="image/png">
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon-ftn.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,700;12..96,800&family=Caveat:wght@600;700&family=Inter:wght@400;500;600;700&display=swap">
+<style>
+:root{
+  --negro:#09090A; --tinta:#131114; --rosa:#FF2A6B; --rosa2:#FF86A8; --crema:#F7EFE8; --gris:#B9B0B6;
+  --linea:rgba(255,255,255,.12);
+  --display:"Bricolage Grotesque",Inter,sans-serif; --mano:"Caveat",cursive;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{overflow-x:clip}
+body{font-family:Inter,system-ui,sans-serif;color:var(--crema);background:var(--negro);line-height:1.6;font-size:17px;-webkit-font-smoothing:antialiased}
+img{max-width:100%;height:auto;display:block}
+h1,h2,h3{font-family:var(--display);font-weight:800;letter-spacing:-.02em;line-height:1.04;text-wrap:balance}
+h2{font-size:clamp(28px,7.5vw,38px);margin-bottom:16px}
+.in{max-width:540px;margin:0 auto;padding:0 22px}
+.sec{padding:56px 0}
+.tinta{background:var(--tinta)}
+.centro{text-align:center}
+.hl{color:var(--rosa)}
+.kicker{font-size:12px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--rosa2);margin-bottom:12px}
+.mano{font-family:var(--mano);font-weight:700;font-size:30px;line-height:1.1;color:var(--rosa2)}
+p+p{margin-top:16px}
+.prosa p{color:#E7DEE2}
+.prosa b{color:#fff}
+
+.bf-logo{width:150px;height:auto;margin:0 auto 26px;display:block}
+.bf-logo text{font-family:var(--display);font-weight:800}
+
+.hero{padding:34px 0 52px;background:radial-gradient(90% 60% at 50% 0%,#3a0c22 0%,var(--negro) 72%)}
+.palomita{width:76px;height:76px;margin:0 auto 20px;display:block}
+.palomita circle{fill:none;stroke:var(--rosa);stroke-width:3;stroke-dasharray:230;stroke-dashoffset:230;animation:traza .7s .1s ease-out forwards}
+.palomita path{fill:none;stroke:#fff;stroke-width:5;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:60;stroke-dashoffset:60;animation:traza .4s .7s ease-out forwards}
+@keyframes traza{to{stroke-dashoffset:0}}
+.hero h1{font-size:clamp(40px,11.5vw,58px);margin-bottom:14px}
+.hero .sub{font-size:18px;color:#E7DEE2;max-width:420px;margin:0 auto}
+
+/* Pasos: números grandes y líneas, sin cajas */
+.pasos{list-style:none;counter-reset:paso;margin-top:10px}
+.pasos li{counter-increment:paso;position:relative;padding:22px 0 22px 62px;border-bottom:1px solid var(--linea)}
+.pasos li:first-child{border-top:1px solid var(--linea)}
+.pasos li::before{content:counter(paso);position:absolute;left:0;top:14px;font-family:var(--display);font-weight:800;font-size:50px;line-height:1;color:var(--rosa)}
+.pasos h3{font-size:22px;margin-bottom:6px;color:#fff}
+.pasos p{color:#E7DEE2;font-size:16px}
+
+.ruta{list-style:none;margin:26px 0 0;position:relative;padding-left:34px}
+.ruta::before{content:"";position:absolute;left:8px;top:10px;bottom:22px;width:2px;background:linear-gradient(var(--rosa),rgba(255,42,107,.15))}
+.ruta li{position:relative;padding-bottom:24px}
+.ruta li:last-child{padding-bottom:0}
+.ruta li::before{content:"";position:absolute;left:-34px;top:5px;width:18px;height:18px;border-radius:50%;background:var(--tinta);border:3px solid var(--rosa)}
+.ruta b{display:block;font-family:var(--display);font-size:24px;line-height:1.1;color:#fff}
+.ruta span{color:var(--gris);font-size:15px}
+
+.firma{display:flex;align-items:center;gap:14px;margin-top:26px}
+.firma img{width:64px;height:64px;border-radius:50%;object-fit:cover}
+.firma b{font-family:var(--mano);font-size:34px;line-height:1;color:#fff}
+.firma span{display:block;font-size:13px;color:var(--gris)}
+
+.cta{display:block;width:100%;text-align:center;background:var(--rosa);color:#fff;font-weight:700;font-size:18px;
+  padding:19px 20px;border-radius:999px;text-decoration:none;box-shadow:0 10px 34px rgba(255,42,107,.42);margin-top:24px}
+.cta:focus-visible{outline:3px solid #fff;outline-offset:3px}
+.cta[hidden]{display:none}
+.cta-sub{font-size:13px;text-align:center;margin-top:12px;color:rgba(255,255,255,.62)}
+footer{padding:28px 0 40px;text-align:center;font-size:12px;color:rgba(255,255,255,.45)}
+@media (prefers-reduced-motion:reduce){.palomita circle,.palomita path{animation:none;stroke-dashoffset:0}}
+</style>
+<script src="/js/config.js"></script>
+<script src="/js/pixel.js"></script>
+<noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=1645815772229731&ev=PageView&noscript=1" /></noscript>
+</head>
+<body data-variante="black-friday-gracias">
+
+<!-- 1 · CONFIRMACIÓN -->
+<header class="hero centro">
+  <div class="in">
+    <svg class="bf-logo" viewBox="0 0 300 150" role="img" aria-label="Black Friday FTN">
+      <text x="0" y="62" font-size="74" textLength="300" lengthAdjust="spacingAndGlyphs" fill="none" stroke="#F7EFE8" stroke-width="2">BLACK</text>
+      <text x="0" y="128" font-size="74" textLength="300" lengthAdjust="spacingAndGlyphs" fill="#F7EFE8">FRIDAY</text>
+      <g transform="rotate(-9 236 76)">
+        <rect x="186" y="56" width="104" height="40" rx="6" fill="#FF2A6B"/>
+        <text x="238" y="86" font-size="30" text-anchor="middle" fill="#fff" letter-spacing="2">FTN</text>
+      </g>
+    </svg>
+    <svg class="palomita" viewBox="0 0 80 80" aria-hidden="true"><circle cx="40" cy="40" r="36"/><path d="M25 41l11 11 20-23"/></svg>
+    <p class="kicker">Tu compra está confirmada</p>
+    <h1>Ya diste el <span class="hl">primer paso,</span> hermana.</h1>
+    <p class="sub">El más difícil de todos. Tus 3 meses de FTN y tus 3 retos ya son tuyos. 2027 acaba de empezar para ti.</p>
+  </div>
+</header>
+
+<!-- 2 · QUÉ SIGUE -->
+<section class="sec tinta">
+  <div class="in">
+    <h2>Esto es lo que sigue</h2>
+    <ol class="pasos">
+      <li>
+        <h3>Revisa tu correo</h3>
+        <p>Hotmart te envía la confirmación de tu compra y tus datos de acceso al correo con el que pagaste. Si no lo ves en unos minutos, búscalo en spam o promociones.</p>
+      </li>
+      <li>
+        <h3>Entra a tu app de FTN</h3>
+        <p>Sigue las instrucciones del correo para entrar. Ahí viven tus entrenos, tu plan de comida, Focus y la comunidad.</p>
+      </li>
+      <li>
+        <h3>Haz la clase 1 del Reto 4x4</h3>
+        <p>No esperes al lunes. Son 30 minutos. Mañana ya no vas a ser la que “va a empezar”: vas a ser la que ya empezó.</p>
+      </li>
+    </ol>
+    <a class="cta" id="wa" href="#" target="_blank" rel="noopener" hidden>¿Dudas? Escríbenos</a>
+    <p class="cta-sub" id="wa-sub" hidden>Te atendemos por WhatsApp</p>
+  </div>
+</section>
+
+<!-- 3 · TU RUTA -->
+<section class="sec">
+  <div class="in">
+    <p class="kicker">Tu ruta de 3 meses</p>
+    <h2>Un paso a la vez. No tienes que hacerlo todo hoy.</h2>
+    <ol class="ruta">
+      <li><b>Reto 4x4</b><span>28 días para cerrar el año cumpliéndote. Empiezas aquí.</span></li>
+      <li><b>Reto Reset</b><span>Tu arranque de año: hormonas, intestino y energía.</span></li>
+      <li><b>Reto 2%</b><span>21 días de regalo, para las semanas en que la vida se complica.</span></li>
+    </ol>
+  </div>
+</section>
+
+<!-- 4 · NOTA DE BREN -->
+<section class="sec tinta">
+  <div class="in prosa">
+    <p class="mano" style="margin-bottom:18px">Antes de que cierres esta página:</p>
+    <p>Hoy hiciste algo que llevabas tiempo posponiendo. Guarda este momento.</p>
+    <p>Va a haber días en que no tengas ganas. Días en que se te caiga el plan. Cuando lleguen, no empieces de cero ni te castigues: <b>abre la app y haz el entreno más corto que encuentres.</b> Con eso sigues adentro.</p>
+    <p>No te pido que seas perfecta. Te pido que no te sueltes. De lo demás me encargo yo.</p>
+    <div class="firma">
+      <img src="/assets/bren-hero.webp" width="240" height="240" alt="Bren" loading="lazy">
+      <div><b>Bren</b><span>Nutrióloga, entrenadora y founder de FTN</span></div>
+    </div>
+  </div>
+</section>
+
+<footer><div class="in">FTN by HealthyVita · brenvita.shop</div></footer>
+
+<script>
+// Botón de WhatsApp: sale de js/config.js → whatsapp. Vacío = no se pinta.
+(function () {
+  var wa = ((window.FTN_CONFIG || {}).whatsapp || '').trim();
+  if (!wa) return;
+  var a = document.getElementById('wa');
+  a.href = wa + '&text=' + encodeURIComponent('Hola, acabo de comprar el plan de Black Friday FTN y tengo una duda con mi acceso.');
+  a.hidden = false;
+  document.getElementById('wa-sub').hidden = false;
+})();
+if (window.clarity) clarity('set', 'variante', 'black-friday-gracias');
+</script>
+</body>
+</html>

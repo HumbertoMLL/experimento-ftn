@@ -46,6 +46,14 @@
       "destination": "/reto4por4-v2"
     },
     {
+      "source": "/black-friday/:canal(meta|influencer|instagram|mail|whatsapp|customersuccess)",
+      "destination": "/black-friday"
+    },
+    {
+      "source": "/blackfriday",
+      "destination": "/black-friday"
+    },
+    {
       "source": "/minireto/:canal(meta|influencer|instagram|email|mail|whatsapp|global-university)",
       "destination": "/minireto"
     },

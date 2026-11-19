@@ -155,6 +155,28 @@ window.FTN_CONFIG = {
         training: { url: "https://pay.hotmart.com/T76408466K?off=1p89dgxj&checkoutMode=10&bid=1794765355871", nombre: "FTN Training - Gran Fin", precio: 197 }
       }
     },
+    /* Black Friday FTN (/black-friday): plan trimestral a $997 (antes $1,797)
+       con Reto 4x4 + Reto Reset + Reto 2% de regalo.
+       PENDIENTE: pegar en checkout.trimestral.url la oferta de Hotmart de
+       $997. Mientras esté vacía, los botones solo bajan a #oferta. En esa
+       oferta de Hotmart, la página de gracias es brenvita.shop/black-friday/gracias.
+       cierreISO: lunes 30 nov 23:59 CDMX (UTC-6); cámbialo si el Black Friday
+       cierra otro día. Al vencer, la barra roja y el reloj se esconden solos.
+       brenvita.shop/black-friday/meta → &src=blackfriday-meta. */
+    "black-friday": {
+      nombre: "Black Friday FTN · Trimestral",
+      cierreISO: "2026-12-01T05:59:00Z",
+      relojDias: 31,
+      canales: ["meta", "influencer", "instagram", "mail", "whatsapp", "customersuccess"],
+      srcPrefijo: "blackfriday-",
+      canalDefault: "organico",
+      checkout: {
+        trimestral: { url: "", nombre: "Black Friday FTN - Trimestral", precio: 997 },
+        /* Anual a mitad de precio: 12 x $599 = $7,188, entre 2 = $3,594.
+           PENDIENTE: oferta de Hotmart de $3,594. */
+        anual:      { url: "", nombre: "Black Friday FTN - Anual", precio: 3594 }
+      }
+    },
     "reto4por4-v2": {
       nombre: "Reto 4x4",
       cierreISO: "2026-11-09T05:59:00Z",
