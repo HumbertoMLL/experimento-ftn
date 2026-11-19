@@ -16,7 +16,7 @@
   var srcPrefijo = reto.srcPrefijo || "";
   var srcPorCanal = reto.srcPorCanal || {};
   var crudo = ((location.search.match(/[?&]src=([\w-]+)/i) || [])[1]
-            || (location.pathname.match(new RegExp("/" + variante + "/([\\w-]+)/?$")) || [])[1] || "").toLowerCase();
+            || (location.pathname.match(new RegExp("/" + variante + "[/-]([\\w-]+)/?$")) || [])[1] || "").toLowerCase();
   var canal = canales.indexOf(crudo) !== -1 ? crudo : "";
   var llave = "ftn-canal-" + variante;
   if (canal) { try { sessionStorage.setItem(llave, canal); } catch (e) {} }

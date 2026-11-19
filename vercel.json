@@ -46,7 +46,11 @@
       "destination": "/reto4por4-v2"
     },
     {
-      "source": "/black-friday/:canal(meta|influencer|instagram|mail|whatsapp|customersuccess)",
+      "source": "/black-friday/:canal(meta|influencer|instagram|email|mail|whatsapp|customerservice|customersuccess)",
+      "destination": "/black-friday"
+    },
+    {
+      "source": "/black-friday-:canal(meta|influencer|instagram|email|mail|whatsapp|customerservice|customersuccess)",
       "destination": "/black-friday"
     },
     {

@@ -162,19 +162,18 @@ window.FTN_CONFIG = {
        oferta de Hotmart, la página de gracias es brenvita.shop/black-friday/gracias.
        cierreISO: lunes 30 nov 23:59 CDMX (UTC-6); cámbialo si el Black Friday
        cierra otro día. Al vencer, la barra roja y el reloj se esconden solos.
-       brenvita.shop/black-friday/meta → &src=blackfriday-meta. */
+       brenvita.shop/black-friday-meta → &src=blackfriday-meta. */
     "black-friday": {
       nombre: "Black Friday FTN · Trimestral",
       cierreISO: "2026-12-01T05:59:00Z",
       relojDias: 31,
-      canales: ["meta", "influencer", "instagram", "mail", "whatsapp", "customersuccess"],
+      canales: ["meta", "influencer", "instagram", "email", "mail", "whatsapp", "customerservice", "customersuccess"],
       srcPrefijo: "blackfriday-",
       canalDefault: "organico",
       checkout: {
-        trimestral: { url: "", nombre: "Black Friday FTN - Trimestral", precio: 997 },
-        /* Anual a mitad de precio: 12 x $599 = $7,188, entre 2 = $3,594.
-           PENDIENTE: oferta de Hotmart de $3,594. */
-        anual:      { url: "", nombre: "Black Friday FTN - Anual", precio: 3594 }
+        trimestral: { url: "https://pay.hotmart.com/K108133844H?off=9u7alwqu&checkoutMode=10&bid=1795127495658", nombre: "Black Friday FTN - Trimestral", precio: 997 },
+        /* Anual a mitad de precio: 12 x $599 = $7,188, entre 2 = $3,594. */
+        anual:      { url: "https://pay.hotmart.com/N108576331V?off=fxraf48v&checkoutMode=10&bid=1795127345156", nombre: "Black Friday FTN - Anual", precio: 3594 }
       }
     },
     "reto4por4-v2": {
