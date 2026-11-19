@@ -1,14 +1,14 @@
 /* Health Squad · lo editable está aquí arriba */
 var HS = {
   // Link de pago de Hotmart (oferta Health Squad)
-  checkoutUrl: "https://pay.hotmart.com/E108409744Y?off=h37ryq9d&checkoutMode=10&bid=1794352087533",
+  checkoutUrl: "https://pay.hotmart.com/E108409744Y?off=xgn9rqus&checkoutMode=10",
   // Canales: brenvita.shop/health-squad-<canal> agrega &src=<canal> al checkout (faq = la página /health-squad-faq)
   canales: ["influencer", "meta", "webinar", "mail", "whatsapp", "faq"],
   // Sin canal en la URL (brenvita.shop/health-squad, la del QR) el checkout sale con este src
   srcDefault: "webinar",
-  // El precio sube después del lunes 16 de noviembre a las 23:59 (hora del centro de México, UTC-6)
-  deadline: "2026-11-16T23:59:00-06:00",
-  precio: 4997
+  // Cierran inscripciones el domingo 22 de noviembre a las 23:59 (hora del centro de México, UTC-6)
+  deadline: "2026-11-22T23:59:00-06:00",
+  precio: 5997
 };
 
 (function () {
