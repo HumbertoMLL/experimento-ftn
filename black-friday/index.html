@@ -79,7 +79,12 @@ body:has(.barra-cierre:not([hidden])){padding-top:38px}
   -webkit-mask-image:linear-gradient(#000 60%,transparent 94%);mask-image:linear-gradient(#000 60%,transparent 94%)}
 .telefonos{margin:26px -22px 6px;-webkit-mask-image:radial-gradient(75% 70% at 50% 50%,#000 60%,transparent 100%);mask-image:radial-gradient(75% 70% at 50% 50%,#000 60%,transparent 100%)}
 .telefonos img{width:100%}
-.hero>.in:first-child{position:relative;z-index:1}
+.hero{overflow:hidden}
+.hero::before{content:"";position:absolute;inset:0;background:url(/assets/black-friday/muro-fondo.webp) center top/cover no-repeat;opacity:.42}
+.hero::after{content:"";position:absolute;inset:0;background:
+  radial-gradient(70% 30% at 50% 21%,rgba(9,9,10,.9) 0%,rgba(9,9,10,.55) 70%,transparent 100%),
+  linear-gradient(rgba(58,12,34,.55) 0%,rgba(9,9,10,.35) 30%,rgba(9,9,10,.5) 62%,#09090A 86%)}
+.hero>*{position:relative;z-index:1}
 .hero-pie{position:relative}
 .hero .cta{margin-top:20px}
 
