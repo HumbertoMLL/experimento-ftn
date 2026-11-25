@@ -243,7 +243,34 @@ footer{padding:28px 0 96px;text-align:center;font-size:12px;color:rgba(255,255,2
 .sube.ya{opacity:1;transform:none}
 @media (prefers-reduced-motion:reduce){.sube{opacity:1;transform:none;transition:none}html{scroll-behavior:auto}}
 @media (min-width:700px){.sec{padding:84px 0}}
+
+/* "Menos de $12 al día": se destaca con tamaño y color, sin caja */
+.al-dia{font-family:var(--display);font-weight:800;font-size:38px;line-height:1;letter-spacing:-.02em;color:#FFE14D;text-align:center}
+.al-dia small{display:block;font-family:var(--mano);font-weight:700;font-size:26px;letter-spacing:0;color:#fff;margin-bottom:2px}
+.hero .al-dia{transform:rotate(-3deg);margin:22px 0 0;font-size:clamp(28px,8.6vw,38px);white-space:nowrap}
+.hero .al-dia small{white-space:normal}
+.roja .al-dia{margin:6px 0 4px;font-size:clamp(26px,8.2vw,36px);white-space:nowrap}
+.oferta .anual .off{font-size:44px;margin:4px 0 12px}
+
+/* Variante influencer: el precio base es el costo por día */
+.solo-inf{display:none}
+.inf .no-inf{display:none}
+.inf .solo-inf{display:block}
+.inf span.solo-inf{display:inline}
+.inf .precio.solo-inf{display:flex;flex-direction:column;align-items:center;gap:0}
+.precio.dia i{font-family:var(--mano);font-style:normal;font-weight:700;font-size:30px;line-height:1;color:#FFE14D;transform:rotate(-3deg)}
+.precio.dia b{font-size:88px;color:#FFE14D}
+.precio.dia small{font-size:26px}
+.inf .precio-nota{font-size:17px;color:#E7DEE2}
+.inf .precio-nota s{color:rgba(255,255,255,.5);text-decoration-color:var(--rosa)}
+.inf .todo-por b{color:#FFE14D}
 </style>
+<script>
+/* Canal influencer: se marca antes de pintar para que no parpadee el precio */
+(function(){var c=(location.search.match(/[?&]src=([\w-]+)/i)||[])[1]||(location.pathname.match(/\/black-friday[\/-]([\w-]+)\/?$/)||[])[1]||"";
+try{if(!c)c=sessionStorage.getItem("ftn-canal-black-friday")||""}catch(e){}
+if(c.toLowerCase()==="influencer")document.documentElement.classList.add("inf")})();
+</script>
 <script src="/js/config.js"></script>
 <script src="/js/pixel.js"></script>
 <noscript><style>.sube{opacity:1;transform:none}</style></noscript>
@@ -265,15 +292,18 @@ footer{padding:28px 0 96px;text-align:center;font-size:12px;color:rgba(255,255,2
     </svg>
     <h1>Que 2027 sí sea <span class="hl">tu año.</span></h1>
     <p class="sub">Da el primer paso en diciembre: acceso total a FTN + 3 retos guiados por Bren, <b>al mejor precio del año.</b></p>
+    <p class="al-dia no-inf"><small>Te sale en</small>menos de $12 al día</p>
   </div>
   <div class="hero-foto">
     <img src="/assets/black-friday/bren-bf.webp" width="1100" height="1101" alt="Bren, coach de FTN" fetchpriority="high">
   </div>
   <div class="in hero-pie">
     <p class="off">+40% OFF</p>
-    <div class="precio"><s>$1,797</s><b>$997<small>MXN</small></b></div>
-    <p class="precio-nota">3 meses completos · <b>menos de $12 al día</b></p>
-    <a class="cta js-checkout" data-plan="trimestral" href="#oferta">Quiero dar el primer paso</a>
+    <div class="precio no-inf"><s>$1,797</s><b>$997<small>MXN</small></b></div>
+    <p class="precio-nota no-inf">3 meses completos · <b>menos de $12 al día</b></p>
+    <div class="precio dia solo-inf"><i>Menos de</i><b>$12<small>al día</small></b></div>
+    <p class="precio-nota solo-inf"><b>$997 MXN</b> por 3 meses completos · antes <s>$1,797</s></p>
+    <a class="cta js-checkout" data-plan="trimestral" href="#oferta"><span class="no-inf">Quiero dar el primer paso</span><span class="solo-inf">Quiero entrar por $12 al día</span></a>
     <p class="cta-sub">Pago seguro · Suscripción trimestral, cancela cuando quieras</p>
   </div>
 </header>
@@ -288,11 +318,7 @@ footer{padding:28px 0 96px;text-align:center;font-size:12px;color:rgba(255,255,2
     </div>
     <p class="mano sube" style="margin:30px 0 22px">Respira. No vengo a regañarte.</p>
     <p class="sube">No te faltó fuerza de voluntad. Te faltó un plan del tamaño de tus días y alguien que caminara contigo.</p>
-    <ul class="renglones sube">
-      <li>“El lunes empiezo.”<span>Y se te juntaron muchos lunes.</span></li>
-      <li>Pagaste el gym y fuiste tres veces.<span>No por floja. Porque nadie te esperaba ahí.</span></li>
-    </ul>
-    <p class="grande sube">No eres floja. Estás cansada de empezar sola.</p>
+    <p class="grande sube" style="margin-top:26px">No eres floja. Estás cansada de empezar sola.</p>
     <p class="sube" style="margin-top:18px">Este año no fue. Y está bien. <b>El que sigue sí.</b></p>
   </div>
 </section>
@@ -304,7 +330,6 @@ footer{padding:28px 0 96px;text-align:center;font-size:12px;color:rgba(255,255,2
     <h2 class="sube">Las que esperan a enero empiezan de cero. Tú vas a llegar <span class="hl">con ventaja.</span></h2>
     <div class="sube">
       <p>Enero es el mes en el que todas prometen. Diciembre es el mes en el que casi nadie empieza. Por eso funciona.</p>
-      <p>Si das el primer paso ahora, el 1 de enero no vas a estar escribiendo propósitos en una libreta. <b>Vas a estar cumpliéndolos.</b></p>
     </div>
     <div class="anios sube" aria-hidden="true"><s>2026</s><i>→</i><b>2027</b></div>
     <ul class="meses sube">
@@ -313,7 +338,7 @@ footer{padding:28px 0 96px;text-align:center;font-size:12px;color:rgba(255,255,2
       <li><b>Febrero</b><span>Ya no es un propósito. Es tu rutina.</span></li>
     </ul>
     <p class="mano sube" style="margin:30px 0 14px">¿Y las posadas, el recalentado, las cenas?</p>
-    <p class="sube">Van incluidas en el plan. Aquí no se trata de ser perfecta en diciembre. Se trata de no soltarte: 30 minutos, cuatro días a la semana, y sigues adelante aunque un día te toque pavo, romeritos y ponche.</p>
+    <p class="sube">Van incluidas en el plan. Aquí no se trata de ser perfecta en diciembre. Se trata de no soltarte. Por eso armé la comida y los entrenos de este mes <b>pensando en tu digestión:</b> para que disfrutes el pavo, los romeritos y el ponche sin terminar inflamada ni pesada.</p>
   </div>
 </section>
 
@@ -328,13 +353,16 @@ footer{padding:28px 0 96px;text-align:center;font-size:12px;color:rgba(255,255,2
       <li class="sube">
         <p class="cuando">Empiezas el 30 de noviembre · 28 días</p>
         <h3>Reto 4x4</h3>
-        <p class="para">Para cerrar el año cumpliéndote.</p>
+        <p class="para">Para cerrar el año cumpliéndote y mejorando tu digestión.</p>
         <p>Si llevas tiempo sin entrenar o sientes que nada te funciona, aquí arrancas. Una regla fácil de recordar: 4 semanas, 4 entrenos a la semana, 4 hábitos básicos.</p>
         <ul>
+          <li>Plan de nutrición y entreno enfocados en mejorar tu digestión</li>
           <li>2 días de fuerza y 2 de pilates, barre y yoga</li>
           <li>Entrenos de 30 a 40 minutos</li>
           <li>4,000 pasos, 4 vasos de agua y 4 vegetales al día</li>
-          <li>Plan de nutrición en déficit calórico</li>
+          <li>Nutrición en déficit calórico</li>
+          <li>Bono: tés antiinflamatorios</li>
+          <li>Bono: sesiones de masajes digestivos</li>
         </ul>
       </li>
       <li class="sube">
@@ -373,7 +401,7 @@ footer{padding:28px 0 96px;text-align:center;font-size:12px;color:rgba(255,255,2
     <h2 class="sube">Agárrate, porque <mark>va todo esto.</mark></h2>
     <ol class="pila">
       <li class="sube"><b>Suscripción trimestral a FTN completo</b><span>El mejor precio que hemos tenido. Todas las clases y todos los retos, sin candados.</span></li>
-      <li class="sube"><b>Reto 4x4</b><span>Empieza el 30 de noviembre. 28 días para cerrar el año cumpliéndote.</span></li>
+      <li class="sube"><b>Reto 4x4</b><span>Empieza el 30 de noviembre. 28 días para cerrar el año cumpliéndote y mejorando tu digestión. Con bonos de tés antiinflamatorios y masajes digestivos.</span></li>
       <li class="sube"><b>Reto Reset</b><span>Tu arranque de enero: hormonas, intestino y energía.</span></li>
       <li class="sube"><b>Reto 2%</b><span>En febrero. 21 días para cuando la vida se complica.</span></li>
       <li class="sube"><b>Plan de comida y +1,000 recetas</b><span>Con lista del súper. Cero “¿y hoy qué como?”.</span></li>
@@ -387,7 +415,10 @@ footer{padding:28px 0 96px;text-align:center;font-size:12px;color:rgba(255,255,2
     </div>
     <p class="mano ama centro sube" style="margin-top:44px">Abres la app y ya sabes qué te toca hoy.</p>
     <p class="off sube" style="margin:26px 0 4px">+40% OFF</p>
-    <p class="todo-por centro sube" style="margin-top:0">Todo, por <s>$1,797</s> <b>$997</b></p>
+    <p class="todo-por centro sube no-inf" style="margin-top:0">Todo, por <s>$1,797</s> <b>$997</b></p>
+    <p class="al-dia sube no-inf">Menos de $12 al día</p>
+    <p class="todo-por centro sube solo-inf" style="margin-top:0">Todo, por menos de <b>$12</b> al día</p>
+    <p class="centro sube solo-inf" style="margin-top:2px;font-weight:600">$997 MXN por los 3 meses · antes <s>$1,797</s></p>
     <a class="cta blanca js-checkout sube" data-plan="trimestral" href="#oferta">Lo quiero todo</a>
   </div>
   <div class="cinta al-reves" aria-hidden="true"><span>BLACK FRIDAY FTN <i>✦</i> 3 MESES <i>✦</i> 3 RETOS <i>✦</i> $997 <i>✦</i> EL MEJOR PRECIO DEL AÑO <i>✦</i> BLACK FRIDAY FTN <i>✦</i> 3 MESES <i>✦</i> 3 RETOS <i>✦</i> $997 <i>✦</i> EL MEJOR PRECIO DEL AÑO <i>✦</i> </span></div>
@@ -407,8 +438,11 @@ footer{padding:28px 0 96px;text-align:center;font-size:12px;color:rgba(255,255,2
     <h2>Tu primer paso, al mejor precio del año.</h2>
     <p class="plan-nombre">Plan trimestral</p>
     <p class="off">+40% OFF</p>
-    <div class="precio"><s>$1,797</s><b>$997<small>MXN</small></b></div>
-    <p class="precio-nota">3 meses · <b>menos de $12 al día</b></p>
+    <div class="precio no-inf"><s>$1,797</s><b>$997<small>MXN</small></b></div>
+    <p class="al-dia no-inf" style="font-size:28px;margin-top:12px">Menos de $12 al día</p>
+    <p class="precio-nota no-inf">3 meses completos</p>
+    <div class="precio dia solo-inf"><i>Menos de</i><b>$12<small>al día</small></b></div>
+    <p class="precio-nota solo-inf"><b>$997 MXN</b> por 3 meses completos · antes <s>$1,797</s></p>
     <p class="ahorro">Te ahorras $800</p>
     <p class="reloj-titulo js-cierre" hidden>Este precio se acaba en:</p>
     <div class="reloj js-cierre" hidden>
@@ -420,7 +454,8 @@ footer{padding:28px 0 96px;text-align:center;font-size:12px;color:rgba(255,255,2
 
     <div class="anual">
       <p class="mano">¿Y si de una vez te regalas todo 2027?</p>
-      <p class="plan-nombre">Plan anual · 50% OFF</p>
+      <p class="plan-nombre">Plan anual</p>
+      <p class="off">50% OFF</p>
       <div class="precio chico"><s>$7,188</s><b>$3,594<small>MXN</small></b></div>
       <p class="precio-nota">12 meses · <b>menos de $10 al día</b> · sale en $299.50 al mes</p>
       <p class="anual-txt">Todo lo de arriba, pero el año completo: cada reto nuevo de 2027 ya es tuyo y no vuelves a pensar en pagos hasta el otro Black Friday.</p>
@@ -433,7 +468,6 @@ footer{padding:28px 0 96px;text-align:center;font-size:12px;color:rgba(255,255,2
 <!-- 7 · PURA EVIDENCIA -->
 <section class="sec centro evidencia" id="evidencia">
   <div class="in">
-    <p class="kicker sube">¿Qué diferencia a FTN?</p>
     <h2 class="sube">¿Y tendré <span class="hl">resultados?</span></h2>
     <p class="sube" style="color:#E7DEE2">Mira: estos son solo algunos de los resultados que han tenido en la comunidad. Mujeres con la vida igual de llena que la tuya.</p>
     <p class="numerote sube">+60,000</p>
@@ -449,7 +483,7 @@ footer{padding:28px 0 96px;text-align:center;font-size:12px;color:rgba(255,255,2
       <img class="sube ancha" src="/assets/black-friday/evidencia/e03.webp" width="1000" height="1019" alt="Testimonio de una alumna de FTN: “la comunidad, los entrenos, las comidas. de confiar en mi”" loading="lazy">
     </div>
     <p class="lista sube">¿Ya estás lista? Entra al mejor precio del año.</p>
-    <a class="cta js-checkout sube" data-plan="trimestral" href="#oferta">Ya estoy lista · $997</a>
+    <a class="cta js-checkout sube" data-plan="trimestral" href="#oferta">Ya estoy lista · $12 al día</a>
     <div class="duda sube">
       <h3>¿Y si sola no me motivo?</h3>
       <p>No vas sola. Hay miles de hermanas haciendo malabares igual que tú.</p>
@@ -583,7 +617,8 @@ footer{padding:28px 0 96px;text-align:center;font-size:12px;color:rgba(255,255,2
 <div class="lupa" id="lupa" hidden><button type="button" aria-label="Cerrar">×</button><img alt=""></div>
 
 <div class="sticky" id="sticky">
-  <div><b>$997 MXN · 3 meses</b><s>$1,797</s>+40% OFF</div>
+  <div class="no-inf"><b>$997 MXN · 3 meses</b><s>$1,797</s>+40% OFF</div>
+  <div class="solo-inf"><b>Menos de $12 al día</b>$997 MXN · 3 meses · +40% OFF</div>
   <a class="js-checkout" data-plan="trimestral" href="#oferta">Lo quiero</a>
 </div>
 
