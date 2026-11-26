@@ -5,7 +5,7 @@ var HS = {
   // Canales: brenvita.shop/health-squad-<canal> agrega &src=<canal> al checkout (faq = la página /health-squad-faq)
   canales: ["influencer", "meta", "webinar", "mail", "whatsapp", "faq"],
   // Sin canal en la URL (brenvita.shop/health-squad, la del QR) el checkout sale con este src
-  srcDefault: "webinar",
+  srcDefault: "meta",
   // Black Friday: cierran inscripciones el sábado 28 de noviembre a las 23:59 (hora del centro de México, UTC-6)
   deadline: "2026-11-28T23:59:00-06:00",
   precio: 5997,
