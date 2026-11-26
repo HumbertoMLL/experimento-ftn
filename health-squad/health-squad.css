@@ -393,3 +393,131 @@ blockquote cite{display:block;font-family:var(--f-body);font-style:normal;font-s
 @keyframes spots-drain{from{width:var(--desde)}to{width:var(--hasta)}}
 @keyframes spots-flow{from{background-position:0 0}to{background-position:-23px 0}}
 @media (prefers-reduced-motion:reduce){.spots-drain{animation:none;width:var(--hasta)}}
+
+/* v10 · Black Friday + mobile primero (25 nov 2026) */
+:root{--red:#D3132B;--red-soft:#FF8A7F}
+.red{color:var(--red);font-weight:700}
+.band-white{background:#fff}
+.sub{font-size:18px;color:var(--muted);margin:-4px 0 22px;max-width:680px}
+.center.sub,.sub.center{margin-left:auto;margin-right:auto}
+.sub-light{color:rgba(255,255,255,.8)}
+.micro-dark{color:var(--muted)}
+
+/* Barra roja fija arriba con el reloj (no es botón) */
+.bf-bar{position:fixed;top:0;left:0;right:0;z-index:70;display:flex;justify-content:center;align-items:center;gap:12px;height:40px;padding:0 12px;background:var(--red);color:#fff;font-size:14px;font-weight:600;white-space:nowrap}
+.bf-bar[hidden]{display:none}
+.bf-bar b{font-family:var(--f-head);font-weight:400;font-size:22px;letter-spacing:.04em;font-variant-numeric:tabular-nums;margin-left:4px}
+.bf-tag{font-family:var(--f-head);font-size:20px;letter-spacing:.08em;padding-right:12px;border-right:1px solid rgba(255,255,255,.45)}
+body.bf-on{padding-top:40px}
+body.bf-on{scroll-padding-top:52px}
+html:has(body.bf-on){scroll-padding-top:52px}
+
+/* Hero: Bren más arriba, logo más chico */
+.first-time{font-family:var(--f-head);font-size:clamp(28px,3.6vw,36px);line-height:1.05;color:#C0564A;margin-top:22px;max-width:620px;text-wrap:balance}
+@media (min-width:901px){
+  .hero{padding:36px 0 64px}
+  .hero-in{grid-template-columns:1fr 420px}
+  .hero-bren{grid-row:1 / span 9;align-self:start;margin-top:10px}
+  .hero-logo{width:220px;margin-bottom:16px}
+  .first-time{margin-top:26px}
+}
+@media (max-width:900px){
+  .hero-in > *{order:0!important}
+  .hero{padding:16px 0 44px}
+  .hero-logo{width:min(150px,42vw);margin-bottom:6px}
+  .hero .kicker{font-size:11.5px;margin-bottom:8px}
+  .hero h1{font-size:clamp(38px,10.6vw,58px)}
+  .hero-bren{width:min(270px,72vw);margin:10px auto 0}
+  .hero-bren figcaption{bottom:10px;padding:8px 14px;font-size:12px}
+  .hero-bren figcaption b{font-size:20px}
+  .first-time{margin:22px auto 0}
+  .hero .lead{font-size:16.5px;margin-top:12px}
+}
+
+/* Prensa y cifras */
+.proof h2{max-width:860px;margin-left:auto;margin-right:auto}
+.cifras-hs{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;max-width:860px;margin:14px auto 0;text-align:center}
+.cifras-hs p{font-size:15px;line-height:1.35;color:var(--muted);border-top:3px solid var(--peach);padding-top:12px;margin:0}
+.cifras-hs b{display:block;font-family:var(--f-head);font-weight:400;font-size:clamp(48px,7vw,76px);line-height:.95;color:var(--navy)}
+.press-k{margin:44px 0 16px;text-align:center;font-weight:600;font-size:13px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted)}
+.press{display:grid;grid-template-columns:repeat(3,1fr);gap:26px}
+.press figure{margin:0}
+.press img{width:100%;aspect-ratio:16/10;object-fit:cover;object-position:top;border:1px solid rgba(45,91,126,.14);border-radius:4px;box-shadow:0 12px 28px rgba(31,51,68,.1)}
+.press figcaption{margin-top:12px;font-weight:600;font-size:16px;line-height:1.35;color:var(--navy)}
+.press figcaption span{display:block;font-family:var(--f-head);font-weight:400;font-size:22px;letter-spacing:.05em;color:#C0564A;margin-bottom:2px}
+.proof-end{max-width:680px;margin:40px auto 0;text-align:center;font-size:20px;font-weight:600;color:var(--navy);line-height:1.45}
+
+/* DMs → respuesta */
+.dms{list-style:none;margin-top:6px}
+.dms li{padding:18px 0;border-bottom:1px solid rgba(45,91,126,.15);display:grid;grid-template-columns:1fr 1.1fr;gap:20px;align-items:center}
+.dms .said{font-family:var(--f-head);font-size:clamp(26px,3.4vw,34px);line-height:1;color:#C0564A}
+.dms .fix{margin:0;font-weight:600;color:var(--navy);padding-left:26px;position:relative}
+.dms .fix::before{content:"→";position:absolute;left:0;top:0;color:#5FAE9F;font-weight:700}
+
+/* Fechas de la clínica */
+.dates{list-style:none;margin:24px 0 0}
+.dates li{display:grid;grid-template-columns:140px 1fr;gap:14px;align-items:baseline;padding:10px 0;border-bottom:1px solid rgba(45,91,126,.15)}
+.dates b{font-family:var(--f-head);font-weight:400;font-size:26px;line-height:1;color:var(--navy)}
+
+/* Oferta: banda roja con el reloj */
+.offer{padding-top:0}
+.bf-urgency{margin:0 calc(50% - 50vw) 36px;padding:22px 20px;background:var(--red);border-bottom:0;color:#fff}
+.bf-urgency[hidden]{display:none}
+.bf-urgency > p:first-child{color:#fff;font-size:34px}
+.bf-urgency > p:first-child small{color:rgba(255,255,255,.9)}
+.bf-badge{display:block;font-family:var(--f-body);font-weight:700;font-size:12px;letter-spacing:.22em;text-transform:uppercase;color:rgba(255,255,255,.85);margin-bottom:4px}
+.bf-urgency .clock span{color:rgba(255,255,255,.85)}
+.bf-urgency .clock i{color:rgba(255,255,255,.55)}
+.price-row{flex-wrap:wrap}
+.bf-price-k{width:100%;text-align:center;margin-bottom:-8px;font-weight:700;font-size:13px!important;letter-spacing:.16em;text-transform:uppercase;color:var(--red-soft)}
+.price-before{font-size:.42em;color:rgba(255,255,255,.55);margin-right:10px;vertical-align:middle}
+.price-before[hidden]{display:none}
+.offer .micro.center{margin-top:16px;line-height:1.45}
+
+/* Sticky con punto rojo */
+.red-dot{display:inline-block;width:9px;height:9px;border-radius:50%;background:#FF4B5C;margin-right:9px;vertical-align:1px;animation:hs-pulse 1.4s ease-in-out infinite}
+@keyframes hs-pulse{0%,100%{opacity:1}50%{opacity:.35}}
+@media (prefers-reduced-motion:reduce){.red-dot{animation:none}}
+
+/* Ajustes generales de móvil */
+@media (max-width:900px){
+  .press{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;gap:16px;margin:0 -20px;padding:0 20px 8px;scrollbar-width:none}
+  .press::-webkit-scrollbar{display:none}
+  .press figure{flex:0 0 78%;scroll-snap-align:center}
+}
+@media (max-width:640px){
+  body{font-size:16px}
+  .band{padding:52px 0}
+  .offer{padding:0 0 48px}
+  h2{font-size:clamp(34px,9.6vw,44px);margin-bottom:16px}
+  .sub{font-size:16px;margin-bottom:18px}
+  .cifras-hs{gap:10px}
+  .cifras-hs b{font-size:40px}
+  .cifras-hs p{font-size:12.5px}
+  .press-k{margin-top:34px}
+  .press figcaption{font-size:15px}
+  .proof-end{font-size:17.5px;margin-top:30px}
+  .dms li{grid-template-columns:1fr;gap:6px;padding:16px 0}
+  .dms .said{font-size:28px}
+  .dates li{grid-template-columns:112px 1fr;font-size:15px}
+  .dates b{font-size:22px}
+  .weeks h3{font-size:34px}
+  .weeks .qs li{font-size:20px}
+  .math{font-size:14px}
+  .math td{padding:10px 6px 10px 0}
+  .lines li{padding:10px 0 10px 28px}
+  .lines li::before{top:19px}
+  .faq summary{font-size:16.5px;padding:16px 34px 16px 0}
+  .big-num{font-size:96px}
+  .bf-bar{gap:8px;font-size:13px}
+  .bf-tag{font-size:18px;padding-right:8px}
+  .bf-bar b{font-size:20px}
+  .bf-urgency{padding:20px 16px;margin-bottom:28px}
+  .bf-urgency > p:first-child{font-size:30px}
+  .clock b{font-size:46px}
+  .clock i{font-size:36px}
+  .price-row{flex-wrap:wrap}
+  .bf-price-k{width:100%;text-align:center;margin-bottom:-6px}
+  .offer .price-row .price-n{font-size:68px}
+  .foot{padding-bottom:96px}
+}

@@ -176,7 +176,7 @@
         <h2>Precio y pago</h2>
         <div class="faq">
           <details open><summary>¿Cuánto cuesta y hasta cuándo me puedo inscribir?</summary>
-            <p>Hoy entras con <b>$5,997 MXN</b>, o en 3 pagos. Las inscripciones cierran el <b>domingo 22 de noviembre a las 11:59 p. m.</b> y el lunes 23 arrancamos.</p>
+            <p>Por Black Friday entras con <b>$5,997 MXN</b>, o en 3 pagos. Las inscripciones cierran el <b>sábado 28 de noviembre a las 11:59 p. m.</b> Arrancamos el 23: si entras hoy, te pones al corriente con las clases grabadas y llegas a la primera clínica en vivo del sábado.</p>
             <div class="stack-mini">
               <ul class="vs">
                 <li><span class="vs-ico">4</span><p>4 semanas de contenido<small>Qué decir, dónde, cómo vender y que sea negocio</small></p><b>$10,000</b></li>
@@ -185,11 +185,11 @@
               </ul>
               <div class="sm-row"><p>Valor total</p><p class="sm-strike">$16,997</p></div>
               <div class="sm-hoy"><p>Hoy</p><p class="sm-n">$5,997 <small>MXN</small></p><p>o 3 pagos</p></div>
-              <p class="sm-ahorro">Últimos lugares · cierran el domingo 22 a las 11:59 p. m.</p>
+              <p class="sm-ahorro">Black Friday · cierran el sábado 28 a las 11:59 p. m.</p>
               <p class="sm-timer">Cierra en <b class="cd">-</b></p>
               <a class="btn btn-block btn-red btn-pay" href="#" data-cta="faq-precio">Asegurar mi lugar</a>
             </div>
-            <p>Después del domingo ya no hay forma de entrar a esta generación, así que si lo estabas pensando, este es el momento. Y lo puedes pagar en 3 pagos.</p>
+            <p>Después del sábado ya no hay forma de entrar a esta generación, así que si lo estabas pensando, este es el momento. Y lo puedes pagar en 3 pagos.</p>
           </details>
           <details><summary>¿Cómo funcionan los 3 pagos?</summary>
             <p>Con tarjeta de crédito, para que no tengas que desembolsar todo de una vez. Que te aparezca la opción depende de tu país y tu banco.</p>
@@ -206,7 +206,7 @@
   <section class="band band-navy offer" id="inscripcion">
     <div class="wrap">
       <div class="urgency" id="timer" hidden>
-        <p>Últimos lugares<small>Las inscripciones cierran el domingo 22 de noviembre a las 11:59 p. m. Arrancamos el lunes 23.</small></p>
+        <p>Últimos lugares<small>Black Friday: las inscripciones cierran el sábado 28 de noviembre a las 11:59 p. m. Primera clínica en vivo ese mismo sábado a las 10:00 a. m.</small></p>
         <div class="clock" aria-live="off">
           <div><b id="t-d">0</b><span>días</span></div><i>:</i>
           <div><b id="t-h">00</b><span>horas</span></div><i>:</i>
@@ -232,7 +232,7 @@
             <p>o 3 pagos</p>
           </div>
           <a class="btn btn-block btn-red btn-pay" id="cta-checkout" href="#" data-cta="faq-cierre">Inscribirme a Health Squad</a>
-          <p class="micro">Comenzamos el 23 de noviembre · Será un placer tenerte en el squad</p>
+          <p class="micro">Primera clínica en vivo el sábado 28 · Será un placer tenerte en el squad</p>
         </div>
       </div>
     </div>
@@ -247,10 +247,10 @@
   </div>
 </footer>
 
-<script src="/health-squad/health-squad.js?v=14"></script>
+<script src="/health-squad/health-squad.js?v=15"></script>
 <script>
 /* Página de preguntas: todos los botones de pago van al checkout con src=whatsapp,
-   y cada botón lleva arriba su cuenta regresiva al cierre de inscripciones (domingo 22, 23:59 CDMX). */
+   y cada botón lleva arriba su cuenta regresiva al cierre de inscripciones (sábado 28, 23:59 CDMX; la fecha vive en health-squad.js). */
 (function () {
   var url = HS.checkoutUrl + (HS.checkoutUrl.indexOf("?") > -1 ? "&" : "?") + "src=whatsapp";
   document.querySelectorAll(".btn-pay").forEach(function (a) {

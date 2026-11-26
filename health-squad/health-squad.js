@@ -6,9 +6,11 @@ var HS = {
   canales: ["influencer", "meta", "webinar", "mail", "whatsapp", "faq"],
   // Sin canal en la URL (brenvita.shop/health-squad, la del QR) el checkout sale con este src
   srcDefault: "webinar",
-  // Cierran inscripciones el domingo 22 de noviembre a las 23:59 (hora del centro de México, UTC-6)
-  deadline: "2026-11-22T23:59:00-06:00",
-  precio: 5997
+  // Black Friday: cierran inscripciones el sábado 28 de noviembre a las 23:59 (hora del centro de México, UTC-6)
+  deadline: "2026-11-28T23:59:00-06:00",
+  precio: 5997,
+  // Si el precio de Black Friday es menor, pon aquí el precio anterior (ej. "$7,997") y sale tachado junto al precio
+  precioAntes: ""
 };
 
 (function () {
@@ -42,19 +44,35 @@ var HS = {
     io.observe(oferta);
   }
 
-  // Cuenta regresiva: se oculta sola cuando pasa la fecha
+  // Precio anterior tachado (opcional)
+  if (HS.precioAntes) {
+    document.querySelectorAll(".price-before").forEach(function (el) { el.textContent = HS.precioAntes; el.hidden = false; });
+  }
+
+  // Cuenta regresiva: barra roja de arriba + reloj de la oferta (.js-cierre / data-u).
+  // También mueve el reloj viejo por id (#timer, #t-d…) que usa /health-squad-faq. Todo se oculta al pasar la fecha.
   var end = new Date(HS.deadline).getTime();
-  var box = document.getElementById("timer");
+  var boxes = Array.prototype.slice.call(document.querySelectorAll(".js-cierre, #timer"));
   function pad(n) { return n < 10 ? "0" + n : "" + n; }
+  function set(u, v) {
+    document.querySelectorAll('[data-u="' + u + '"]').forEach(function (el) { el.textContent = v; });
+    var old = document.getElementById("t-" + u);
+    if (old) old.textContent = v;
+  }
   function tick() {
     var left = end - Date.now();
-    if (!box || left <= 0) { if (box) box.hidden = true; return; }
-    box.hidden = false;
+    if (left <= 0) {
+      boxes.forEach(function (b) { b.hidden = true; });
+      document.body.classList.remove("bf-on");
+      return;
+    }
+    boxes.forEach(function (b) { b.hidden = false; });
+    document.body.classList.add("bf-on");
     var s = Math.floor(left / 1000);
-    document.getElementById("t-d").textContent = Math.floor(s / 86400);
-    document.getElementById("t-h").textContent = pad(Math.floor(s % 86400 / 3600));
-    document.getElementById("t-m").textContent = pad(Math.floor(s % 3600 / 60));
-    document.getElementById("t-s").textContent = pad(s % 60);
+    set("d", Math.floor(s / 86400));
+    set("h", pad(Math.floor(s % 86400 / 3600)));
+    set("m", pad(Math.floor(s % 3600 / 60)));
+    set("s", pad(s % 60));
     setTimeout(tick, 1000);
   }
   tick();
