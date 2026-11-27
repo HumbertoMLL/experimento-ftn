@@ -167,8 +167,15 @@ window.FTN_CONFIG = {
       nombre: "Black Friday FTN · Trimestral",
       cierreISO: "2026-12-01T05:59:00Z",
       relojDias: 31,
-      canales: ["meta", "influencer", "instagram", "email", "mail", "whatsapp", "customerservice", "customersuccess"],
+      canales: ["meta", "influencer", "instagram", "email", "mail", "whatsapp", "customerservice", "customersuccess", "regresoacasa"],
       srcPrefijo: "blackfriday-",
+      /* /black-friday-regresoacasa: exalumnas. Oferta propia en Hotmart
+         (misma de $997, con el kit de 8 recetarios de regalo). */
+      checkoutPorCanal: {
+        regresoacasa: {
+          trimestral: { url: "https://pay.hotmart.com/K108133844H?off=h9n7h44s&checkoutMode=10&bid=1795800424359", nombre: "Black Friday FTN - Trimestral (Regreso a casa)", precio: 997 }
+        }
+      },
       canalDefault: "organico",
       checkout: {
         trimestral: { url: "https://pay.hotmart.com/K108133844H?off=9u7alwqu&checkoutMode=10&bid=1795127495658", nombre: "Black Friday FTN - Trimestral", precio: 997 },

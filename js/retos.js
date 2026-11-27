@@ -28,7 +28,8 @@
      Sin url todavía, el botón se queda en #oferta (baja a los precios). */
   document.querySelectorAll(".js-checkout").forEach(function (btn) {
     var plan = btn.getAttribute("data-plan");
-    var datos = planes[plan] || {};
+    /* checkoutPorCanal: un canal puede traer su propia oferta para un plan. */
+    var datos = ((reto.checkoutPorCanal || {})[canal] || {})[plan] || planes[plan] || {};
     var url = (datos.url || "").trim();
     /* Sin canal, el src va con canalDefault (organico): nada llega sin tracking. */
     var canalSrc = canal || reto.canalDefault || "";

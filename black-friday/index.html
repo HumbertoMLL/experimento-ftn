@@ -265,12 +265,21 @@ footer{padding:28px 0 96px;text-align:center;font-size:12px;color:rgba(255,255,2
 .inf .precio-nota{font-size:17px;color:#E7DEE2}
 .inf .precio-nota s{color:rgba(255,255,255,.5);text-decoration-color:var(--rosa)}
 .inf .todo-por b{color:#FFE14D}
+
+/* Variante regreso a casa (exalumnas): mismo Black Friday + kit de recetarios */
+.solo-casa{display:none}
+.casa .no-casa{display:none}
+.casa .solo-casa{display:block}
+.casa span.solo-casa{display:inline}
+.regalo{font-family:var(--display);font-weight:800;font-size:24px;line-height:1.1;letter-spacing:-.01em;color:var(--rosa2);text-align:center;margin:18px auto 0;max-width:400px}
+.regalo small{display:block;font-family:var(--mano);font-weight:700;font-size:24px;letter-spacing:0;color:#fff;margin-bottom:4px}
 </style>
 <script>
 /* Canal influencer: se marca antes de pintar para que no parpadee el precio */
 (function(){var c=(location.search.match(/[?&]src=([\w-]+)/i)||[])[1]||(location.pathname.match(/\/black-friday[\/-]([\w-]+)\/?$/)||[])[1]||"";
 try{if(!c)c=sessionStorage.getItem("ftn-canal-black-friday")||""}catch(e){}
-if(c.toLowerCase()==="influencer")document.documentElement.classList.add("inf")})();
+c=c.toLowerCase();if(c==="influencer")document.documentElement.classList.add("inf");
+if(c==="regresoacasa")document.documentElement.classList.add("casa")})();
 </script>
 <script src="/js/config.js"></script>
 <script src="/js/pixel.js"></script>
@@ -291,9 +300,12 @@ if(c.toLowerCase()==="influencer")document.documentElement.classList.add("inf")}
         <text x="238" y="86" font-size="30" text-anchor="middle" fill="#fff" letter-spacing="2">FTN</text>
       </g>
     </svg>
-    <h1>Que 2027 sí sea <span class="hl">tu año.</span></h1>
-    <p class="sub">Da el primer paso en diciembre: acceso total a FTN + 3 retos guiados por Bren, <b>al mejor precio del año.</b></p>
+    <h1 class="no-casa">Que 2027 sí sea <span class="hl">tu año.</span></h1>
+    <p class="sub no-casa">Da el primer paso en diciembre: acceso total a FTN + 3 retos guiados por Bren, <b>al mejor precio del año.</b></p>
+    <h1 class="solo-casa">Hermana, <span class="hl">regresa a casa.</span></h1>
+    <p class="sub solo-casa">Hace tiempo que no hacemos un reto juntas y te extrañamos. Armé 90 días para acompañarte mes a mes: acceso total a FTN + 3 retos, <b>al mejor precio del año.</b></p>
     <p class="al-dia no-inf"><small>Te sale en</small>menos de $12 al día</p>
+    <p class="regalo solo-casa"><small>Y por haber sido parte de la comunidad</small>+ Kit de 8 recetarios digitales, gratis</p>
   </div>
   <div class="hero-foto">
     <img src="/assets/black-friday/bren-bf.webp" width="1100" height="1101" alt="Bren, coach de FTN" fetchpriority="high">
@@ -304,7 +316,7 @@ if(c.toLowerCase()==="influencer")document.documentElement.classList.add("inf")}
     <p class="precio-nota no-inf">3 meses completos · <b>menos de $12 al día</b></p>
     <div class="precio dia solo-inf"><i>Menos de</i><b>$12<small>al día</small></b></div>
     <p class="precio-nota solo-inf"><b>$997 MXN</b> por 3 meses completos · antes <s>$1,797</s></p>
-    <a class="cta js-checkout" data-plan="trimestral" href="#oferta"><span class="no-inf">Quiero dar el primer paso</span><span class="solo-inf">Quiero entrar por $12 al día</span></a>
+    <a class="cta js-checkout" data-plan="trimestral" href="#oferta"><span class="no-inf no-casa">Quiero dar el primer paso</span><span class="solo-inf">Quiero entrar por $12 al día</span><span class="solo-casa">Quiero regresar a casa</span></a>
     <p class="cta-sub">Pago seguro · Suscripción trimestral, cancela cuando quieras</p>
   </div>
 </header>
@@ -413,6 +425,7 @@ if(c.toLowerCase()==="influencer")document.documentElement.classList.add("inf")}
       <li class="sube"><b>Entrenos de 30 a 40 minutos</b><span>En tu sala o en el gym. Con opción de entrada y avanzada.</span></li>
       <li class="sube"><b>Focus</b><span>Meditaciones y podcasts para cuando tu cabeza dice que no.</span></li>
       <li class="sube"><b>Comunidad de hermanas</b><span>Las que te jalan el día que aflojas.</span></li>
+      <li class="sube solo-casa"><b>Solo para ti: kit de 8 recetarios digitales</b><span>Gratis, por haber sido parte de la comunidad. Para que esta vez no solo empieces: tengas todo para seguir.</span></li>
     </ol>
     <div class="pantallas sube">
       <img src="/assets/4x4v2/app-hoy.webp" width="600" height="1217" alt="App de FTN con el entreno y el menú del día" loading="lazy">
@@ -440,7 +453,8 @@ if(c.toLowerCase()==="influencer")document.documentElement.classList.add("inf")}
         <text x="238" y="86" font-size="30" text-anchor="middle" fill="#fff" letter-spacing="2">FTN</text>
       </g>
     </svg>
-    <h2>Tu primer paso, al mejor precio del año.</h2>
+    <h2 class="no-casa">Tu primer paso, al mejor precio del año.</h2>
+    <h2 class="solo-casa">Tu regreso, al mejor precio del año.</h2>
     <p class="plan-nombre">Plan trimestral</p>
     <p class="off">+40% OFF</p>
     <div class="precio no-inf"><s>$1,797</s><b>$997<small>MXN</small></b></div>
@@ -449,6 +463,7 @@ if(c.toLowerCase()==="influencer")document.documentElement.classList.add("inf")}
     <div class="precio dia solo-inf"><i>Menos de</i><b>$12<small>al día</small></b></div>
     <p class="precio-nota solo-inf"><b>$997 MXN</b> por 3 meses completos · antes <s>$1,797</s></p>
     <p class="ahorro">Te ahorras $800</p>
+    <p class="regalo solo-casa" style="margin-bottom:18px"><small>Tu regalo por volver</small>+ Kit de 8 recetarios digitales, gratis</p>
     <p class="reloj-titulo js-cierre" hidden>Este precio se acaba en:</p>
     <div class="reloj js-cierre" hidden>
       <div><b data-u="d">-</b><span>días</span></div><div><b data-u="h">--</b><span>horas</span></div>
