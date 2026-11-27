@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Clases grabadas | Health Squad</title>
+<meta name="description" content="Grabaciones de las clases de Health Squad.">
+<meta name="theme-color" content="#1E405A">
+<link rel="icon" href="/assets/health-squad/sello.png" type="image/png">
+<link rel="canonical" href="https://www.brenvita.shop/health-squad/clases">
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Poppins:wght@400;500;600;700;800&display=swap">
+<link rel="stylesheet" href="/clases/clases.css">
+<style>
+  :root { --noche: #1E405A; --noche-2: #2D5B7E; --noche-3: #3A6D93; --cool-sky: #2D5B7E; --sky-blue: #A6D5CC; --rose: #F4B6A6; --crema: #FBF7F2; --snow: #FFFCF9; --tinta: #1F3344; --texto: #1F3344; --gris: #5B6E7C; --hielo: #DCEFEB; --azul-texto: #1E405A; }
+  body { font-family: "Poppins", system-ui, sans-serif; }
+  .hero .logo-hero { width: min(300px, 70vw); margin: 0 auto 18px; }
+  .hero .etiqueta, .clase .etiqueta { font-family: "Bebas Neue", Impact, sans-serif; letter-spacing: .08em; font-size: 1.2rem; }
+  .hero .etiqueta { color: #A6D5CC; }
+  .clase .num { background: #F4B6A6; color: #1F3344; }
+  footer .logo-pie { width: 90px; margin: 0 auto 10px; }
+</style>
+</head>
+<body>
+
+<main>
+
+<section class="banda oscuro hero">
+  <div class="angosto centro">
+    <img class="logo-hero" src="/assets/health-squad/logo.svg" width="486" height="324" alt="Health Squad">
+    <p class="etiqueta">Clases grabadas</p>
+    <h1>Vuelve a ver <span class="acento">las clases</span></h1>
+    <p class="hero-sub">Si no pudiste entrar en vivo o quieres repasar, aquí están las grabaciones.</p>
+  </div>
+</section>
+
+<section class="banda claro">
+  <div class="ancho clases">
+
+    <!-- Para agregar una clase: copia este <article>, cambia el título, data-src (link del video) y data-poster. -->
+    <article class="clase" id="edicion">
+      <div class="clase-cab">
+        <span class="num">1</span>
+        <div>
+          <p class="etiqueta">Clase de edición</p>
+          <h2>Edita tu reel con CapCut, Edits y Claude</h2>
+        </div>
+        <span class="duracion">22 min</span>
+      </div>
+      <div class="video" data-src="https://5jdchazrk9rq5yjg.public.blob.vercel-storage.com/health-squad/clases/clase-edicion-capcut-edits-claude.mp4" data-poster="/health-squad/clases/edicion.jpg" data-titulo="Clase de edición"></div>
+    </article>
+
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <img class="logo-pie" src="/assets/health-squad/sello.png" width="400" height="400" alt="" loading="lazy">
+  <p>Health Squad · Profesionales que destacan con contenido</p>
+</footer>
+
+<script src="/clases/reproductor.js"></script>
+</body>
+</html>
