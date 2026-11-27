@@ -77,8 +77,9 @@ body:has(.barra-cierre:not([hidden])){padding-top:38px}
 .hero .sub{font-size:18px;color:#E7DEE2;max-width:430px;margin:0 auto}
 .hero-foto{position:relative;margin:6px auto -120px;max-width:480px;
   -webkit-mask-image:linear-gradient(#000 60%,transparent 94%);mask-image:linear-gradient(#000 60%,transparent 94%)}
-.telefonos{margin:26px -22px 6px;-webkit-mask-image:radial-gradient(75% 70% at 50% 50%,#000 60%,transparent 100%);mask-image:radial-gradient(75% 70% at 50% 50%,#000 60%,transparent 100%)}
-.telefonos img{width:100%}
+.retos-fotos{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin:26px -8px 10px}
+.retos-fotos img{width:100%;aspect-ratio:9/14;object-fit:cover;object-position:top;border-radius:10px}
+.retos-fotos img:nth-child(2){transform:translateY(-12px)}
 .hero{overflow:hidden}
 .hero::before{content:"";position:absolute;inset:0;background:url(/assets/black-friday/muro-fondo.webp) center top/cover no-repeat;opacity:.42}
 .hero::after{content:"";position:absolute;inset:0;background:
@@ -348,7 +349,11 @@ if(c.toLowerCase()==="influencer")document.documentElement.classList.add("inf")}
     <p class="kicker sube">Tu ruta de 3 meses</p>
     <h2 class="sube">3 retos. Un paso a la vez. Yo te llevo de la mano.</h2>
     <p class="sube" style="color:#E7DEE2">No compras tres programas. Compras llegar a marzo siendo la que sí se cumplió. Cada reto te deja lista para el siguiente.</p>
-    <div class="telefonos sube"><img src="/assets/black-friday/retos-telefonos.webp" width="1400" height="788" alt="Los tres retos en la app de FTN: Reto 2%, Reto Reset y Reto 4x4" loading="lazy"></div>
+    <div class="retos-fotos sube">
+      <img src="/assets/black-friday/reto-4x4.jpg" width="640" height="1138" alt="Reto 4x4" loading="lazy">
+      <img src="/assets/black-friday/reto-reset.jpg" width="640" height="1138" alt="Reto Reset" loading="lazy">
+      <img src="/assets/black-friday/reto-2.jpg" width="640" height="1138" alt="Reto 2%" loading="lazy">
+    </div>
     <ol class="ruta">
       <li class="sube">
         <p class="cuando">Empiezas el 30 de noviembre · 28 días</p>
